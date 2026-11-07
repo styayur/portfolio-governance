@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-07T18:55:00Z",
+  "generatedAt": "2026-11-07T19:21:46Z",
   "records": [
     {
       "subject": "styayur/LGXT-Assistant",
       "evidence": {
         "repositoryId": 1362863720,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -30,7 +30,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "efab2e758d88bb4b6f715c332c32e4d7b7211c35",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -39,7 +39,7 @@
       "evidence": {
         "repositoryId": 1386888456,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -63,7 +63,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "3dbd379af245be193d8ff4b45b94819a0fb1a6f4",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -72,7 +72,7 @@
       "evidence": {
         "repositoryId": 1401962528,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -96,7 +96,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "a22db6e96673ff8cc16b138f89f610457270b818",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -105,7 +105,7 @@
       "evidence": {
         "repositoryId": 1402067510,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -129,7 +129,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "1ce689a6e4989f3d31a8d2646bca86e34d821546",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -138,7 +138,7 @@
       "evidence": {
         "repositoryId": 1392894388,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -162,7 +162,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "49645289685dec11c1ca912181abecd82eee8a05",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -171,7 +171,7 @@
       "evidence": {
         "repositoryId": 1371635211,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -195,7 +195,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "7b29339a67df291add85856b7a38b2a446c6d425",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -204,7 +204,7 @@
       "evidence": {
         "repositoryId": 1400085574,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -228,7 +228,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "3987645a5af0882c3da8ec0a1339683b330adba0",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -237,7 +237,7 @@
       "evidence": {
         "repositoryId": 1403467202,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -261,7 +261,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "40870420fa213a249f72a23dc0627b33d1d200d7",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -270,7 +270,7 @@
       "evidence": {
         "repositoryId": 1388710049,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -294,7 +294,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "a41136eca42ec07a341942eb547cbbadaa5e82af",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -303,7 +303,7 @@
       "evidence": {
         "repositoryId": 1364395119,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -327,7 +327,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "fa7095a48345ccd6fd020cc99a396665182f796d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -336,7 +336,7 @@
       "evidence": {
         "repositoryId": 1440448445,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -360,7 +360,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "1af2be9d8eaf743582eb3de759bcaa23ada4559b",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -369,7 +369,7 @@
       "evidence": {
         "repositoryId": 1435515075,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -393,7 +393,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "142a9df87f59b053f175ddade35e3b6ed9bbf142",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -402,7 +402,7 @@
       "evidence": {
         "repositoryId": 1409449480,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -426,7 +426,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "8c8123a902d4920d2afdd24d0569fcea73cd5f8c",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -435,7 +435,7 @@
       "evidence": {
         "repositoryId": 1399679894,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -459,7 +459,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "a382920d0372d3d22f8150edcaa4a51ef68eaaba",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -468,7 +468,7 @@
       "evidence": {
         "repositoryId": 1385662827,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -492,7 +492,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "925cbea58295057cb67ed4154b746012d4e78fec",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -501,7 +501,7 @@
       "evidence": {
         "repositoryId": 1435188519,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -525,7 +525,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "3649fc2bfccbeb61d3a10e895d5ae5dc2fbcf125",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -534,7 +534,7 @@
       "evidence": {
         "repositoryId": 1409441558,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -558,7 +558,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "13d92a85e0644e3d982643d7c254deceb6b3f8b1",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -567,7 +567,7 @@
       "evidence": {
         "repositoryId": 1449400406,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -590,8 +590,8 @@
       },
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
-      "revision": "62bd7f57d2b1215d147624e1ffc24fc1a660c5e8",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "revision": "6d8bf644bc69e5a6b24b3654f286cd943fcf942f",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -600,7 +600,7 @@
       "evidence": {
         "repositoryId": 1409472340,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -624,7 +624,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "180eab6946356efd8416976d50b6edcd132bf9a9",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -633,7 +633,7 @@
       "evidence": {
         "repositoryId": 1399208491,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -657,7 +657,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "b619ec8f8532345751fffdd8f731ecb2195c45ba",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -666,7 +666,7 @@
       "evidence": {
         "repositoryId": 1433866493,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -690,7 +690,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "fb8ff33e19d280da85921ea897d7868ba3647013",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -699,7 +699,7 @@
       "evidence": {
         "repositoryId": 1398635384,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -723,7 +723,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "595d8f56afd0e64385937944cd604fd7013d7ff4",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -732,7 +732,7 @@
       "evidence": {
         "repositoryId": 1362258046,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -756,7 +756,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "8886ed1960627ed48a6f3b0c29cf844962c38b43",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -765,7 +765,7 @@
       "evidence": {
         "repositoryId": 1446492624,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -789,7 +789,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "242e0302a703d8152ca88b4d479be1b42e656c7d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -798,7 +798,7 @@
       "evidence": {
         "repositoryId": 1431300746,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -822,7 +822,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "440bb99f4b4301ca802a972a750c33e0ec196d10",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -831,7 +831,7 @@
       "evidence": {
         "repositoryId": 1393107744,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -855,7 +855,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "820cef99283dfc99237f5e44996fb49884b8ffb9",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -864,7 +864,7 @@
       "evidence": {
         "repositoryId": 1378504882,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -888,7 +888,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "8b0e9707ac75beb0a1195ef55677835f30a0d5ed",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     },
@@ -897,7 +897,7 @@
       "evidence": {
         "repositoryId": 1409885379,
         "defaultBranch": "main",
-        "visibility": "public",
+        "visibility": "PUBLIC",
         "discussions": true,
         "discussionCategories": [
           "Announcements",
@@ -921,7 +921,7 @@
       "status": "PASS",
       "reason": "Discussions, gate pin and default-branch ruleset verified from live API/source.",
       "revision": "aa75883503effb2ab394fa47fd0eb99ede342151",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Resolve the missing setting through a reviewed PR or ruleset update.",
       "residualRisk": "Rulesets reduce but do not eliminate maintainer account compromise risk."
     }

@@ -15146,7 +15146,7 @@
             "clone_url": "https://github.com/styayur/gitpad-plus.git",
             "svn_url": "https://github.com/styayur/gitpad-plus",
             "homepage": null,
-            "size": 7254,
+            "size": 7258,
             "stargazers_count": 1,
             "watchers_count": 1,
             "language": "TypeScript",
@@ -15287,7 +15287,7 @@
             "clone_url": "https://github.com/styayur/gitpad-plus.git",
             "svn_url": "https://github.com/styayur/gitpad-plus",
             "homepage": null,
-            "size": 7254,
+            "size": 7258,
             "stargazers_count": 1,
             "watchers_count": 1,
             "language": "TypeScript",
@@ -23464,14 +23464,14 @@
         {
           "id": 410408163,
           "node_id": "W_kwDOVmQYVs4YdlTj",
-          "name": ".github/workflows/portfolio-audit.yml",
+          "name": "Portfolio audit",
           "path": ".github/workflows/portfolio-audit.yml",
           "state": "active",
           "created_at": "2026-11-07T14:45:10.000Z",
-          "updated_at": "2026-11-07T14:46:14.000Z",
+          "updated_at": "2026-11-07T19:03:29.000Z",
           "url": "https://api.github.com/repos/styayur/portfolio-governance/actions/workflows/410408163",
           "html_url": "https://github.com/styayur/portfolio-governance/blob/main/.github/workflows/portfolio-audit.yml",
-          "badge_url": "https://github.com/styayur/portfolio-governance/workflows/.github/workflows/portfolio-audit.yml/badge.svg"
+          "badge_url": "https://github.com/styayur/portfolio-governance/workflows/Portfolio%20audit/badge.svg"
         },
         {
           "id": 410417315,

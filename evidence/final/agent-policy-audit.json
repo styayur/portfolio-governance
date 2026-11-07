@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T18:55:00Z",
+  "generatedAt": "2026-11-07T19:21:46Z",
   "records": [
     {
       "subject": "styayur/LGXT-Assistant",
@@ -19,7 +19,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "9ab78e29128318d37d0489e2bb0c086903e57775",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -41,7 +41,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "d736cc0f022706bf03ded6a2f4bfd65aec08a15d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -63,7 +63,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "dbbf2effe2c0488877d8cb431eb4db38df75c9e7",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -85,7 +85,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "f6a9acaaf92e30ed56a0c7dd5a710cf7bf2238ca",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -107,7 +107,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "52f233a9b8b7bd6e88317e536e0474cc92f8c75b",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -129,7 +129,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "f0b2adeb4c442b3baae2779995976dca15e4194c",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -151,7 +151,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "18053f97c278187c910fa23d01f216c695b4cff2",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -173,7 +173,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "4320e977b510ef33e7497386081d4e8517bf5633",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -195,7 +195,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "2404e09f82f1c383f79f7477ba8cffad5f089893",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -217,7 +217,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "33313e70d22594e74b6e4f6c00a4edaa1a61276e",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -239,7 +239,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "45084c08186794de9c8979e90f4f2fc0613b6860",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -261,7 +261,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "f91126bee0b9d6af68a096762e0a6ce31174dfae",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -283,7 +283,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "bcf066e5026bcbcc821195d8f5dbea08b6874f38",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -305,7 +305,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "03d2411bc6cb67aace46dea5a76c3ceeebee6b7f",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -327,7 +327,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "c1102f5ca5ce67da8046837c3b6ee958aa687e27",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -349,7 +349,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "80c49fc6541bc49aa40c88a833f36c128debf40c",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -371,7 +371,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "29e98387d11d2dd31208609322acab917af926ff",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -393,7 +393,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "d83b89b7f9643fdfe91e53eb36868ea4bb20d7dd",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -415,7 +415,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "7ca44d1870eb83a64de49d4f945c127de8b1ee7d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -437,7 +437,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "0d1a1ad5586320b044683ab2c44eaaa01f6db7dd",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -459,7 +459,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "d3056daaead9760111601426216dbcc78ccbe077",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -481,7 +481,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "bb29bc9cf9ec76b0b1e54dfe4cbedd3eeca8b17f",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -503,7 +503,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "4d987b629dcf83bb418041236399d45b18cf5f93",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -525,7 +525,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "7f6eb45ce9910218f5aa260b5cab41d22d4cdc9a",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -547,7 +547,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "beb95e43329ccdef627de602e12c73415ff721d0",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -569,7 +569,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "97c87f579005e2734e120c3644c029f949a1a134",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -591,7 +591,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "279a62221f5d9b999b2bd7e0343de4ff6a88c4e4",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     },
@@ -613,7 +613,7 @@
       "status": "PASS",
       "reason": "Repository-specific agent instructions present with required policy sections.",
       "revision": "3c8dd93dde77fcaf737ec8426659891708d86ca2",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
       "residualRisk": "Instructions are guidance and do not replace executable gates."
     }

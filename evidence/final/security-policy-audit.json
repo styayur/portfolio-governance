@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T18:55:00Z",
+  "generatedAt": "2026-11-07T19:21:46Z",
   "records": [
     {
       "subject": "styayur/LGXT-Assistant",
@@ -62,7 +62,7 @@
       "status": "PASS",
       "reason": "policy present, private reporting enabled, no open alerts returned",
       "revision": "13770e088f8825705033e96996dd33f74de9adc6",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -127,7 +127,7 @@
       "status": "PASS",
       "reason": "policy present, private reporting enabled, no open alerts returned",
       "revision": "5ed330e0c851825309ad9ea8b3d9b3b9d676ebad",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -192,7 +192,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "6bbc150d0cbd0092eb212e4a414ed864186cdb63",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -257,7 +257,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 7; code scanning: API unavailable",
       "revision": "824c9a66da5d75bca534665e48de9555cb8b5c51",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -322,7 +322,7 @@
       "status": "PASS",
       "reason": "policy present, private reporting enabled, no open alerts returned",
       "revision": "7a8de289f75b75140daed7d625b8dbe393d404a2",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -387,7 +387,7 @@
       "status": "PASS",
       "reason": "policy present, private reporting enabled, no open alerts returned",
       "revision": "19e9f4c829b493d0779d2cf5e15afaefdc6e9916",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -452,7 +452,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 2; code scanning: API unavailable",
       "revision": "0925f13a4c51c13d076f80261e4d5d944512f716",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -517,7 +517,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "fc179d8fe12c7cad48d0e3c2c971ce8cf5916002",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -582,7 +582,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 1",
       "revision": "2363ba4d29fef65fba685226b5f95878b4eae0bd",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -647,7 +647,7 @@
       "status": "PASS",
       "reason": "policy present, private reporting enabled, no open alerts returned",
       "revision": "53edcbde7292391fde91c7dbaa62bf3b36684ac3",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -712,7 +712,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "77a3d168eb22b957e908e057aa7a604430e992ee",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -777,7 +777,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 1; code scanning: API unavailable",
       "revision": "4e5eb31bcce36b20a6a5a263a298fb017dc2b42c",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -842,7 +842,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "3d9085e8eee926a672f97ce0af79cf285242050f",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -907,7 +907,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 1; code scanning: API unavailable",
       "revision": "5a9c94f5fec9076b6bdca641fbf104881d080d2d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -972,7 +972,7 @@
       "status": "PASS",
       "reason": "policy present, private reporting enabled, no open alerts returned",
       "revision": "7dfe3fab0349a8b836428b9807860e01e943c1f1",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1037,7 +1037,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "7218883c4d5d9b1562a6762400e3e6277d1cdbbd",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1102,7 +1102,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 1; code scanning: API unavailable",
       "revision": "75e5cea12654132b84036540da7b65352c188f22",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1167,7 +1167,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "d02b8067042d53574409da68c844b7beea1788a4",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1232,7 +1232,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 2; code scanning: API unavailable",
       "revision": "9c1582db4607e88286aecb9fe1a8a59a388a6eb6",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1297,7 +1297,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 8; code scanning: API unavailable",
       "revision": "be121e96df83684a74e5e70a470b8332d4ff8a77",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1362,7 +1362,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "e778c570e49f724aecce9ccaae698fc38738ea65",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1427,7 +1427,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "639ced7c878180925092b0c407a70f17d41f5cf8",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1492,7 +1492,7 @@
       "status": "PASS",
       "reason": "policy present, private reporting enabled, no open alerts returned",
       "revision": "245d21cada6c8b3b3727ecbc07bf46484ebb693d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1557,7 +1557,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "f72c41a8b2c83c88a7394b1431e2cf442c0a9936",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1622,7 +1622,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "9000cc30c1964f1d85784c497b72feb1f066e14d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1687,7 +1687,7 @@
       "status": "FAIL",
       "reason": "Dependabot alerts: 1",
       "revision": "748925f7117c88886121b06cc83e2ab0996c04e9",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1752,7 +1752,7 @@
       "status": "PASS",
       "reason": "policy present, private reporting enabled, no open alerts returned",
       "revision": "62c42ecec1fab30fb04c09e1fb610039c5fc7e13",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     },
@@ -1817,7 +1817,7 @@
       "status": "NOT_VERIFIED",
       "reason": "code scanning: API unavailable",
       "revision": "d3d62fb1d02728f11d9665f066d7c4c9c427b5e1",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
       "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
     }

@@ -21,6 +21,7 @@ MONITORING = ROOT / 'evidence' / 'remediation' / 'security-monitoring.json'
 GITHUB_APP = ROOT / 'evidence' / 'remediation' / 'github-app.json'
 DEPENDABOT_ALERTS = ROOT / 'evidence' / 'remediation' / 'dependabot-alerts.json'
 PROJECT_SYNC_WORKFLOW = ROOT / 'evidence' / 'remediation' / 'project-sync-workflow.json'
+AUDIT_WORKFLOW = ROOT / 'evidence' / 'remediation' / 'portfolio-audit-workflow.json'
 
 
 def run(args, input_text=None):
@@ -81,6 +82,7 @@ def main():
     app_meta = json.loads(GITHUB_APP.read_text()) if GITHUB_APP.exists() else {}
     alert_meta = json.loads(DEPENDABOT_ALERTS.read_text()) if DEPENDABOT_ALERTS.exists() else {'totalOpen': 0, 'repositories': {}}
     sync_workflow = json.loads(PROJECT_SYNC_WORKFLOW.read_text()).get('latestSuccess', {}) if PROJECT_SYNC_WORKFLOW.exists() else {}
+    audit_workflow = json.loads(AUDIT_WORKFLOW.read_text()).get('latestSuccess', {}) if AUDIT_WORKFLOW.exists() else {}
 
     (OUT / 'portfolio-inventory.json').write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + '\n')
 
@@ -279,7 +281,7 @@ def main():
         'repositoryCoverage': {'status': 'PASS' if len(repos) >= 28 else 'FAIL', 'count': len(repos), 'privateSiteExcluded': 'styayur/site'},
         'governance': aggregate(governance), 'agents': aggregate(agents), 'security': sec_summary, 'actions': actions_summary, 'releases': aggregate(releases),
         'project': {'status': project_status, 'reason': project_reason, 'fieldsRequired': sorted(required_fields), 'viewsRequired': sorted(required_views)},
-        'automation': {'status': automation_status, 'latestWorkflowSuccess': sync_workflow, 'githubApp': {'id': app_meta.get('id'), 'slug': app_meta.get('slug'), 'clientId': app_meta.get('client_id')}, 'projectToken': {'scope': ['project'], 'expires': '2027-02-06', 'githubAppOnlyStatus': 'BLOCKED', 'reason': 'installation token cannot mutate user-owned Projects V2'}},
+        'automation': {'status': automation_status, 'latestProjectSyncSuccess': sync_workflow, 'latestAuditSuccess': audit_workflow, 'githubApp': {'id': app_meta.get('id'), 'slug': app_meta.get('slug'), 'clientId': app_meta.get('client_id')}, 'projectToken': {'scope': ['project'], 'expires': '2027-02-06', 'githubAppOnlyStatus': 'BLOCKED', 'reason': 'installation token cannot mutate user-owned Projects V2'}},
         'securityMonitoring': {'status': 'PASS' if monitoring_ok == len(repos) else 'FAIL', 'enabled': monitoring_ok, 'expected': len(repos)},
         'openDependabotAlerts': {'total': alert_meta.get('totalOpen'), 'repositories': alert_meta.get('repositories')},
         'reviewGate': {'status': 'PASS' if allow_evidence and deny_evidence else 'NOT_VERIFIED', 'allowEvidence': allow_evidence, 'denyEvidence': deny_evidence, 'prs': gate_prs},

@@ -133,7 +133,7 @@ for r in public:
     raw[name] = {"pulls":pulls,"issues":issues,"workflows":workflows,"rulesets":rulesets,"labels":labels,"releases":releases,"tags":tags,"protection":protection,"actions_permissions":actions_perms,"community":community,"dependabot":dependabot,"secret_scanning":secret_scanning,"code_scanning":code_scanning,"files":files,"discussion_graphql":gql}
     print(f"audited {name}", flush=True)
 
-meta = {"generated_at":NOW,"source":"GitHub API from GitHub Codespace","repo_count":len(inventory),"private_repo_excluded":"styayur/site","auth":{"account":"styayur"}}
+meta = {"generated_at":NOW,"source":"GitHub API live audit","repo_count":len(inventory),"private_repo_excluded":"styayur/site","auth":{"account":"styayur"}}
 (OUT / "portfolio-inventory.json").write_text(json.dumps({"meta":meta,"repositories":inventory},indent=2,ensure_ascii=False)+"\n")
 (OUT / "raw-github.json").write_text(json.dumps(raw,indent=2,ensure_ascii=False)+"\n")
 print(f"wrote {len(inventory)} repos to {OUT}")

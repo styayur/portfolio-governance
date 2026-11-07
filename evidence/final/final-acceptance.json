@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-07T18:55:00Z",
+  "generatedAt": "2026-11-07T19:21:46Z",
   "codespacesFirst": {
     "status": "PASS",
     "codespace": "styayur-portfolio-governance-96jxv56p97rjc9777",
@@ -76,14 +76,23 @@
   },
   "automation": {
     "status": "PASS",
-    "latestWorkflowSuccess": {
+    "latestProjectSyncSuccess": {
       "conclusion": "success",
-      "createdAt": "2026-11-07T18:05:56Z",
-      "databaseId": 42399557482,
+      "createdAt": "2026-11-07T19:16:34Z",
+      "databaseId": 42405404735,
       "displayTitle": "Portfolio project sync",
-      "headSha": "cde58fe63fc20a901d23c4f3332b055a46a13b20",
+      "headSha": "6d8bf644bc69e5a6b24b3654f286cd943fcf942f",
       "status": "completed",
-      "url": "https://github.com/styayur/portfolio-governance/actions/runs/42399557482"
+      "url": "https://github.com/styayur/portfolio-governance/actions/runs/42405404735"
+    },
+    "latestAuditSuccess": {
+      "conclusion": "success",
+      "createdAt": "2026-11-07T19:12:46Z",
+      "databaseId": 42405101654,
+      "displayTitle": "Portfolio audit",
+      "headSha": "6d8bf644bc69e5a6b24b3654f286cd943fcf942f",
+      "status": "completed",
+      "url": "https://github.com/styayur/portfolio-governance/actions/runs/42405101654"
     },
     "githubApp": {
       "id": 5658929,
