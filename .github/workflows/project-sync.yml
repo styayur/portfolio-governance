@@ -9,10 +9,9 @@ permissions:
   contents: read
 
 jobs:
-  app-token:
+  sync:
     runs-on: ubuntu-latest
-    outputs:
-      token: ${{ steps.app.outputs.token }}
+    timeout-minutes: 20
     steps:
       - id: app
         uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510
@@ -24,18 +23,12 @@ jobs:
           permission-issues: read
           permission-pull-requests: read
           permission-repository-projects: write
-
-  sync:
-    needs: app-token
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
       - name: Mirror live public work into Styayur Portfolio
         env:
-          GH_TOKEN: ${{ needs.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app.outputs.token }}
           PORTFOLIO_PROJECT_ID: PVT_kwHOE1hmpc4BoN2B
         run: python3 scripts/project_sync.py
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
