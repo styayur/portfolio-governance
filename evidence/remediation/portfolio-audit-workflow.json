@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-11-07T19:17:00Z",
+  "latestSuccess": {
+    "conclusion": "success",
+    "createdAt": "2026-11-07T19:12:46Z",
+    "databaseId": 42405101654,
+    "displayTitle": "Portfolio audit",
+    "headSha": "6d8bf644bc69e5a6b24b3654f286cd943fcf942f",
+    "status": "completed",
+    "url": "https://github.com/styayur/portfolio-governance/actions/runs/42405101654"
+  }
+}

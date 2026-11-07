@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T18:55:00Z",
+  "generatedAt": "2026-11-07T19:21:46Z",
   "records": [
     {
       "subject": "styayur/LGXT-Assistant",
@@ -88,7 +88,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "efab2e758d88bb4b6f715c332c32e4d7b7211c35",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -144,7 +144,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "3dbd379af245be193d8ff4b45b94819a0fb1a6f4",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -200,7 +200,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "a22db6e96673ff8cc16b138f89f610457270b818",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -261,7 +261,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "1ce689a6e4989f3d31a8d2646bca86e34d821546",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -324,7 +324,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "49645289685dec11c1ca912181abecd82eee8a05",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -392,7 +392,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "7b29339a67df291add85856b7a38b2a446c6d425",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -466,7 +466,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "3987645a5af0882c3da8ec0a1339683b330adba0",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -504,7 +504,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "40870420fa213a249f72a23dc0627b33d1d200d7",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -570,7 +570,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "a41136eca42ec07a341942eb547cbbadaa5e82af",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -674,7 +674,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "fa7095a48345ccd6fd020cc99a396665182f796d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -728,7 +728,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "1af2be9d8eaf743582eb3de759bcaa23ada4559b",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -766,7 +766,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "142a9df87f59b053f175ddade35e3b6ed9bbf142",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -804,7 +804,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "8c8123a902d4920d2afdd24d0569fcea73cd5f8c",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -867,7 +867,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "a382920d0372d3d22f8150edcaa4a51ef68eaaba",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -930,7 +930,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "925cbea58295057cb67ed4154b746012d4e78fec",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -963,7 +963,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "3649fc2bfccbeb61d3a10e895d5ae5dc2fbcf125",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1006,7 +1006,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "13d92a85e0644e3d982643d7c254deceb6b3f8b1",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1060,8 +1060,8 @@
       },
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
-      "revision": "62bd7f57d2b1215d147624e1ffc24fc1a660c5e8",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "revision": "6d8bf644bc69e5a6b24b3654f286cd943fcf942f",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1099,7 +1099,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "180eab6946356efd8416976d50b6edcd132bf9a9",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1186,7 +1186,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "b619ec8f8532345751fffdd8f731ecb2195c45ba",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1219,7 +1219,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "fb8ff33e19d280da85921ea897d7868ba3647013",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1275,7 +1275,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "595d8f56afd0e64385937944cd604fd7013d7ff4",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1308,7 +1308,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "8886ed1960627ed48a6f3b0c29cf844962c38b43",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1358,7 +1358,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "242e0302a703d8152ca88b4d479be1b42e656c7d",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1402,7 +1402,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "440bb99f4b4301ca802a972a750c33e0ec196d10",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1519,7 +1519,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "820cef99283dfc99237f5e44996fb49884b8ffb9",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1619,7 +1619,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "8b0e9707ac75beb0a1195ef55677835f30a0d5ed",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     },
@@ -1662,7 +1662,7 @@
       "status": "PASS",
       "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
       "revision": "aa75883503effb2ab394fa47fd0eb99ede342151",
-      "verificationTime": "2026-11-07T18:55:00Z",
+      "verificationTime": "2026-11-07T19:21:46Z",
       "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
       "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
     }
