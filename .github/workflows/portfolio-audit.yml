@@ -9,7 +9,6 @@ permissions:
   actions: read
   contents: read
   issues: write
-  metadata: read
 
 jobs:
   audit:
