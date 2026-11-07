@@ -1,0 +1,384 @@
+{
+  "generatedAt": "2026-11-07T18:55:00Z",
+  "records": [
+    {
+      "subject": "styayur/TinySTT#7",
+      "url": "https://github.com/styayur/TinySTT/pull/7",
+      "draft": false,
+      "decision": "FAILED_CHECKS",
+      "baseSha": "1ce689a6e4989f3d31a8d2646bca86e34d821546",
+      "headSha": "3fde214adb31fad8acbad03eac85db7d86407039",
+      "checks": [
+        {
+          "name": "windows",
+          "workflow": "Rust CI",
+          "status": "COMPLETED",
+          "conclusion": "FAILURE",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399204965/job/128486368522"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399203355/job/128483107772"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399207040/job/128483118816"
+        },
+        {
+          "name": "CodeForge regression",
+          "workflow": "CodeForge regression",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399204958/job/128483111705"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399207260/job/128483119423"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / review",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399203355/job/128483129757"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / review",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399207260/job/128483163582"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / verify",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "FAILURE",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399207260/job/128483211083"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / verify",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399203355/job/128483130325"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / merge",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399203355/job/128483130472"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / merge",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SKIPPED",
+          "evidence": "https://github.com/styayur/TinySTT/actions/runs/42399207260/job/128485676643"
+        }
+      ],
+      "labels": [
+        "dependencies",
+        "rust"
+      ],
+      "evidence": [
+        "https://github.com/styayur/TinySTT/actions/runs/42399204965/job/128486368522",
+        "https://github.com/styayur/TinySTT/actions/runs/42399203355/job/128483107772",
+        "https://github.com/styayur/TinySTT/actions/runs/42399207040/job/128483118816",
+        "https://github.com/styayur/TinySTT/actions/runs/42399204958/job/128483111705",
+        "https://github.com/styayur/TinySTT/actions/runs/42399207260/job/128483119423",
+        "https://github.com/styayur/TinySTT/actions/runs/42399203355/job/128483129757",
+        "https://github.com/styayur/TinySTT/actions/runs/42399207260/job/128483163582",
+        "https://github.com/styayur/TinySTT/actions/runs/42399207260/job/128483211083",
+        "https://github.com/styayur/TinySTT/actions/runs/42399203355/job/128483130325",
+        "https://github.com/styayur/TinySTT/actions/runs/42399203355/job/128483130472",
+        "https://github.com/styayur/TinySTT/actions/runs/42399207260/job/128485676643"
+      ]
+    },
+    {
+      "subject": "styayur/gitpad-plus#6",
+      "url": "https://github.com/styayur/gitpad-plus/pull/6",
+      "draft": true,
+      "decision": "WAITING_FOR_READY",
+      "baseSha": "63070c81c99f90cd4e46a7ce4d700ace2d08b5fa",
+      "headSha": "9e456b7ed01de7062a665280b79bd005fd260d6b",
+      "checks": [
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477134/job/128459793648"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477302/job/128459794127"
+        },
+        {
+          "name": "portable",
+          "workflow": "CI",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42055098206/job/127342134117"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477366/job/128459794528"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / review",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477134/job/128459797731"
+        },
+        {
+          "name": "windows-build",
+          "workflow": "CI",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42055098206/job/127342134601"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / review",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477366/job/128459842491"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / verify",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477134/job/128459797468"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / verify",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477366/job/128459876354"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / merge",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477134/job/128459797952"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / merge",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SKIPPED",
+          "evidence": "https://github.com/styayur/gitpad-plus/actions/runs/42391477366/job/128459924995"
+        }
+      ],
+      "labels": [
+        "type:feature",
+        "priority:P2",
+        "state:needs-evidence"
+      ],
+      "evidence": [
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477134/job/128459793648",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477302/job/128459794127",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42055098206/job/127342134117",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477366/job/128459794528",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477134/job/128459797731",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42055098206/job/127342134601",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477366/job/128459842491",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477134/job/128459797468",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477366/job/128459876354",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477134/job/128459797952",
+        "https://github.com/styayur/gitpad-plus/actions/runs/42391477366/job/128459924995"
+      ]
+    },
+    {
+      "subject": "styayur/vextessera#21",
+      "url": "https://github.com/styayur/vextessera/pull/21",
+      "draft": false,
+      "decision": "MANUAL_REVIEW_REQUIRED",
+      "baseSha": "b12955f604660bcaeb2f3d63f7105b8d461a609c",
+      "headSha": "b9f1122cca9bf55d32e655a2f8116c75b3b9f852",
+      "checks": [
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391479490/job/128459801086"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391479558/job/128459801696"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391479719/job/128459801865"
+        },
+        {
+          "name": "Frontend (type-check + build)",
+          "workflow": "CI",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429578/job/111725135297"
+        },
+        {
+          "name": "CodeForge regression",
+          "workflow": "CodeForge regression",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429588/job/111725134007"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / risk",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391480150/job/128459803013"
+        },
+        {
+          "name": "CodeQL stacked (actions)",
+          "workflow": "Stacked PR CodeQL",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429632/job/111725161827"
+        },
+        {
+          "name": "CodeQL stacked (javascript-typescript)",
+          "workflow": "Stacked PR CodeQL",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429632/job/111725162166"
+        },
+        {
+          "name": "CodeQL stacked (python)",
+          "workflow": "Stacked PR CodeQL",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429632/job/111725162059"
+        },
+        {
+          "name": "CodeQL stacked (rust)",
+          "workflow": "Stacked PR CodeQL",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429632/job/111725162156"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / review",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391479490/job/128459804922"
+        },
+        {
+          "name": "Windows desktop compile",
+          "workflow": "CI",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429578/job/111725135687"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / review",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391480150/job/128459846034"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / verify",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391479490/job/128459805203"
+        },
+        {
+          "name": "Core logic (Rust tests + clippy)",
+          "workflow": "CI",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429578/job/111725135533"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / verify",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391480150/job/128459890870"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / merge",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "CANCELLED",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391479490/job/128459805823"
+        },
+        {
+          "name": "portfolio / Portfolio Evidence Gate / merge",
+          "workflow": "Portfolio Evidence Gate",
+          "status": "COMPLETED",
+          "conclusion": "SKIPPED",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/42391480150/job/128459949841"
+        },
+        {
+          "name": "Retrieval quality and TS/Rust parity",
+          "workflow": "CI",
+          "status": "COMPLETED",
+          "conclusion": "SUCCESS",
+          "evidence": "https://github.com/styayur/vextessera/actions/runs/37298429578/job/111725135622"
+        }
+      ],
+      "labels": [
+        "type:feature",
+        "priority:P1",
+        "state:blocked",
+        "release-blocker"
+      ],
+      "evidence": [
+        "https://github.com/styayur/vextessera/actions/runs/42391479490/job/128459801086",
+        "https://github.com/styayur/vextessera/actions/runs/42391479558/job/128459801696",
+        "https://github.com/styayur/vextessera/actions/runs/42391479719/job/128459801865",
+        "https://github.com/styayur/vextessera/actions/runs/37298429578/job/111725135297",
+        "https://github.com/styayur/vextessera/actions/runs/37298429588/job/111725134007",
+        "https://github.com/styayur/vextessera/actions/runs/42391480150/job/128459803013",
+        "https://github.com/styayur/vextessera/actions/runs/37298429632/job/111725161827",
+        "https://github.com/styayur/vextessera/actions/runs/37298429632/job/111725162166",
+        "https://github.com/styayur/vextessera/actions/runs/37298429632/job/111725162059",
+        "https://github.com/styayur/vextessera/actions/runs/37298429632/job/111725162156",
+        "https://github.com/styayur/vextessera/actions/runs/42391479490/job/128459804922",
+        "https://github.com/styayur/vextessera/actions/runs/37298429578/job/111725135687",
+        "https://github.com/styayur/vextessera/actions/runs/42391480150/job/128459846034",
+        "https://github.com/styayur/vextessera/actions/runs/42391479490/job/128459805203",
+        "https://github.com/styayur/vextessera/actions/runs/37298429578/job/111725135533",
+        "https://github.com/styayur/vextessera/actions/runs/42391480150/job/128459890870",
+        "https://github.com/styayur/vextessera/actions/runs/42391479490/job/128459805823",
+        "https://github.com/styayur/vextessera/actions/runs/42391480150/job/128459949841",
+        "https://github.com/styayur/vextessera/actions/runs/37298429578/job/111725135622"
+      ]
+    }
+  ]
+}

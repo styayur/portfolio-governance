@@ -1,0 +1,621 @@
+{
+  "generatedAt": "2026-11-07T18:55:00Z",
+  "records": [
+    {
+      "subject": "styayur/LGXT-Assistant",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "9ab78e29128318d37d0489e2bb0c086903e57775",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "9ab78e29128318d37d0489e2bb0c086903e57775",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/Nickspeare",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "d736cc0f022706bf03ded6a2f4bfd65aec08a15d",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "d736cc0f022706bf03ded6a2f4bfd65aec08a15d",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/OmniRoute-PS",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "dbbf2effe2c0488877d8cb431eb4db38df75c9e7",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "dbbf2effe2c0488877d8cb431eb4db38df75c9e7",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/TinySTT",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "f6a9acaaf92e30ed56a0c7dd5a710cf7bf2238ca",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "f6a9acaaf92e30ed56a0c7dd5a710cf7bf2238ca",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/TinyTTS",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "52f233a9b8b7bd6e88317e536e0474cc92f8c75b",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "52f233a9b8b7bd6e88317e536e0474cc92f8c75b",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/calligra",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "f0b2adeb4c442b3baae2779995976dca15e4194c",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "f0b2adeb4c442b3baae2779995976dca15e4194c",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/codeforge-engine",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "18053f97c278187c910fa23d01f216c695b4cff2",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "18053f97c278187c910fa23d01f216c695b4cff2",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/codex-mode-switcher",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "4320e977b510ef33e7497386081d4e8517bf5633",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "4320e977b510ef33e7497386081d4e8517bf5633",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/developer-security-workspace",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "2404e09f82f1c383f79f7477ba8cffad5f089893",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "2404e09f82f1c383f79f7477ba8cffad5f089893",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/fitimart",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "33313e70d22594e74b6e4f6c00a4edaa1a61276e",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "33313e70d22594e74b6e4f6c00a4edaa1a61276e",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/gitpad-plus",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "45084c08186794de9c8979e90f4f2fc0613b6860",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "45084c08186794de9c8979e90f4f2fc0613b6860",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/glyphibe",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "f91126bee0b9d6af68a096762e0a6ce31174dfae",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "f91126bee0b9d6af68a096762e0a6ce31174dfae",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/ipa-first-tts",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "bcf066e5026bcbcc821195d8f5dbea08b6874f38",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "bcf066e5026bcbcc821195d8f5dbea08b6874f38",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/local-context-engine",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "03d2411bc6cb67aace46dea5a76c3ceeebee6b7f",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "03d2411bc6cb67aace46dea5a76c3ceeebee6b7f",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/musical-spinningtop",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "c1102f5ca5ce67da8046837c3b6ee958aa687e27",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "c1102f5ca5ce67da8046837c3b6ee958aa687e27",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/mzk",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "80c49fc6541bc49aa40c88a833f36c128debf40c",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "80c49fc6541bc49aa40c88a833f36c128debf40c",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/ogleans",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "29e98387d11d2dd31208609322acab917af926ff",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "29e98387d11d2dd31208609322acab917af926ff",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/portfolio-governance",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "d83b89b7f9643fdfe91e53eb36868ea4bb20d7dd",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "d83b89b7f9643fdfe91e53eb36868ea4bb20d7dd",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/publishing-workbench",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "7ca44d1870eb83a64de49d4f945c127de8b1ee7d",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "7ca44d1870eb83a64de49d4f945c127de8b1ee7d",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/rhizomaybor",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "0d1a1ad5586320b044683ab2c44eaaa01f6db7dd",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "0d1a1ad5586320b044683ab2c44eaaa01f6db7dd",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/ripple",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "d3056daaead9760111601426216dbcc78ccbe077",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "d3056daaead9760111601426216dbcc78ccbe077",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/styayur",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "bb29bc9cf9ec76b0b1e54dfe4cbedd3eeca8b17f",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "bb29bc9cf9ec76b0b1e54dfe4cbedd3eeca8b17f",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/styayur.github.io",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "4d987b629dcf83bb418041236399d45b18cf5f93",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "4d987b629dcf83bb418041236399d45b18cf5f93",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/terics",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "7f6eb45ce9910218f5aa260b5cab41d22d4cdc9a",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "7f6eb45ce9910218f5aa260b5cab41d22d4cdc9a",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/trucli",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "beb95e43329ccdef627de602e12c73415ff721d0",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "beb95e43329ccdef627de602e12c73415ff721d0",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/vextessera",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "97c87f579005e2734e120c3644c029f949a1a134",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "97c87f579005e2734e120c3644c029f949a1a134",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/whinset",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "279a62221f5d9b999b2bd7e0343de4ff6a88c4e4",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "279a62221f5d9b999b2bd7e0343de4ff6a88c4e4",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    },
+    {
+      "subject": "styayur/wutnet",
+      "evidence": {
+        "path": "AGENTS.md",
+        "sha": "3c8dd93dde77fcaf737ec8426659891708d86ca2",
+        "headings": [
+          "Project Intent",
+          "Architecture & Stable Contracts",
+          "Security and Data Boundaries",
+          "Development Autonomy",
+          "Verification & Evidence",
+          "Release & Dependency Policy"
+        ],
+        "present": true
+      },
+      "status": "PASS",
+      "reason": "Repository-specific agent instructions present with required policy sections.",
+      "revision": "3c8dd93dde77fcaf737ec8426659891708d86ca2",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Add a short repository-specific AGENTS.md; do not overwrite existing generated rules.",
+      "residualRisk": "Instructions are guidance and do not replace executable gates."
+    }
+  ]
+}

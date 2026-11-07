@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-11-07T18:54:14Z",
+  "latestSuccess": {
+    "conclusion": "success",
+    "createdAt": "2026-11-07T18:05:56Z",
+    "databaseId": 42399557482,
+    "displayTitle": "Portfolio project sync",
+    "headSha": "cde58fe63fc20a901d23c4f3332b055a46a13b20",
+    "status": "completed",
+    "url": "https://github.com/styayur/portfolio-governance/actions/runs/42399557482"
+  }
+}

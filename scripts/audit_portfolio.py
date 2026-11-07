@@ -104,7 +104,6 @@ for r in public:
           id nameWithOwner isArchived visibility
           discussionCategories(first:50) { totalCount nodes { id name slug description isAnswerable } }
           discussions(first:20, orderBy:{field:UPDATED_AT,direction:DESC}) { totalCount nodes { id number title url createdAt updatedAt category {name} author {login} answer {id} } }
-          branches(first:1, query:\"main\") { nodes { name target { ... on Commit { oid } } } }
         }
       }
     """, {"owner":"styayur","name":r["name"]})

@@ -1,0 +1,1825 @@
+{
+  "generatedAt": "2026-11-07T18:55:00Z",
+  "records": [
+    {
+      "subject": "styayur/LGXT-Assistant",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/LGXT-Assistant",
+          "checkedAt": "2026-11-07T17:35:03Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "PASS",
+      "reason": "policy present, private reporting enabled, no open alerts returned",
+      "revision": "13770e088f8825705033e96996dd33f74de9adc6",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/Nickspeare",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/Nickspeare",
+          "checkedAt": "2026-11-07T17:35:05Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "PASS",
+      "reason": "policy present, private reporting enabled, no open alerts returned",
+      "revision": "5ed330e0c851825309ad9ea8b3d9b3b9d676ebad",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/OmniRoute-PS",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/OmniRoute-PS",
+          "checkedAt": "2026-11-07T17:35:07Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "6bbc150d0cbd0092eb212e4a414ed864186cdb63",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/TinySTT",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 7
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/TinySTT",
+          "checkedAt": "2026-11-07T17:35:11Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 7; code scanning: API unavailable",
+      "revision": "824c9a66da5d75bca534665e48de9555cb8b5c51",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/TinyTTS",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/TinyTTS",
+          "checkedAt": "2026-11-07T17:35:14Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "PASS",
+      "reason": "policy present, private reporting enabled, no open alerts returned",
+      "revision": "7a8de289f75b75140daed7d625b8dbe393d404a2",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/calligra",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/calligra",
+          "checkedAt": "2026-11-07T17:35:16Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "PASS",
+      "reason": "policy present, private reporting enabled, no open alerts returned",
+      "revision": "19e9f4c829b493d0779d2cf5e15afaefdc6e9916",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/codeforge-engine",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 2
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/codeforge-engine",
+          "checkedAt": "2026-11-07T17:35:18Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 2; code scanning: API unavailable",
+      "revision": "0925f13a4c51c13d076f80261e4d5d944512f716",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/codex-mode-switcher",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/codex-mode-switcher",
+          "checkedAt": "2026-11-07T17:35:21Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "fc179d8fe12c7cad48d0e3c2c971ce8cf5916002",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/developer-security-workspace",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 1
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/developer-security-workspace",
+          "checkedAt": "2026-11-07T17:35:24Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 1",
+      "revision": "2363ba4d29fef65fba685226b5f95878b4eae0bd",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/fitimart",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/fitimart",
+          "checkedAt": "2026-11-07T17:35:26Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "PASS",
+      "reason": "policy present, private reporting enabled, no open alerts returned",
+      "revision": "53edcbde7292391fde91c7dbaa62bf3b36684ac3",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/gitpad-plus",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/gitpad-plus",
+          "checkedAt": "2026-11-07T17:35:28Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "77a3d168eb22b957e908e057aa7a604430e992ee",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/glyphibe",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 1
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/glyphibe",
+          "checkedAt": "2026-11-07T17:35:32Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 1; code scanning: API unavailable",
+      "revision": "4e5eb31bcce36b20a6a5a263a298fb017dc2b42c",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/ipa-first-tts",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/ipa-first-tts",
+          "checkedAt": "2026-11-07T17:35:35Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "3d9085e8eee926a672f97ce0af79cf285242050f",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/local-context-engine",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 1
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/local-context-engine",
+          "checkedAt": "2026-11-07T17:35:38Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 1; code scanning: API unavailable",
+      "revision": "5a9c94f5fec9076b6bdca641fbf104881d080d2d",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/musical-spinningtop",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/musical-spinningtop",
+          "checkedAt": "2026-11-07T17:35:41Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "PASS",
+      "reason": "policy present, private reporting enabled, no open alerts returned",
+      "revision": "7dfe3fab0349a8b836428b9807860e01e943c1f1",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/mzk",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/mzk",
+          "checkedAt": "2026-11-07T17:35:43Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "7218883c4d5d9b1562a6762400e3e6277d1cdbbd",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/ogleans",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 1
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/ogleans",
+          "checkedAt": "2026-11-07T17:35:46Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 1; code scanning: API unavailable",
+      "revision": "75e5cea12654132b84036540da7b65352c188f22",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/portfolio-governance",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/portfolio-governance",
+          "checkedAt": "2026-11-07T17:35:50Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "d02b8067042d53574409da68c844b7beea1788a4",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/publishing-workbench",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 2
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/publishing-workbench",
+          "checkedAt": "2026-11-07T17:35:53Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 2; code scanning: API unavailable",
+      "revision": "9c1582db4607e88286aecb9fe1a8a59a388a6eb6",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/rhizomaybor",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 8
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/rhizomaybor",
+          "checkedAt": "2026-11-07T17:35:56Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 8; code scanning: API unavailable",
+      "revision": "be121e96df83684a74e5e70a470b8332d4ff8a77",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/ripple",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/ripple",
+          "checkedAt": "2026-11-07T17:35:59Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "e778c570e49f724aecce9ccaae698fc38738ea65",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/styayur",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/styayur",
+          "checkedAt": "2026-11-07T17:36:01Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "639ced7c878180925092b0c407a70f17d41f5cf8",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/styayur.github.io",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/styayur.github.io",
+          "checkedAt": "2026-11-07T17:36:04Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "PASS",
+      "reason": "policy present, private reporting enabled, no open alerts returned",
+      "revision": "245d21cada6c8b3b3727ecbc07bf46484ebb693d",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/terics",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/terics",
+          "checkedAt": "2026-11-07T17:36:06Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "f72c41a8b2c83c88a7394b1431e2cf442c0a9936",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/trucli",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/trucli",
+          "checkedAt": "2026-11-07T17:36:09Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "9000cc30c1964f1d85784c497b72feb1f066e14d",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/vextessera",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 1
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/vextessera",
+          "checkedAt": "2026-11-07T17:36:11Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "FAIL",
+      "reason": "Dependabot alerts: 1",
+      "revision": "748925f7117c88886121b06cc83e2ab0996c04e9",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/whinset",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "securityMonitoring": {
+          "repository": "styayur/whinset",
+          "checkedAt": "2026-11-07T17:36:13Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "PASS",
+      "reason": "policy present, private reporting enabled, no open alerts returned",
+      "revision": "62c42ecec1fab30fb04c09e1fb610039c5fc7e13",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/wutnet",
+      "evidence": {
+        "securityPolicy": true,
+        "privateVulnerabilityReporting": {
+          "enabled": true
+        },
+        "dependabotAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "secretScanningAlerts": {
+          "status": "OK",
+          "count": 0
+        },
+        "codeScanningAlerts": {
+          "status": "ERROR",
+          "error": "gh: no analysis found (HTTP 404)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        },
+        "securityMonitoring": {
+          "repository": "styayur/wutnet",
+          "checkedAt": "2026-11-07T17:36:15Z",
+          "vulnerabilityAlerts": {
+            "before": {
+              "ok": false,
+              "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+              "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          "automatedSecurityFixes": {
+            "before": {
+              "ok": true,
+              "stdout": "{\"enabled\":false,\"paused\":false}",
+              "stderr": ""
+            },
+            "enable": {
+              "ok": true,
+              "stdout": "",
+              "stderr": ""
+            },
+            "after": {
+              "ok": true,
+              "stdout": "{\"enabled\":true,\"paused\":false}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "status": "NOT_VERIFIED",
+      "reason": "code scanning: API unavailable",
+      "revision": "d3d62fb1d02728f11d9665f066d7c4c9c427b5e1",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    }
+  ]
+}

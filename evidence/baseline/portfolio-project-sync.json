@@ -1,37 +1,8 @@
 {
   "projectId": "PVT_kwHOE1hmpc4BoN2B",
   "projectTitle": "Styayur Portfolio",
-  "generatedAt": "2026-11-07T14:55:30Z",
-  "added": [
-    {
-      "url": "https://github.com/styayur/portfolio-governance/pull/2",
-      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRqg"
-    },
-    {
-      "url": "https://github.com/styayur/LGXT-Assistant/pull/42",
-      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRrM"
-    },
-    {
-      "url": "https://github.com/styayur/whinset/issues/8",
-      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRsE"
-    },
-    {
-      "url": "https://github.com/styayur/gitpad-plus/pull/6",
-      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRsk"
-    },
-    {
-      "url": "https://github.com/styayur/codex-mode-switcher/issues/6",
-      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRtc"
-    },
-    {
-      "url": "https://github.com/styayur/LGXT-Assistant/issues/25",
-      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRuM"
-    },
-    {
-      "url": "https://github.com/styayur/vextessera/pull/21",
-      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRuc"
-    }
-  ],
+  "generatedAt": "2026-11-07T18:58:49Z",
+  "added": [],
   "records": [
     {
       "subject": "https://github.com/styayur/calligra/pull/43",
@@ -205,6 +176,54 @@
       "subject": "https://github.com/styayur/gitpad-plus/pull/6",
       "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRsk",
       "repository": "styayur/gitpad-plus",
+      "status": "PASS"
+    },
+    {
+      "subject": "https://github.com/styayur/codex-mode-switcher/issues/6",
+      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRtc",
+      "repository": "styayur/codex-mode-switcher",
+      "status": "PASS"
+    },
+    {
+      "subject": "https://github.com/styayur/LGXT-Assistant/issues/25",
+      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRuM",
+      "repository": "styayur/LGXT-Assistant",
+      "status": "PASS"
+    },
+    {
+      "subject": "https://github.com/styayur/vextessera/pull/21",
+      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhGzRuc",
+      "repository": "styayur/vextessera",
+      "status": "PASS"
+    },
+    {
+      "subject": "https://github.com/styayur/TinySTT/pull/7",
+      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhG1Frs",
+      "repository": "styayur/TinySTT",
+      "status": "PASS"
+    },
+    {
+      "subject": "https://github.com/styayur/publishing-workbench/pull/10",
+      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhG1Fso",
+      "repository": "styayur/publishing-workbench",
+      "status": "PASS"
+    },
+    {
+      "subject": "https://github.com/styayur/publishing-workbench/pull/9",
+      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhG1Fto",
+      "repository": "styayur/publishing-workbench",
+      "status": "PASS"
+    },
+    {
+      "subject": "https://github.com/styayur/portfolio-governance/pull/7",
+      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhG1FuY",
+      "repository": "styayur/portfolio-governance",
+      "status": "PASS"
+    },
+    {
+      "subject": "https://github.com/styayur/wutnet/pull/10",
+      "itemId": "PVTI_lAHOE1hmpc4BoN2BzhG1Fvc",
+      "repository": "styayur/wutnet",
       "status": "PASS"
     }
   ]

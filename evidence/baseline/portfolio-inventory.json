@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-07T13:52:48Z",
+    "generated_at": "2026-11-07T18:39:54Z",
     "source": "GitHub API from GitHub Codespace",
     "repo_count": 28,
     "private_repo_excluded": "styayur/site",
@@ -24,14 +24,14 @@
       "language": "Python",
       "license": "AGPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-09T15:25:44Z",
-      "updated_at": "2026-11-04T18:36:52Z",
-      "pushed_at": "2026-11-04T18:39:06Z",
-      "size_kb": 7616,
+      "updated_at": "2026-11-07T18:20:11Z",
+      "pushed_at": "2026-11-07T18:20:09Z",
+      "size_kb": 7522,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -41,7 +41,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 1,
-      "default_branch_sha": "f9d4badde7ecf0f2e048b3d3f41f74b836320025",
+      "default_branch_sha": "efab2e758d88bb4b6f715c332c32e4d7b7211c35",
       "open_prs": 0,
       "open_issues": 1,
       "workflows": [
@@ -73,6 +73,12 @@
           "id": 394410974,
           "name": "Finalize verified Windows release",
           "path": ".github/workflows/finalize-release.yml",
+          "state": "active"
+        },
+        {
+          "id": 410437970,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -144,10 +150,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763209,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -158,8 +172,19 @@
         "help wanted",
         "invalid",
         "javascript",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "python",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -276,7 +301,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "9ab78e29128318d37d0489e2bb0c086903e57775",
+          "size": 2741,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "13770e088f8825705033e96996dd33f74de9adc6",
@@ -330,7 +357,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUTumaA",
+        "nameWithOwner": "styayur/LGXT-Assistant",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUTumaM4DKmVR",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUTumaM4DKmVS",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUTumaM4DKmVU",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUTumaM4DKmVW",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUTumaM4DKmVT",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUTumaM4DKmVV",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1386888456,
@@ -347,14 +430,14 @@
       "language": "Python",
       "license": "AGPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-25T06:17:14Z",
-      "updated_at": "2026-11-02T12:27:42Z",
-      "pushed_at": "2026-11-02T12:29:42Z",
-      "size_kb": 244,
+      "updated_at": "2026-11-07T17:43:11Z",
+      "pushed_at": "2026-11-07T17:43:09Z",
+      "size_kb": 253,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -364,7 +447,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "b17d2d0182e1d3e7d6fdde813f7b1ee7c41ebddc",
+      "default_branch_sha": "3dbd379af245be193d8ff4b45b94819a0fb1a6f4",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -378,6 +461,12 @@
           "id": 373822994,
           "name": "CodeForge regression",
           "path": ".github/workflows/codeforge-regression.yml",
+          "state": "active"
+        },
+        {
+          "id": 410438018,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -418,10 +507,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763210,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -431,7 +528,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -468,7 +576,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "d736cc0f022706bf03ded6a2f4bfd65aec08a15d",
+          "size": 2059,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "5ed330e0c851825309ad9ea8b3d9b3b9d676ebad",
@@ -522,7 +632,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUqo9CA",
+        "nameWithOwner": "styayur/Nickspeare",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUqo9CM4DKmVX",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUqo9CM4DKmVY",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUqo9CM4DKmVa",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUqo9CM4DKmVc",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUqo9CM4DKmVZ",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUqo9CM4DKmVb",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1401962528,
@@ -539,14 +705,14 @@
       "language": "PowerShell",
       "license": "Apache-2.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-02T15:10:47Z",
-      "updated_at": "2026-10-22T09:37:16Z",
-      "pushed_at": "2026-10-22T09:37:10Z",
-      "size_kb": 141,
+      "updated_at": "2026-11-07T17:59:45Z",
+      "pushed_at": "2026-11-07T17:59:41Z",
+      "size_kb": 147,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -556,7 +722,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "06de9796f60cf3c270b7ee62998a056aeb526ce3",
+      "default_branch_sha": "a22db6e96673ff8cc16b138f89f610457270b818",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -577,6 +743,12 @@
           "name": "CodeForge regression",
           "path": ".github/workflows/codeforge-regression.yml",
           "state": "active"
+        },
+        {
+          "id": 410438066,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
         }
       ],
       "rulesets": [
@@ -586,10 +758,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763113,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -597,7 +777,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -631,8 +822,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -644,7 +835,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "dbbf2effe2c0488877d8cb431eb4db38df75c9e7",
+          "size": 2200,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "6bbc150d0cbd0092eb212e4a414ed864186cdb63",
@@ -696,7 +889,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOU5BAIA",
+        "nameWithOwner": "styayur/OmniRoute-PS",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOU5BAIM4DKmVp",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU5BAIM4DKmVq",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU5BAIM4DKmVs",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU5BAIM4DKmVu",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU5BAIM4DKmVr",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOU5BAIM4DKmVt",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1402067510,
@@ -713,14 +962,14 @@
       "language": "Rust",
       "license": "AGPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-02T16:28:30Z",
-      "updated_at": "2026-10-22T09:50:31Z",
-      "pushed_at": "2026-10-22T09:50:26Z",
-      "size_kb": 107,
+      "updated_at": "2026-11-07T17:59:03Z",
+      "pushed_at": "2026-11-07T18:01:45Z",
+      "size_kb": 149,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -729,9 +978,9 @@
         "pull": true
       },
       "security_and_analysis": null,
-      "open_issues_count": 0,
-      "default_branch_sha": "768180993c989d739a334e32026969584e3ed780",
-      "open_prs": 0,
+      "open_issues_count": 1,
+      "default_branch_sha": "1ce689a6e4989f3d31a8d2646bca86e34d821546",
+      "open_prs": 1,
       "open_issues": 0,
       "workflows": [
         {
@@ -753,9 +1002,21 @@
           "state": "active"
         },
         {
+          "id": 410439466,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
           "id": 373276411,
           "name": "Release",
           "path": ".github/workflows/release.yml",
+          "state": "active"
+        },
+        {
+          "id": 410547556,
+          "name": "Dependabot Updates",
+          "path": "dynamic/dependabot/dependabot-updates",
           "state": "active"
         }
       ],
@@ -766,18 +1027,39 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763114,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
+        "dependencies",
         "documentation",
         "duplicate",
         "enhancement",
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -801,8 +1083,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 7
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -814,7 +1096,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "f6a9acaaf92e30ed56a0c7dd5a710cf7bf2238ca",
+          "size": 2317,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "824c9a66da5d75bca534665e48de9555cb8b5c51",
@@ -866,7 +1150,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOU5HaNg",
+        "nameWithOwner": "styayur/TinySTT",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOU5HaNs4DKmV1",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU5HaNs4DKmV2",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU5HaNs4DKmV4",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU5HaNs4DKmV6",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU5HaNs4DKmV3",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOU5HaNs4DKmV5",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1392894388,
@@ -888,9 +1228,9 @@
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-28T14:11:06Z",
-      "updated_at": "2026-11-04T18:36:28Z",
-      "pushed_at": "2026-11-04T18:47:52Z",
-      "size_kb": 168,
+      "updated_at": "2026-11-07T17:58:38Z",
+      "pushed_at": "2026-11-07T17:58:36Z",
+      "size_kb": 178,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -900,7 +1240,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "c7cd4e15fc9b9751863c1b2c7ebdcd0ffcffe4aa",
+      "default_branch_sha": "49645289685dec11c1ca912181abecd82eee8a05",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -914,6 +1254,12 @@
           "id": 373822707,
           "name": "CodeForge regression",
           "path": ".github/workflows/codeforge-regression.yml",
+          "state": "active"
+        },
+        {
+          "id": 410444137,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -942,10 +1288,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763212,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -955,8 +1309,19 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
         "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [],
@@ -981,7 +1346,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "52f233a9b8b7bd6e88317e536e0474cc92f8c75b",
+          "size": 2256,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "7a8de289f75b75140daed7d625b8dbe393d404a2",
@@ -1035,7 +1402,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUwXhtA",
+        "nameWithOwner": "styayur/TinyTTS",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUwXhtM4DGwse",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUwXhtM4DGwsf",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUwXhtM4DGwsh",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUwXhtM4DGwsj",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUwXhtM4DGwsg",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUwXhtM4DGwsi",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1371635211,
@@ -1057,9 +1480,9 @@
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-15T14:42:07Z",
-      "updated_at": "2026-11-04T18:46:56Z",
-      "pushed_at": "2026-11-04T18:46:52Z",
-      "size_kb": 54286,
+      "updated_at": "2026-11-07T17:22:54Z",
+      "pushed_at": "2026-11-07T17:22:51Z",
+      "size_kb": 54293,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -1069,7 +1492,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "a1ae255bdba74dd91554b31362eb41b1111fc9a0",
+      "default_branch_sha": "7b29339a67df291add85856b7a38b2a446c6d425",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -1089,6 +1512,12 @@
           "id": 358825893,
           "name": "Deploy GitHub Pages",
           "path": ".github/workflows/pages.yml",
+          "state": "active"
+        },
+        {
+          "id": 410444178,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -1123,10 +1552,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763214,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -1137,8 +1574,19 @@
         "help wanted",
         "invalid",
         "javascript",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "python",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -1215,11 +1663,13 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "f0b2adeb4c442b3baae2779995976dca15e4194c",
+          "size": 2264,
+          "type": "file"
         },
         "SECURITY.md": {
-          "sha": "b43b88769095e4f8e1edfa29c9ddf14a55bac55e",
-          "size": 1021,
+          "sha": "19e9f4c829b493d0779d2cf5e15afaefdc6e9916",
+          "size": 1011,
           "type": "file"
         },
         "CONTRIBUTING.md": {
@@ -1269,7 +1719,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUcF-Cw",
+        "nameWithOwner": "styayur/calligra",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUcF-C84DGwwK",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUcF-C84DGwwL",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUcF-C84DGwwN",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUcF-C84DGwwP",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUcF-C84DGwwM",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUcF-C84DGwwO",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1400085574,
@@ -1286,14 +1792,14 @@
       "language": "Rust",
       "license": "Apache-2.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-01T13:55:40Z",
-      "updated_at": "2026-11-03T05:27:00Z",
-      "pushed_at": "2026-11-05T20:55:35Z",
-      "size_kb": 797,
+      "updated_at": "2026-11-07T17:58:51Z",
+      "pushed_at": "2026-11-07T17:58:46Z",
+      "size_kb": 804,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -1302,9 +1808,9 @@
         "pull": true
       },
       "security_and_analysis": null,
-      "open_issues_count": 3,
-      "default_branch_sha": "64d2e80b178881f76abb89df767aa082df761f44",
-      "open_prs": 3,
+      "open_issues_count": 0,
+      "default_branch_sha": "3987645a5af0882c3da8ec0a1339683b330adba0",
+      "open_prs": 0,
       "open_issues": 0,
       "workflows": [
         {
@@ -1317,6 +1823,12 @@
           "id": 373813340,
           "name": "CodeForge regression",
           "path": ".github/workflows/codeforge-regression.yml",
+          "state": "active"
+        },
+        {
+          "id": 410470929,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -1336,6 +1848,12 @@
           "name": "Dependabot Updates",
           "path": "dynamic/dependabot/dependabot-updates",
           "state": "active"
+        },
+        {
+          "id": 410532127,
+          "name": "Dependency Graph",
+          "path": "dynamic/dependabot/update-graph",
+          "state": "active"
         }
       ],
       "rulesets": [
@@ -1345,10 +1863,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763004,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -1359,8 +1885,19 @@
         "help wanted",
         "invalid",
         "javascript",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
         "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -1444,8 +1981,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 2
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -1457,7 +1994,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "18053f97c278187c910fa23d01f216c695b4cff2",
+          "size": 2384,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "0925f13a4c51c13d076f80261e4d5d944512f716",
@@ -1519,7 +2058,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOU3OcRg",
+        "nameWithOwner": "styayur/codeforge-engine",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOU3OcRs4DKmV7",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU3OcRs4DKmV8",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU3OcRs4DKmV-",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU3OcRs4DKmWA",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU3OcRs4DKmV9",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOU3OcRs4DKmV_",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1403467202,
@@ -1536,14 +2131,14 @@
       "language": "PowerShell",
       "license": "MIT",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-10-03T17:28:50Z",
-      "updated_at": "2026-10-19T15:45:18Z",
-      "pushed_at": "2026-10-19T15:46:06Z",
-      "size_kb": 150,
+      "updated_at": "2026-11-07T17:38:01Z",
+      "pushed_at": "2026-11-07T17:37:57Z",
+      "size_kb": 156,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -1553,7 +2148,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 1,
-      "default_branch_sha": "3439265f8a445e628ed2ea80ae6535dda24f87d7",
+      "default_branch_sha": "40870420fa213a249f72a23dc0627b33d1d200d7",
       "open_prs": 0,
       "open_issues": 1,
       "workflows": [
@@ -1568,11 +2163,26 @@
           "name": "CI",
           "path": ".github/workflows/ci.yml",
           "state": "active"
+        },
+        {
+          "id": 410444227,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763216,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -1581,7 +2191,18 @@
         "help wanted",
         "invalid",
         "msix",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "windows",
         "wontfix"
       ],
@@ -1626,8 +2247,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -1639,7 +2260,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "4320e977b510ef33e7497386081d4e8517bf5633",
+          "size": 2128,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "fc179d8fe12c7cad48d0e3c2c971ce8cf5916002",
@@ -1691,7 +2314,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOU6c1wg",
+        "nameWithOwner": "styayur/codex-mode-switcher",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOU6c1ws4DKmWB",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU6c1ws4DKmWC",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU6c1ws4DKmWE",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU6c1ws4DKmWG",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU6c1ws4DKmWD",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOU6c1ws4DKmWF",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1388710049,
@@ -1713,9 +2392,9 @@
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-26T06:46:33Z",
-      "updated_at": "2026-11-04T17:22:31Z",
-      "pushed_at": "2026-11-04T17:22:29Z",
-      "size_kb": 778,
+      "updated_at": "2026-11-07T17:43:36Z",
+      "pushed_at": "2026-11-07T17:43:34Z",
+      "size_kb": 788,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -1725,7 +2404,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "56c7c7d99a21bda6491312ee06e3a5452c178ea4",
+      "default_branch_sha": "a41136eca42ec07a341942eb547cbbadaa5e82af",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -1745,6 +2424,12 @@
           "id": 368344311,
           "name": "Dependency security",
           "path": ".github/workflows/dependencies.yml",
+          "state": "active"
+        },
+        {
+          "id": 410444314,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -1791,10 +2476,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763218,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -1805,8 +2498,19 @@
         "help wanted",
         "invalid",
         "javascript",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
         "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -1872,7 +2576,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "2404e09f82f1c383f79f7477ba8cffad5f089893",
+          "size": 2285,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "2363ba4d29fef65fba685226b5f95878b4eae0bd",
@@ -1934,7 +2640,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUsYIoQ",
+        "nameWithOwner": "styayur/developer-security-workspace",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUsYIoc4DGquN",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUsYIoc4DGquO",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUsYIoc4DGquQ",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUsYIoc4DGquS",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUsYIoc4DGquP",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUsYIoc4DGquR",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1364395119,
@@ -1951,14 +2713,14 @@
       "language": "TypeScript",
       "license": "MPL-2.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-10T14:57:47Z",
-      "updated_at": "2026-11-07T09:16:01Z",
-      "pushed_at": "2026-11-07T08:40:10Z",
-      "size_kb": 2063,
+      "updated_at": "2026-11-07T18:38:50Z",
+      "pushed_at": "2026-11-07T18:38:48Z",
+      "size_kb": 2077,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -1968,7 +2730,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "603df1f74e3e0153ba148591cb90b9f8b0ca80b6",
+      "default_branch_sha": "fa7095a48345ccd6fd020cc99a396665182f796d",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -1994,6 +2756,12 @@
           "id": 410182503,
           "name": "Live feed and translation acceptance",
           "path": ".github/workflows/live-feeds.yml",
+          "state": "active"
+        },
+        {
+          "id": 410438099,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -2028,10 +2796,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763116,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -2043,7 +2819,18 @@
         "invalid",
         "javascript",
         "milestone",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -2068,7 +2855,7 @@
       },
       "dependabot_alerts": {
         "status": "OK",
-        "count": 1
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -2080,8 +2867,8 @@
       },
       "files": {
         "AGENTS.md": {
-          "sha": "643577dfaef36ee8032915ef80a0f0638f7beda0",
-          "size": 678,
+          "sha": "33313e70d22594e74b6e4f6c00a4edaa1a61276e",
+          "size": 3111,
           "type": "file"
         },
         "SECURITY.md": {
@@ -2136,7 +2923,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUVMEbw",
+        "nameWithOwner": "styayur/fitimart",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUVMEb84DKmWN",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUVMEb84DKmWO",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUVMEb84DKmWQ",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUVMEb84DKmWS",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUVMEb84DKmWP",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUVMEb84DKmWR",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1440448445,
@@ -2153,14 +2996,14 @@
       "language": "TypeScript",
       "license": "AGPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-31T03:00:22Z",
-      "updated_at": "2026-11-04T01:13:28Z",
-      "pushed_at": "2026-11-05T15:27:00Z",
-      "size_kb": 7296,
+      "updated_at": "2026-11-07T17:58:24Z",
+      "pushed_at": "2026-11-07T17:58:20Z",
+      "size_kb": 7254,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -2170,7 +3013,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 1,
-      "default_branch_sha": "63070c81c99f90cd4e46a7ce4d700ace2d08b5fa",
+      "default_branch_sha": "1af2be9d8eaf743582eb3de759bcaa23ada4559b",
       "open_prs": 1,
       "open_issues": 0,
       "workflows": [
@@ -2193,15 +3036,30 @@
           "state": "active"
         },
         {
+          "id": 410438149,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
           "id": 402449727,
           "name": "Verify uploaded Alpha candidate (no publication)",
           "path": ".github/workflows/release.yml",
           "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763220,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -2209,7 +3067,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -2233,8 +3102,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -2246,7 +3115,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "45084c08186794de9c8979e90f4f2fc0613b6860",
+          "size": 2209,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "77a3d168eb22b957e908e057aa7a604430e992ee",
@@ -2295,7 +3166,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVdt_vQ",
+        "nameWithOwner": "styayur/gitpad-plus",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVdt_vc4DKmWZ",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVdt_vc4DKmWa",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVdt_vc4DKmWc",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVdt_vc4DKmWe",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVdt_vc4DKmWb",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVdt_vc4DKmWd",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1435515075,
@@ -2317,9 +3244,9 @@
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-27T09:29:19Z",
-      "updated_at": "2026-11-04T18:48:48Z",
-      "pushed_at": "2026-11-04T18:51:10Z",
-      "size_kb": 1877,
+      "updated_at": "2026-11-07T17:43:29Z",
+      "pushed_at": "2026-11-07T17:43:27Z",
+      "size_kb": 1198,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -2329,7 +3256,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "03a0818dfab0aa24571f95a1ee737ae49c1d0789",
+      "default_branch_sha": "142a9df87f59b053f175ddade35e3b6ed9bbf142",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -2346,15 +3273,30 @@
           "state": "active"
         },
         {
+          "id": 410439507,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
           "id": 399437326,
           "name": "Dependabot Updates",
           "path": "dynamic/dependabot/dependabot-updates",
           "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763221,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -2365,8 +3307,19 @@
         "help wanted",
         "invalid",
         "javascript",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
         "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [],
@@ -2378,8 +3331,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 1
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -2391,7 +3344,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "f91126bee0b9d6af68a096762e0a6ce31174dfae",
+          "size": 2177,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "4e5eb31bcce36b20a6a5a263a298fb017dc2b42c",
@@ -2455,7 +3410,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVZA4ww",
+        "nameWithOwner": "styayur/glyphibe",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVZA4w84DJusl",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVZA4w84DJusm",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVZA4w84DJuso",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVZA4w84DJusq",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVZA4w84DJusn",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVZA4w84DJusp",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1409449480,
@@ -2472,14 +3483,14 @@
       "language": "Rust",
       "license": "GPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-07T22:36:45Z",
-      "updated_at": "2026-10-26T09:22:10Z",
-      "pushed_at": "2026-10-26T09:29:35Z",
-      "size_kb": 1634,
+      "updated_at": "2026-11-07T17:43:23Z",
+      "pushed_at": "2026-11-07T17:43:19Z",
+      "size_kb": 1639,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -2489,7 +3500,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "715b7a779e093d57ad8f4896f982c089b470ebcd",
+      "default_branch_sha": "8c8123a902d4920d2afdd24d0569fcea73cd5f8c",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -2504,11 +3515,26 @@
           "name": "CI",
           "path": ".github/workflows/ci.yml",
           "state": "active"
+        },
+        {
+          "id": 410472221,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763117,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -2516,7 +3542,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -2560,8 +3597,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -2573,7 +3610,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "bcf066e5026bcbcc821195d8f5dbea08b6874f38",
+          "size": 2165,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "3d9085e8eee926a672f97ce0af79cf285242050f",
@@ -2625,7 +3664,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVAJ-CA",
+        "nameWithOwner": "styayur/ipa-first-tts",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVAJ-CM4DKmWf",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAJ-CM4DKmWg",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAJ-CM4DKmWi",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAJ-CM4DKmWk",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAJ-CM4DKmWh",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVAJ-CM4DKmWj",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1399679894,
@@ -2642,14 +3737,14 @@
       "language": "Rust",
       "license": "MPL-2.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-01T09:44:56Z",
-      "updated_at": "2026-11-04T05:32:04Z",
-      "pushed_at": "2026-11-05T12:25:27Z",
-      "size_kb": 822,
+      "updated_at": "2026-11-07T17:58:45Z",
+      "pushed_at": "2026-11-07T17:58:40Z",
+      "size_kb": 827,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -2658,9 +3753,9 @@
         "pull": true
       },
       "security_and_analysis": null,
-      "open_issues_count": 3,
-      "default_branch_sha": "bd5363114b9341029dd6e7275c0e761c28b89180",
-      "open_prs": 3,
+      "open_issues_count": 0,
+      "default_branch_sha": "a382920d0372d3d22f8150edcaa4a51ef68eaaba",
+      "open_prs": 0,
       "open_issues": 0,
       "workflows": [
         {
@@ -2673,6 +3768,12 @@
           "id": 373822703,
           "name": "CodeForge regression",
           "path": ".github/workflows/codeforge-regression.yml",
+          "state": "active"
+        },
+        {
+          "id": 410472282,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -2695,10 +3796,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763119,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -2709,8 +3818,19 @@
         "help wanted",
         "invalid",
         "javascript",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
         "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -2753,8 +3873,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 1
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -2766,7 +3886,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "03d2411bc6cb67aace46dea5a76c3ceeebee6b7f",
+          "size": 2337,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "5a9c94f5fec9076b6bdca641fbf104881d080d2d",
@@ -2820,7 +3942,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOU21rlg",
+        "nameWithOwner": "styayur/local-context-engine",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOU21rls4DKmWl",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU21rls4DKmWm",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU21rls4DKmWo",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU21rls4DKmWq",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU21rls4DKmWn",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOU21rls4DKmWp",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1385662827,
@@ -2837,14 +4015,14 @@
       "language": "Python",
       "license": "AGPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-24T14:16:24Z",
-      "updated_at": "2026-11-03T00:11:02Z",
-      "pushed_at": "2026-11-03T00:11:00Z",
-      "size_kb": 1097,
+      "updated_at": "2026-11-07T17:43:18Z",
+      "pushed_at": "2026-11-07T17:43:16Z",
+      "size_kb": 1104,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -2854,7 +4032,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "d3df59e9193babdb440e42c9b567548a9202fbe5",
+      "default_branch_sha": "925cbea58295057cb67ed4154b746012d4e78fec",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -2874,6 +4052,12 @@
           "id": 366267709,
           "name": "Deploy GitHub Pages",
           "path": ".github/workflows/pages.yml",
+          "state": "active"
+        },
+        {
+          "id": 410444357,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -2902,10 +4086,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763222,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -2915,8 +4107,19 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "python",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -2963,7 +4166,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "c1102f5ca5ce67da8046837c3b6ee958aa687e27",
+          "size": 2060,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "7dfe3fab0349a8b836428b9807860e01e943c1f1",
@@ -3017,7 +4222,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUpeJaw",
+        "nameWithOwner": "styayur/musical-spinningtop",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUpeJa84DKmWr",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUpeJa84DKmWs",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUpeJa84DKmWu",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUpeJa84DKmWw",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUpeJa84DKmWt",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUpeJa84DKmWv",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1435188519,
@@ -3034,14 +4295,14 @@
       "language": "Rust",
       "license": "MIT",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-10-27T03:12:58Z",
-      "updated_at": "2026-10-27T04:24:12Z",
-      "pushed_at": "2026-10-27T03:52:13Z",
-      "size_kb": 83,
+      "updated_at": "2026-11-07T17:59:56Z",
+      "pushed_at": "2026-11-07T17:59:55Z",
+      "size_kb": 89,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -3051,7 +4312,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "70c45622c868a3c0dd19a9a8c876d6fa2187b770",
+      "default_branch_sha": "3649fc2bfccbeb61d3a10e895d5ae5dc2fbcf125",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -3060,11 +4321,26 @@
           "name": "CI",
           "path": ".github/workflows/ci.yml",
           "state": "active"
+        },
+        {
+          "id": 410438223,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763121,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -3072,7 +4348,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -3096,8 +4383,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -3109,7 +4396,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "80c49fc6541bc49aa40c88a833f36c128debf40c",
+          "size": 2146,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "7218883c4d5d9b1562a6762400e3e6277d1cdbbd",
@@ -3153,7 +4442,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVYs9Jw",
+        "nameWithOwner": "styayur/mzk",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVYs9J84DKmWx",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVYs9J84DKmWy",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVYs9J84DKmW0",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVYs9J84DKmW2",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVYs9J84DKmWz",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVYs9J84DKmW1",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1409441558,
@@ -3170,14 +4515,14 @@
       "language": "TypeScript",
       "license": "MPL-2.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-07T22:25:57Z",
-      "updated_at": "2026-11-07T08:07:33Z",
-      "pushed_at": "2026-11-07T12:37:40Z",
-      "size_kb": 744,
+      "updated_at": "2026-11-07T17:59:52Z",
+      "pushed_at": "2026-11-07T17:59:47Z",
+      "size_kb": 750,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -3187,7 +4532,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "5bdeea9829072b938d7eb0c72465192e72173e71",
+      "default_branch_sha": "13d92a85e0644e3d982643d7c254deceb6b3f8b1",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -3204,6 +4549,12 @@
           "state": "active"
         },
         {
+          "id": 410444411,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
           "id": 410169044,
           "name": "Release",
           "path": ".github/workflows/release.yml",
@@ -3216,9 +4567,18 @@
           "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763223,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -3230,7 +4590,18 @@
         "invalid",
         "javascript",
         "milestone",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -3264,8 +4635,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 1
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -3277,7 +4648,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "29e98387d11d2dd31208609322acab917af926ff",
+          "size": 2143,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "75e5cea12654132b84036540da7b65352c188f22",
@@ -3337,7 +4710,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVAJfFg",
+        "nameWithOwner": "styayur/ogleans",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVAJfFs4DKmW3",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAJfFs4DKmW4",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAJfFs4DKmW6",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAJfFs4DKmW8",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAJfFs4DKmW5",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVAJfFs4DKmW7",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1449400406,
@@ -3351,17 +4780,17 @@
       "default_branch": "main",
       "description": "Cross-repository governance, independent review, and evidence gates for styayur public repositories",
       "homepage": null,
-      "language": null,
+      "language": "Python",
       "license": "MIT",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-11-07T13:50:39Z",
-      "updated_at": "2026-11-07T13:50:44Z",
-      "pushed_at": "2026-11-07T13:50:41Z",
-      "size_kb": 0,
+      "updated_at": "2026-11-07T18:14:08Z",
+      "pushed_at": "2026-11-07T18:14:04Z",
+      "size_kb": 1244,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -3371,13 +4800,59 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "3ed7eb896bbbfb7cd1224244b67b1a6d6a508baa",
+      "default_branch_sha": "62bd7f57d2b1215d147624e1ffc24fc1a660c5e8",
       "open_prs": 0,
       "open_issues": 0,
-      "workflows": [],
-      "rulesets": [],
+      "workflows": [
+        {
+          "id": 410408163,
+          "name": ".github/workflows/portfolio-audit.yml",
+          "path": ".github/workflows/portfolio-audit.yml",
+          "state": "active"
+        },
+        {
+          "id": 410417315,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
+          "id": 410420653,
+          "name": "Portfolio project sync",
+          "path": ".github/workflows/project-sync.yml",
+          "state": "active"
+        },
+        {
+          "id": 410408821,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/reusable-portfolio-gate.yml",
+          "state": "active"
+        },
+        {
+          "id": 410408188,
+          "name": "Governance self-checks",
+          "path": ".github/workflows/self-governance.yml",
+          "state": "active"
+        },
+        {
+          "id": 410532445,
+          "name": "Dependency Graph",
+          "path": "dynamic/dependabot/update-graph",
+          "state": "active"
+        }
+      ],
+      "rulesets": [
+        {
+          "id": 26763372,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -3385,7 +4860,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [],
@@ -3397,8 +4883,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -3410,17 +4896,23 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "d83b89b7f9643fdfe91e53eb36868ea4bb20d7dd",
+          "size": 2304,
+          "type": "file"
         },
         "SECURITY.md": {
-          "status": "absent"
+          "sha": "d02b8067042d53574409da68c844b7beea1788a4",
+          "size": 1415,
+          "type": "file"
         },
         "CONTRIBUTING.md": {
-          "status": "absent"
+          "sha": "6534731ff77c3deb778a8b100e00096f3732d035",
+          "size": 448,
+          "type": "file"
         },
         "README.md": {
-          "sha": "55fd04d0f7eb5d110fd9d84803956adc6695a603",
-          "size": 123,
+          "sha": "ca943f5c8e5bec53e1e903825dcb2c8bde8213e6",
+          "size": 1870,
           "type": "file"
         },
         ".github/PULL_REQUEST_TEMPLATE.md": {
@@ -3431,11 +4923,14 @@
         }
       },
       "community_health": {
-        "health_percentage": 42,
+        "health_percentage": 71,
         "files": {
           "code_of_conduct": null,
           "code_of_conduct_file": null,
-          "contributing": null,
+          "contributing": {
+            "url": "https://api.github.com/repos/styayur/portfolio-governance/contents/CONTRIBUTING.md",
+            "html_url": "https://github.com/styayur/portfolio-governance/blob/main/CONTRIBUTING.md"
+          },
           "issue_template": null,
           "pull_request_template": null,
           "license": {
@@ -3452,7 +4947,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVmQYVg",
+        "nameWithOwner": "styayur/portfolio-governance",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVmQYVs4DKmXD",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVmQYVs4DKmXE",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVmQYVs4DKmXG",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVmQYVs4DKmXI",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVmQYVs4DKmXF",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVmQYVs4DKmXH",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1409472340,
@@ -3469,14 +5020,14 @@
       "language": "Rust",
       "license": "AGPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-07T23:09:20Z",
-      "updated_at": "2026-11-03T12:19:05Z",
-      "pushed_at": "2026-10-22T09:37:19Z",
-      "size_kb": 403,
+      "updated_at": "2026-11-07T18:32:07Z",
+      "pushed_at": "2026-11-07T18:32:10Z",
+      "size_kb": 491,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -3486,7 +5037,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "de3aabbfa2b6d66350204ee1f511d90fd3557064",
+      "default_branch_sha": "180eab6946356efd8416976d50b6edcd132bf9a9",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -3501,19 +5052,54 @@
           "name": "Workbench checks",
           "path": ".github/workflows/ci.yml",
           "state": "active"
+        },
+        {
+          "id": 410449116,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
+          "id": 410547897,
+          "name": "Dependabot Updates",
+          "path": "dynamic/dependabot/dependabot-updates",
+          "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763340,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
+        "dependencies",
         "documentation",
         "duplicate",
         "enhancement",
         "good first issue",
         "help wanted",
         "invalid",
+        "javascript",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -3547,8 +5133,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 2
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -3560,10 +5146,14 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "7ca44d1870eb83a64de49d4f945c127de8b1ee7d",
+          "size": 2037,
+          "type": "file"
         },
         "SECURITY.md": {
-          "status": "absent"
+          "sha": "9c1582db4607e88286aecb9fe1a8a59a388a6eb6",
+          "size": 1279,
+          "type": "file"
         },
         "CONTRIBUTING.md": {
           "status": "absent"
@@ -3581,7 +5171,7 @@
         }
       },
       "community_health": {
-        "health_percentage": 57,
+        "health_percentage": 71,
         "files": {
           "code_of_conduct": null,
           "code_of_conduct_file": null,
@@ -3605,7 +5195,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVALXVA",
+        "nameWithOwner": "styayur/publishing-workbench",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVALXVM4DKmXJ",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVALXVM4DKmXK",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVALXVM4DKmXM",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVALXVM4DKmXO",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVALXVM4DKmXL",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVALXVM4DKmXN",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1399208491,
@@ -3622,14 +5268,14 @@
       "language": "TypeScript",
       "license": "MPL-2.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-10-01T05:34:54Z",
-      "updated_at": "2026-11-06T13:22:54Z",
-      "pushed_at": "2026-11-06T13:09:00Z",
-      "size_kb": 11056,
+      "updated_at": "2026-11-07T17:59:33Z",
+      "pushed_at": "2026-11-07T17:59:29Z",
+      "size_kb": 10690,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -3639,7 +5285,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "fa5c96397dcc579b547d3ce9cde36d3c6954166b",
+      "default_branch_sha": "b619ec8f8532345751fffdd8f731ecb2195c45ba",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -3668,6 +5314,12 @@
           "state": "active"
         },
         {
+          "id": 410444452,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
           "id": 409314778,
           "name": "Release",
           "path": ".github/workflows/release.yml",
@@ -3687,10 +5339,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763224,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -3702,7 +5362,18 @@
         "invalid",
         "javascript",
         "milestone",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -3758,8 +5429,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 8
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -3771,7 +5442,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "0d1a1ad5586320b044683ab2c44eaaa01f6db7dd",
+          "size": 2219,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "be121e96df83684a74e5e70a470b8332d4ff8a77",
@@ -3833,7 +5506,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOU2Y6Kw",
+        "nameWithOwner": "styayur/rhizomaybor",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOU2Y6K84DKmXP",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU2Y6K84DKmXQ",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU2Y6K84DKmXS",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU2Y6K84DKmXU",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU2Y6K84DKmXR",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOU2Y6K84DKmXT",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1433866493,
@@ -3850,14 +5579,14 @@
       "language": "TypeScript",
       "license": "MPL-2.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-26T03:40:52Z",
-      "updated_at": "2026-11-02T17:06:41Z",
-      "pushed_at": "2026-10-27T00:10:50Z",
-      "size_kb": 1029,
+      "updated_at": "2026-11-07T17:59:28Z",
+      "pushed_at": "2026-11-07T17:59:22Z",
+      "size_kb": 1033,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -3867,7 +5596,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "1089fcee172d78af783e77e6b8d20922f3d21d09",
+      "default_branch_sha": "fb8ff33e19d280da85921ea897d7868ba3647013",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -3876,11 +5605,32 @@
           "name": "CI",
           "path": ".github/workflows/ci.yml",
           "state": "active"
+        },
+        {
+          "id": 410460862,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
+          "id": 410532523,
+          "name": "Dependency Graph",
+          "path": "dynamic/dependabot/update-graph",
+          "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763122,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -3888,7 +5638,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -3922,8 +5683,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -3935,10 +5696,14 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "d3056daaead9760111601426216dbcc78ccbe077",
+          "size": 2001,
+          "type": "file"
         },
         "SECURITY.md": {
-          "status": "absent"
+          "sha": "e778c570e49f724aecce9ccaae698fc38738ea65",
+          "size": 1001,
+          "type": "file"
         },
         "CONTRIBUTING.md": {
           "sha": "a6bbcb3734215ba2179717686520e4d7252c4323",
@@ -3958,7 +5723,7 @@
         }
       },
       "community_health": {
-        "health_percentage": 57,
+        "health_percentage": 71,
         "files": {
           "code_of_conduct": null,
           "code_of_conduct_file": null,
@@ -3982,7 +5747,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVXcQ_Q",
+        "nameWithOwner": "styayur/ripple",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVXcQ_c4DKmXV",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVXcQ_c4DKmXW",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVXcQ_c4DKmXY",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVXcQ_c4DKmXa",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVXcQ_c4DKmXX",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVXcQ_c4DKmXZ",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1398635384,
@@ -3999,14 +5820,14 @@
       "language": "JavaScript",
       "license": "CC-BY-4.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-09-30T19:12:05Z",
-      "updated_at": "2026-11-02T17:36:52Z",
-      "pushed_at": "2026-11-02T17:36:50Z",
-      "size_kb": 91,
+      "updated_at": "2026-11-07T17:59:21Z",
+      "pushed_at": "2026-11-07T17:59:18Z",
+      "size_kb": 100,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -4015,10 +5836,10 @@
         "pull": true
       },
       "security_and_analysis": null,
-      "open_issues_count": 2,
-      "default_branch_sha": "4762807ea0e65a2a16b4654efc13524f910b976c",
+      "open_issues_count": 0,
+      "default_branch_sha": "595d8f56afd0e64385937944cd604fd7013d7ff4",
       "open_prs": 0,
-      "open_issues": 2,
+      "open_issues": 0,
       "workflows": [
         {
           "id": 373823156,
@@ -4030,6 +5851,12 @@
           "id": 392987760,
           "name": "Weekly public portfolio audit",
           "path": ".github/workflows/portfolio-audit.yml",
+          "state": "active"
+        },
+        {
+          "id": 410439543,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -4046,10 +5873,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763226,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -4057,7 +5892,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [],
@@ -4069,8 +5915,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -4082,10 +5928,14 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "bb29bc9cf9ec76b0b1e54dfe4cbedd3eeca8b17f",
+          "size": 2187,
+          "type": "file"
         },
         "SECURITY.md": {
-          "status": "absent"
+          "sha": "639ced7c878180925092b0c407a70f17d41f5cf8",
+          "size": 931,
+          "type": "file"
         },
         "CONTRIBUTING.md": {
           "status": "absent"
@@ -4103,7 +5953,7 @@
         }
       },
       "community_health": {
-        "health_percentage": 42,
+        "health_percentage": 57,
         "files": {
           "code_of_conduct": null,
           "code_of_conduct_file": null,
@@ -4124,7 +5974,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOU117eA",
+        "nameWithOwner": "styayur/styayur",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOU117eM4DKmXb",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU117eM4DKmXc",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU117eM4DKmXe",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU117eM4DKmXg",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOU117eM4DKmXd",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOU117eM4DKmXf",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1362258046,
@@ -4141,14 +6047,14 @@
       "language": "HTML",
       "license": "GPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-09T05:50:25Z",
-      "updated_at": "2026-10-22T15:19:37Z",
-      "pushed_at": "2026-10-22T15:19:33Z",
-      "size_kb": 3581,
+      "updated_at": "2026-11-07T17:59:15Z",
+      "pushed_at": "2026-11-07T17:59:13Z",
+      "size_kb": 3590,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -4158,7 +6064,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "7cd1ba65e6896b40109e86601babacf3acd33880",
+      "default_branch_sha": "8886ed1960627ed48a6f3b0c29cf844962c38b43",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -4166,6 +6072,12 @@
           "id": 378381433,
           "name": "Compatibility entrypoint",
           "path": ".github/workflows/compatibility.yml",
+          "state": "active"
+        },
+        {
+          "id": 410438270,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -4188,10 +6100,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26762740,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -4199,7 +6119,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [],
@@ -4224,17 +6155,21 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "4d987b629dcf83bb418041236399d45b18cf5f93",
+          "size": 2016,
+          "type": "file"
         },
         "SECURITY.md": {
-          "status": "absent"
+          "sha": "245d21cada6c8b3b3727ecbc07bf46484ebb693d",
+          "size": 904,
+          "type": "file"
         },
         "CONTRIBUTING.md": {
           "status": "absent"
         },
         "README.md": {
-          "sha": "b4a29c81260d1c4c327d5a70891a0e10821b533e",
-          "size": 2551,
+          "sha": "7579360954b360d1e2c5162ccc469f1592a7f59c",
+          "size": 2943,
           "type": "file"
         },
         ".github/PULL_REQUEST_TEMPLATE.md": {
@@ -4245,7 +6180,7 @@
         }
       },
       "community_health": {
-        "health_percentage": 42,
+        "health_percentage": 57,
         "files": {
           "code_of_conduct": null,
           "code_of_conduct_file": null,
@@ -4266,7 +6201,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUTJofg",
+        "nameWithOwner": "styayur/styayur.github.io",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUTJofs4DKmXh",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUTJofs4DKmXi",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUTJofs4DKmXk",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUTJofs4DKmXm",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUTJofs4DKmXj",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUTJofs4DKmXl",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1446492624,
@@ -4283,14 +6274,14 @@
       "language": "TypeScript",
       "license": "MIT",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-11-05T03:38:53Z",
-      "updated_at": "2026-11-06T11:11:35Z",
-      "pushed_at": "2026-11-06T11:14:21Z",
-      "size_kb": 2868,
+      "updated_at": "2026-11-07T17:59:09Z",
+      "pushed_at": "2026-11-07T17:59:05Z",
+      "size_kb": 2875,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -4300,7 +6291,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "2232106b4ac612ec8558ed9b6a0870557e8c460b",
+      "default_branch_sha": "242e0302a703d8152ca88b4d479be1b42e656c7d",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -4317,15 +6308,36 @@
           "state": "active"
         },
         {
+          "id": 410439592,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
           "id": 407673618,
           "name": "Release",
           "path": ".github/workflows/release.yml",
           "state": "active"
+        },
+        {
+          "id": 410532604,
+          "name": "Dependency Graph",
+          "path": "dynamic/dependabot/update-graph",
+          "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763227,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -4333,7 +6345,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -4387,8 +6410,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -4400,7 +6423,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "7f6eb45ce9910218f5aa260b5cab41d22d4cdc9a",
+          "size": 2139,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "f72c41a8b2c83c88a7394b1431e2cf442c0a9936",
@@ -4449,7 +6474,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVje50A",
+        "nameWithOwner": "styayur/terics",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVje50M4DKmXn",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVje50M4DKmXo",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVje50M4DKmXq",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVje50M4DKmXs",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVje50M4DKmXp",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVje50M4DKmXr",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1431300746,
@@ -4466,14 +6547,14 @@
       "language": "Rust",
       "license": "AGPL-3.0",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": false,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-10-23T16:41:11Z",
-      "updated_at": "2026-11-02T16:33:36Z",
-      "pushed_at": "2026-11-02T16:35:55Z",
-      "size_kb": 54,
+      "updated_at": "2026-11-07T17:58:56Z",
+      "pushed_at": "2026-11-07T17:58:54Z",
+      "size_kb": 61,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -4483,7 +6564,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "614df61a965735558edf26efd6dd58395bba2f53",
+      "default_branch_sha": "440bb99f4b4301ca802a972a750c33e0ec196d10",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -4491,6 +6572,12 @@
           "id": 394312783,
           "name": "CI",
           "path": ".github/workflows/ci.yml",
+          "state": "active"
+        },
+        {
+          "id": 410439647,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -4506,9 +6593,18 @@
           "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763128,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -4518,8 +6614,19 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
         "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -4556,7 +6663,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "beb95e43329ccdef627de602e12c73415ff721d0",
+          "size": 2144,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "9000cc30c1964f1d85784c497b72feb1f066e14d",
@@ -4615,7 +6724,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVU_qig",
+        "nameWithOwner": "styayur/trucli",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVU_qis4DKmXt",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVU_qis4DKmXu",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVU_qis4DKmXw",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVU_qis4DKmXy",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVU_qis4DKmXv",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVU_qis4DKmXx",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1393107744,
@@ -4637,9 +6802,9 @@
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-28T15:34:55Z",
-      "updated_at": "2026-11-04T18:48:18Z",
-      "pushed_at": "2026-11-04T18:50:31Z",
-      "size_kb": 5777,
+      "updated_at": "2026-11-07T17:32:54Z",
+      "pushed_at": "2026-11-07T17:32:52Z",
+      "size_kb": 5683,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -4649,7 +6814,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 1,
-      "default_branch_sha": "a546ae05fcc783dd9c4ca3da3c8f8d2cd9f92072",
+      "default_branch_sha": "820cef99283dfc99237f5e44996fb49884b8ffb9",
       "open_prs": 1,
       "open_issues": 0,
       "workflows": [
@@ -4669,6 +6834,12 @@
           "id": 369283963,
           "name": "Deploy web (GitHub Pages)",
           "path": ".github/workflows/deploy-pages.yml",
+          "state": "active"
+        },
+        {
+          "id": 410477547,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -4709,10 +6880,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763282,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -4723,8 +6902,19 @@
         "help wanted",
         "invalid",
         "javascript",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
         "rust",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -4811,7 +7001,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "97c87f579005e2734e120c3644c029f949a1a134",
+          "size": 2301,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "748925f7117c88886121b06cc83e2ab0996c04e9",
@@ -4865,7 +7057,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUwkjIA",
+        "nameWithOwner": "styayur/vextessera",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUwkjIM4DGw0X",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUwkjIM4DGw0Y",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUwkjIM4DGw0a",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUwkjIM4DGw0c",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUwkjIM4DGw0Z",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUwkjIM4DGw0b",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1378504882,
@@ -4882,14 +7130,14 @@
       "language": "PowerShell",
       "license": "MIT",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": false,
       "is_template": false,
       "created_at": "2026-09-20T15:48:13Z",
-      "updated_at": "2026-11-07T12:47:43Z",
-      "pushed_at": "2026-11-07T12:48:36Z",
-      "size_kb": 654,
+      "updated_at": "2026-11-07T17:58:32Z",
+      "pushed_at": "2026-11-07T17:58:29Z",
+      "size_kb": 665,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -4898,9 +7146,9 @@
         "pull": true
       },
       "security_and_analysis": null,
-      "open_issues_count": 2,
-      "default_branch_sha": "d9dc7c68b6ef952ab4a7c9b3be54a5db9b10edd9",
-      "open_prs": 1,
+      "open_issues_count": 1,
+      "default_branch_sha": "8b0e9707ac75beb0a1195ef55677835f30a0d5ed",
+      "open_prs": 0,
       "open_issues": 1,
       "workflows": [
         {
@@ -4913,6 +7161,12 @@
           "id": 409607690,
           "name": "Disposable package integration",
           "path": ".github/workflows/disposable-integration.yml",
+          "state": "active"
+        },
+        {
+          "id": 410472347,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
           "state": "active"
         },
         {
@@ -4953,10 +7207,18 @@
           "target": "branch",
           "enforcement": "active",
           "source_type": "Repository"
+        },
+        {
+          "id": 26763129,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
         }
       ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "dependencies",
         "documentation",
@@ -4967,7 +7229,18 @@
         "help wanted",
         "invalid",
         "milestone",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -5042,11 +7315,13 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "279a62221f5d9b999b2bd7e0343de4ff6a88c4e4",
+          "size": 2347,
+          "type": "file"
         },
         "SECURITY.md": {
-          "sha": "736bfae0fcf9632b72c0682f4713bfff54db735b",
-          "size": 1861,
+          "sha": "62c42ecec1fab30fb04c09e1fb610039c5fc7e13",
+          "size": 1898,
           "type": "file"
         },
         "CONTRIBUTING.md": {
@@ -5055,8 +7330,8 @@
           "type": "file"
         },
         "README.md": {
-          "sha": "a45a3b917475d821593c9aeb8a20c31fd90a8e59",
-          "size": 12084,
+          "sha": "73738c113bc84cf151b63bb183363378ba040e1c",
+          "size": 12335,
           "type": "file"
         },
         ".github/PULL_REQUEST_TEMPLATE.md": {
@@ -5096,7 +7371,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOUipQsg",
+        "nameWithOwner": "styayur/whinset",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOUipQss4DKmX5",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUipQss4DKmX6",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUipQss4DKmX8",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUipQss4DKmX-",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOUipQss4DKmX7",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOUipQss4DKmX9",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     },
     {
       "id": 1409885379,
@@ -5113,14 +7444,14 @@
       "language": "PowerShell",
       "license": "MIT",
       "has_issues": true,
-      "has_discussions": false,
+      "has_discussions": true,
       "has_projects": true,
       "has_wiki": true,
       "is_template": false,
       "created_at": "2026-10-08T07:02:11Z",
-      "updated_at": "2026-10-23T05:51:55Z",
-      "pushed_at": "2026-10-23T05:54:03Z",
-      "size_kb": 367,
+      "updated_at": "2026-11-07T18:10:19Z",
+      "pushed_at": "2026-11-07T18:10:14Z",
+      "size_kb": 372,
       "permissions": {
         "admin": true,
         "maintain": true,
@@ -5130,7 +7461,7 @@
       },
       "security_and_analysis": null,
       "open_issues_count": 0,
-      "default_branch_sha": "76393a209bf50787583b27524aef385723f573b1",
+      "default_branch_sha": "aa75883503effb2ab394fa47fd0eb99ede342151",
       "open_prs": 0,
       "open_issues": 0,
       "workflows": [
@@ -5147,15 +7478,30 @@
           "state": "active"
         },
         {
+          "id": 410438336,
+          "name": "Portfolio Evidence Gate",
+          "path": ".github/workflows/portfolio-gate.yml",
+          "state": "active"
+        },
+        {
           "id": 378722148,
           "name": "Windows PowerShell",
           "path": ".github/workflows/windows.yml",
           "state": "active"
         }
       ],
-      "rulesets": [],
+      "rulesets": [
+        {
+          "id": 26763285,
+          "name": "Portfolio default branch safety",
+          "target": "branch",
+          "enforcement": "active",
+          "source_type": "Repository"
+        }
+      ],
       "labels": [
         "accessibility",
+        "agent:ready",
         "bug",
         "documentation",
         "duplicate",
@@ -5163,7 +7509,18 @@
         "good first issue",
         "help wanted",
         "invalid",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
         "question",
+        "release-blocker",
+        "state:blocked",
+        "state:needs-evidence",
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
         "wontfix"
       ],
       "releases": [
@@ -5217,8 +7574,8 @@
         "sha_pinning_required": false
       },
       "dependabot_alerts": {
-        "status": "ERROR",
-        "error": "gh: Dependabot alerts are disabled for this repository. (HTTP 403)\ngh: This API operation needs the \"admin:repo_hook\" scope. To request it, run:  gh auth refresh -h github.com -s admin:repo_hook"
+        "status": "OK",
+        "count": 0
       },
       "secret_scanning_alerts": {
         "status": "OK",
@@ -5230,7 +7587,9 @@
       },
       "files": {
         "AGENTS.md": {
-          "status": "absent"
+          "sha": "3c8dd93dde77fcaf737ec8426659891708d86ca2",
+          "size": 2194,
+          "type": "file"
         },
         "SECURITY.md": {
           "sha": "d3d62fb1d02728f11d9665f066d7c4c9c427b5e1",
@@ -5282,7 +7641,63 @@
           }
         }
       },
-      "discussion_state": {}
+      "discussion_state": {
+        "id": "R_kgDOVAkkww",
+        "nameWithOwner": "styayur/wutnet",
+        "isArchived": false,
+        "visibility": "PUBLIC",
+        "discussionCategories": {
+          "totalCount": 6,
+          "nodes": [
+            {
+              "id": "DIC_kwDOVAkkw84DKmX_",
+              "name": "Announcements",
+              "slug": "announcements",
+              "description": "Updates from maintainers",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAkkw84DKmYA",
+              "name": "General",
+              "slug": "general",
+              "description": "Chat about anything and everything here",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAkkw84DKmYC",
+              "name": "Ideas",
+              "slug": "ideas",
+              "description": "Share ideas for new features",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAkkw84DKmYE",
+              "name": "Polls",
+              "slug": "polls",
+              "description": "Take a vote from the community",
+              "isAnswerable": false
+            },
+            {
+              "id": "DIC_kwDOVAkkw84DKmYB",
+              "name": "Q&A",
+              "slug": "q-a",
+              "description": "Ask the community for help",
+              "isAnswerable": true
+            },
+            {
+              "id": "DIC_kwDOVAkkw84DKmYD",
+              "name": "Show and tell",
+              "slug": "show-and-tell",
+              "description": "Show off something you've made",
+              "isAnswerable": false
+            }
+          ]
+        },
+        "discussions": {
+          "totalCount": 0,
+          "nodes": []
+        }
+      }
     }
   ]
 }

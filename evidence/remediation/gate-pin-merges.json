@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-11-07T18:20:08Z",
+  "records": [
+    {
+      "repository": "styayur/LGXT-Assistant",
+      "prNumber": 45,
+      "headSha": "234f87f12fd292a35b321e0c581f49132445c4c0",
+      "baseSha": "f855dc0c402275220ffb0273f8338b7be991c625",
+      "status": "MERGED",
+      "verification": {
+        "headRefOid": "234f87f12fd292a35b321e0c581f49132445c4c0",
+        "mergeCommit": {
+          "oid": "efab2e758d88bb4b6f715c332c32e4d7b7211c35"
+        },
+        "mergedAt": "2026-11-07T18:20:07Z",
+        "state": "MERGED"
+      }
+    }
+  ]
+}
