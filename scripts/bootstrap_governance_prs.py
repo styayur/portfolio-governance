@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import render_agents
 
-CENTRAL_SHA = 'd34be191d8578b891a1db2c54308d154520389e6'
+CENTRAL_SHA = 'be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa'
 WORK = Path.home() / 'portfolio-work' / 'repos'
 BRANCH = 'codex/portfolio-governance-baseline'
 INVENTORY = ROOT / 'evidence/baseline/portfolio-inventory.json'
