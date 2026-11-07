@@ -12,7 +12,12 @@ OUT = ROOT / 'evidence/baseline/portfolio-project-sync.json'
 
 
 def gql(query, variables):
-    p = subprocess.run(['gh', 'api', 'graphql', '--input', '-'], input=json.dumps({'query': query, 'variables': variables}), text=True, capture_output=True)
+    token = os.environ.get('PORTFOLIO_PROJECT_TOKEN')
+    if not token:
+        raise RuntimeError('PORTFOLIO_PROJECT_TOKEN is required for user-owned Projects V2')
+    env = os.environ.copy()
+    env['GH_TOKEN'] = token
+    p = subprocess.run(['gh', 'api', 'graphql', '--input', '-'], input=json.dumps({'query': query, 'variables': variables}), text=True, capture_output=True, env=env)
     if p.returncode:
         raise RuntimeError((p.stderr or p.stdout).strip())
     data = json.loads(p.stdout)
