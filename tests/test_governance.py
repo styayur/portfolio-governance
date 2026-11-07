@@ -103,3 +103,21 @@ def test_gate_passes_successful_checks():
 def test_gate_pending_checks_are_not_success():
     status = evidence_gate.evaluate_checks([check('python', 'IN_PROGRESS', 'Verify')], 'R1')
     assert status['testStatus'] == 'PENDING'
+
+
+def test_stacked_codeql_skip_is_not_applicable_when_default_codeql_succeeds():
+    status = evidence_gate.evaluate_checks([
+        check('CodeQL stacked (rust)', 'SKIPPED', 'Stacked PR CodeQL'),
+        check('CodeQL', 'SUCCESS', 'CodeQL'),
+    ], 'R3')
+    assert status['testStatus'] == 'PASS'
+    assert [item['name'] for item in status['notApplicableSkipped']] == ['CodeQL stacked (rust)']
+
+
+def test_stacked_codeql_skip_without_default_codeql_remains_fail_closed():
+    status = evidence_gate.evaluate_checks([
+        check('CodeQL stacked (rust)', 'SKIPPED', 'Stacked PR CodeQL'),
+        check('python', 'SUCCESS', 'Verify'),
+    ], 'R3')
+    assert status['testStatus'] == 'FAIL_SKIPPED_REQUIRED_WORK'
+    assert status['notApplicableSkipped'] == []
