@@ -1,0 +1,42 @@
+name: Portfolio audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 1 * * 1'
+
+permissions:
+  actions: read
+  contents: read
+  issues: write
+  metadata: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Collect live GitHub portfolio evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/audit_portfolio.py
+      - name: Validate evidence contract
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          inv=json.loads(Path('evidence/baseline/portfolio-inventory.json').read_text())
+          assert inv['meta']['repo_count'] == len(inv['repositories'])
+          assert all(r['visibility'] == 'PUBLIC' for r in inv['repositories'])
+          assert 'styayur/site' not in {r['full_name'] for r in inv['repositories']}
+          PY
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: portfolio-audit-${{ github.run_id }}
+          path: evidence/baseline/
+          if-no-files-found: warn
+          retention-days: 90

@@ -1,0 +1,16 @@
+{
+  "labels": [
+    {"name": "type:bug", "color": "D73A4A", "description": "Defect in existing behavior"},
+    {"name": "type:feature", "color": "1F6FEB", "description": "New capability or product change"},
+    {"name": "type:maintenance", "color": "6E7781", "description": "Dependencies, refactors, documentation, CI or cleanup"},
+    {"name": "type:security", "color": "B60205", "description": "Security, privacy, permissions or supply-chain work"},
+    {"name": "priority:P0", "color": "B60205", "description": "Immediate critical priority"},
+    {"name": "priority:P1", "color": "D93F0B", "description": "High priority"},
+    {"name": "priority:P2", "color": "FBCA04", "description": "Normal priority"},
+    {"name": "priority:P3", "color": "C5DEF5", "description": "Low priority"},
+    {"name": "state:blocked", "color": "8B0000", "description": "Blocked by missing evidence, authorization or environment"},
+    {"name": "state:needs-evidence", "color": "F9D0C4", "description": "Implementation may exist but required evidence is missing"},
+    {"name": "release-blocker", "color": "B60205", "description": "Must be resolved before a release claim"},
+    {"name": "agent:ready", "color": "0E8A16", "description": "Safe for autonomous implementation or review"}
+  ]
+}

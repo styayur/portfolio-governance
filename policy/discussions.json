@@ -1,0 +1,14 @@
+{
+  "categories": [
+    {"name": "General", "emoji": ":speech_balloon:", "description": "General project discussion"},
+    {"name": "Ideas", "emoji": ":bulb:", "description": "Proposals and direction"},
+    {"name": "Q&A", "emoji": ":question:", "description": "Questions and support"},
+    {"name": "Announcements", "emoji": ":loudspeaker:", "description": "Release and project announcements"}
+  ],
+  "usage": {
+    "discussion": "proposals, direction, questions and open-ended discussion",
+    "issue": "confirmed actionable work",
+    "pull_request": "specific implementation and verification",
+    "project": "cross-repository progress and links"
+  }
+}
