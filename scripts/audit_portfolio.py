@@ -50,7 +50,7 @@ for r in public:
         "node_id": r.get("node_id"),
         "name": r["name"],
         "full_name": name,
-        "visibility": r.get("visibility"),
+        "visibility": str(r.get("visibility") or "").upper(),
         "private": r.get("private"),
         "fork": r.get("fork"),
         "archived": r.get("archived"),
