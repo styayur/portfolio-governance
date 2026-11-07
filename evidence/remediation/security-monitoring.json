@@ -1,0 +1,1069 @@
+{
+  "generatedAt": "2026-11-07T17:36:18Z",
+  "repositories": [
+    {
+      "repository": "styayur/LGXT-Assistant",
+      "checkedAt": "2026-11-07T17:35:03Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/Nickspeare",
+      "checkedAt": "2026-11-07T17:35:05Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/OmniRoute-PS",
+      "checkedAt": "2026-11-07T17:35:07Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/TinySTT",
+      "checkedAt": "2026-11-07T17:35:11Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/TinyTTS",
+      "checkedAt": "2026-11-07T17:35:14Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/calligra",
+      "checkedAt": "2026-11-07T17:35:16Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/codeforge-engine",
+      "checkedAt": "2026-11-07T17:35:18Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/codex-mode-switcher",
+      "checkedAt": "2026-11-07T17:35:21Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/developer-security-workspace",
+      "checkedAt": "2026-11-07T17:35:24Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/fitimart",
+      "checkedAt": "2026-11-07T17:35:26Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/gitpad-plus",
+      "checkedAt": "2026-11-07T17:35:28Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/glyphibe",
+      "checkedAt": "2026-11-07T17:35:32Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/ipa-first-tts",
+      "checkedAt": "2026-11-07T17:35:35Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/local-context-engine",
+      "checkedAt": "2026-11-07T17:35:38Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/musical-spinningtop",
+      "checkedAt": "2026-11-07T17:35:41Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/mzk",
+      "checkedAt": "2026-11-07T17:35:43Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/ogleans",
+      "checkedAt": "2026-11-07T17:35:46Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/portfolio-governance",
+      "checkedAt": "2026-11-07T17:35:50Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/publishing-workbench",
+      "checkedAt": "2026-11-07T17:35:53Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/rhizomaybor",
+      "checkedAt": "2026-11-07T17:35:56Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/ripple",
+      "checkedAt": "2026-11-07T17:35:59Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/styayur",
+      "checkedAt": "2026-11-07T17:36:01Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/styayur.github.io",
+      "checkedAt": "2026-11-07T17:36:04Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/terics",
+      "checkedAt": "2026-11-07T17:36:06Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/trucli",
+      "checkedAt": "2026-11-07T17:36:09Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/vextessera",
+      "checkedAt": "2026-11-07T17:36:11Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/whinset",
+      "checkedAt": "2026-11-07T17:36:13Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "repository": "styayur/wutnet",
+      "checkedAt": "2026-11-07T17:36:15Z",
+      "vulnerabilityAlerts": {
+        "before": {
+          "ok": false,
+          "stdout": "{\"message\":\"Vulnerability alerts are disabled.\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository\",\"status\":\"404\"}",
+          "stderr": "gh: Vulnerability alerts are disabled. (HTTP 404)"
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        }
+      },
+      "automatedSecurityFixes": {
+        "before": {
+          "ok": true,
+          "stdout": "{\"enabled\":false,\"paused\":false}",
+          "stderr": ""
+        },
+        "enable": {
+          "ok": true,
+          "stdout": "",
+          "stderr": ""
+        },
+        "after": {
+          "ok": true,
+          "stdout": "{\"enabled\":true,\"paused\":false}",
+          "stderr": ""
+        }
+      }
+    }
+  ]
+}

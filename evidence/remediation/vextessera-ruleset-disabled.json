@@ -1,0 +1,65 @@
+{
+  "id": 26763282,
+  "name": "Portfolio default branch safety",
+  "target": "branch",
+  "source_type": "Repository",
+  "source": "styayur/vextessera",
+  "enforcement": "disabled",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "~DEFAULT_BRANCH"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 0,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": false,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": false,
+        "allowed_merge_methods": [
+          "squash"
+        ]
+      }
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "portfolio / Portfolio Evidence Gate / verify",
+            "integration_id": 15368
+          }
+        ]
+      }
+    }
+  ],
+  "node_id": "RRS_lACqUmVwb3NpdG9yec5TCSMgzgGYYBI",
+  "created_at": "2026-11-07T16:19:52.070Z",
+  "updated_at": "2026-11-07T17:32:26.823Z",
+  "bypass_actors": [],
+  "current_user_can_bypass": "never",
+  "_links": {
+    "self": {
+      "href": "https://api.github.com/repos/styayur/vextessera/rulesets/26763282"
+    },
+    "html": {
+      "href": "https://github.com/styayur/vextessera/rules/26763282"
+    }
+  }
+}

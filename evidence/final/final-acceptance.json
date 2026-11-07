@@ -1,0 +1,834 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-07T18:55:00Z",
+  "codespacesFirst": {
+    "status": "PASS",
+    "codespace": "styayur-portfolio-governance-96jxv56p97rjc9777",
+    "note": "Repository/API orchestration and evidence generation ran from this Codespace; owner-only GitHub App and classic-token provisioning used the authenticated browser UI."
+  },
+  "repositoryCoverage": {
+    "status": "PASS",
+    "count": 28,
+    "privateSiteExcluded": "styayur/site"
+  },
+  "governance": {
+    "PASS": 28,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT_VERIFIED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "agents": {
+    "PASS": 28,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT_VERIFIED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "security": {
+    "PASS": 8,
+    "FAIL": 9,
+    "BLOCKED": 0,
+    "NOT_VERIFIED": 11,
+    "NOT_APPLICABLE": 0
+  },
+  "actions": {
+    "PASS": 28,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT_VERIFIED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "releases": {
+    "PASS": 28,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT_VERIFIED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "project": {
+    "status": "PASS",
+    "reason": "fields=['Evidence', 'Last Verified', 'Priority', 'Repository', 'Risk', 'Status', 'Target Release', 'Work Type'] views=[('Board', 'BOARD_LAYOUT'), ('Roadmap', 'ROADMAP_LAYOUT'), ('Table', 'TABLE_LAYOUT')] items=43",
+    "fieldsRequired": [
+      "Evidence",
+      "Last Verified",
+      "Priority",
+      "Repository",
+      "Risk",
+      "Status",
+      "Target Release",
+      "Work Type"
+    ],
+    "viewsRequired": [
+      [
+        "Board",
+        "BOARD_LAYOUT"
+      ],
+      [
+        "Roadmap",
+        "ROADMAP_LAYOUT"
+      ],
+      [
+        "Table",
+        "TABLE_LAYOUT"
+      ]
+    ]
+  },
+  "automation": {
+    "status": "PASS",
+    "latestWorkflowSuccess": {
+      "conclusion": "success",
+      "createdAt": "2026-11-07T18:05:56Z",
+      "databaseId": 42399557482,
+      "displayTitle": "Portfolio project sync",
+      "headSha": "cde58fe63fc20a901d23c4f3332b055a46a13b20",
+      "status": "completed",
+      "url": "https://github.com/styayur/portfolio-governance/actions/runs/42399557482"
+    },
+    "githubApp": {
+      "id": 5658929,
+      "slug": "styayur-portfolio-governor-actions",
+      "clientId": "Iv23liT1J8hzTaTTCQdY"
+    },
+    "projectToken": {
+      "scope": [
+        "project"
+      ],
+      "expires": "2027-02-06",
+      "githubAppOnlyStatus": "BLOCKED",
+      "reason": "installation token cannot mutate user-owned Projects V2"
+    }
+  },
+  "securityMonitoring": {
+    "status": "PASS",
+    "enabled": 28,
+    "expected": 28
+  },
+  "openDependabotAlerts": {
+    "total": 24,
+    "repositories": {
+      "styayur/LGXT-Assistant": [],
+      "styayur/Nickspeare": [],
+      "styayur/OmniRoute-PS": [],
+      "styayur/TinySTT": [
+        {
+          "number": 7,
+          "state": "open",
+          "severity": "medium",
+          "package": "zip",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 2.4.2",
+          "patched": {
+            "identifier": "9.0.0"
+          },
+          "summary": "zip: AES Entry HMAC Authentication Bypass on Premature EOF",
+          "url": "https://github.com/styayur/TinySTT/security/dependabot/7"
+        },
+        {
+          "number": 6,
+          "state": "open",
+          "severity": "high",
+          "package": "zip",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 2.4.2",
+          "patched": {
+            "identifier": "9.0.0"
+          },
+          "summary": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
+          "url": "https://github.com/styayur/TinySTT/security/dependabot/6"
+        },
+        {
+          "number": 5,
+          "state": "open",
+          "severity": "critical",
+          "package": "zip",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 2.4.2",
+          "patched": {
+            "identifier": "9.0.5"
+          },
+          "summary": "zip: Critical Parser Differential & Security Control Bypass via Dual-Header Inconsistencies (Zip Cloaking) Leading to Arbitrary File Overwrite & RCE",
+          "url": "https://github.com/styayur/TinySTT/security/dependabot/5"
+        },
+        {
+          "number": 4,
+          "state": "open",
+          "severity": "low",
+          "package": "rustls",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.23.45",
+          "patched": {
+            "identifier": "0.23.46"
+          },
+          "summary": "rustls: ECH rejection can expose buffered application data to authenticated outer server before `ech_required` alert",
+          "url": "https://github.com/styayur/TinySTT/security/dependabot/4"
+        },
+        {
+          "number": 3,
+          "state": "open",
+          "severity": "low",
+          "package": "rustls",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.23.45",
+          "patched": {
+            "identifier": "0.23.46"
+          },
+          "summary": "rustls: An unauthenticated ServerHello poisons the per-name key-exchange record, so later ClientHellos carry only a classical X25519 share",
+          "url": "https://github.com/styayur/TinySTT/security/dependabot/3"
+        },
+        {
+          "number": 2,
+          "state": "open",
+          "severity": "medium",
+          "package": "rustls",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.23.45",
+          "patched": {
+            "identifier": "0.23.46"
+          },
+          "summary": "Rustls: Session Debug formatting exposes TLS master secrets and resumption PSKs",
+          "url": "https://github.com/styayur/TinySTT/security/dependabot/2"
+        },
+        {
+          "number": 1,
+          "state": "open",
+          "severity": "low",
+          "package": "rustls",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.23.45",
+          "patched": {
+            "identifier": "0.23.46"
+          },
+          "summary": "Rustls: Brotli certificate decompression can allocate an attacker-controlled amount of memory up to 1 GiB before authentication.",
+          "url": "https://github.com/styayur/TinySTT/security/dependabot/1"
+        }
+      ],
+      "styayur/TinyTTS": [],
+      "styayur/calligra": [],
+      "styayur/codeforge-engine": [
+        {
+          "number": 2,
+          "state": "open",
+          "severity": "medium",
+          "package": "minimatch",
+          "ecosystem": "npm",
+          "manifest": "apps/desktop/pnpm-lock.yaml",
+          "scope": "development",
+          "relationship": "transitive",
+          "version": "10.2.6",
+          "patched": {
+            "identifier": "11.0.1"
+          },
+          "summary": "minimatch has potential denial of service via globparts amplification",
+          "url": "https://github.com/styayur/codeforge-engine/security/dependabot/2"
+        },
+        {
+          "number": 1,
+          "state": "open",
+          "severity": "medium",
+          "package": "glib",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.18.5",
+          "patched": {
+            "identifier": "0.20.0"
+          },
+          "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+          "url": "https://github.com/styayur/codeforge-engine/security/dependabot/1"
+        }
+      ],
+      "styayur/codex-mode-switcher": [],
+      "styayur/developer-security-workspace": [
+        {
+          "number": 8,
+          "state": "open",
+          "severity": "medium",
+          "package": "glib",
+          "ecosystem": "rust",
+          "manifest": "src-tauri/Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.18.5",
+          "patched": {
+            "identifier": "0.20.0"
+          },
+          "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+          "url": "https://github.com/styayur/developer-security-workspace/security/dependabot/8"
+        }
+      ],
+      "styayur/fitimart": [],
+      "styayur/gitpad-plus": [],
+      "styayur/glyphibe": [
+        {
+          "number": 1,
+          "state": "open",
+          "severity": "medium",
+          "package": "glib",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.18.5",
+          "patched": {
+            "identifier": "0.20.0"
+          },
+          "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+          "url": "https://github.com/styayur/glyphibe/security/dependabot/1"
+        }
+      ],
+      "styayur/ipa-first-tts": [],
+      "styayur/local-context-engine": [
+        {
+          "number": 1,
+          "state": "open",
+          "severity": "medium",
+          "package": "glib",
+          "ecosystem": "rust",
+          "manifest": "Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.18.5",
+          "patched": {
+            "identifier": "0.20.0"
+          },
+          "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+          "url": "https://github.com/styayur/local-context-engine/security/dependabot/1"
+        }
+      ],
+      "styayur/musical-spinningtop": [],
+      "styayur/mzk": [],
+      "styayur/ogleans": [
+        {
+          "number": 1,
+          "state": "open",
+          "severity": "medium",
+          "package": "minimatch",
+          "ecosystem": "npm",
+          "manifest": "pnpm-lock.yaml",
+          "scope": "development",
+          "relationship": "transitive",
+          "version": "10.2.6",
+          "patched": {
+            "identifier": "11.0.1"
+          },
+          "summary": "minimatch has potential denial of service via globparts amplification",
+          "url": "https://github.com/styayur/ogleans/security/dependabot/1"
+        }
+      ],
+      "styayur/portfolio-governance": [],
+      "styayur/publishing-workbench": [
+        {
+          "number": 5,
+          "state": "open",
+          "severity": "medium",
+          "package": "glib",
+          "ecosystem": "rust",
+          "manifest": "src-tauri/Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.18.5",
+          "patched": {
+            "identifier": "0.20.0"
+          },
+          "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+          "url": "https://github.com/styayur/publishing-workbench/security/dependabot/5"
+        },
+        {
+          "number": 4,
+          "state": "open",
+          "severity": "medium",
+          "package": "minimatch",
+          "ecosystem": "npm",
+          "manifest": "package-lock.json",
+          "scope": "development",
+          "relationship": "transitive",
+          "version": "10.2.6",
+          "patched": {
+            "identifier": "11.0.1"
+          },
+          "summary": "minimatch has potential denial of service via globparts amplification",
+          "url": "https://github.com/styayur/publishing-workbench/security/dependabot/4"
+        }
+      ],
+      "styayur/rhizomaybor": [
+        {
+          "number": 8,
+          "state": "open",
+          "severity": "medium",
+          "package": "glib",
+          "ecosystem": "rust",
+          "manifest": "src-tauri/Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.18.5",
+          "patched": {
+            "identifier": "0.20.0"
+          },
+          "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+          "url": "https://github.com/styayur/rhizomaybor/security/dependabot/8"
+        },
+        {
+          "number": 7,
+          "state": "open",
+          "severity": "medium",
+          "package": "postcss-selector-parser",
+          "ecosystem": "npm",
+          "manifest": "package-lock.json",
+          "scope": "runtime",
+          "relationship": "transitive",
+          "version": "6.1.4",
+          "patched": {
+            "identifier": "6.1.5"
+          },
+          "summary": "PostCSS: Quadratic complexity in flat selector parsing allows CPU exhaustion",
+          "url": "https://github.com/styayur/rhizomaybor/security/dependabot/7"
+        },
+        {
+          "number": 6,
+          "state": "open",
+          "severity": "low",
+          "package": "katex",
+          "ecosystem": "npm",
+          "manifest": "package-lock.json",
+          "scope": "runtime",
+          "relationship": "transitive",
+          "version": "0.16.47",
+          "patched": {
+            "identifier": "0.18.2"
+          },
+          "summary": "KaTeX: Existing prototype pollution can bypass trust restrictions",
+          "url": "https://github.com/styayur/rhizomaybor/security/dependabot/6"
+        },
+        {
+          "number": 5,
+          "state": "open",
+          "severity": "medium",
+          "package": "mermaid",
+          "ecosystem": "npm",
+          "manifest": "package-lock.json",
+          "scope": "runtime",
+          "relationship": "transitive",
+          "version": "11.15.0",
+          "patched": {
+            "identifier": "11.16.1"
+          },
+          "summary": "Mermaid radar diagrams are vulnerable to DoS",
+          "url": "https://github.com/styayur/rhizomaybor/security/dependabot/5"
+        },
+        {
+          "number": 4,
+          "state": "open",
+          "severity": "low",
+          "package": "mermaid",
+          "ecosystem": "npm",
+          "manifest": "package-lock.json",
+          "scope": "runtime",
+          "relationship": "transitive",
+          "version": "11.15.0",
+          "patched": {
+            "identifier": "11.16.1"
+          },
+          "summary": "Mermaid configuration APIs allow prototype pollution",
+          "url": "https://github.com/styayur/rhizomaybor/security/dependabot/4"
+        },
+        {
+          "number": 3,
+          "state": "open",
+          "severity": "medium",
+          "package": "mermaid",
+          "ecosystem": "npm",
+          "manifest": "package-lock.json",
+          "scope": "runtime",
+          "relationship": "transitive",
+          "version": "11.15.0",
+          "patched": {
+            "identifier": "11.16.1"
+          },
+          "summary": "Mermaid allows CSS injection applying to sibling elements of the diagram",
+          "url": "https://github.com/styayur/rhizomaybor/security/dependabot/3"
+        },
+        {
+          "number": 2,
+          "state": "open",
+          "severity": "medium",
+          "package": "mermaid",
+          "ecosystem": "npm",
+          "manifest": "package-lock.json",
+          "scope": "runtime",
+          "relationship": "transitive",
+          "version": "11.15.0",
+          "patched": {
+            "identifier": "11.16.1"
+          },
+          "summary": "Mermaid Architecture diagrams are vulnerable to prototype pollution",
+          "url": "https://github.com/styayur/rhizomaybor/security/dependabot/2"
+        },
+        {
+          "number": 1,
+          "state": "open",
+          "severity": "medium",
+          "package": "mermaid",
+          "ecosystem": "npm",
+          "manifest": "package-lock.json",
+          "scope": "runtime",
+          "relationship": "transitive",
+          "version": "11.15.0",
+          "patched": {
+            "identifier": "11.16.1"
+          },
+          "summary": "Mermaid XY Charts are vulnerable to an infinite loop DoS",
+          "url": "https://github.com/styayur/rhizomaybor/security/dependabot/1"
+        }
+      ],
+      "styayur/ripple": [],
+      "styayur/styayur": [],
+      "styayur/styayur.github.io": [],
+      "styayur/terics": [],
+      "styayur/trucli": [],
+      "styayur/vextessera": [
+        {
+          "number": 1,
+          "state": "open",
+          "severity": "medium",
+          "package": "glib",
+          "ecosystem": "rust",
+          "manifest": "src-tauri/Cargo.lock",
+          "scope": "runtime",
+          "relationship": "unknown",
+          "version": "= 0.18.5",
+          "patched": {
+            "identifier": "0.20.0"
+          },
+          "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+          "url": "https://github.com/styayur/vextessera/security/dependabot/1"
+        }
+      ],
+      "styayur/whinset": [],
+      "styayur/wutnet": []
+    }
+  },
+  "reviewGate": {
+    "status": "PASS",
+    "allowEvidence": true,
+    "denyEvidence": true,
+    "prs": [
+      {
+        "subject": "styayur/styayur.github.io#8",
+        "comments": [
+          {
+            "id": "IC_kwDOUTJofs8AAAABj-twFQ",
+            "author": {
+              "login": "github-actions"
+            },
+            "authorAssociation": "NONE",
+            "body": "<!-- portfolio-evidence-gate -->\n### Portfolio evidence gate\n\n- Risk: **R0**\n- Head: `bf80d496d712de8148db5f4c4f568144dcee6583`\n- Tests: **PASS**\n- Security: **PASS**\n- Review: **AUTO_MERGE_CANDIDATE**\n- Decision: **AUTO_MERGE_ELIGIBLE**\n- Evidence run: https://github.com/styayur/styayur.github.io/actions/runs/42389341842\n",
+            "createdAt": "2026-11-07T16:06:37Z",
+            "includesCreatedEdit": false,
+            "isMinimized": false,
+            "minimizedReason": "",
+            "reactionGroups": [],
+            "url": "https://github.com/styayur/styayur.github.io/pull/8#issuecomment-6709538837",
+            "viewerDidAuthor": false
+          }
+        ],
+        "headRefOid": "bf80d496d712de8148db5f4c4f568144dcee6583",
+        "mergeCommit": {
+          "oid": "f790afb0c54d7cf7b417d9ffc8247a7bd9c2fc9b"
+        },
+        "mergedAt": "2026-11-07T16:06:53Z",
+        "state": "MERGED",
+        "statusCheckRollup": [
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T16:05:44Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/styayur.github.io/actions/runs/42389339172/job/128453402585",
+            "name": "Analyze (actions)",
+            "startedAt": "2026-11-07T16:05:07Z",
+            "status": "COMPLETED",
+            "workflowName": "CodeQL"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T16:06:13Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/styayur.github.io/actions/runs/42389341459/job/128453406882",
+            "name": "verify",
+            "startedAt": "2026-11-07T16:06:07Z",
+            "status": "COMPLETED",
+            "workflowName": "Compatibility entrypoint"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T16:06:12Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/styayur.github.io/actions/runs/42389341842/job/128453409455",
+            "name": "portfolio / Portfolio Evidence Gate / risk",
+            "startedAt": "2026-11-07T16:06:06Z",
+            "status": "COMPLETED",
+            "workflowName": "Portfolio Evidence Gate"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T16:06:28Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/styayur.github.io/actions/runs/42389341842/job/128454137143",
+            "name": "portfolio / Portfolio Evidence Gate / review",
+            "startedAt": "2026-11-07T16:06:22Z",
+            "status": "COMPLETED",
+            "workflowName": "Portfolio Evidence Gate"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T16:06:43Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/styayur.github.io/actions/runs/42389341842/job/128454205363",
+            "name": "portfolio / Portfolio Evidence Gate / verify",
+            "startedAt": "2026-11-07T16:06:30Z",
+            "status": "COMPLETED",
+            "workflowName": "Portfolio Evidence Gate"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T16:06:55Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/styayur.github.io/actions/runs/42389341842/job/128454266005",
+            "name": "portfolio / Portfolio Evidence Gate / merge",
+            "startedAt": "2026-11-07T16:06:49Z",
+            "status": "COMPLETED",
+            "workflowName": "Portfolio Evidence Gate"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T16:05:36Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/styayur.github.io/runs/128453973066",
+            "name": "CodeQL",
+            "startedAt": "2026-11-07T16:05:34Z",
+            "status": "COMPLETED",
+            "workflowName": ""
+          }
+        ]
+      },
+      {
+        "subject": "styayur/portfolio-governance#3",
+        "comments": [
+          {
+            "id": "IC_kwDOVmQYVs8AAAABj91alQ",
+            "author": {
+              "login": "github-actions"
+            },
+            "authorAssociation": "NONE",
+            "body": "<!-- portfolio-evidence-gate -->\n### Portfolio evidence gate\n\n- Risk: **R4**\n- Head: `f1fbcf091541896d73e2b9b26ace52c1a0d6dc5d`\n- Tests: **PASS**\n- Security: **SECRET_SCAN_ONLY**\n- Review: **MANUAL_REVIEW_REQUIRED**\n- Decision: **MANUAL_REVIEW_REQUIRED**\n- Evidence run: https://github.com/styayur/portfolio-governance/actions/runs/42384260171\n\nManual review reasons:\n- R4 changes are outside the automatic-merge policy.\n",
+            "createdAt": "2026-11-07T15:01:02Z",
+            "includesCreatedEdit": false,
+            "isMinimized": false,
+            "minimizedReason": "",
+            "reactionGroups": [],
+            "url": "https://github.com/styayur/portfolio-governance/pull/3#issuecomment-6708615829",
+            "viewerDidAuthor": false
+          }
+        ],
+        "headRefOid": "f1fbcf091541896d73e2b9b26ace52c1a0d6dc5d",
+        "mergeCommit": {
+          "oid": "d34be191d8578b891a1db2c54308d154520389e6"
+        },
+        "mergedAt": "2026-11-07T15:02:17Z",
+        "state": "MERGED",
+        "statusCheckRollup": [
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T15:00:48Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/portfolio-governance/actions/runs/42384260144/job/128438215869",
+            "name": "test",
+            "startedAt": "2026-11-07T15:00:41Z",
+            "status": "COMPLETED",
+            "workflowName": "Governance self-checks"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T15:00:47Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/portfolio-governance/actions/runs/42384260171/job/128438217346",
+            "name": "portfolio / Portfolio Evidence Gate / risk",
+            "startedAt": "2026-11-07T15:00:41Z",
+            "status": "COMPLETED",
+            "workflowName": "Portfolio Evidence Gate"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T15:00:55Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/portfolio-governance/actions/runs/42384260171/job/128438250013",
+            "name": "portfolio / Portfolio Evidence Gate / review",
+            "startedAt": "2026-11-07T15:00:49Z",
+            "status": "COMPLETED",
+            "workflowName": "Portfolio Evidence Gate"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-11-07T15:01:06Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/styayur/portfolio-governance/actions/runs/42384260171/job/128438286562",
+            "name": "portfolio / Portfolio Evidence Gate / verify",
+            "startedAt": "2026-11-07T15:00:57Z",
+            "status": "COMPLETED",
+            "workflowName": "Portfolio Evidence Gate"
+          }
+        ]
+      }
+    ]
+  },
+  "blockers": [
+    {
+      "subject": "styayur/LGXT-Assistant#25",
+      "status": "BLOCKED",
+      "reason": "No independent ground-truth review, approved live provider/model budget or live OCR responses; no accuracy claim made."
+    },
+    {
+      "subject": "styayur/gitpad-plus#6",
+      "status": "BLOCKED",
+      "reason": "Draft acceptance remains incomplete; development probes are not a final release qualification."
+    },
+    {
+      "subject": "styayur/vextessera#21",
+      "status": "BLOCKED",
+      "reason": "Independent holdout validation and explicit product decision remain outstanding."
+    },
+    {
+      "subject": "styayur/TinySTT#7",
+      "status": "BLOCKED",
+      "reason": "Rustls patch retry still fails before tests because the Windows sherpa-onnx native static library is missing; PR remains open and visible."
+    },
+    {
+      "subject": "styayur/TinySTT",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 7; code scanning: API unavailable",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/codeforge-engine",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 2; code scanning: API unavailable",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/developer-security-workspace",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 1",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/glyphibe",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 1; code scanning: API unavailable",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/local-context-engine",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 1; code scanning: API unavailable",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/ogleans",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 1; code scanning: API unavailable",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/publishing-workbench",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 2; code scanning: API unavailable",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/rhizomaybor",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 8; code scanning: API unavailable",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "styayur/vextessera",
+      "status": "BLOCKED",
+      "reason": "Dependabot alerts: 1",
+      "remediation": "Keep private vulnerability reporting enabled and remediate actual alerts; do not suppress scanner findings.",
+      "residualRisk": "API-visible alerts do not enumerate all possible vulnerabilities."
+    },
+    {
+      "subject": "code-scanning-coverage",
+      "status": "NOT_VERIFIED",
+      "reason": "11 repositories have no accessible code-scanning result",
+      "repositories": [
+        "styayur/OmniRoute-PS",
+        "styayur/codex-mode-switcher",
+        "styayur/gitpad-plus",
+        "styayur/ipa-first-tts",
+        "styayur/mzk",
+        "styayur/portfolio-governance",
+        "styayur/ripple",
+        "styayur/styayur",
+        "styayur/terics",
+        "styayur/trucli",
+        "styayur/wutnet"
+      ]
+    },
+    {
+      "subject": "project-sync-credential-portability",
+      "status": "BLOCKED",
+      "reason": "GitHub App installation tokens cannot mutate user-owned Projects V2; a classic PAT limited to project scope is required and expires 2027-02-06.",
+      "remediation": "Rotate PORTFOLIO_PROJECT_TOKEN before expiry or migrate if GitHub adds supported fine-grained project access."
+    }
+  ],
+  "overallStatus": "FAIL",
+  "summary": {
+    "repositoriesProcessed": 28,
+    "publicRepositories": 28,
+    "agentsPass": 28,
+    "securityPass": 8,
+    "rulesetsPass": 28,
+    "actionsPass": 28,
+    "actionsFail": 0,
+    "securityFail": 9,
+    "securityNotVerified": 11,
+    "securityMonitoringPass": 28,
+    "openDependabotAlerts": 24,
+    "automationStatus": "PASS",
+    "openPRs": 3,
+    "blockedItems": 15
+  },
+  "qualityScore": null,
+  "note": "No score overrides a failed security check, missing evidence, an unavailable native runner or a missing paid-provider authorization."
+}

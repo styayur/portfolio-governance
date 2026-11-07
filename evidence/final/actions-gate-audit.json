@@ -1,0 +1,1670 @@
+{
+  "generatedAt": "2026-11-07T18:55:00Z",
+  "records": [
+    {
+      "subject": "styayur/LGXT-Assistant",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/android-apk.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/android-release-acceptance.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/android-security.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/finalize-release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/security.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/tests.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/windows-release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/windows-web-release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/windows-web.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "efab2e758d88bb4b6f715c332c32e4d7b7211c35",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/Nickspeare",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v6",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "3dbd379af245be193d8ff4b45b94819a0fb1a6f4",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/OmniRoute-PS",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/architecture.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "a22db6e96673ff8cc16b138f89f610457270b818",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/TinySTT",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/architecture.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "1ce689a6e4989f3d31a8d2646bca86e34d821546",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/TinyTTS",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v6",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [
+              {
+                "target": "softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "49645289685dec11c1ca912181abecd82eee8a05",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/calligra",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v6",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/pages.yml",
+            "uses": [
+              {
+                "target": "actions/deploy-pages@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release-all.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "7b29339a67df291add85856b7a38b2a446c6d425",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/codeforge-engine",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v6",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/security.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "3987645a5af0882c3da8ec0a1339683b330adba0",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/codex-mode-switcher",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/architecture.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "40870420fa213a249f72a23dc0627b33d1d200d7",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/developer-security-workspace",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v6",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/dependencies.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/scanner-integration.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "a41136eca42ec07a341942eb547cbbadaa5e82af",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/fitimart",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/deploy-pages.yml",
+            "uses": [
+              {
+                "target": "actions/checkout@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/setup-node@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/configure-pages@v5",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-pages-artifact@v5",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/deploy-pages@v5",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/live-feeds.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [
+              {
+                "target": "softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "fa7095a48345ccd6fd020cc99a396665182f796d",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/gitpad-plus",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/android.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/candidate-upload.yml",
+            "uses": [
+              {
+                "target": "./.github/actions/seal-candidate-upload",
+                "pinned": true,
+                "local": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "1af2be9d8eaf743582eb3de759bcaa23ada4559b",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/glyphibe",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/closeout-inventory.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "142a9df87f59b053f175ddade35e3b6ed9bbf142",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/ipa-first-tts",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/architecture.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "8c8123a902d4920d2afdd24d0569fcea73cd5f8c",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/local-context-engine",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v6",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [
+              {
+                "target": "softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "a382920d0372d3d22f8150edcaa4a51ef68eaaba",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/musical-spinningtop",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/pages.yml",
+            "uses": [
+              {
+                "target": "actions/deploy-pages@v5",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "925cbea58295057cb67ed4154b746012d4e78fec",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/mzk",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "3649fc2bfccbeb61d3a10e895d5ae5dc2fbcf125",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/ogleans",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/architecture.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "13d92a85e0644e3d982643d7c254deceb6b3f8b1",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/portfolio-governance",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/portfolio-audit.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/project-sync.yml",
+            "uses": [
+              {
+                "target": "actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/reusable-portfolio-gate.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/self-governance.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "62bd7f57d2b1215d147624e1ffc24fc1a660c5e8",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/publishing-workbench",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/architecture.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "180eab6946356efd8416976d50b6edcd132bf9a9",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/rhizomaybor",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v6",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/desktop.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/pages.yml",
+            "uses": [
+              {
+                "target": "actions/deploy-pages@v5.0.1",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [
+              {
+                "target": "softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "b619ec8f8532345751fffdd8f731ecb2195c45ba",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/ripple",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "fb8ff33e19d280da85921ea897d7868ba3647013",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/styayur",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-audit.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/portfolio.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "595d8f56afd0e64385937944cd604fd7013d7ff4",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/styayur.github.io",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/compatibility.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "8886ed1960627ed48a6f3b0c29cf844962c38b43",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/terics",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/pages.yml",
+            "uses": [
+              {
+                "target": "actions/deploy-pages@v5",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "242e0302a703d8152ca88b4d479be1b42e656c7d",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/trucli",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [
+              {
+                "target": "./.github/workflows/ci.yml",
+                "pinned": true,
+                "local": true
+              }
+            ],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "440bb99f4b4301ca802a972a750c33e0ec196d10",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/vextessera",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "uses": [
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/deploy-pages.yml",
+            "uses": [
+              {
+                "target": "actions/deploy-pages@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/refresh-index.yml",
+            "uses": [
+              {
+                "target": "peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/stacked-codeql.yml",
+            "uses": [
+              {
+                "target": "github/codeql-action/init@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "github/codeql-action/analyze@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v4",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "820cef99283dfc99237f5e44996fb49884b8ffb9",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/whinset",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/codeforge-regression.yml",
+            "uses": [
+              {
+                "target": "actions/cache@v6",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/disposable-integration.yml",
+            "uses": [
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/release.yml",
+            "uses": [
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/test.yml",
+            "uses": [
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              },
+              {
+                "target": "actions/upload-artifact@v7",
+                "pinned": false,
+                "local": false,
+                "trustedFirstPartyTag": true
+              }
+            ],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "8b0e9707ac75beb0a1195ef55677835f30a0d5ed",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    },
+    {
+      "subject": "styayur/wutnet",
+      "evidence": {
+        "workflows": [
+          {
+            "path": ".github/workflows/android.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/architecture.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          },
+          {
+            "path": ".github/workflows/portfolio-gate.yml",
+            "uses": [
+              {
+                "target": "styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@a0e7ff969f2f065f982c2cf763e863c719e963fa",
+                "pinned": true,
+                "local": false,
+                "trustedFirstPartyTag": false
+              }
+            ],
+            "pullRequestTarget": true
+          },
+          {
+            "path": ".github/workflows/windows.yml",
+            "uses": [],
+            "pullRequestTarget": false
+          }
+        ],
+        "unpinnedUses": [],
+        "writeAll": [],
+        "unsafePullRequestTargetCheckout": []
+      },
+      "status": "PASS",
+      "reason": "Third-party actions pinned; first-party Actions tags allowed; no write-all or untrusted PR checkout.",
+      "revision": "aa75883503effb2ab394fa47fd0eb99ede342151",
+      "verificationTime": "2026-11-07T18:55:00Z",
+      "remediation": "Pin third-party actions to reviewed full SHAs, grant least privilege and never execute PR code under pull_request_target.",
+      "residualRisk": "Pinning a SHA does not by itself prove the action is vulnerability-free."
+    }
+  ]
+}

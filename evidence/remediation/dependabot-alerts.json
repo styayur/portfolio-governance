@@ -1,0 +1,427 @@
+{
+  "generatedAt": "2026-11-07T18:43:43Z",
+  "repositories": {
+    "styayur/LGXT-Assistant": [],
+    "styayur/Nickspeare": [],
+    "styayur/OmniRoute-PS": [],
+    "styayur/TinySTT": [
+      {
+        "number": 7,
+        "state": "open",
+        "severity": "medium",
+        "package": "zip",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 2.4.2",
+        "patched": {
+          "identifier": "9.0.0"
+        },
+        "summary": "zip: AES Entry HMAC Authentication Bypass on Premature EOF",
+        "url": "https://github.com/styayur/TinySTT/security/dependabot/7"
+      },
+      {
+        "number": 6,
+        "state": "open",
+        "severity": "high",
+        "package": "zip",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 2.4.2",
+        "patched": {
+          "identifier": "9.0.0"
+        },
+        "summary": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
+        "url": "https://github.com/styayur/TinySTT/security/dependabot/6"
+      },
+      {
+        "number": 5,
+        "state": "open",
+        "severity": "critical",
+        "package": "zip",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 2.4.2",
+        "patched": {
+          "identifier": "9.0.5"
+        },
+        "summary": "zip: Critical Parser Differential & Security Control Bypass via Dual-Header Inconsistencies (Zip Cloaking) Leading to Arbitrary File Overwrite & RCE",
+        "url": "https://github.com/styayur/TinySTT/security/dependabot/5"
+      },
+      {
+        "number": 4,
+        "state": "open",
+        "severity": "low",
+        "package": "rustls",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.23.45",
+        "patched": {
+          "identifier": "0.23.46"
+        },
+        "summary": "rustls: ECH rejection can expose buffered application data to authenticated outer server before `ech_required` alert",
+        "url": "https://github.com/styayur/TinySTT/security/dependabot/4"
+      },
+      {
+        "number": 3,
+        "state": "open",
+        "severity": "low",
+        "package": "rustls",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.23.45",
+        "patched": {
+          "identifier": "0.23.46"
+        },
+        "summary": "rustls: An unauthenticated ServerHello poisons the per-name key-exchange record, so later ClientHellos carry only a classical X25519 share",
+        "url": "https://github.com/styayur/TinySTT/security/dependabot/3"
+      },
+      {
+        "number": 2,
+        "state": "open",
+        "severity": "medium",
+        "package": "rustls",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.23.45",
+        "patched": {
+          "identifier": "0.23.46"
+        },
+        "summary": "Rustls: Session Debug formatting exposes TLS master secrets and resumption PSKs",
+        "url": "https://github.com/styayur/TinySTT/security/dependabot/2"
+      },
+      {
+        "number": 1,
+        "state": "open",
+        "severity": "low",
+        "package": "rustls",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.23.45",
+        "patched": {
+          "identifier": "0.23.46"
+        },
+        "summary": "Rustls: Brotli certificate decompression can allocate an attacker-controlled amount of memory up to 1 GiB before authentication.",
+        "url": "https://github.com/styayur/TinySTT/security/dependabot/1"
+      }
+    ],
+    "styayur/TinyTTS": [],
+    "styayur/calligra": [],
+    "styayur/codeforge-engine": [
+      {
+        "number": 2,
+        "state": "open",
+        "severity": "medium",
+        "package": "minimatch",
+        "ecosystem": "npm",
+        "manifest": "apps/desktop/pnpm-lock.yaml",
+        "scope": "development",
+        "relationship": "transitive",
+        "version": "10.2.6",
+        "patched": {
+          "identifier": "11.0.1"
+        },
+        "summary": "minimatch has potential denial of service via globparts amplification",
+        "url": "https://github.com/styayur/codeforge-engine/security/dependabot/2"
+      },
+      {
+        "number": 1,
+        "state": "open",
+        "severity": "medium",
+        "package": "glib",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.18.5",
+        "patched": {
+          "identifier": "0.20.0"
+        },
+        "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+        "url": "https://github.com/styayur/codeforge-engine/security/dependabot/1"
+      }
+    ],
+    "styayur/codex-mode-switcher": [],
+    "styayur/developer-security-workspace": [
+      {
+        "number": 8,
+        "state": "open",
+        "severity": "medium",
+        "package": "glib",
+        "ecosystem": "rust",
+        "manifest": "src-tauri/Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.18.5",
+        "patched": {
+          "identifier": "0.20.0"
+        },
+        "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+        "url": "https://github.com/styayur/developer-security-workspace/security/dependabot/8"
+      }
+    ],
+    "styayur/fitimart": [],
+    "styayur/gitpad-plus": [],
+    "styayur/glyphibe": [
+      {
+        "number": 1,
+        "state": "open",
+        "severity": "medium",
+        "package": "glib",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.18.5",
+        "patched": {
+          "identifier": "0.20.0"
+        },
+        "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+        "url": "https://github.com/styayur/glyphibe/security/dependabot/1"
+      }
+    ],
+    "styayur/ipa-first-tts": [],
+    "styayur/local-context-engine": [
+      {
+        "number": 1,
+        "state": "open",
+        "severity": "medium",
+        "package": "glib",
+        "ecosystem": "rust",
+        "manifest": "Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.18.5",
+        "patched": {
+          "identifier": "0.20.0"
+        },
+        "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+        "url": "https://github.com/styayur/local-context-engine/security/dependabot/1"
+      }
+    ],
+    "styayur/musical-spinningtop": [],
+    "styayur/mzk": [],
+    "styayur/ogleans": [
+      {
+        "number": 1,
+        "state": "open",
+        "severity": "medium",
+        "package": "minimatch",
+        "ecosystem": "npm",
+        "manifest": "pnpm-lock.yaml",
+        "scope": "development",
+        "relationship": "transitive",
+        "version": "10.2.6",
+        "patched": {
+          "identifier": "11.0.1"
+        },
+        "summary": "minimatch has potential denial of service via globparts amplification",
+        "url": "https://github.com/styayur/ogleans/security/dependabot/1"
+      }
+    ],
+    "styayur/portfolio-governance": [],
+    "styayur/publishing-workbench": [
+      {
+        "number": 5,
+        "state": "open",
+        "severity": "medium",
+        "package": "glib",
+        "ecosystem": "rust",
+        "manifest": "src-tauri/Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.18.5",
+        "patched": {
+          "identifier": "0.20.0"
+        },
+        "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+        "url": "https://github.com/styayur/publishing-workbench/security/dependabot/5"
+      },
+      {
+        "number": 4,
+        "state": "open",
+        "severity": "medium",
+        "package": "minimatch",
+        "ecosystem": "npm",
+        "manifest": "package-lock.json",
+        "scope": "development",
+        "relationship": "transitive",
+        "version": "10.2.6",
+        "patched": {
+          "identifier": "11.0.1"
+        },
+        "summary": "minimatch has potential denial of service via globparts amplification",
+        "url": "https://github.com/styayur/publishing-workbench/security/dependabot/4"
+      }
+    ],
+    "styayur/rhizomaybor": [
+      {
+        "number": 8,
+        "state": "open",
+        "severity": "medium",
+        "package": "glib",
+        "ecosystem": "rust",
+        "manifest": "src-tauri/Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.18.5",
+        "patched": {
+          "identifier": "0.20.0"
+        },
+        "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+        "url": "https://github.com/styayur/rhizomaybor/security/dependabot/8"
+      },
+      {
+        "number": 7,
+        "state": "open",
+        "severity": "medium",
+        "package": "postcss-selector-parser",
+        "ecosystem": "npm",
+        "manifest": "package-lock.json",
+        "scope": "runtime",
+        "relationship": "transitive",
+        "version": "6.1.4",
+        "patched": {
+          "identifier": "6.1.5"
+        },
+        "summary": "PostCSS: Quadratic complexity in flat selector parsing allows CPU exhaustion",
+        "url": "https://github.com/styayur/rhizomaybor/security/dependabot/7"
+      },
+      {
+        "number": 6,
+        "state": "open",
+        "severity": "low",
+        "package": "katex",
+        "ecosystem": "npm",
+        "manifest": "package-lock.json",
+        "scope": "runtime",
+        "relationship": "transitive",
+        "version": "0.16.47",
+        "patched": {
+          "identifier": "0.18.2"
+        },
+        "summary": "KaTeX: Existing prototype pollution can bypass trust restrictions",
+        "url": "https://github.com/styayur/rhizomaybor/security/dependabot/6"
+      },
+      {
+        "number": 5,
+        "state": "open",
+        "severity": "medium",
+        "package": "mermaid",
+        "ecosystem": "npm",
+        "manifest": "package-lock.json",
+        "scope": "runtime",
+        "relationship": "transitive",
+        "version": "11.15.0",
+        "patched": {
+          "identifier": "11.16.1"
+        },
+        "summary": "Mermaid radar diagrams are vulnerable to DoS",
+        "url": "https://github.com/styayur/rhizomaybor/security/dependabot/5"
+      },
+      {
+        "number": 4,
+        "state": "open",
+        "severity": "low",
+        "package": "mermaid",
+        "ecosystem": "npm",
+        "manifest": "package-lock.json",
+        "scope": "runtime",
+        "relationship": "transitive",
+        "version": "11.15.0",
+        "patched": {
+          "identifier": "11.16.1"
+        },
+        "summary": "Mermaid configuration APIs allow prototype pollution",
+        "url": "https://github.com/styayur/rhizomaybor/security/dependabot/4"
+      },
+      {
+        "number": 3,
+        "state": "open",
+        "severity": "medium",
+        "package": "mermaid",
+        "ecosystem": "npm",
+        "manifest": "package-lock.json",
+        "scope": "runtime",
+        "relationship": "transitive",
+        "version": "11.15.0",
+        "patched": {
+          "identifier": "11.16.1"
+        },
+        "summary": "Mermaid allows CSS injection applying to sibling elements of the diagram",
+        "url": "https://github.com/styayur/rhizomaybor/security/dependabot/3"
+      },
+      {
+        "number": 2,
+        "state": "open",
+        "severity": "medium",
+        "package": "mermaid",
+        "ecosystem": "npm",
+        "manifest": "package-lock.json",
+        "scope": "runtime",
+        "relationship": "transitive",
+        "version": "11.15.0",
+        "patched": {
+          "identifier": "11.16.1"
+        },
+        "summary": "Mermaid Architecture diagrams are vulnerable to prototype pollution",
+        "url": "https://github.com/styayur/rhizomaybor/security/dependabot/2"
+      },
+      {
+        "number": 1,
+        "state": "open",
+        "severity": "medium",
+        "package": "mermaid",
+        "ecosystem": "npm",
+        "manifest": "package-lock.json",
+        "scope": "runtime",
+        "relationship": "transitive",
+        "version": "11.15.0",
+        "patched": {
+          "identifier": "11.16.1"
+        },
+        "summary": "Mermaid XY Charts are vulnerable to an infinite loop DoS",
+        "url": "https://github.com/styayur/rhizomaybor/security/dependabot/1"
+      }
+    ],
+    "styayur/ripple": [],
+    "styayur/styayur": [],
+    "styayur/styayur.github.io": [],
+    "styayur/terics": [],
+    "styayur/trucli": [],
+    "styayur/vextessera": [
+      {
+        "number": 1,
+        "state": "open",
+        "severity": "medium",
+        "package": "glib",
+        "ecosystem": "rust",
+        "manifest": "src-tauri/Cargo.lock",
+        "scope": "runtime",
+        "relationship": "unknown",
+        "version": "= 0.18.5",
+        "patched": {
+          "identifier": "0.20.0"
+        },
+        "summary": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+        "url": "https://github.com/styayur/vextessera/security/dependabot/1"
+      }
+    ],
+    "styayur/whinset": [],
+    "styayur/wutnet": []
+  },
+  "totalOpen": 24
+}
