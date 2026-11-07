@@ -36,10 +36,9 @@ def endpoint(repo, suffix=""):
     return f"repos/{repo}{suffix}"
 
 repos_resp = gh_json(["user/repos?affiliation=owner&per_page=100"], paginate=True)
-if isinstance(repos_resp, dict):
-    repos = [repos_resp]
-else:
-    repos = repos_resp
+if isinstance(repos_resp, dict) and repos_resp.get("_error"):
+    raise SystemExit(f"repository enumeration failed: {repos_resp['_error']}")
+repos = repos_resp if isinstance(repos_resp, list) else []
 public = sorted([r for r in repos if not r.get("private")], key=lambda r: r["name"])
 inventory = []
 raw = {}
