@@ -1,0 +1,1977 @@
+{
+  "rulesetName": "Portfolio default branch safety",
+  "records": [
+    {
+      "subject": "styayur/LGXT-Assistant",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763209,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/LGXT-Assistant",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5RO6ZozgGYX8k",
+        "created_at": "2026-11-07T16:16:56.307Z",
+        "updated_at": "2026-11-07T16:16:56.432Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/LGXT-Assistant/rulesets/26763209"
+          },
+          "html": {
+            "href": "https://github.com/styayur/LGXT-Assistant/rules/26763209"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:21Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/Nickspeare",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763210,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/Nickspeare",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5Sqj0IzgGYX8o",
+        "created_at": "2026-11-07T16:16:58.053Z",
+        "updated_at": "2026-11-07T16:16:58.179Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/Nickspeare/rulesets/26763210"
+          },
+          "html": {
+            "href": "https://github.com/styayur/Nickspeare/rules/26763210"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:22Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/OmniRoute-PS",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763113,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/OmniRoute-PS",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5TkEAgzgGYX2k",
+        "created_at": "2026-11-07T16:13:12.116Z",
+        "updated_at": "2026-11-07T16:13:12.268Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/OmniRoute-PS/rulesets/26763113"
+          },
+          "html": {
+            "href": "https://github.com/styayur/OmniRoute-PS/rules/26763113"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:23Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/TinySTT",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763114,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/TinySTT",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5Tkdo2zgGYX2o",
+        "created_at": "2026-11-07T16:13:14.194Z",
+        "updated_at": "2026-11-07T16:13:14.332Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/TinySTT/rulesets/26763114"
+          },
+          "html": {
+            "href": "https://github.com/styayur/TinySTT/rules/26763114"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:25Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/TinyTTS",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763212,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/TinyTTS",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5TBeG0zgGYX8w",
+        "created_at": "2026-11-07T16:17:02.333Z",
+        "updated_at": "2026-11-07T16:17:02.463Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/TinyTTS/rulesets/26763212"
+          },
+          "html": {
+            "href": "https://github.com/styayur/TinyTTS/rules/26763212"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:26Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/calligra",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763214,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/calligra",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5RwX4LzgGYX84",
+        "created_at": "2026-11-07T16:17:04.305Z",
+        "updated_at": "2026-11-07T16:17:04.426Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/calligra/rulesets/26763214"
+          },
+          "html": {
+            "href": "https://github.com/styayur/calligra/rules/26763214"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:27Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/codeforge-engine",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763004,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/codeforge-engine",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5Tc5xGzgGYXvw",
+        "created_at": "2026-11-07T16:10:01.360Z",
+        "updated_at": "2026-11-07T16:10:01.484Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/codeforge-engine/rulesets/26763004"
+          },
+          "html": {
+            "href": "https://github.com/styayur/codeforge-engine/rules/26763004"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:28Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/codex-mode-switcher",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763216,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/codex-mode-switcher",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5TpzXCzgGYX9A",
+        "created_at": "2026-11-07T16:17:07.237Z",
+        "updated_at": "2026-11-07T16:17:07.365Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/codex-mode-switcher/rulesets/26763216"
+          },
+          "html": {
+            "href": "https://github.com/styayur/codex-mode-switcher/rules/26763216"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:30Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/developer-security-workspace",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763218,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/developer-security-workspace",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5SxgihzgGYX9I",
+        "created_at": "2026-11-07T16:17:09.050Z",
+        "updated_at": "2026-11-07T16:17:09.205Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/developer-security-workspace/rulesets/26763218"
+          },
+          "html": {
+            "href": "https://github.com/styayur/developer-security-workspace/rules/26763218"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:31Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/fitimart",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763116,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/fitimart",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5RUwRvzgGYX2w",
+        "created_at": "2026-11-07T16:13:20.937Z",
+        "updated_at": "2026-11-07T16:13:21.075Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/fitimart/rulesets/26763116"
+          },
+          "html": {
+            "href": "https://github.com/styayur/fitimart/rules/26763116"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:32Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/gitpad-plus",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763220,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/gitpad-plus",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5V23-9zgGYX9Q",
+        "created_at": "2026-11-07T16:17:12.176Z",
+        "updated_at": "2026-11-07T16:17:12.295Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/gitpad-plus/rulesets/26763220"
+          },
+          "html": {
+            "href": "https://github.com/styayur/gitpad-plus/rules/26763220"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:34Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/glyphibe",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763221,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/glyphibe",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5VkDjDzgGYX9U",
+        "created_at": "2026-11-07T16:17:14.000Z",
+        "updated_at": "2026-11-07T16:17:14.115Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/glyphibe/rulesets/26763221"
+          },
+          "html": {
+            "href": "https://github.com/styayur/glyphibe/rules/26763221"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:35Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/ipa-first-tts",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763117,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/ipa-first-tts",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5UAn4IzgGYX20",
+        "created_at": "2026-11-07T16:13:24.657Z",
+        "updated_at": "2026-11-07T16:13:24.777Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/ipa-first-tts/rulesets/26763117"
+          },
+          "html": {
+            "href": "https://github.com/styayur/ipa-first-tts/rules/26763117"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:36Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/local-context-engine",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763119,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/local-context-engine",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5TbWuWzgGYX28",
+        "created_at": "2026-11-07T16:13:26.504Z",
+        "updated_at": "2026-11-07T16:13:26.629Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/local-context-engine/rulesets/26763119"
+          },
+          "html": {
+            "href": "https://github.com/styayur/local-context-engine/rules/26763119"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:38Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/musical-spinningtop",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763222,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/musical-spinningtop",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5Sl4lrzgGYX9Y",
+        "created_at": "2026-11-07T16:17:18.358Z",
+        "updated_at": "2026-11-07T16:17:18.570Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/musical-spinningtop/rulesets/26763222"
+          },
+          "html": {
+            "href": "https://github.com/styayur/musical-spinningtop/rules/26763222"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:39Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/mzk",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763121,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/mzk",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5Viz0nzgGYX3E",
+        "created_at": "2026-11-07T16:13:29.513Z",
+        "updated_at": "2026-11-07T16:13:29.640Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/mzk/rulesets/26763121"
+          },
+          "html": {
+            "href": "https://github.com/styayur/mzk/rules/26763121"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:40Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/ogleans",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763223,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/ogleans",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5UAl8WzgGYX9c",
+        "created_at": "2026-11-07T16:17:21.531Z",
+        "updated_at": "2026-11-07T16:17:21.697Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/ogleans/rulesets/26763223"
+          },
+          "html": {
+            "href": "https://github.com/styayur/ogleans/rules/26763223"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:41Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/portfolio-governance",
+      "status": "BLOCKED",
+      "reason": "Fixed evidence-gate caller is not on the default branch yet.",
+      "beforePresence": false,
+      "after": null,
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:42Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/publishing-workbench",
+      "status": "BLOCKED",
+      "reason": "Fixed evidence-gate caller is not on the default branch yet.",
+      "beforePresence": false,
+      "after": null,
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:43Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/rhizomaybor",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763224,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/rhizomaybor",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5TZjorzgGYX9g",
+        "created_at": "2026-11-07T16:17:25.068Z",
+        "updated_at": "2026-11-07T16:17:25.216Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/rhizomaybor/rulesets/26763224"
+          },
+          "html": {
+            "href": "https://github.com/styayur/rhizomaybor/rules/26763224"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:44Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/ripple",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763122,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/ripple",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5VdxD9zgGYX3I",
+        "created_at": "2026-11-07T16:13:35.044Z",
+        "updated_at": "2026-11-07T16:13:35.176Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/ripple/rulesets/26763122"
+          },
+          "html": {
+            "href": "https://github.com/styayur/ripple/rules/26763122"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:46Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/styayur",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763226,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/styayur",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5TXXt4zgGYX9o",
+        "created_at": "2026-11-07T16:17:27.969Z",
+        "updated_at": "2026-11-07T16:17:28.095Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/styayur/rulesets/26763226"
+          },
+          "html": {
+            "href": "https://github.com/styayur/styayur/rules/26763226"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:47Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/styayur.github.io",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26762740,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/styayur.github.io",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5RMmh-zgGYXfQ",
+        "created_at": "2026-11-07T16:02:52.177Z",
+        "updated_at": "2026-11-07T16:02:52.314Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/styayur.github.io/rulesets/26762740"
+          },
+          "html": {
+            "href": "https://github.com/styayur/styayur.github.io/rules/26762740"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:48Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/terics",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763227,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/terics",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5WN7nQzgGYX9s",
+        "created_at": "2026-11-07T16:17:30.856Z",
+        "updated_at": "2026-11-07T16:17:30.961Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/terics/rulesets/26763227"
+          },
+          "html": {
+            "href": "https://github.com/styayur/terics/rules/26763227"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:49Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/trucli",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763128,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/trucli",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5VT-qKzgGYX3g",
+        "created_at": "2026-11-07T16:13:39.880Z",
+        "updated_at": "2026-11-07T16:13:40.014Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/trucli/rulesets/26763128"
+          },
+          "html": {
+            "href": "https://github.com/styayur/trucli/rules/26763128"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:51Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/vextessera",
+      "status": "PASS",
+      "reason": "Ruleset created and active.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763282,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/vextessera",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5TCSMgzgGYYBI",
+        "created_at": "2026-11-07T16:19:52.070Z",
+        "updated_at": "2026-11-07T16:19:52.199Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/vextessera/rulesets/26763282"
+          },
+          "html": {
+            "href": "https://github.com/styayur/vextessera/rules/26763282"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:52Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/whinset",
+      "status": "PASS",
+      "reason": "Ruleset already exists.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763129,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/whinset",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5SKlCyzgGYX3k",
+        "created_at": "2026-11-07T16:13:42.556Z",
+        "updated_at": "2026-11-07T16:13:42.683Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/whinset/rulesets/26763129"
+          },
+          "html": {
+            "href": "https://github.com/styayur/whinset/rules/26763129"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:54Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    },
+    {
+      "subject": "styayur/wutnet",
+      "status": "PASS",
+      "reason": "Ruleset created and active.",
+      "beforePresence": true,
+      "after": {
+        "id": 26763285,
+        "name": "Portfolio default branch safety",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "styayur/wutnet",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": true,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": false,
+              "allowed_merge_methods": [
+                "squash"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "portfolio / Portfolio Evidence Gate / verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5UCSTDzgGYYBU",
+        "created_at": "2026-11-07T16:19:55.034Z",
+        "updated_at": "2026-11-07T16:19:55.198Z",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/styayur/wutnet/rulesets/26763285"
+          },
+          "html": {
+            "href": "https://github.com/styayur/wutnet/rules/26763285"
+          }
+        }
+      },
+      "requiredCheck": "portfolio / Portfolio Evidence Gate / verify",
+      "fixedGateSha": "be210b2d3761a2c7aad67fb3ca0f900e08e9b8fa",
+      "verifiedAt": "2026-11-07T16:19:56Z",
+      "residualRisk": "Required check must be observed on future PRs; missing/skipped/failing checks fail closed."
+    }
+  ]
+}
