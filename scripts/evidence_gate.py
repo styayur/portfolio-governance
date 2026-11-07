@@ -61,9 +61,21 @@ def evaluate_checks(checks, risk_level):
     successful = [c for c in checks if c['state'] == 'SUCCESS']
     security = [c for c in checks if any(word in (c['name'] + ' ' + c.get('workflow', '')).casefold() for word in SECURITY_HINT)]
     tests = [c for c in checks if any(word in (c['name'] + ' ' + c.get('workflow', '')).casefold() for word in TEST_HINT)]
+    default_codeql_success = any(
+        'codeql' in (c['name'] + ' ' + c.get('workflow', '')).casefold()
+        and 'stacked' not in c['name'].casefold()
+        for c in successful
+    )
+    not_applicable = [
+        c for c in skipped
+        if 'stacked' in c['name'].casefold()
+        and 'codeql' in c['name'].casefold()
+        and default_codeql_success
+    ]
     risky_skips = [
         c for c in skipped
-        if any(word in (c['name'] + ' ' + c.get('workflow', '')).casefold() for word in TEST_HINT + SECURITY_HINT)
+        if c not in not_applicable
+        and any(word in (c['name'] + ' ' + c.get('workflow', '')).casefold() for word in TEST_HINT + SECURITY_HINT)
     ]
     if failed:
         test_status = 'FAIL'
@@ -88,6 +100,7 @@ def evaluate_checks(checks, risk_level):
         'failed': failed,
         'skipped': skipped,
         'riskySkipped': risky_skips,
+        'notApplicableSkipped': not_applicable,
         'successful': successful,
         'testChecks': tests,
         'securityChecks': security,
@@ -180,7 +193,7 @@ def main():
         'headSha': args.head_sha,
         'workflowRunId': args.run_id,
         'workflowRunUrl': f'https://github.com/{args.repo}/actions/runs/{args.run_id}' if args.run_id else None,
-        'tool': {'name': 'Portfolio Evidence Gate', 'version': '1.0.0'},
+        'tool': {'name': 'Portfolio Evidence Gate', 'version': '1.0.1'},
         'risk': risk['risk'],
         'riskReasons': risk.get('reasons'),
         'testStatus': checks.get('testStatus', 'NOT_VERIFIED'),
