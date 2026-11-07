@@ -1,0 +1,2020 @@
+{
+  "records": [
+    {
+      "subject": "styayur/LGXT-Assistant",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:46:55Z"
+    },
+    {
+      "subject": "styayur/Nickspeare",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:47:03Z"
+    },
+    {
+      "subject": "styayur/OmniRoute-PS",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:47:10Z"
+    },
+    {
+      "subject": "styayur/TinySTT",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:47:18Z"
+    },
+    {
+      "subject": "styayur/TinyTTS",
+      "before": {
+        "has_discussions": true,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:47:25Z"
+    },
+    {
+      "subject": "styayur/calligra",
+      "before": {
+        "has_discussions": true,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:47:33Z"
+    },
+    {
+      "subject": "styayur/codeforge-engine",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:47:41Z"
+    },
+    {
+      "subject": "styayur/codex-mode-switcher",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:47:48Z"
+    },
+    {
+      "subject": "styayur/developer-security-workspace",
+      "before": {
+        "has_discussions": true,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:47:56Z"
+    },
+    {
+      "subject": "styayur/fitimart",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:48:03Z"
+    },
+    {
+      "subject": "styayur/gitpad-plus",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:48:11Z"
+    },
+    {
+      "subject": "styayur/glyphibe",
+      "before": {
+        "has_discussions": true,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:48:19Z"
+    },
+    {
+      "subject": "styayur/ipa-first-tts",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:48:26Z"
+    },
+    {
+      "subject": "styayur/local-context-engine",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:48:34Z"
+    },
+    {
+      "subject": "styayur/musical-spinningtop",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:48:41Z"
+    },
+    {
+      "subject": "styayur/mzk",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:48:48Z"
+    },
+    {
+      "subject": "styayur/ogleans",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:48:56Z"
+    },
+    {
+      "subject": "styayur/portfolio-governance",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:49:03Z"
+    },
+    {
+      "subject": "styayur/publishing-workbench",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:49:10Z"
+    },
+    {
+      "subject": "styayur/rhizomaybor",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:49:18Z"
+    },
+    {
+      "subject": "styayur/ripple",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:49:26Z"
+    },
+    {
+      "subject": "styayur/styayur",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:49:33Z"
+    },
+    {
+      "subject": "styayur/styayur.github.io",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:49:41Z"
+    },
+    {
+      "subject": "styayur/terics",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:49:49Z"
+    },
+    {
+      "subject": "styayur/trucli",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:49:56Z"
+    },
+    {
+      "subject": "styayur/vextessera",
+      "before": {
+        "has_discussions": true,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:50:04Z"
+    },
+    {
+      "subject": "styayur/whinset",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:50:12Z"
+    },
+    {
+      "subject": "styayur/wutnet",
+      "before": {
+        "has_discussions": false,
+        "allow_auto_merge": false,
+        "allow_squash_merge": true
+      },
+      "after": {
+        "has_discussions": true,
+        "allow_auto_merge": true,
+        "allow_squash_merge": true
+      },
+      "labelsCreated": [
+        "type:bug",
+        "type:feature",
+        "type:maintenance",
+        "type:security",
+        "priority:P0",
+        "priority:P1",
+        "priority:P2",
+        "priority:P3",
+        "state:blocked",
+        "state:needs-evidence",
+        "release-blocker",
+        "agent:ready"
+      ],
+      "labelsPreserved": [],
+      "discussions": {
+        "repository": {
+          "hasDiscussionsEnabled": true,
+          "discussionCategories": {
+            "nodes": [
+              {
+                "name": "Announcements",
+                "slug": "announcements",
+                "emoji": ":mega:"
+              },
+              {
+                "name": "General",
+                "slug": "general",
+                "emoji": ":speech_balloon:"
+              },
+              {
+                "name": "Ideas",
+                "slug": "ideas",
+                "emoji": ":bulb:"
+              },
+              {
+                "name": "Polls",
+                "slug": "polls",
+                "emoji": ":ballot_box:"
+              },
+              {
+                "name": "Q&A",
+                "slug": "q-a",
+                "emoji": ":pray:"
+              },
+              {
+                "name": "Show and tell",
+                "slug": "show-and-tell",
+                "emoji": ":raised_hands:"
+              }
+            ]
+          },
+          "discussions": {
+            "totalCount": 0
+          }
+        }
+      },
+      "status": "PASS",
+      "verifiedAt": "2026-11-07T14:50:19Z"
+    }
+  ]
+}
