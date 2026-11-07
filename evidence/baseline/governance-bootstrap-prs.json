@@ -1,0 +1,275 @@
+{
+  "centralSha": "d34be191d8578b891a1db2c54308d154520389e6",
+  "records": [
+    {
+      "repository": "styayur/LGXT-Assistant",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/LGXT-Assistant/pull/43"
+    },
+    {
+      "repository": "styayur/Nickspeare",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/Nickspeare/pull/13"
+    },
+    {
+      "repository": "styayur/OmniRoute-PS",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/OmniRoute-PS/pull/6"
+    },
+    {
+      "repository": "styayur/TinySTT",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/TinySTT/pull/4"
+    },
+    {
+      "repository": "styayur/TinyTTS",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/TinyTTS/pull/21"
+    },
+    {
+      "repository": "styayur/calligra",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml",
+        "SECURITY.md"
+      ],
+      "pullRequest": "https://github.com/styayur/calligra/pull/63"
+    },
+    {
+      "repository": "styayur/codeforge-engine",
+      "status": "SKIPPED",
+      "reason": "baseline branch already exists"
+    },
+    {
+      "repository": "styayur/codex-mode-switcher",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/codex-mode-switcher/pull/7"
+    },
+    {
+      "repository": "styayur/developer-security-workspace",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/developer-security-workspace/pull/42"
+    },
+    {
+      "repository": "styayur/fitimart",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/fitimart/pull/28"
+    },
+    {
+      "repository": "styayur/gitpad-plus",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/gitpad-plus/pull/7"
+    },
+    {
+      "repository": "styayur/glyphibe",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/glyphibe/pull/19"
+    },
+    {
+      "repository": "styayur/ipa-first-tts",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/ipa-first-tts/pull/8"
+    },
+    {
+      "repository": "styayur/local-context-engine",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/local-context-engine/pull/35"
+    },
+    {
+      "repository": "styayur/musical-spinningtop",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/musical-spinningtop/pull/14"
+    },
+    {
+      "repository": "styayur/mzk",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/mzk/pull/2"
+    },
+    {
+      "repository": "styayur/ogleans",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/ogleans/pull/26"
+    },
+    {
+      "repository": "styayur/publishing-workbench",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml",
+        "SECURITY.md"
+      ],
+      "pullRequest": "https://github.com/styayur/publishing-workbench/pull/6"
+    },
+    {
+      "repository": "styayur/rhizomaybor",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/rhizomaybor/pull/23"
+    },
+    {
+      "repository": "styayur/ripple",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml",
+        "SECURITY.md"
+      ],
+      "pullRequest": "https://github.com/styayur/ripple/pull/4"
+    },
+    {
+      "repository": "styayur/styayur",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml",
+        "SECURITY.md"
+      ],
+      "pullRequest": "https://github.com/styayur/styayur/pull/16"
+    },
+    {
+      "repository": "styayur/styayur.github.io",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml",
+        "SECURITY.md"
+      ],
+      "pullRequest": "https://github.com/styayur/styayur.github.io/pull/5"
+    },
+    {
+      "repository": "styayur/terics",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/terics/pull/4"
+    },
+    {
+      "repository": "styayur/trucli",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/trucli/pull/6"
+    },
+    {
+      "repository": "styayur/vextessera",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/vextessera/pull/59"
+    },
+    {
+      "repository": "styayur/whinset",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml",
+        "SECURITY.md"
+      ],
+      "pullRequest": "https://github.com/styayur/whinset/pull/19"
+    },
+    {
+      "repository": "styayur/wutnet",
+      "status": "PUSHED",
+      "branch": "codex/portfolio-governance-baseline",
+      "changed": [
+        "AGENTS.md",
+        ".github/workflows/portfolio-gate.yml"
+      ],
+      "pullRequest": "https://github.com/styayur/wutnet/pull/8"
+    }
+  ]
+}

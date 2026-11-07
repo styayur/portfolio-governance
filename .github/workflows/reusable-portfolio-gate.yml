@@ -19,7 +19,7 @@ on:
 permissions:
   actions: read
   checks: write
-  contents: read
+  contents: write
   issues: write
   pull-requests: write
   security-events: read
@@ -34,6 +34,8 @@ jobs:
     name: Portfolio Evidence Gate / risk
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -64,6 +66,8 @@ jobs:
     needs: classify
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -93,6 +97,16 @@ jobs:
     needs: [classify, review]
     runs-on: ubuntu-latest
     timeout-minutes: 50
+    permissions:
+      actions: read
+      checks: write
+      contents: read
+      issues: write
+      pull-requests: write
+      security-events: read
+      statuses: read
+    outputs:
+      merge_eligible: ${{ steps.eligibility.outputs.merge }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -109,6 +123,7 @@ jobs:
           name: independent-review
           path: ${{ runner.temp }}/review
       - name: Verify exact head and apply merge policy
+        id: gate
         env:
           GH_TOKEN: ${{ github.token }}
           GATE_TIMEOUT_SECONDS: '2700'
@@ -124,6 +139,21 @@ jobs:
           --run-id "${{ github.run_id }}"
           --enable-auto-merge
           --comment
+      - name: Export post-gate merge eligibility
+        id: eligibility
+        if: always()
+        shell: bash
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          path=Path('${{ runner.temp }}/pr-review-evidence.json')
+          eligible=False
+          if path.exists():
+              data=json.loads(path.read_text())
+              eligible=bool(data.get('autoMergeEligible'))
+          print('merge=' + ('true' if eligible else 'false'))
+          PY
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
@@ -131,3 +161,22 @@ jobs:
           path: ${{ runner.temp }}/pr-review-evidence.json
           if-no-files-found: warn
           retention-days: 90
+
+  merge:
+    name: Portfolio Evidence Gate / merge
+    needs: evidence
+    if: needs.evidence.outputs.merge_eligible == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Squash merge the exact verified head
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh pr merge "${{ inputs.pr_number }}"
+          -R "${{ github.repository }}"
+          --squash
+          --match-head-commit "${{ inputs.head_sha }}"

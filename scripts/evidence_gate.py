@@ -167,15 +167,7 @@ def main():
     else:
         decision = 'AUTO_MERGE_ELIGIBLE'
 
-    auto_merge_enabled = False
-    if decision == 'AUTO_MERGE_ELIGIBLE' and args.enable_auto_merge:
-        current = pr_view(args.repo, args.pr)
-        if current.get('headRefOid') != args.head_sha:
-            decision = 'FAILED_HEAD_CHANGED'
-        elif current.get('state') == 'OPEN':
-            run(['gh', 'pr', 'merge', str(args.pr), '-R', args.repo, '--squash', '--auto', '--match-head-commit', args.head_sha])
-            auto_merge_enabled = True
-            decision = 'AUTO_MERGE_ENABLED'
+    auto_merge_eligible = bool(args.enable_auto_merge and decision == 'AUTO_MERGE_ELIGIBLE')
 
     checks = status or {}
     record = {
@@ -202,7 +194,7 @@ def main():
             for c in checks.get('successful', []) + checks.get('failed', []) + checks.get('skipped', []) + checks.get('pending', [])
         ],
         'decision': decision,
-        'autoMergeEnabled': auto_merge_enabled,
+        'autoMergeEligible': auto_merge_eligible,
         'verifiedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
         'residualRisk': 'R3/R4 changes require an explicit maintainer merge decision; no merge was requested automatically.'
                        if decision == 'MANUAL_REVIEW_REQUIRED' else 'Evidence is scoped to this repository, PR and exact head SHA.',
@@ -231,7 +223,7 @@ def main():
             record['commentError'] = str(exc)
             args.output.write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n')
 
-    print(json.dumps({k: record[k] for k in ('risk','testStatus','securityStatus','reviewDecision','decision','autoMergeEnabled')}, ensure_ascii=False))
+    print(json.dumps({k: record[k] for k in ('risk','testStatus','securityStatus','reviewDecision','decision','autoMergeEligible')}, ensure_ascii=False))
     if record['decision'].startswith('FAILED'):
         return 2
     return 0
