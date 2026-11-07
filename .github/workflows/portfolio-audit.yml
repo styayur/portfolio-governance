@@ -6,9 +6,7 @@ on:
     - cron: '23 1 * * 1'
 
 permissions:
-  actions: read
   contents: read
-  issues: write
 
 jobs:
   audit:
@@ -20,7 +18,7 @@ jobs:
           persist-credentials: false
       - name: Collect live GitHub portfolio evidence
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PORTFOLIO_PROJECT_TOKEN }}
         run: python3 scripts/audit_portfolio.py
       - name: Validate evidence contract
         run: |
