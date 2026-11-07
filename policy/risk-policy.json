@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "tiers": {
+    "R0": "Documentation or non-executable asset changes; no external check required beyond the evidence gate.",
+    "R1": "Tests or low-risk scoped changes; at least one external check must pass.",
+    "R2": "Normal code or compatible dependency changes; tests and security signals must not fail or be skipped.",
+    "R3": "Public API, migration, release, runtime configuration or major dependency changes; manual maintainer decision required.",
+    "R4": "Security-critical, workflow, signing, destructive or large-blast-radius changes; manual maintainer decision required and hard security blockers fail closed."
+  },
+  "autoMerge": ["R0", "R1", "R2"],
+  "neverAutoMerge": ["R3", "R4"],
+  "rules": [
+    "No draft PR is auto-merged.",
+    "No force push or ruleset bypass is used.",
+    "Failed, pending, stale or unknown checks fail closed.",
+    "Skipped test or security work fails closed for R2 and above.",
+    "Evidence must match the current head SHA.",
+    "A score never overrides a blocker."
+  ]
+}

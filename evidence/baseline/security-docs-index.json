@@ -1,0 +1,558 @@
+[
+  {
+    "repository": "styayur/LGXT-Assistant",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "13770e088f8825705033e96996dd33f74de9adc6",
+        "size": 8201,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/LGXT-Assistant__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/Nickspeare",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "5ed330e0c851825309ad9ea8b3d9b3b9d676ebad",
+        "size": 897,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/Nickspeare__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/OmniRoute-PS",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "6bbc150d0cbd0092eb212e4a414ed864186cdb63",
+        "size": 995,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/OmniRoute-PS__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/TinySTT",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "824c9a66da5d75bca534665e48de9555cb8b5c51",
+        "size": 969,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/TinySTT__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/TinyTTS",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "7a8de289f75b75140daed7d625b8dbe393d404a2",
+        "size": 1189,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/TinyTTS__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/calligra",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "b43b88769095e4f8e1edfa29c9ddf14a55bac55e",
+        "size": 1021,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/calligra__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/codeforge-engine",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "0925f13a4c51c13d076f80261e4d5d944512f716",
+        "size": 602,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/codeforge-engine__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "sha": "c60a90fe44dfc6d2697bab30a05feb172b1cfb00",
+        "size": 3190,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/codeforge-engine__docs_SECURITY.md"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/codex-mode-switcher",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "fc179d8fe12c7cad48d0e3c2c971ce8cf5916002",
+        "size": 4752,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/codex-mode-switcher__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/developer-security-workspace",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "2363ba4d29fef65fba685226b5f95878b4eae0bd",
+        "size": 1717,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/developer-security-workspace__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/fitimart",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "53edcbde7292391fde91c7dbaa62bf3b36684ac3",
+        "size": 1092,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/fitimart__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/gitpad-plus",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "77a3d168eb22b957e908e057aa7a604430e992ee",
+        "size": 657,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/gitpad-plus__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "sha": "7512af3ef4808e04fded310ac9c1668f38ac0160",
+        "size": 3777,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/gitpad-plus__docs_SECURITY.md"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/glyphibe",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "4e5eb31bcce36b20a6a5a263a298fb017dc2b42c",
+        "size": 1673,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/glyphibe__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/ipa-first-tts",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "3d9085e8eee926a672f97ce0af79cf285242050f",
+        "size": 2990,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/ipa-first-tts__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/local-context-engine",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "5a9c94f5fec9076b6bdca641fbf104881d080d2d",
+        "size": 785,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/local-context-engine__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "sha": "f645915ca0722ccb7b1847bf4cf78c601f7e933d",
+        "size": 2532,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/local-context-engine__docs_SECURITY.md"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/musical-spinningtop",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "7dfe3fab0349a8b836428b9807860e01e943c1f1",
+        "size": 973,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/musical-spinningtop__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/mzk",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "7218883c4d5d9b1562a6762400e3e6277d1cdbbd",
+        "size": 3043,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/mzk__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/ogleans",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "75e5cea12654132b84036540da7b65352c188f22",
+        "size": 2329,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/ogleans__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/portfolio-governance",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "status": "absent"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/publishing-workbench",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "status": "absent"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/rhizomaybor",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "be121e96df83684a74e5e70a470b8332d4ff8a77",
+        "size": 815,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/rhizomaybor__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/ripple",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "status": "absent"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/styayur",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "status": "absent"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/styayur.github.io",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "status": "absent"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/terics",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "f72c41a8b2c83c88a7394b1431e2cf442c0a9936",
+        "size": 1268,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/terics__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  },
+  {
+    "repository": "styayur/trucli",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "9000cc30c1964f1d85784c497b72feb1f066e14d",
+        "size": 3000,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/trucli__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/vextessera",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "748925f7117c88886121b06cc83e2ab0996c04e9",
+        "size": 3119,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/vextessera__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/whinset",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "736bfae0fcf9632b72c0682f4713bfff54db735b",
+        "size": 1861,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/whinset__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": true
+    }
+  },
+  {
+    "repository": "styayur/wutnet",
+    "default_branch": "main",
+    "files": {
+      "SECURITY.md": {
+        "sha": "d3d62fb1d02728f11d9665f066d7c4c9c427b5e1",
+        "size": 4204,
+        "path": "/home/codespace/portfolio-governance/evidence/baseline/security-docs/wutnet__SECURITY.md"
+      },
+      ".github/SECURITY.md": {
+        "status": "absent"
+      },
+      "docs/SECURITY.md": {
+        "status": "absent"
+      }
+    },
+    "private_vulnerability_reporting": {
+      "enabled": false
+    }
+  }
+]
