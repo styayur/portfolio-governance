@@ -22,6 +22,8 @@ def classify_pat(expires: str, today: date, thresholds=None) -> dict:
         days = (expiry - today).days
         if days <= 0:
             return {'status': 'EXPIRED', 'daysRemaining': days, 'reason': 'PAT has expired or expires today'}
+        if days <= thresholds['finalWarningDays']:
+            return {'status': 'FINAL_WARNING', 'daysRemaining': days, 'reason': 'PAT expires within 7 days; rotate immediately'}
         if days <= thresholds['criticalDays']:
             return {'status': 'CRITICAL', 'daysRemaining': days, 'reason': 'PAT expires within 14 days'}
         if days <= thresholds['warningDays']:
@@ -53,7 +55,7 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(result, ensure_ascii=False))
-    return 2 if result_status['status'] in {'CRITICAL', 'EXPIRED', 'NOT_VERIFIED'} else 0
+    return 2 if result_status['status'] in {'FINAL_WARNING', 'CRITICAL', 'EXPIRED', 'NOT_VERIFIED'} else 0
 
 
 if __name__ == '__main__':

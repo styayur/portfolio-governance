@@ -21,9 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 50
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          persist-credentials: false
       - name: Resolve exact target SHA
         id: target
         env:
@@ -34,6 +31,10 @@ jobs:
           else
             echo "sha=$(gh api repos/${{ github.repository }}/git/ref/heads/main --jq .object.sha)" >> "$GITHUB_OUTPUT"
           fi
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ steps.target.outputs.sha }}
+          persist-credentials: false
       - name: Wait for all related workflows on the exact SHA
         env:
           GH_TOKEN: ${{ github.token }}

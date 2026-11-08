@@ -279,6 +279,7 @@ def test_pat_rotation_thresholds_are_explicit():
     assert pat_rotation_audit.classify_pat('2026-12-20', date(2026, 11, 8))['status'] == 'PASS'
     assert pat_rotation_audit.classify_pat('2026-12-01', date(2026, 11, 8))['status'] == 'WARNING'
     assert pat_rotation_audit.classify_pat('2026-11-20', date(2026, 11, 8))['status'] == 'CRITICAL'
+    assert pat_rotation_audit.classify_pat('2026-11-14', date(2026, 11, 8))['status'] == 'FINAL_WARNING'
     assert pat_rotation_audit.classify_pat('2026-11-08', date(2026, 11, 8))['status'] == 'EXPIRED'
     assert pat_rotation_audit.classify_pat('not-a-date', date(2026, 11, 8))['status'] == 'NOT_VERIFIED'
 

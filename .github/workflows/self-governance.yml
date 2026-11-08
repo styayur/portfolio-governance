@@ -32,3 +32,27 @@ jobs:
           discussions=json.loads(Path('policy/discussions.json').read_text())['categories']
           assert {'General','Ideas','Q&A','Announcements'} <= {item['name'] for item in discussions}
           PY
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Compile Python sources
+        run: python3 -m compileall -q scripts tests
+
+  security:
+    name: security scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Audit development dependencies
+        run: |
+          python3 -m pip install --quiet pip-audit
+          python3 -m pip_audit --strict -r requirements-dev.txt
