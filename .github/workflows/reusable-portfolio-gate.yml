@@ -170,6 +170,16 @@ jobs:
         with:
           name: ai-review
           path: ${{ runner.temp }}/ai-review
+      - name: Evaluate authenticated manual approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          python3 governance/scripts/manual_approval.py
+          --repo "${{ github.repository }}"
+          --pr "${{ inputs.pr_number }}"
+          --risk "$RUNNER_TEMP/risk/risk.json"
+          --config governance/policy/manual-approval.v1.json
+          --output "$RUNNER_TEMP/manual-approval.json"
       - name: Verify exact head and apply merge policy
         id: gate
         env:
@@ -185,6 +195,7 @@ jobs:
           --risk "$RUNNER_TEMP/risk/risk.json"
           --review "$RUNNER_TEMP/review/review.json"
           --ai-review "$RUNNER_TEMP/ai-review/ai-review.json"
+          --manual-approval "$RUNNER_TEMP/manual-approval.json"
           --matrix governance/policy/evidence-matrix.v1.json
           --rollout governance/policy/rollout.json
           --max-attempts 3
@@ -211,7 +222,9 @@ jobs:
         if: always()
         with:
           name: pr-review-evidence
-          path: ${{ runner.temp }}/pr-review-evidence.json
+          path: |
+            ${{ runner.temp }}/pr-review-evidence.json
+            ${{ runner.temp }}/manual-approval.json
           if-no-files-found: warn
           retention-days: 90
 

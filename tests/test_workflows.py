@@ -1,3 +1,4 @@
+import json
 import re
 from pathlib import Path
 import yaml
@@ -45,3 +46,17 @@ def test_evidence_matrix_covers_all_public_repositories():
     matrix = yaml.safe_load((ROOT / 'policy/evidence-matrix.v1.json').read_text())
     assert len(matrix['repositories']) == 28
     assert 'styayur/site' not in matrix['repositories']
+
+def test_manual_approval_is_available_through_authenticated_review_events():
+    for name in ('.github/workflows/portfolio-gate.yml', 'templates/caller-portfolio-gate.yml'):
+        data = yaml.safe_load((ROOT / name).read_text())
+        triggers = data.get('on', data.get(True, {}))
+        assert 'pull_request_review' in triggers
+        assert set(triggers['pull_request_review']['types']) == {'submitted', 'edited', 'dismissed'}
+    workflow = (ROOT / '.github/workflows/reusable-portfolio-gate.yml').read_text()
+    assert 'manual_approval.py' in workflow
+    assert '--manual-approval' in workflow
+    policy = json.loads((ROOT / 'policy/manual-approval.v1.json').read_text())
+    assert policy['status'] == 'ACTIVE'
+    assert policy['requiresStrictBaseFreshness'] is True
+    assert policy['commands']['approve'] == '/portfolio approve-manual'

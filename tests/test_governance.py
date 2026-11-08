@@ -58,7 +58,16 @@ def ai(**overrides):
 
 
 def pr(**overrides):
-    value = {'state': 'OPEN', 'isDraft': False, 'headRefOid': HEAD, 'baseRefOid': BASE, 'mergeable': 'MERGEABLE', 'mergeStateStatus': 'CLEAN', 'labels': [], 'checksTruncated': False}
+    value = {'number': 7, 'state': 'OPEN', 'isDraft': False, 'headRefOid': HEAD, 'baseRefOid': BASE, 'mergeable': 'MERGEABLE', 'mergeStateStatus': 'CLEAN', 'labels': [], 'checksTruncated': False}
+    value.update(overrides)
+    return value
+
+
+def manual(state='APPROVED_MANUAL', level='R3', **overrides):
+    value = {
+        'state': state, 'prNumber': 7, 'risk': level, 'headSha': HEAD, 'baseSha': BASE,
+        'diffSha256': DIFF, 'reasons': [], 'actions': [], 'ignored': [],
+    }
     value.update(overrides)
     return value
 
@@ -211,14 +220,88 @@ def test_shadow_mode_never_sets_auto_merge_eligible():
     assert result['shadowEligible'] is True
 
 
-def test_r3_and_r4_remain_manual():
-    r3_evidence = evidence_for('R3', [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS'), check('security scan', 'SUCCESS')])
-    r3 = evidence_gate.decide(risk('R3'), review(), ai(), r3_evidence, pr(), HEAD, BASE, ENFORCE, 1)
-    assert r3['decision'] == 'MANUAL_REVIEW_REQUIRED'
-    assert r3['autoMergeEligible'] is False
-    r4 = evidence_gate.decide(risk('R4'), review(), ai(), r3_evidence, pr(), HEAD, BASE, ENFORCE, 1)
-    assert r4['decision'] == 'MANUAL_REVIEW_REQUIRED'
-    assert r4['autoMergeEligible'] is False
+def r3_evidence(level='R3'):
+    return evidence_for(level, [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS'), check('security scan', 'SUCCESS')])
+
+
+def test_r3_without_manual_approval_is_pending_and_never_auto_merges():
+    result = evidence_gate.decide(risk('R3'), review(), ai(), r3_evidence(), pr(), HEAD, BASE, ENFORCE, 1, manual('PENDING_MANUAL'))
+    assert result['decision'] == 'PENDING_MANUAL'
+    assert result['autoMergeEligible'] is False
+    assert evidence_gate.successful_decision(result['decision']) is False
+
+
+def test_r3_with_exact_bound_maintainer_approval_passes_check_but_not_auto_merge():
+    result = evidence_gate.decide(risk('R3'), review(), ai(decision='NEEDS_HUMAN'), r3_evidence(), pr(), HEAD, BASE, ENFORCE, 1, manual())
+    assert result['decision'] == 'APPROVED_MANUAL'
+    assert result['autoMergeEligible'] is False
+    assert evidence_gate.successful_decision(result['decision']) is True
+
+
+def test_r4_requires_label_plus_exact_manual_approval():
+    missing_label = evidence_gate.decide(risk('R4'), review(), ai(decision='NEEDS_HUMAN'), r3_evidence('R4'), pr(), HEAD, BASE, ENFORCE, 1, manual(level='R4'))
+    assert missing_label['decision'] == 'PENDING_MANUAL'
+    approved = evidence_gate.decide(risk('R4'), review(), ai(decision='NEEDS_HUMAN'), r3_evidence('R4'), pr(labels=[ENFORCE['r4AuthorizationLabel']]), HEAD, BASE, ENFORCE, 1, manual(level='R4'))
+    assert approved['decision'] == 'APPROVED_MANUAL'
+    assert approved['autoMergeEligible'] is False
+
+
+def test_ai_needs_human_or_not_verified_does_not_preempt_manual_approval():
+    needs_human = ai(decision='NEEDS_HUMAN', status='VERIFIED', reason='manual review needed')
+    unavailable = ai(decision='NOT_VERIFIED', status='NOT_VERIFIED', reason='AI unavailable')
+    for ai_result in (needs_human, unavailable):
+        result = evidence_gate.decide(risk('R3'), review(), ai_result, r3_evidence(), pr(), HEAD, BASE, ENFORCE, 1, manual())
+        assert result['decision'] == 'APPROVED_MANUAL'
+        assert result['autoMergeEligible'] is False
+
+
+def test_rejected_manual_state_fails_closed():
+    rejected = manual('REJECTED_MANUAL', reasons=['maintainer rejected this exact binding'])
+    result = evidence_gate.decide(risk('R3'), review(), ai(), r3_evidence(), pr(), HEAD, BASE, ENFORCE, 1, rejected)
+    assert result['decision'] == 'REJECTED_MANUAL'
+    assert result['autoMergeEligible'] is False
+    assert evidence_gate.successful_decision(result['decision']) is False
+
+
+def test_stale_or_forged_manual_approval_returns_pending():
+    for stale in (
+        manual(headSha='c' * 40),
+        manual(baseSha='c' * 40),
+        manual(diffSha256='e' * 64),
+        manual(prNumber=99),
+        manual(risk='R2'),
+    ):
+        result = evidence_gate.decide(risk('R3'), review(), ai(), r3_evidence(), pr(), HEAD, BASE, ENFORCE, 1, stale)
+        assert result['decision'] == 'PENDING_MANUAL'
+
+
+def test_retry_budget_does_not_override_manual_states():
+    pending = evidence_gate.decide(risk('R3'), review(), ai(), r3_evidence(), pr(), HEAD, BASE, ENFORCE, 99, manual('PENDING_MANUAL'))
+    approved = evidence_gate.decide(risk('R3'), review(), ai(), r3_evidence(), pr(), HEAD, BASE, ENFORCE, 99, manual())
+    assert pending['decision'] == 'PENDING_MANUAL'
+    assert approved['decision'] == 'APPROVED_MANUAL'
+    assert pending['autoMergeEligible'] is approved['autoMergeEligible'] is False
+
+
+def test_ai_block_still_blocks_manual_tier():
+    result = evidence_gate.decide(risk('R3'), review(), ai(decision='BLOCK'), r3_evidence(), pr(), HEAD, BASE, ENFORCE, 1, manual())
+    assert result['decision'] == 'FAILED_AI_REVIEW_BLOCK'
+    assert result['autoMergeEligible'] is False
+
+
+def test_gate_comment_exposes_exact_binding_and_manual_commands():
+    record = {
+        'mode': 'enforce', 'risk': 'R4', 'headSha': HEAD, 'baseSha': BASE, 'diffSha256': DIFF,
+        'evidenceStatus': 'PASS', 'securityStatus': 'PASS', 'reviewDecision': 'MANUAL_REVIEW_REQUIRED',
+        'aiReviewStatus': 'VERIFIED', 'aiReviewDecision': 'NEEDS_HUMAN', 'manualApproval': {'state': 'PENDING_MANUAL'},
+        'decision': 'PENDING_MANUAL', 'autoMergeEligible': False, 'workflowRunUrl': 'https://example.invalid/run',
+        'requiredEvidence': [], 'blockedReasons': ['approval missing'], 'manualReviewReasons': [], 'prNumber': 7,
+    }
+    rendered = evidence_gate._render_comment(record)
+    assert f'diff={DIFF}' in rendered
+    assert '/portfolio approve-manual' in rendered
+    assert '/portfolio authorize-r4' in rendered
+    assert '`COMMENTED` review' in rendered
 
 
 def test_ai_adapter_missing_config_is_not_verified(monkeypatch):
