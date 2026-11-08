@@ -15,6 +15,9 @@ on:
       central_sha:
         required: true
         type: string
+    secrets:
+      PORTFOLIO_AI_REVIEW_API_KEY:
+        required: false
 
 permissions:
   actions: read
@@ -79,7 +82,7 @@ jobs:
         with:
           name: risk-evidence
           path: ${{ runner.temp }}/risk
-      - name: Independently review diff and policy
+      - name: Run static independent policy review
         run: >-
           python3 governance/scripts/independent_review.py
           --context "$RUNNER_TEMP/risk/pr-context.json"
@@ -92,9 +95,50 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+  ai-review:
+    name: Portfolio Evidence Gate / ai-review
+    needs: [classify, review]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: styayur/portfolio-governance
+          ref: ${{ inputs.central_sha }}
+          path: governance
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: risk-evidence
+          path: ${{ runner.temp }}/risk
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: independent-review
+          path: ${{ runner.temp }}/review
+      - name: Run independent AI review adapter
+        env:
+          PORTFOLIO_AI_REVIEW_ENABLED: ${{ vars.PORTFOLIO_AI_REVIEW_ENABLED }}
+          PORTFOLIO_AI_REVIEW_ENDPOINT: ${{ vars.PORTFOLIO_AI_REVIEW_ENDPOINT }}
+          PORTFOLIO_AI_REVIEW_MODEL: ${{ vars.PORTFOLIO_AI_REVIEW_MODEL }}
+          PORTFOLIO_AI_REVIEW_API_KEY: ${{ secrets.PORTFOLIO_AI_REVIEW_API_KEY }}
+        run: >-
+          python3 governance/scripts/ai_review_adapter.py
+          --context "$RUNNER_TEMP/risk/pr-context.json"
+          --risk "$RUNNER_TEMP/risk/risk.json"
+          --static-review "$RUNNER_TEMP/review/review.json"
+          --output "$RUNNER_TEMP/ai-review.json"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: ai-review
+          path: ${{ runner.temp }}/ai-review.json
+          if-no-files-found: error
+          retention-days: 30
+
   evidence:
     name: Portfolio Evidence Gate / verify
-    needs: [classify, review]
+    needs: [classify, review, ai-review]
     runs-on: ubuntu-latest
     timeout-minutes: 50
     permissions:
@@ -122,6 +166,10 @@ jobs:
         with:
           name: independent-review
           path: ${{ runner.temp }}/review
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          name: ai-review
+          path: ${{ runner.temp }}/ai-review
       - name: Verify exact head and apply merge policy
         id: gate
         env:
@@ -133,8 +181,13 @@ jobs:
           --repo "${{ github.repository }}"
           --pr "${{ inputs.pr_number }}"
           --head-sha "${{ inputs.head_sha }}"
+          --base-sha "${{ inputs.base_sha }}"
           --risk "$RUNNER_TEMP/risk/risk.json"
           --review "$RUNNER_TEMP/review/review.json"
+          --ai-review "$RUNNER_TEMP/ai-review/ai-review.json"
+          --matrix governance/policy/evidence-matrix.v1.json
+          --rollout governance/policy/rollout.json
+          --max-attempts 3
           --output "$RUNNER_TEMP/pr-review-evidence.json"
           --run-id "${{ github.run_id }}"
           --enable-auto-merge

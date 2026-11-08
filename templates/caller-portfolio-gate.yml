@@ -23,3 +23,5 @@ jobs:
       head_sha: ${{ github.event.pull_request.head.sha }}
       base_sha: ${{ github.event.pull_request.base.sha }}
       central_sha: PINNED_CENTRAL_SHA
+    secrets:
+      PORTFOLIO_AI_REVIEW_API_KEY: ${{ secrets.PORTFOLIO_AI_REVIEW_API_KEY }}

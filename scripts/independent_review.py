@@ -12,6 +12,11 @@ import re
 import time
 from pathlib import Path
 
+try:
+    from evidence_matrix import diff_digest
+except ModuleNotFoundError:  # package import from tests
+    from scripts.evidence_matrix import diff_digest
+
 SECRET_PATTERNS = [
     ('private-key', re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----')),
     ('github-token', re.compile(r'\bgh[pousr]_[A-Za-z0-9]{30,}\b')),
@@ -105,7 +110,7 @@ def review(context: dict, risk: dict):
         decision = 'AUTO_MERGE_CANDIDATE'
 
     return {
-        'schemaVersion': 1,
+        'schemaVersion': 2,
         'generatedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
         'repository': context.get('repository'),
         'repositoryId': context.get('repositoryId'),
@@ -113,6 +118,9 @@ def review(context: dict, risk: dict):
         'baseSha': context.get('baseSha'),
         'headSha': context.get('headSha'),
         'risk': risk_level,
+        'reviewerType': 'STATIC_POLICY',
+        'diffSha256': risk.get('diffSha256') or diff_digest(files),
+        'aiReviewRequired': risk_level in {'R2', 'R3', 'R4'},
         'decision': decision,
         'blockers': sorted(set(blockers)),
         'manualReviewReasons': sorted(set(manual)),

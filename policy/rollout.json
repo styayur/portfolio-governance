@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "mode": "shadow",
+  "autoMerge": {
+    "R0": true,
+    "R1": true,
+    "R2": true,
+    "R3": false,
+    "R4": false
+  },
+  "maxAttemptsPerHead": 3,
+  "r4AuthorizationLabel": "portfolio:r4-approved"
+}

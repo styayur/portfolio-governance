@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "description": "Required evidence by repository profile and risk tier. Unknown repositories fail closed to the generic profile.",
+  "trustedCheckSources": {
+    "appSlugs": ["github-actions"],
+    "statusCreators": ["github-actions[bot]"],
+    "requireWorkflowRun": true
+  },
+  "rolePatterns": {
+    "build": ["(^|[/ _-])(build|compile|bundle|package|type[ _-]?check)([/ _-]|$)"],
+    "tests": ["(^|[/ _-])(test|tests|pytest|unit|integration|contract|regression|verify)([/ _-]|$)"],
+    "security": ["(^|[/ _-])(security|codeql|secret|audit|dependabot|trivy|osv|scan)([/ _-]|$)"],
+    "native": {
+      "windows": ["(^|[/ _-])windows([/ _-]|$)"],
+      "macos": ["(^|[/ _-])(macos|darwin)([/ _-]|$)"],
+      "linux": ["(^|[/ _-])(linux|ubuntu)([/ _-]|$)"],
+      "android": ["(^|[/ _-])android([/ _-]|$)"],
+      "ios": ["(^|[/ _-])ios([/ _-]|$)"]
+    }
+  },
+  "profiles": {
+    "docs": {"build": false, "nativePlatforms": []},
+    "python": {"build": true, "nativePlatforms": []},
+    "node": {"build": true, "nativePlatforms": []},
+    "rust": {"build": true, "nativePlatforms": []},
+    "powershell-windows": {"build": false, "nativePlatforms": ["windows"]},
+    "native-windows": {"build": true, "nativePlatforms": ["windows"]},
+    "native-desktop": {"build": true, "nativePlatforms": ["windows", "macos", "linux"]},
+    "native-mobile": {"build": true, "nativePlatforms": ["android"]},
+    "mixed": {"build": true, "nativePlatforms": []}
+  },
+  "riskRequirements": {
+    "R0": {"requiredRoles": [], "aiReviewRequired": false, "manualReview": false},
+    "R1": {"requiredRoles": ["tests", "security"], "aiReviewRequired": false, "manualReview": false},
+    "R2": {"requiredRoles": ["build", "tests", "security"], "nativeIfConfigured": true, "aiReviewRequired": true, "manualReview": false},
+    "R3": {"requiredRoles": ["build", "tests", "security"], "nativeIfConfigured": true, "aiReviewRequired": true, "manualReview": true, "specialistAdapterRequired": true},
+    "R4": {"requiredRoles": ["build", "tests", "security"], "nativeIfConfigured": true, "aiReviewRequired": true, "manualReview": true, "specialistAdapterRequired": true, "explicitAuthorizationRequired": true}
+  },
+  "defaultProfile": "mixed",
+  "repositories": {
+    "styayur/calligra": {"profile": "native-mobile"},
+    "styayur/codeforge-engine": {"profile": "native-windows"},
+    "styayur/codex-mode-switcher": {"profile": "native-windows"},
+    "styayur/developer-security-workspace": {"profile": "native-desktop"},
+    "styayur/fitimart": {"profile": "node"},
+    "styayur/gitpad-plus": {"profile": "native-windows"},
+    "styayur/glyphibe": {"profile": "native-windows"},
+    "styayur/ipa-first-tts": {"profile": "python"},
+    "styayur/LGXT-Assistant": {"profile": "native-mobile"},
+    "styayur/local-context-engine": {"profile": "native-desktop"},
+    "styayur/musical-spinningtop": {"profile": "python"},
+    "styayur/mzk": {"profile": "mixed"},
+    "styayur/Nickspeare": {"profile": "mixed"},
+    "styayur/ogleans": {"profile": "node"},
+    "styayur/OmniRoute-PS": {"profile": "powershell-windows"},
+    "styayur/portfolio-governance": {"profile": "python"},
+    "styayur/publishing-workbench": {"profile": "native-windows"},
+    "styayur/rhizomaybor": {"profile": "native-desktop"},
+    "styayur/ripple": {"profile": "node"},
+    "styayur/styayur": {"profile": "docs"},
+    "styayur/styayur.github.io": {"profile": "node"},
+    "styayur/terics": {"profile": "rust"},
+    "styayur/TinySTT": {"profile": "native-windows"},
+    "styayur/TinyTTS": {"profile": "native-windows"},
+    "styayur/trucli": {"profile": "rust"},
+    "styayur/vextessera": {"profile": "native-desktop"},
+    "styayur/whinset": {"profile": "powershell-windows"},
+    "styayur/wutnet": {"profile": "docs"}
+  }
+}
