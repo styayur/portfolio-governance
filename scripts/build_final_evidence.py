@@ -91,16 +91,25 @@ def main():
     pre = json.loads((BASELINE / 'portfolio-inventory.pre-governance.json').read_text())
     repos = inventory['repositories']
     pre_by_name = {r['full_name']: r for r in pre['repositories']}
-    monitoring = json.loads(MONITORING.read_text()) if MONITORING.exists() else {'repositories': []}
-    monitoring_by_repo = {x['repository']: x for x in monitoring.get('repositories', [])}
     dependabot_risk = json.loads(DEPENDABOT_RISK.read_text()) if DEPENDABOT_RISK.exists() else {'totalOpen': None, 'records': [], 'countsByDisposition': {}, 'status': 'NOT_VERIFIED', 'reason': 'Dependabot risk artifact missing'}
     app_meta = json.loads(GITHUB_APP.read_text()) if GITHUB_APP.exists() else {}
-    alert_meta = json.loads(DEPENDABOT_ALERTS.read_text()) if DEPENDABOT_ALERTS.exists() else {'status': 'NOT_VERIFIED', 'totalOpen': None, 'repositories': {}}
-    sync_workflow = json.loads(PROJECT_SYNC_WORKFLOW.read_text()).get('latestSuccess', {}) if PROJECT_SYNC_WORKFLOW.exists() else {}
-    audit_workflow = json.loads(AUDIT_WORKFLOW.read_text()).get('latestSuccess', {}) if AUDIT_WORKFLOW.exists() else {}
+    alert_counts = {}
+    for item in dependabot_risk.get('records') or []:
+        repo = item.get('repository')
+        alert_counts[repo] = alert_counts.get(repo, 0) + 1
+    alert_meta = {'totalOpen': dependabot_risk.get('totalOpen'), 'repositories': alert_counts, 'coverage': dependabot_risk.get('coverage'), 'status': (dependabot_risk.get('coverage') or {}).get('status', 'NOT_VERIFIED')}
     pat_rotation = json.loads(PAT_ROTATION.read_text()) if PAT_ROTATION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'PAT rotation audit missing'}
     workflow_completion = json.loads(WORKFLOW_COMPLETION.read_text()) if WORKFLOW_COMPLETION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'workflow completion evidence missing'}
     workflow_artifacts = json.loads(WORKFLOW_ARTIFACTS.read_text()) if WORKFLOW_ARTIFACTS.exists() else {'status': 'NOT_VERIFIED', 'reason': 'workflow artifact manifest missing'}
+    monitoring_by_repo = {}
+    for repo_record in repos:
+        analysis = repo_record.get('security_and_analysis') or {}
+        monitoring_by_repo[repo_record['full_name']] = {
+            'vulnerabilityAlerts': {'after': {'ok': (analysis.get('dependabot_security_updates') or {}).get('status') == 'enabled'}},
+            'automatedSecurityFixes': {'after': {'ok': (analysis.get('secret_scanning') or {}).get('status') == 'enabled'}},
+        }
+    sync_workflow = (workflow_completion.get('runs') or {}).get('Portfolio project sync') or {}
+    audit_workflow = (workflow_completion.get('runs') or {}).get('Portfolio audit') or {}
 
     (OUT / 'portfolio-inventory.json').write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + '\n')
 

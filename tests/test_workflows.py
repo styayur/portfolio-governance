@@ -101,3 +101,9 @@ def test_risk_operations_preserves_failure_status():
     text = (ROOT / '.github/workflows/risk-operations.yml').read_text()
     assert 'Preserve fail-closed risk status' in text
     assert 'Dependabot audit did not produce a report' in text
+
+
+def test_final_evidence_does_not_reference_removed_snapshots():
+    text = (ROOT / 'scripts/build_final_evidence.py').read_text()
+    for name in ('MONITORING', 'DEPENDABOT_ALERTS', 'PROJECT_SYNC_WORKFLOW', 'AUDIT_WORKFLOW'):
+        assert name not in text
