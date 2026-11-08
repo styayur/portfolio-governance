@@ -37,5 +37,6 @@
     "type": "create_issue",
     "note": "Smoke workflow unexpectedly created a test issue; the production catalog does not include the smoke workflow."
   },
-  "stagingRepositoryDeletedAfterVerification": true
+  "stagingRepositoryDeletedAfterVerification": false,
+  "stagingRepositoryArchived": true
 }

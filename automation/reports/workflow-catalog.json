@@ -7,9 +7,9 @@
     {
       "id": "ci-doctor",
       "path": "automation/workflows/ci-doctor.md",
-      "sha256": "91b90d17b87bcfee08c9bbca4fda0bb5e48d8261114f58f6209380e6f2f3b392",
+      "sha256": "9040e9672c40f9de1d93c90b9ffb8fe16c3d48ee1690b2abefca28cdaf6d6e21",
       "lockPath": "automation/workflows/ci-doctor.lock.yml",
-      "lockSha256": "f577e41304e61cc5111a246e3bb1b1f33e753f275c71149c0443f8441c23f2fc",
+      "lockSha256": "9d7643489c8582e072d37af41e4b6534f9cdacd01765510f589a1af8fe9d0db6",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
@@ -29,7 +29,8 @@
       "maxTurns": 4,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
-      "timeoutMinutes": 10
+      "timeoutMinutes": 10,
+      "budget": "bounded"
     },
     {
       "id": "dependency-remediation",
@@ -58,14 +59,15 @@
       "maxTurns": 6,
       "maxAiCredits": 100,
       "maxDailyAiCredits": 200,
-      "timeoutMinutes": 30
+      "timeoutMinutes": 30,
+      "budget": "bounded"
     },
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "185619853d7af8f1e68c3ace69fece0e685657c278c74cb21247d7acd41eff1d",
+      "sha256": "334dcd18b0120750caf77132d9e31996777c0eb1b71c4f626fe84961b090e43d",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "dea47f8b54f18e99cc8875341121c8ca86170027585c820ba87a5032100efea5",
+      "lockSha256": "6c799dfd1c19c457e06917ec14421b26159b6ba0c94313b1b252c52641cabbb4",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
@@ -85,7 +87,8 @@
       "maxTurns": 3,
       "maxAiCredits": 50,
       "maxDailyAiCredits": 150,
-      "timeoutMinutes": 15
+      "timeoutMinutes": 15,
+      "budget": "bounded"
     },
     {
       "id": "issue-triage",
@@ -111,14 +114,15 @@
       "maxTurns": 3,
       "maxAiCredits": 40,
       "maxDailyAiCredits": 120,
-      "timeoutMinutes": 10
+      "timeoutMinutes": 10,
+      "budget": "bounded"
     },
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "a232d8bee87c1d8fefde2e6dd9a948163e7a3fb9d18e144fb06b9a9c72585295",
+      "sha256": "3b8ca151dc986966cbfbe21f8b2f1a78482c1a0ca2b1460b74cc51df31a212e1",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "34d48e14fbf92f6edb339b8509436e62d85214700437b821e17e841a254ebf30",
+      "lockSha256": "04406ff22c1ebe3532b015bcaeb8e67e26355c78bf09f83485090d2953e5dec2",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
@@ -137,7 +141,8 @@
       "maxTurns": 4,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
-      "timeoutMinutes": null
+      "timeoutMinutes": null,
+      "budget": "bounded"
     }
   ],
   "officialTemplateChecks": [

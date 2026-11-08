@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T08:05:22.811021Z",
+  "generatedAt": "2026-11-08T08:22:15.737537Z",
   "source": "GitHub public repository enumeration plus default-branch workflow contents",
   "expectedRepositories": 28,
   "privateRepositoryExcluded": "styayur/site",
@@ -14,6 +14,141 @@
   ],
   "repositories": [
     {
+      "repository": "styayur/portfolio-governance",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/musical-spinningtop",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/vextessera",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/codex-mode-switcher",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/ogleans",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/local-context-engine",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/trucli",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/codeforge-engine",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/publishing-workbench",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/ipa-first-tts",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/styayur.github.io",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/calligra",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/glyphibe",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/wutnet",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/ripple",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
       "repository": "styayur/Nickspeare",
       "coreDeployment": "NOT_VERIFIED",
       "actualRuns": {
@@ -23,7 +158,61 @@
       }
     },
     {
-      "repository": "styayur/portfolio-governance",
+      "repository": "styayur/TinyTTS",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/rhizomaybor",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/gitpad-plus",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/OmniRoute-PS",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/whinset",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/mzk",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/developer-security-workspace",
       "coreDeployment": "NOT_VERIFIED",
       "actualRuns": {
         "success": 0,
@@ -50,52 +239,7 @@
       }
     },
     {
-      "repository": "styayur/OmniRoute-PS",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/TinyTTS",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/calligra",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/codeforge-engine",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/codex-mode-switcher",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/developer-security-workspace",
+      "repository": "styayur/terics",
       "coreDeployment": "NOT_VERIFIED",
       "actualRuns": {
         "success": 0,
@@ -113,151 +257,7 @@
       }
     },
     {
-      "repository": "styayur/gitpad-plus",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/glyphibe",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/ipa-first-tts",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/local-context-engine",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/musical-spinningtop",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/mzk",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/rhizomaybor",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/ripple",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
       "repository": "styayur/styayur",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/styayur.github.io",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/terics",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/trucli",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/vextessera",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/whinset",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/wutnet",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/publishing-workbench",
-      "coreDeployment": "NOT_VERIFIED",
-      "actualRuns": {
-        "success": 0,
-        "failure": 0,
-        "pending": 0
-      }
-    },
-    {
-      "repository": "styayur/ogleans",
       "coreDeployment": "NOT_VERIFIED",
       "actualRuns": {
         "success": 0,
@@ -267,10 +267,435 @@
     }
   ],
   "summary": {
+    "deploymentProposals": 28,
+    "openProposals": 28,
+    "mergedProposals": 0,
     "coveredRepositories": 0,
     "workflowsDeployed": 0,
     "workflowsActuallyRunSuccessfully": 0
   },
   "status": "BLOCKED",
-  "note": "Deployment PRs and actual successful runs are required; catalog compilation alone is not coverage."
+  "note": "All 28 public repositories have deployment PR proposals. No proposal is counted as coverage until merged and its exact-head workflows run successfully.",
+  "rolloutPRs": [
+    {
+      "repository": "styayur/portfolio-governance",
+      "pr": 22,
+      "title": "feat: add governed agentic workflow catalog",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "f33b9d899fadfa3639d7e7ac89813b8838696686",
+      "url": "https://github.com/styayur/portfolio-governance/pull/22",
+      "checks": {
+        "success": 5,
+        "failure": 1,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/styayur",
+      "pr": 21,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "e0d1be2a842ac07869ad1c5271632ccd6ed1cc04",
+      "url": "https://github.com/styayur/styayur/pull/21",
+      "checks": {
+        "success": 5,
+        "failure": 2,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/fitimart",
+      "pr": 36,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "f416542ad9719368f4fb8379ac456d33bc13a6bc",
+      "url": "https://github.com/styayur/fitimart/pull/36",
+      "checks": {
+        "success": 7,
+        "failure": 2,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/terics",
+      "pr": 10,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "f4bf7a73d778446190fb9313003a6a0a4df85749",
+      "url": "https://github.com/styayur/terics/pull/10",
+      "checks": {
+        "success": 7,
+        "failure": 1,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/LGXT-Assistant",
+      "pr": 49,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "fa2d001b7d9c780973aff9f390ae24dcf0e859fe",
+      "url": "https://github.com/styayur/LGXT-Assistant/pull/49",
+      "checks": {
+        "success": 12,
+        "failure": 2,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/TinySTT",
+      "pr": 10,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "139872c016c410e9235aaea78eac20a3831e3832",
+      "url": "https://github.com/styayur/TinySTT/pull/10",
+      "checks": {
+        "success": 4,
+        "failure": 0,
+        "pending": 2
+      }
+    },
+    {
+      "repository": "styayur/OmniRoute-PS",
+      "pr": 10,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "4651491166018b7cbddb8951d9769f8d5dd684ba",
+      "url": "https://github.com/styayur/OmniRoute-PS/pull/10",
+      "checks": {
+        "success": 3,
+        "failure": 1,
+        "pending": 2
+      }
+    },
+    {
+      "repository": "styayur/TinyTTS",
+      "pr": 26,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "fe154e99a3c26ee8cfec7df1247a269c88d68ccc",
+      "url": "https://github.com/styayur/TinyTTS/pull/26",
+      "checks": {
+        "success": 1,
+        "failure": 0,
+        "pending": 6
+      }
+    },
+    {
+      "repository": "styayur/calligra",
+      "pr": 67,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "8695d117f48f15f7b0aeb1bfbd306404089b3614",
+      "url": "https://github.com/styayur/calligra/pull/67",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 10
+      }
+    },
+    {
+      "repository": "styayur/codeforge-engine",
+      "pr": 66,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "4dc60a034f3bc2d9d65c1a4a75c6100e916c6f97",
+      "url": "https://github.com/styayur/codeforge-engine/pull/66",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 8
+      }
+    },
+    {
+      "repository": "styayur/codex-mode-switcher",
+      "pr": 11,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "dbf5c238ef12ecb5c0b7af44e3da9927769d4e3c",
+      "url": "https://github.com/styayur/codex-mode-switcher/pull/11",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 3
+      }
+    },
+    {
+      "repository": "styayur/developer-security-workspace",
+      "pr": 47,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "0b1ca7209a3dc4fb54bebd65800d1e79273e4370",
+      "url": "https://github.com/styayur/developer-security-workspace/pull/47",
+      "checks": {
+        "success": 8,
+        "failure": 0,
+        "pending": 4
+      }
+    },
+    {
+      "repository": "styayur/gitpad-plus",
+      "pr": 11,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "dfe3e2a2d8d0992dc8389ffbb3b212e9c4caafae",
+      "url": "https://github.com/styayur/gitpad-plus/pull/11",
+      "checks": {
+        "success": 2,
+        "failure": 0,
+        "pending": 3
+      }
+    },
+    {
+      "repository": "styayur/glyphibe",
+      "pr": 23,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "485862d9221dafb370dbe3e63f5113923eb3160d",
+      "url": "https://github.com/styayur/glyphibe/pull/23",
+      "checks": {
+        "success": 2,
+        "failure": 0,
+        "pending": 6
+      }
+    },
+    {
+      "repository": "styayur/ipa-first-tts",
+      "pr": 11,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "4c420dd49769fedaef2dd8cacb2cc1b89f37c225",
+      "url": "https://github.com/styayur/ipa-first-tts/pull/11",
+      "checks": {
+        "success": 1,
+        "failure": 0,
+        "pending": 4
+      }
+    },
+    {
+      "repository": "styayur/local-context-engine",
+      "pr": 39,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "682be472021788b9e6a09b9baf39552154f52bb6",
+      "url": "https://github.com/styayur/local-context-engine/pull/39",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 4
+      }
+    },
+    {
+      "repository": "styayur/musical-spinningtop",
+      "pr": 18,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "5181dc83ecd94f500f48a44a23cf1b4d15fe228c",
+      "url": "https://github.com/styayur/musical-spinningtop/pull/18",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 9
+      }
+    },
+    {
+      "repository": "styayur/mzk",
+      "pr": 6,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "1963ec11fbfb3a7ae0797778026f3c2d9f0b25e4",
+      "url": "https://github.com/styayur/mzk/pull/6",
+      "checks": {
+        "success": 4,
+        "failure": 0,
+        "pending": 2
+      }
+    },
+    {
+      "repository": "styayur/rhizomaybor",
+      "pr": 28,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "adaea8a1e93aafddbb049619151b95c685ff583b",
+      "url": "https://github.com/styayur/rhizomaybor/pull/28",
+      "checks": {
+        "success": 4,
+        "failure": 1,
+        "pending": 1
+      }
+    },
+    {
+      "repository": "styayur/ripple",
+      "pr": 7,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "923ed2b6b87f4849da9a8d62636d2c2100672cf1",
+      "url": "https://github.com/styayur/ripple/pull/7",
+      "checks": {
+        "success": 2,
+        "failure": 1,
+        "pending": 2
+      }
+    },
+    {
+      "repository": "styayur/styayur.github.io",
+      "pr": 11,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "fa1dd83b2049ba62f85f3fc08d204e0e116ad158",
+      "url": "https://github.com/styayur/styayur.github.io/pull/11",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 3
+      }
+    },
+    {
+      "repository": "styayur/trucli",
+      "pr": 10,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "5ed781af8aca3a2e196005d21ebf287320b6f930",
+      "url": "https://github.com/styayur/trucli/pull/10",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 3
+      }
+    },
+    {
+      "repository": "styayur/vextessera",
+      "pr": 62,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "2d19e6fa2a1fd334d94e92374c9bb625c6afe85a",
+      "url": "https://github.com/styayur/vextessera/pull/62",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 14
+      }
+    },
+    {
+      "repository": "styayur/whinset",
+      "pr": 23,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "18d35896f63c8f355e9c537ab9b319a307c810f4",
+      "url": "https://github.com/styayur/whinset/pull/23",
+      "checks": {
+        "success": 11,
+        "failure": 1,
+        "pending": 1
+      }
+    },
+    {
+      "repository": "styayur/Nickspeare",
+      "pr": 19,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "e308314a75245408d7c277868805d743c7036558",
+      "url": "https://github.com/styayur/Nickspeare/pull/19",
+      "checks": {
+        "success": 9,
+        "failure": 1,
+        "pending": 5
+      }
+    },
+    {
+      "repository": "styayur/wutnet",
+      "pr": 12,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "41a4b1cefe00d14d227d427ade5b11897f08f31c",
+      "url": "https://github.com/styayur/wutnet/pull/12",
+      "checks": {
+        "success": 1,
+        "failure": 0,
+        "pending": 1
+      }
+    },
+    {
+      "repository": "styayur/publishing-workbench",
+      "pr": 12,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "dbf2586d1456b884538253429b0d764431f9043e",
+      "url": "https://github.com/styayur/publishing-workbench/pull/12",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 3
+      }
+    },
+    {
+      "repository": "styayur/ogleans",
+      "pr": 30,
+      "title": "chore: deploy agentic workflows",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "2dde94ca6f45861769220a254fd66d4f8cb20a98",
+      "url": "https://github.com/styayur/ogleans/pull/30",
+      "checks": {
+        "success": 0,
+        "failure": 0,
+        "pending": 3
+      }
+    }
+  ]
 }

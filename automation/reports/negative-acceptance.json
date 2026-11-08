@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "PENDING",
+  "status": "PASS_LOCAL_PENDING_CI",
   "testFile": "tests/test_agentic_automation.py",
   "cases": [
     "catalog-lock-presence",
@@ -15,5 +15,8 @@
     "authorization-self-approval-rejected",
     "reports-present"
   ],
-  "note": "PASS is recorded only after the test suite executes on the exact commit."
+  "note": "PASS is recorded only after the test suite executes on the exact commit.",
+  "testsRun": 10,
+  "localResult": "10 passed",
+  "ciStatus": "PENDING_PR_CI"
 }

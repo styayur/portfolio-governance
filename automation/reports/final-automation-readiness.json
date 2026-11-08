@@ -1,20 +1,21 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T08:05:22.811021Z",
+  "generatedAt": "2026-11-08T08:22:15.737537Z",
   "status": "BLOCKED",
   "repositoryCoverage": {
     "covered": 0,
-    "expected": 28
+    "expected": 28,
+    "proposals": 28
   },
   "workflowCatalog": {
     "compiled": 5,
     "actualSuccessfulProductionRuns": 0
   },
   "agentEngineSmoke": {
-    "status": "PASS",
+    "status": "PASS_STAGING",
     "runId": 42460722540,
     "model": "codex/deepseek-chat",
-    "note": "staging only; not production coverage"
+    "note": "Real smoke run on an archived temporary private repo; not production coverage."
   },
   "capabilities": {
     "issueTriage": "CATALOGED_NOT_DEPLOYED",
@@ -27,10 +28,46 @@
     "r4Authorization": "PROPOSED_NOT_ACTIVE"
   },
   "blockers": [
-    "No production repo has all core workflows deployed on its default branch.",
-    "No exact-head production runs have been observed for the five agentic workflows.",
+    "Deployment proposals are open but not merged on the 28 public default branches.",
+    "No exact-head production run exists for the five core agentic workflows.",
     "Portfolio Governance #21 remains blocked.",
-    "TinySTT #9 remains Windows-native and RustSec blocked."
+    "TinySTT #9 remains Windows-native and RustSec blocked.",
+    "The R4 authorization policy is proposed and not active; owner authorization is required before trust-root activation."
   ],
-  "note": "Catalog compilation and staging smoke success do not count as production coverage."
+  "note": "Catalog compilation and staging smoke success do not count as production coverage.",
+  "deploymentProposals": {
+    "count": 28,
+    "open": 28,
+    "merged": 0,
+    "repositories": [
+      "styayur/portfolio-governance",
+      "styayur/styayur",
+      "styayur/fitimart",
+      "styayur/terics",
+      "styayur/LGXT-Assistant",
+      "styayur/TinySTT",
+      "styayur/OmniRoute-PS",
+      "styayur/TinyTTS",
+      "styayur/calligra",
+      "styayur/codeforge-engine",
+      "styayur/codex-mode-switcher",
+      "styayur/developer-security-workspace",
+      "styayur/gitpad-plus",
+      "styayur/glyphibe",
+      "styayur/ipa-first-tts",
+      "styayur/local-context-engine",
+      "styayur/musical-spinningtop",
+      "styayur/mzk",
+      "styayur/rhizomaybor",
+      "styayur/ripple",
+      "styayur/styayur.github.io",
+      "styayur/trucli",
+      "styayur/vextessera",
+      "styayur/whinset",
+      "styayur/Nickspeare",
+      "styayur/wutnet",
+      "styayur/publishing-workbench",
+      "styayur/ogleans"
+    ]
+  }
 }
