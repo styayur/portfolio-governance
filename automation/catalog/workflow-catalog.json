@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "gh-aw v1.0.1",
+  "sourceCatalog": "githubnext/agentics",
+  "sourceCommit": "139fa09ef17cde4135e696ff8e7af09bc5ddfa6e",
+  "workflows": [
+    {
+      "id": "ci-doctor",
+      "path": "automation\\workflows\\ci-doctor.md",
+      "sha256": "bcfb2dc4a13e10b3d15435c299ea1a8017f41c65a4eba5a93da970aae74dbcac",
+      "engine": "codex",
+      "model": "deepseek-chat"
+    },
+    {
+      "id": "dependency-remediation",
+      "path": "automation\\workflows\\dependency-remediation.md",
+      "sha256": "dfe41baba1bd590411fa45887fbb13482271cff1a46218869823bb0da0fa5666",
+      "engine": "codex",
+      "model": "deepseek-chat"
+    },
+    {
+      "id": "independent-pr-review",
+      "path": "automation\\workflows\\independent-pr-review.md",
+      "sha256": "5d6a05087627b688bbef648bf88ca01e3e56aed062bd345614556680d8ba4236",
+      "engine": "codex",
+      "model": "deepseek-chat"
+    },
+    {
+      "id": "issue-triage",
+      "path": "automation\\workflows\\issue-triage.md",
+      "sha256": "211dc4981c476c215f659d9a3b6dc5c46bb5d856f46ae0d862b2fd17f6d8b0ef",
+      "engine": "codex",
+      "model": "deepseek-chat"
+    },
+    {
+      "id": "security-review",
+      "path": "automation\\workflows\\security-review.md",
+      "sha256": "ab694d51ba91d51d4b9552c3204abe50ab6d16c944f2abe4a5095e666c3acd6c",
+      "engine": "codex",
+      "model": "deepseek-chat"
+    }
+  ],
+  "officialTemplateChecks": [
+    {
+      "name": "issue-triage",
+      "path": "workflows/issue-triage.md",
+      "status": "PRESENT",
+      "deployedAs": "issue-triage.md"
+    },
+    {
+      "name": "pr-nitpick-reviewer",
+      "path": "workflows/pr-nitpick-reviewer.md",
+      "status": "PRESENT",
+      "deployedAs": "independent-pr-review.md",
+      "adaptation": "pull_request trigger"
+    },
+    {
+      "name": "ci-doctor",
+      "path": "workflows/ci-doctor.md",
+      "status": "PRESENT",
+      "deployedAs": "ci-doctor.md",
+      "adaptation": "common CI workflow names plus workflow_dispatch"
+    },
+    {
+      "name": "malicious-code-scan",
+      "path": "workflows/malicious-code-scan.md",
+      "status": "PRESENT",
+      "deployedAs": "security-review.md",
+      "adaptation": "pull_request and workflow_dispatch"
+    },
+    {
+      "name": "dependabot-pr-bundler",
+      "path": "workflows/dependabot-pr-bundler.md",
+      "status": "DOC_ONLY_NO_DEPLOYABLE_WORKFLOW",
+      "deployedAs": "dependency-remediation.md",
+      "adaptation": "local versioned implementation"
+    }
+  ],
+  "missingOrInvalidTemplates": [
+    "githubnext/agentics/dependabot-pr-bundler.md"
+  ],
+  "notes": [
+    "Workflow catalog is source-controlled and compiled separately from active repository callers.",
+    "No workflow is considered deployed or successful until an exact-head run is observed."
+  ]
+}
