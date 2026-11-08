@@ -5,3 +5,4 @@ __pycache__/
 coverage.xml
 .github/aw/logs/
 trials/
+.github/aw/updates/
