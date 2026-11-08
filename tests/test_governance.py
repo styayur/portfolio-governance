@@ -258,7 +258,8 @@ def test_check_from_wrong_commit_is_stale():
     assert tests_group['status'] == 'STALE'
 
 
-def test_current_rollout_starts_in_shadow_mode():
+def test_current_rollout_is_enforce_after_negative_acceptance():
     rollout = evidence_matrix.load_rollout(ROOT / 'policy/rollout.json')
-    assert rollout['mode'] == 'shadow'
+    assert rollout['mode'] == 'enforce'
+    assert rollout['autoMerge'] == {'R0': True, 'R1': True, 'R2': True, 'R3': False, 'R4': False}
     assert rollout['maxAttemptsPerHead'] == 3
