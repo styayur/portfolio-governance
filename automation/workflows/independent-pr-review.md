@@ -1,5 +1,5 @@
 ---
-description: Provides detailed nitpicky code review focusing on style, best practices, and minor improvements when invoked with the /nit command
+description: Provides an independent read-only review of pull requests on open, synchronize and ready-for-review events.
 
 on:
   pull_request_target:
@@ -19,7 +19,7 @@ tools:
   cache-memory: true
   github:
     toolsets: [pull_requests, repos]
-    min-integrity: none # This workflow is allowed to examine any PR because it's invoked by a repo maintainer
+    min-integrity: approved # Only review PRs from approved contributors; never checkout untrusted PR code
 
 safe-outputs:
   create-pull-request-review-comment:

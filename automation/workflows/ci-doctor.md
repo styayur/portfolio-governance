@@ -11,7 +11,7 @@ on:
     branches: [main]
   workflow_dispatch:
 
-if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'failure' }}
 
 permissions:
   actions: read
