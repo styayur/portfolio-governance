@@ -3,7 +3,7 @@ name: Portfolio final acceptance
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: [Governance self-checks, Portfolio audit, Portfolio project sync, Portfolio risk operations]
+    workflows: [Portfolio risk operations]
     types: [completed]
   schedule:
     - cron: '13 3 * * *'
@@ -18,9 +18,12 @@ concurrency:
 
 jobs:
   snapshot:
-    if: >-
-      github.event_name != 'workflow_run' ||
-      (github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main')
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     permissions:
       actions: read

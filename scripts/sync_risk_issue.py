@@ -38,6 +38,10 @@ def main():
     found = json.loads(run(['gh', 'issue', 'list', '--repo', args.repo, '--search', f'in:title "{TITLE}"', '--limit', '5', '--json', 'number,title']))
     matching = next((x for x in found if x.get('title') == TITLE), None)
     labels = ['type:security', 'state:blocked', 'priority:P0']
+    existing_labels = {item['name'] for item in json.loads(run(['gh', 'label', 'list', '--repo', args.repo, '--limit', '100', '--json', 'name']))}
+    for label in labels:
+        if label not in existing_labels:
+            run(['gh', 'label', 'create', label, '--repo', args.repo, '--color', 'ededed', '--description', 'Portfolio governance label'])
     if matching:
         run(['gh', 'issue', 'edit', str(matching['number']), '--repo', args.repo, '--body', body, '--add-label', ','.join(labels)])
         print(json.dumps({'status': 'UPDATED', 'issue': matching['number'], 'repo': args.repo}))

@@ -109,6 +109,12 @@ def main():
         'countsByDisposition': counts,
         'records': records,
         'errors': errors,
+        'coverage': {
+            'repositoriesDiscovered': len(repos),
+            'repositoriesScanned': len(repos) - len(errors),
+            'repositoriesErrored': len(errors),
+            'status': 'NOT_VERIFIED' if errors else 'PASS',
+        },
         'unclassified': sum(1 for r in records if r['status'] == 'UNCLASSIFIED_BLOCKED'),
         'note': 'No alert was dismissed or auto-closed by this audit.',
     }

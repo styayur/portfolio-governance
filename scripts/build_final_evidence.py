@@ -80,6 +80,10 @@ def main():
     gate_commit = api(f'repos/styayur/portfolio-governance/commits/{FIXED_GATE_SHA}')
     if gate_commit.get('sha') != FIXED_GATE_SHA:
         raise SystemExit(f'gate SHA is not a verifiable reviewed commit: {FIXED_GATE_SHA}')
+    comparison = api(f'repos/styayur/portfolio-governance/compare/{FIXED_GATE_SHA}...main')
+    merge_base = (comparison.get('merge_base_commit') or {}).get('sha')
+    if comparison.get('status') not in {'ahead', 'identical'} or merge_base != FIXED_GATE_SHA:
+        raise SystemExit(f'gate SHA is not an ancestor of main: {FIXED_GATE_SHA}')
     inventory = json.loads((BASELINE / 'portfolio-inventory.json').read_text())
     pre = json.loads((BASELINE / 'portfolio-inventory.pre-governance.json').read_text())
     repos = inventory['repositories']
@@ -284,8 +288,8 @@ def main():
     not_verified_code = [r['subject'] for r in security if r['status'] == 'NOT_VERIFIED' and 'code scanning' in r['reason']]
     if not_verified_code:
         blockers.append({'subject': 'code-scanning-coverage', 'status': 'NOT_VERIFIED', 'reason': f'{len(not_verified_code)} repositories have no accessible code-scanning result', 'repositories': not_verified_code})
-    if dependabot_risk.get('status') == 'NOT_VERIFIED':
-        blockers.append({'subject': 'dependabot-risk-disposition', 'status': 'NOT_VERIFIED', 'reason': dependabot_risk.get('reason', 'Dependabot risk artifact missing')})
+    if dependabot_risk.get('status') == 'NOT_VERIFIED' or (dependabot_risk.get('coverage') or {}).get('status') == 'NOT_VERIFIED':
+        blockers.append({'subject': 'dependabot-risk-disposition', 'status': 'NOT_VERIFIED', 'reason': dependabot_risk.get('reason', 'Dependabot risk coverage is incomplete'), 'coverage': dependabot_risk.get('coverage')})
     elif dependabot_risk.get('totalOpen'):
         blockers.append({'subject': 'dependabot-risk-disposition', 'status': 'BLOCKED', 'reason': f"{dependabot_risk.get('totalOpen', 0)} live Dependabot findings; see dependabot-risk-disposition.json", 'remediation': 'Continue remediation and recheck conditions; never dismiss or suppress unresolved findings.'})
     if pat_rotation.get('status') not in {'PASS', 'WARNING'}:

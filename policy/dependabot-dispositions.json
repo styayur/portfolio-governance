@@ -30,7 +30,7 @@
     },
     {
       "id": "glib-upstream-tauri-gtk",
-      "match": {"repositories": ["*"], "packages": ["glib"], "ecosystems": ["rust"]},
+      "match": {"repositories": ["styayur/developer-security-workspace", "styayur/vextessera", "styayur/glyphibe", "styayur/local-context-engine", "styayur/publishing-workbench", "styayur/rhizomaybor", "styayur/codeforge-engine"], "packages": ["glib"], "ecosystems": ["rust"]},
       "disposition": "BLOCKED_UPSTREAM",
       "priority": "P1",
       "owner": "styayur",

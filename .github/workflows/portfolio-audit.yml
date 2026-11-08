@@ -32,6 +32,7 @@ jobs:
           assert all(r['visibility'] == 'PUBLIC' for r in inv['repositories'])
           assert 'styayur/site' not in {r['full_name'] for r in inv['repositories']}
           PY
+      # Artifact name contract: consumed by final-acceptance.yml.
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:

@@ -22,8 +22,6 @@ jobs:
           client-id: ${{ vars.PORTFOLIO_APP_CLIENT_ID }}
           private-key: ${{ secrets.PORTFOLIO_APP_PRIVATE_KEY }}
           owner: styayur
-          permission-contents: read
-          permission-issues: read
           permission-dependabot-alerts: read
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:

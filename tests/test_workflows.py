@@ -80,7 +80,7 @@ def test_final_acceptance_is_main_push_only():
     data = yaml.safe_load((ROOT / '.github/workflows/final-acceptance.yml').read_text())
     condition = str(data['jobs']['snapshot']['if'])
     assert "head_branch == 'main'" in condition
-    assert "event == 'push'" in condition
+    assert "workflow_run.event == 'push'" in condition
     assert data['concurrency']['cancel-in-progress'] is False
 
 
