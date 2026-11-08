@@ -17,6 +17,12 @@ def classify_code_scanning(security_analysis, workflows, alerts, latest_run=None
             code_workflows.append(wf)
     enabled = (((security_analysis or {}).get('code_scanning') or {}).get('status') or '').casefold() == 'enabled'
     if isinstance(alerts, list):
+        if code_workflows and not latest_run:
+            return {
+                'status': 'NOT_VERIFIED', 'count': len(alerts),
+                'reason': 'code-scanning workflow is configured but no completed run is available',
+                'workflow': code_workflows[0].get('name'), 'latestRun': latest_run,
+            }
         failed = latest_run.get('conclusion') in {'failure', 'cancelled', 'timed_out', 'action_required'}
         return {
             'status': 'SCAN_FAILED' if failed else ('FINDINGS' if alerts else 'NO_RESULTS'),

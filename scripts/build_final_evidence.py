@@ -77,6 +77,9 @@ def record(subject, evidence, status, reason, revision=None, remediation='', res
 
 
 def main():
+    gate_commit = api(f'repos/styayur/portfolio-governance/commits/{FIXED_GATE_SHA}')
+    if gate_commit.get('sha') != FIXED_GATE_SHA:
+        raise SystemExit(f'gate SHA is not a verifiable reviewed commit: {FIXED_GATE_SHA}')
     inventory = json.loads((BASELINE / 'portfolio-inventory.json').read_text())
     pre = json.loads((BASELINE / 'portfolio-inventory.pre-governance.json').read_text())
     repos = inventory['repositories']
@@ -305,6 +308,7 @@ def main():
         'generatedAt': NOW,
         'codespacesFirst': {'status': 'NOT_APPLICABLE', 'executionContext': 'GITHUB_ACTIONS', 'workflow': os.environ.get('GITHUB_WORKFLOW'), 'note': 'Persistent acceptance runs in GitHub Actions; Codespaces was used only for bootstrap and orchestration.'},
         'repositoryCoverage': {'status': 'PASS' if len(repos) >= 28 else 'FAIL', 'count': len(repos), 'privateSiteExcluded': 'styayur/site'},
+        'gatePin': {'sha': FIXED_GATE_SHA, 'commitUrl': gate_commit.get('html_url'), 'status': 'PASS'},
         'governance': aggregate(governance), 'agents': aggregate(agents), 'security': sec_summary, 'actions': actions_summary, 'releases': aggregate(releases),
         'project': {'status': project_status, 'reason': project_reason, 'fieldsRequired': sorted(required_fields), 'viewsRequired': sorted(required_views)},
         'automation': {'status': automation_status, 'latestProjectSyncSuccess': sync_workflow, 'latestAuditSuccess': audit_workflow, 'githubApp': {'id': app_meta.get('id'), 'slug': app_meta.get('slug'), 'clientId': app_meta.get('client_id')}, 'projectToken': {'scope': ['project'], 'expires': pat_rotation.get('expires'), 'githubAppOnlyStatus': 'BLOCKED', 'reason': 'installation token cannot mutate user-owned Projects V2'}},

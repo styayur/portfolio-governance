@@ -2,7 +2,7 @@
 
 ## Dependabot dispositions
 
-`policy/dependabot-dispositions.json` maps live Dependabot findings to an explicit disposition. The audit never dismisses alerts. Every unmatched alert is classified as `UNCLASSIFIED_BLOCKED` and causes a non-zero result after the evidence is written.
+`policy/dependabot-dispositions.json` maps live Dependabot findings for the public portfolio to an explicit disposition. The audit never dismisses alerts. Every unmatched alert is classified as `UNCLASSIFIED_BLOCKED` and causes a non-zero result after the evidence is written.
 
 The daily risk workflow writes:
 
@@ -46,3 +46,5 @@ These states are not collapsed into a generic scanner error.
 - `GITHUB_TOKEN`: issue synchronization and same-repository metadata only. It is never used to claim cross-repository evidence.
 
 Risk evidence files are workflow artifacts, not reviewed source snapshots. The daily workflow writes them under `evidence/risk/`; the final-acceptance run uploads the exact artifact after all related exact-SHA workflows complete.
+
+The project sync runs hourly to keep the Portfolio Project aligned with live PR, Issue and risk-register state. It uses the scoped Projects token for mutation and a short-lived App token for read-only repository data.

@@ -17,6 +17,11 @@ def run(args):
     return p.stdout
 
 
+def markdown_text(value, limit=1200) -> str:
+    text = str(value or 'not recorded').replace('\r', ' ').replace('\n', ' ').replace('`', "'")
+    return text[:limit]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--report', type=Path, required=True)
@@ -27,7 +32,7 @@ def main():
     critical = [r for r in records if str(r.get('priority', '')).upper() in {'P0', 'P1'}]
     lines = [f'<!-- portfolio-risk-register -->', f'# {TITLE}', '', f"Generated: `{report.get('generatedAt')}`", f"Open alerts: **{report.get('totalOpen', 0)}**", f"Unclassified blockers: **{report.get('unclassified', 0)}**", '', '## Disposition summary', '', '```json', json.dumps(report.get('countsByDisposition', {}), ensure_ascii=False, indent=2), '```', '', '## Highest-priority findings', '']
     for r in critical[:40]:
-        lines += [f"### {r['subject']}", f"- Package: `{r.get('package')}` ({r.get('ecosystem')})", f"- Disposition: **{r.get('status')}**", f"- Priority: **{r.get('priority')}**", f"- Dependency chain: {r.get('dependencyChain') or 'not recorded'}", f"- Impact: {r.get('impact') or 'not recorded'}", f"- Mitigation: {r.get('mitigation') or 'not recorded'}", f"- Recheck: {r.get('recheckCondition') or 'not recorded'}", f"- Evidence: {r.get('evidence')}", '']
+        lines += [f"### {markdown_text(r.get('subject'), 300)}", f"- Package: `{markdown_text(r.get('package'), 200)}` ({markdown_text(r.get('ecosystem'), 100)})", f"- Disposition: **{markdown_text(r.get('status'), 80)}**", f"- Priority: **{markdown_text(r.get('priority'), 20)}**", f"- Dependency chain: {markdown_text(r.get('dependencyChain'))}", f"- Impact: {markdown_text(r.get('impact'))}", f"- Mitigation: {markdown_text(r.get('mitigation'))}", f"- Recheck: {markdown_text(r.get('recheckCondition'))}", f"- Evidence: {markdown_text(r.get('evidence'), 500)}", '']
     lines += ['## Boundary', '', 'This issue is a live, auditable projection of Dependabot findings. It does not dismiss, suppress, or auto-close alerts.']
     body = '\n'.join(lines) + '\n'
     found = json.loads(run(['gh', 'issue', 'list', '--repo', args.repo, '--search', f'in:title "{TITLE}"', '--limit', '5', '--json', 'number,title']))

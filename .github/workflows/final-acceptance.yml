@@ -14,11 +14,19 @@ permissions:
 
 concurrency:
   group: portfolio-final-acceptance
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   snapshot:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      issues: read
+      pull-requests: read
     timeout-minutes: 50
     steps:
       - name: Resolve exact target SHA
@@ -61,11 +69,11 @@ jobs:
           --output evidence/final/workflow-artifacts.json
       - name: Build final evidence after all workflows completed
         env:
-          GH_TOKEN: ${{ secrets.PORTFOLIO_PROJECT_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           PORTFOLIO_PROJECT_TOKEN: ${{ secrets.PORTFOLIO_PROJECT_TOKEN }}
         run: python3 scripts/build_final_evidence.py
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        if: always()
+        if: success()
         with:
           name: portfolio-final-acceptance-${{ github.run_id }}
           path: |
