@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "testedSourceHead": "c47c51966af00710d186e470c6d60b987326dd4e",
+  "workflow": {
+    "name": "Governance self-checks",
+    "runId": 42449776961,
+    "url": "https://github.com/styayur/portfolio-governance/actions/runs/42449776961",
+    "event": "pull_request",
+    "headSha": "c47c51966af00710d186e470c6d60b987326dd4e"
+  },
+  "jobs": {
+    "test": {
+      "conclusion": "success",
+      "command": "python3 -m pytest -q",
+      "output": "45 passed in 0.14s"
+    },
+    "build": {
+      "conclusion": "success",
+      "command": "python3 -m compileall -q scripts tests",
+      "output": "completed without error"
+    },
+    "security scan": {
+      "conclusion": "success",
+      "command": "python3 -m pip_audit --strict -r requirements-dev.txt",
+      "output": "No known vulnerabilities found"
+    }
+  },
+  "scopeNote": "This file records the exact-source GitHub Actions evidence. Any later commit must rerun the workflow and add a new evidence record; this record is not a substitute for missing evidence."
+}
