@@ -45,6 +45,14 @@ jobs:
           --workflows "Governance self-checks,Portfolio audit,Portfolio project sync,Portfolio risk operations"
           --timeout 1800
           --output evidence/final/workflow-completion.json
+      - name: Materialize exact-SHA workflow artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          python3 scripts/collect_workflow_artifacts.py
+          --repo "${{ github.repository }}"
+          --completion evidence/final/workflow-completion.json
+          --output evidence/final/workflow-artifacts.json
       - name: Build final evidence after all workflows completed
         env:
           GH_TOKEN: ${{ secrets.PORTFOLIO_PROJECT_TOKEN }}

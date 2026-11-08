@@ -14,7 +14,7 @@ BASELINE = ROOT / 'evidence' / 'baseline'
 OUT = ROOT / 'evidence' / 'final'
 OUT.mkdir(parents=True, exist_ok=True)
 NOW = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
-FIXED_GATE_SHA = 'a0e7ff969f2f065f982c2cf763e863c719e963fa'
+FIXED_GATE_SHA = '82ef68707329d39b4a389c8840eeb22f8e8f3f49'
 GATE_CONTEXT = 'portfolio / Portfolio Evidence Gate / verify'
 RULESET_NAME = 'Portfolio default branch safety'
 MONITORING = ROOT / 'evidence' / 'remediation' / 'security-monitoring.json'
@@ -84,10 +84,10 @@ def main():
     monitoring = json.loads(MONITORING.read_text()) if MONITORING.exists() else {'repositories': []}
     monitoring_by_repo = {x['repository']: x for x in monitoring.get('repositories', [])}
     app_meta = json.loads(GITHUB_APP.read_text()) if GITHUB_APP.exists() else {}
-    alert_meta = json.loads(DEPENDABOT_ALERTS.read_text()) if DEPENDABOT_ALERTS.exists() else {'totalOpen': 0, 'repositories': {}}
+    alert_meta = json.loads(DEPENDABOT_ALERTS.read_text()) if DEPENDABOT_ALERTS.exists() else {'status': 'NOT_VERIFIED', 'totalOpen': None, 'repositories': {}}
     sync_workflow = json.loads(PROJECT_SYNC_WORKFLOW.read_text()).get('latestSuccess', {}) if PROJECT_SYNC_WORKFLOW.exists() else {}
     audit_workflow = json.loads(AUDIT_WORKFLOW.read_text()).get('latestSuccess', {}) if AUDIT_WORKFLOW.exists() else {}
-    dependabot_risk = json.loads(DEPENDABOT_RISK.read_text()) if DEPENDABOT_RISK.exists() else {'totalOpen': 0, 'records': [], 'countsByDisposition': {}, 'status': 'NOT_VERIFIED'}
+    dependabot_risk = json.loads(DEPENDABOT_RISK.read_text()) if DEPENDABOT_RISK.exists() else {'totalOpen': None, 'records': [], 'countsByDisposition': {}, 'status': 'NOT_VERIFIED', 'reason': 'Dependabot risk artifact missing'}
     pat_rotation = json.loads(PAT_ROTATION.read_text()) if PAT_ROTATION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'PAT rotation audit missing'}
     workflow_completion = json.loads(WORKFLOW_COMPLETION.read_text()) if WORKFLOW_COMPLETION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'workflow completion evidence missing'}
 
@@ -281,7 +281,9 @@ def main():
     not_verified_code = [r['subject'] for r in security if r['status'] == 'NOT_VERIFIED' and 'code scanning' in r['reason']]
     if not_verified_code:
         blockers.append({'subject': 'code-scanning-coverage', 'status': 'NOT_VERIFIED', 'reason': f'{len(not_verified_code)} repositories have no accessible code-scanning result', 'repositories': not_verified_code})
-    if dependabot_risk.get('totalOpen'):
+    if dependabot_risk.get('status') == 'NOT_VERIFIED':
+        blockers.append({'subject': 'dependabot-risk-disposition', 'status': 'NOT_VERIFIED', 'reason': dependabot_risk.get('reason', 'Dependabot risk artifact missing')})
+    elif dependabot_risk.get('totalOpen'):
         blockers.append({'subject': 'dependabot-risk-disposition', 'status': 'BLOCKED', 'reason': f"{dependabot_risk.get('totalOpen', 0)} live Dependabot findings; see dependabot-risk-disposition.json", 'remediation': 'Continue remediation and recheck conditions; never dismiss or suppress unresolved findings.'})
     if pat_rotation.get('status') not in {'PASS', 'WARNING'}:
         blockers.append({'subject': 'portfolio-project-token-rotation', 'status': 'BLOCKED', 'reason': pat_rotation.get('reason'), 'remediation': pat_rotation.get('remediation')})
@@ -301,11 +303,11 @@ def main():
     final = {
         'schemaVersion': 1,
         'generatedAt': NOW,
-        'codespacesFirst': {'status': 'PASS', 'codespace': 'styayur-portfolio-governance-96jxv56p97rjc9777', 'note': 'Repository/API orchestration and evidence generation ran from this Codespace; owner-only GitHub App and classic-token provisioning used the authenticated browser UI.'},
+        'codespacesFirst': {'status': 'NOT_APPLICABLE', 'executionContext': 'GITHUB_ACTIONS', 'workflow': os.environ.get('GITHUB_WORKFLOW'), 'note': 'Persistent acceptance runs in GitHub Actions; Codespaces was used only for bootstrap and orchestration.'},
         'repositoryCoverage': {'status': 'PASS' if len(repos) >= 28 else 'FAIL', 'count': len(repos), 'privateSiteExcluded': 'styayur/site'},
         'governance': aggregate(governance), 'agents': aggregate(agents), 'security': sec_summary, 'actions': actions_summary, 'releases': aggregate(releases),
         'project': {'status': project_status, 'reason': project_reason, 'fieldsRequired': sorted(required_fields), 'viewsRequired': sorted(required_views)},
-        'automation': {'status': automation_status, 'latestProjectSyncSuccess': sync_workflow, 'latestAuditSuccess': audit_workflow, 'githubApp': {'id': app_meta.get('id'), 'slug': app_meta.get('slug'), 'clientId': app_meta.get('client_id')}, 'projectToken': {'scope': ['project'], 'expires': '2027-02-06', 'githubAppOnlyStatus': 'BLOCKED', 'reason': 'installation token cannot mutate user-owned Projects V2'}},
+        'automation': {'status': automation_status, 'latestProjectSyncSuccess': sync_workflow, 'latestAuditSuccess': audit_workflow, 'githubApp': {'id': app_meta.get('id'), 'slug': app_meta.get('slug'), 'clientId': app_meta.get('client_id')}, 'projectToken': {'scope': ['project'], 'expires': pat_rotation.get('expires'), 'githubAppOnlyStatus': 'BLOCKED', 'reason': 'installation token cannot mutate user-owned Projects V2'}},
         'securityMonitoring': {'status': 'PASS' if monitoring_ok == len(repos) else 'FAIL', 'enabled': monitoring_ok, 'expected': len(repos)},
         'openDependabotAlerts': {'total': alert_meta.get('totalOpen'), 'repositories': alert_meta.get('repositories')},
         'riskOperations': {'dependabot': dependabot_risk, 'patRotation': pat_rotation, 'workflowCompletion': workflow_completion},

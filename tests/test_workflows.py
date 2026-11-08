@@ -53,6 +53,7 @@ def test_final_acceptance_waits_for_all_related_workflows():
     assert 'Portfolio audit' in text
     assert 'Portfolio project sync' in text
     assert 'Portfolio risk operations' in text
+    assert 'collect_workflow_artifacts.py' in text
     steps = data['jobs']['snapshot']['steps']
     target_index = next(i for i, step in enumerate(steps) if step.get('id') == 'target')
     checkout_index = next(i for i, step in enumerate(steps) if str(step.get('uses', '')).startswith('actions/checkout@'))
@@ -65,3 +66,5 @@ def test_risk_operations_has_rotation_and_dependabot_checks():
     assert 'dependabot_risk_audit.py' in text
     assert 'pat_rotation_audit.py' in text
     assert 'sync_risk_issue.py' in text
+    assert "steps.sync.outcome == 'failure'" in text
+    assert "steps.sync.outcome == 'skipped'" in text

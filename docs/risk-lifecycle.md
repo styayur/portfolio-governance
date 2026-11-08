@@ -38,3 +38,11 @@ The portfolio audit distinguishes:
 - `NOT_VERIFIED`
 
 These states are not collapsed into a generic scanner error.
+
+## Credential boundaries
+
+- `PORTFOLIO_PROJECT_TOKEN`: user-owned GitHub Projects V2 mutation and portfolio-wide read orchestration; scoped to `project`; expires 2027-02-06 and is checked at 30/14/7 days.
+- `PORTFOLIO_APP_PRIVATE_KEY` / `PORTFOLIO_APP_CLIENT_ID`: mint a short-lived installation token. Dependabot risk reads use this token with `dependabot-alerts: read`; the installation token is not used for Projects V2 mutation.
+- `GITHUB_TOKEN`: issue synchronization and same-repository metadata only. It is never used to claim cross-repository evidence.
+
+Risk evidence files are workflow artifacts, not reviewed source snapshots. The daily workflow writes them under `evidence/risk/`; the final-acceptance run uploads the exact artifact after all related exact-SHA workflows complete.

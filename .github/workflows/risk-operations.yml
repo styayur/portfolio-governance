@@ -41,6 +41,7 @@ jobs:
           PORTFOLIO_PROJECT_TOKEN_EXPIRES_AT: ${{ vars.PORTFOLIO_PROJECT_TOKEN_EXPIRES_AT }}
         run: python3 scripts/pat_rotation_audit.py
       - name: Sync live risk register issue
+        id: sync
         if: always() && hashFiles('evidence/risk/dependabot-risk-disposition.json') != ''
         env:
           GH_TOKEN: ${{ github.token }}
@@ -53,5 +54,5 @@ jobs:
           if-no-files-found: warn
           retention-days: 90
       - name: Fail closed after preserving risk evidence
-        if: steps.dependabot.outcome == 'failure' || steps.pat.outcome == 'failure'
+        if: steps.dependabot.outcome == 'failure' || steps.pat.outcome == 'failure' || steps.sync.outcome == 'failure' || steps.sync.outcome == 'skipped'
         run: exit 1
