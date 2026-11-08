@@ -15,7 +15,7 @@ def classify_code_scanning(security_analysis, workflows, alerts, latest_run=None
         text = f"{wf.get('name','')} {wf.get('path','')}".casefold()
         if 'codeql' in text or 'code-scanning' in text or 'code scanning' in text:
             code_workflows.append(wf)
-    enabled = (((security_analysis or {}).get('code_scanning') or {}).get('status') or '').casefold() == 'enabled'
+    enabled = (((security_analysis or {}).get('code_scanning') or {}).get('status') or '').casefold() == 'enabled' or bool(code_workflows)
     if isinstance(alerts, list):
         if alerts:
             return {

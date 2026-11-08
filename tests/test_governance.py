@@ -299,6 +299,7 @@ def test_dependabot_policy_has_known_blockers_and_never_accepts_unclassified():
     match = dependabot_risk_audit.match_entry('styayur/TinySTT', {'number': 5, 'dependency': {'package': {'name': 'zip', 'ecosystem': 'rust'}}}, policy['entries'])
     assert match['id'] == 'tiny-stt-zip'
     assert dependabot_risk_audit.match_entry('styayur/TinySTT', {'number': 99, 'dependency': {'package': {'name': 'zip', 'ecosystem': 'rust'}}}, policy['entries']) is None
+    assert dependabot_risk_audit.match_entry('styayur/TinySTT', {'number': 5, 'dependency': {'package': {'name': 'zip', 'ecosystem': 'rust'}}}, [{'match': {'repositories': ['styayur/TinySTT'], 'packages': ['zip']}}]) is None
 
 
 def test_risk_issue_markdown_escaping():
@@ -337,3 +338,16 @@ def test_artifact_path_must_be_unique(tmp_path):
         pass
     else:
         raise AssertionError('ambiguous artifacts must fail closed')
+
+
+def test_invalid_gate_sha_fails_load(tmp_path):
+    value = json.loads((ROOT / 'policy/rollout.json').read_text())
+    value['gateSha'] = 'not-a-sha'
+    path = tmp_path / 'rollout.json'
+    path.write_text(json.dumps(value))
+    try:
+        evidence_matrix.load_rollout(path)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('invalid gateSha must fail closed')

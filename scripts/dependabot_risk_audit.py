@@ -14,6 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = ROOT / 'policy' / 'dependabot-dispositions.json'
+MATRIX = ROOT / 'policy' / 'evidence-matrix.v1.json'
 DEFAULT_OUT = ROOT / 'evidence' / 'risk' / 'dependabot-risk-disposition.json'
 
 
@@ -49,8 +50,8 @@ def match_entry(repo, alert, entries):
             continue
         if match.get('ecosystems') and not enabled(ecosystem, match['ecosystems']):
             continue
-        alert_numbers = (match.get('alertNumbersByRepository') or {}).get(repo)
-        if alert_numbers and alert.get('number') not in alert_numbers:
+        alert_numbers_by_repo = match.get('alertNumbersByRepository') or {}
+        if repo not in alert_numbers_by_repo or alert.get('number') not in alert_numbers_by_repo[repo]:
             continue
         return entry
     return None
@@ -62,7 +63,8 @@ def main():
     args = parser.parse_args()
     policy = json.loads(POLICY.read_text())
     entries = policy.get('entries') or []
-    repos = parse_json_lines(run(['gh', 'api', '--paginate', '--jq', '.[] | select(.private == false) | {nameWithOwner: .full_name}', 'users/styayur/repos?per_page=100']))
+    matrix = json.loads(MATRIX.read_text())
+    repos = [{'nameWithOwner': name} for name in sorted((matrix.get('repositories') or {}).keys())]
     records = []
     errors = []
     counts = {}

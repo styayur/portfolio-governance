@@ -45,7 +45,7 @@ These states are not collapsed into a generic scanner error.
 - `PORTFOLIO_APP_PRIVATE_KEY` / `PORTFOLIO_APP_CLIENT_ID`: mint a short-lived installation token. Dependabot risk reads use this token with `dependabot-alerts: read`; the installation token is not used for Projects V2 mutation.
 - `GITHUB_TOKEN`: issue synchronization and same-repository metadata only. It is never used to claim cross-repository evidence.
 
-Risk evidence files are workflow artifacts, not reviewed source snapshots. The daily workflow writes them under `evidence/risk/`; the final-acceptance run uploads the exact artifact after all related exact-SHA workflows complete.
+Risk and acceptance artifacts are workflow artifacts; historical baseline and remediation files remain versioned as prior governance evidence, not as substitutes for current workflow output. The daily workflow writes them under `evidence/risk/`; the final-acceptance run uploads the exact artifact after all related exact-SHA workflows complete.
 
 The project sync runs hourly to keep the Portfolio Project aligned with live PR, Issue and risk-register state. It uses the scoped Projects token for mutation and a short-lived App token for read-only repository data.
 
