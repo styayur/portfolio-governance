@@ -2,8 +2,11 @@
 description: Provides detailed nitpicky code review focusing on style, best practices, and minor improvements when invoked with the /nit command
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened, ready_for_review]
+    acknowledge-risk: true
+
+checkout: false
 
 permissions:
   contents: read

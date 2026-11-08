@@ -2,8 +2,7 @@
 description: Automated security scan that reviews code changes from the last 3 days for suspicious patterns indicating malicious or agentic threats
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+  schedule: weekly
   workflow_dispatch:
 
 permissions:

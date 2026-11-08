@@ -63,9 +63,9 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "f8b39f604e849817b568130a22ce4072f511a772ad8ea8ce81c5435362e4aacb",
+      "sha256": "3879a5b588d90b309cccca04d56a7d00fe863a9602ae6f1785c4e747a8ab0fef",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "5ec5651bd5341a65ba0e7d4428d29f450ad05ca65c8951a388e879785f91ac6e",
+      "lockSha256": "b998fc376b0dc17128bb6908b4a2601e5e6ffa46d8ece8e0b6ead10cc30f63aa",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
@@ -116,9 +116,9 @@
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "a232d8bee87c1d8fefde2e6dd9a948163e7a3fb9d18e144fb06b9a9c72585295",
+      "sha256": "3b8ca151dc986966cbfbe21f8b2f1a78482c1a0ca2b1460b74cc51df31a212e1",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "34d48e14fbf92f6edb339b8509436e62d85214700437b821e17e841a254ebf30",
+      "lockSha256": "04406ff22c1ebe3532b015bcaeb8e67e26355c78bf09f83485090d2953e5dec2",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
