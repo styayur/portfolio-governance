@@ -63,9 +63,9 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "185619853d7af8f1e68c3ace69fece0e685657c278c74cb21247d7acd41eff1d",
+      "sha256": "f8b39f604e849817b568130a22ce4072f511a772ad8ea8ce81c5435362e4aacb",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "dea47f8b54f18e99cc8875341121c8ca86170027585c820ba87a5032100efea5",
+      "lockSha256": "5ec5651bd5341a65ba0e7d4428d29f450ad05ca65c8951a388e879785f91ac6e",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
