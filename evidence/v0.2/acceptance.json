@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T05:59:52.435879Z",
+  "generatedAt": "2026-11-08T06:03:46.206446Z",
   "repository": "styayur/portfolio-governance",
   "mainShaAtAcceptance": "b91a7a980495054ac9db3782a057704aa3b87dde",
   "candidatePr": {
     "number": 21,
     "url": "https://github.com/styayur/portfolio-governance/pull/21",
-    "testedCandidateHead": "cd7a972585e2900658a7dc4fed8e4f1cd31af271"
+    "testedCandidateHead": "b5aa8c932a7691cf6b5a786cac45b1cbb5d29de6"
   },
   "overallStatus": "BLOCKED",
   "qualityScore": null,
@@ -206,7 +206,7 @@
     "governanceCandidate": {
       "number": 21,
       "status": "BLOCKED",
-      "reason": "independent AI review returned BLOCK; R4 auto-merge disabled"
+      "reason": "independent AI review returned NEEDS_HUMAN; R4 auto-merge disabled"
     },
     "tinysttRemediation": {
       "number": 9,
@@ -241,10 +241,10 @@
   },
   "aiReview": {
     "status": "VERIFIED",
-    "decision": "BLOCK",
+    "decision": "NEEDS_HUMAN",
     "model": "deepseek-reasoner",
-    "gateRunId": 42452697164,
-    "reason": "R4 governance change cannot be approved with contradictory/stale exact-head evidence and unverified end-to-end artifact and runtime contracts."
+    "gateRunId": 42452941304,
+    "reason": "R4 governance change cannot be approved with stale/contradictory exact-head evidence and missing end-to-end operational workflow execution."
   },
   "notClaimedAsPass": [
     "TinySTT Critical ZIP risk is not claimed closed because Windows native CI and a clean RustSec audit did not both pass.",
