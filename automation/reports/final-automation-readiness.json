@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T08:22:15.737537Z",
+  "generatedAt": "2026-11-08T08:26:11.088122Z",
   "status": "BLOCKED",
   "repositoryCoverage": {
     "covered": 0,
@@ -15,25 +15,24 @@
     "status": "PASS_STAGING",
     "runId": 42460722540,
     "model": "codex/deepseek-chat",
-    "note": "Real smoke run on an archived temporary private repo; not production coverage."
+    "note": "Real smoke run on an archived temporary private repository; not production coverage."
   },
   "capabilities": {
-    "issueTriage": "CATALOGED_NOT_DEPLOYED",
-    "independentPrReview": "CATALOGED_NOT_DEPLOYED",
-    "ciDoctor": "CATALOGED_NOT_DEPLOYED",
-    "securityReview": "CATALOGED_NOT_DEPLOYED",
-    "dependencyRemediation": "CATALOGED_NOT_DEPLOYED",
+    "issueTriage": "CATALOGED_PROPOSAL_ONLY",
+    "independentPrReview": "CATALOGED_PROPOSAL_ONLY",
+    "ciDoctor": "CATALOGED_PROPOSAL_ONLY",
+    "securityReview": "CATALOGED_PROPOSAL_ONLY",
+    "dependencyRemediation": "CATALOGED_PROPOSAL_ONLY",
     "evidenceGate": "EXISTING_DEPLOYED_PARTIAL",
     "autonomousRepair": "NOT_VERIFIED",
     "r4Authorization": "PROPOSED_NOT_ACTIVE"
   },
   "blockers": [
-    "Deployment proposals are open but not merged on the 28 public default branches.",
+    "All 28 deployment proposals are open but not merged on default branches.",
     "No exact-head production run exists for the five core agentic workflows.",
+    "Owner authorization request #23 is pending; no proposal may self-approve.",
     "Portfolio Governance #21 remains blocked.",
-    "TinySTT #9 remains Windows-native and RustSec blocked.",
-    "The R4 authorization policy is proposed and not active; owner authorization is required before trust-root activation.",
-    "Owner authorization request #23 is pending; no rollout proposal may self-approve."
+    "TinySTT #9 remains Windows-native and RustSec blocked."
   ],
   "note": "Catalog compilation and staging smoke success do not count as production coverage.",
   "deploymentProposals": {

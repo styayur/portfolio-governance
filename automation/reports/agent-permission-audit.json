@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T08:22:15.737537Z",
+  "generatedAt": "2026-11-08T08:26:11.088122Z",
   "principle": "Agents receive read-only tools; writes only through explicit safe outputs or a separately scoped App.",
   "workflows": [
     {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T08:22:15.737537Z",
+  "generatedAt": "2026-11-08T08:26:11.088122Z",
   "source": "GitHub public repository enumeration plus default-branch workflow contents",
   "expectedRepositories": 28,
   "privateRepositoryExcluded": "styayur/site",
@@ -275,7 +275,7 @@
     "workflowsActuallyRunSuccessfully": 0
   },
   "status": "BLOCKED",
-  "note": "All 28 public repositories have deployment PR proposals. No proposal is counted as coverage until merged and its exact-head workflows run successfully.",
+  "note": "All 28 public repositories have deployment PR proposals. Zero are counted as coverage until merged and exact-head workflows succeed.",
   "rolloutPRs": [
     {
       "repository": "styayur/portfolio-governance",
