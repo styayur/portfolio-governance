@@ -225,6 +225,24 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: Verify post-gate merge state
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+          EXPECTED_HEAD: ${{ inputs.head_sha }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          repo = os.environ['GITHUB_REPOSITORY']
+          pr = os.environ['PR_NUMBER']
+          expected = os.environ['EXPECTED_HEAD']
+          raw = subprocess.check_output(['gh','pr','view',pr,'-R',repo,'--json','headRefOid,baseRefOid,mergeable,mergeStateStatus'], text=True)
+          data = json.loads(raw)
+          if data['headRefOid'] != expected:
+              raise SystemExit('head changed after gate verification')
+          if data['mergeable'] != 'MERGEABLE' or data['mergeStateStatus'] not in {'CLEAN', 'BLOCKED'}:
+              raise SystemExit(f'unmergeable post-gate state: {data}')
+          PY
       - name: Squash merge the exact verified head
         env:
           GH_TOKEN: ${{ github.token }}

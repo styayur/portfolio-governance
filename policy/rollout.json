@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "mode": "shadow",
+  "mode": "enforce",
   "autoMerge": {
     "R0": true,
     "R1": true,

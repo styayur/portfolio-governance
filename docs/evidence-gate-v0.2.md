@@ -8,7 +8,7 @@
 - Build, tests, security and native-platform evidence are distinct groups. Lint alone cannot satisfy tests.
 - Missing, stale, skipped, cancelled, untrusted, workflow-unknown and pending evidence are reported distinctly.
 - An independent AI review adapter is optional. Missing configuration, network failure, malformed output or a SHA/diff mismatch produces `NOT_VERIFIED`, never approval.
-- `policy/rollout.json` starts in `shadow` mode. Shadow decisions never set `autoMergeEligible=true`.
+- `policy/rollout.json` starts in `shadow` mode. Shadow decisions never set `autoMergeEligible=true`. After the negative suite passes, the rollout switches to `enforce`.
 - `maxAttemptsPerHead` stops repeated gate retries for the same exact head.
 
 ## Rollout
