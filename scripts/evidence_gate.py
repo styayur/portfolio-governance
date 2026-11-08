@@ -183,8 +183,8 @@ def decide(risk, review, ai_review, evidence, pr, expected_head, expected_base, 
         shadow_reasons.append('specialist adapter evidence is incomplete')
     if matrix_required.get('explicitAuthorizationRequired') and not r4_authorized:
         shadow_reasons.append('R4 explicit authorization label is absent')
-    if pr.get('mergeable') != 'MERGEABLE' or pr.get('mergeStateStatus') != 'CLEAN':
-        shadow_reasons.append('GitHub mergeability is not CLEAN/MERGEABLE')
+    if pr.get('mergeable') != 'MERGEABLE' or pr.get('mergeStateStatus') not in {'CLEAN', 'BLOCKED'}:
+        shadow_reasons.append('GitHub mergeability is unknown, dirty, behind or unstable')
     if retry_budget_exceeded(attempt_count, rollout.get('maxAttemptsPerHead', 3)):
         shadow_reasons.append('maximum gate attempts for this exact head exceeded')
 
