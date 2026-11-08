@@ -273,6 +273,8 @@ def test_code_scanning_states_are_distinct():
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, {'_error': 'HTTP 403'})['status'] == 'UNAUTHORIZED'
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'disabled'}}, {'workflows': []}, {'_error': 'HTTP 404'})['status'] == 'NOT_ENABLED'
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [], {'status': 'completed', 'conclusion': 'success'})['status'] == 'NO_RESULTS'
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [], {'status': 'completed', 'conclusion': 'startup_failure'})['status'] == 'SCAN_FAILED'
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [], {'status': 'completed', 'conclusion': 'skipped'})['status'] == 'NOT_VERIFIED'
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [{'number': 1}], {'status': 'completed', 'conclusion': 'success'})['status'] == 'FINDINGS'
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [], {'conclusion': 'failure'})['status'] == 'SCAN_FAILED'
 

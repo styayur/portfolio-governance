@@ -38,7 +38,22 @@ def classify_code_scanning(security_analysis, workflows, alerts, latest_run=None
                     'reason': 'code-scanning workflow is still pending',
                     'workflow': code_workflows[0].get('name'), 'latestRun': latest_run,
                 }
-        failed = latest_run.get('conclusion') in {'failure', 'cancelled', 'timed_out', 'action_required'}
+        conclusion = str(latest_run.get('conclusion') or '').casefold()
+        if conclusion in {'skipped', 'neutral'}:
+            return {
+                'status': 'NOT_VERIFIED', 'count': 0,
+                'reason': 'code-scanning workflow was skipped or neutral',
+                'workflow': code_workflows[0].get('name') if code_workflows else None,
+                'latestRun': latest_run,
+            }
+        failed = conclusion in {'failure', 'cancelled', 'timed_out', 'action_required', 'startup_failure', 'stale', 'error'}
+        if not conclusion:
+            return {
+                'status': 'NOT_VERIFIED', 'count': 0,
+                'reason': 'code-scanning workflow has no usable conclusion',
+                'workflow': code_workflows[0].get('name') if code_workflows else None,
+                'latestRun': latest_run,
+            }
         return {
             'status': 'SCAN_FAILED' if failed else 'NO_RESULTS',
             'count': 0,

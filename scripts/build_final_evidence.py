@@ -18,16 +18,12 @@ FIXED_GATE_SHA = json.loads((ROOT / 'policy/rollout.json').read_text())['gateSha
 GATE_PIN = json.loads((ROOT / 'policy/gate-pin.json').read_text())
 GATE_CONTEXT = 'portfolio / Portfolio Evidence Gate / verify'
 RULESET_NAME = 'Portfolio default branch safety'
-MONITORING = ROOT / 'evidence' / 'remediation' / 'security-monitoring.json'
 GITHUB_APP = ROOT / 'evidence' / 'remediation' / 'github-app.json'
-DEPENDABOT_ALERTS = ROOT / 'evidence' / 'remediation' / 'dependabot-alerts.json'
-PROJECT_SYNC_WORKFLOW = ROOT / 'evidence' / 'remediation' / 'project-sync-workflow.json'
 RISK_DIR = ROOT / 'evidence' / 'risk'
 DEPENDABOT_RISK = RISK_DIR / 'dependabot-risk-disposition.json'
 PAT_ROTATION = RISK_DIR / 'pat-rotation.json'
 WORKFLOW_COMPLETION = OUT / 'workflow-completion.json'
 WORKFLOW_ARTIFACTS = OUT / 'workflow-artifacts.json'
-AUDIT_WORKFLOW = ROOT / 'evidence' / 'remediation' / 'portfolio-audit-workflow.json'
 
 
 def run(args, input_text=None):
@@ -97,11 +93,11 @@ def main():
     pre_by_name = {r['full_name']: r for r in pre['repositories']}
     monitoring = json.loads(MONITORING.read_text()) if MONITORING.exists() else {'repositories': []}
     monitoring_by_repo = {x['repository']: x for x in monitoring.get('repositories', [])}
+    dependabot_risk = json.loads(DEPENDABOT_RISK.read_text()) if DEPENDABOT_RISK.exists() else {'totalOpen': None, 'records': [], 'countsByDisposition': {}, 'status': 'NOT_VERIFIED', 'reason': 'Dependabot risk artifact missing'}
     app_meta = json.loads(GITHUB_APP.read_text()) if GITHUB_APP.exists() else {}
     alert_meta = json.loads(DEPENDABOT_ALERTS.read_text()) if DEPENDABOT_ALERTS.exists() else {'status': 'NOT_VERIFIED', 'totalOpen': None, 'repositories': {}}
     sync_workflow = json.loads(PROJECT_SYNC_WORKFLOW.read_text()).get('latestSuccess', {}) if PROJECT_SYNC_WORKFLOW.exists() else {}
     audit_workflow = json.loads(AUDIT_WORKFLOW.read_text()).get('latestSuccess', {}) if AUDIT_WORKFLOW.exists() else {}
-    dependabot_risk = json.loads(DEPENDABOT_RISK.read_text()) if DEPENDABOT_RISK.exists() else {'totalOpen': None, 'records': [], 'countsByDisposition': {}, 'status': 'NOT_VERIFIED', 'reason': 'Dependabot risk artifact missing'}
     pat_rotation = json.loads(PAT_ROTATION.read_text()) if PAT_ROTATION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'PAT rotation audit missing'}
     workflow_completion = json.loads(WORKFLOW_COMPLETION.read_text()) if WORKFLOW_COMPLETION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'workflow completion evidence missing'}
     workflow_artifacts = json.loads(WORKFLOW_ARTIFACTS.read_text()) if WORKFLOW_ARTIFACTS.exists() else {'status': 'NOT_VERIFIED', 'reason': 'workflow artifact manifest missing'}
@@ -312,7 +308,13 @@ def main():
     if actions_summary['FAIL']:
         blockers.append({'subject': 'actions-gate-audit', 'status': 'FAIL', 'reason': f"{actions_summary['FAIL']} repositories contain unpinned third-party actions or privileged workflow concerns."})
     automation_status = 'PASS' if sync_ok and project_status == 'PASS' and workflow_completion.get('status') == 'PASS' else 'BLOCKED'
-    monitoring_ok = sum(1 for r in monitoring.get('repositories', []) if all((r.get(k) or {}).get('after', {}).get('ok') for k in ('vulnerabilityAlerts','automatedSecurityFixes')))
+    monitoring_ok = 0
+    for r in repos:
+        analysis = r.get('security_and_analysis') or {}
+        dependabot = (analysis.get('dependabot_security_updates') or {}).get('status') == 'enabled'
+        secret_scanning = (analysis.get('secret_scanning') or {}).get('status') == 'enabled'
+        if dependabot and secret_scanning:
+            monitoring_ok += 1
     if actions_summary['FAIL'] or sec_summary['FAIL']:
         final_status = 'FAIL'
     elif automation_status != 'PASS' or blockers:
@@ -328,7 +330,7 @@ def main():
         'governance': aggregate(governance), 'agents': aggregate(agents), 'security': sec_summary, 'actions': actions_summary, 'releases': aggregate(releases),
         'project': {'status': project_status, 'reason': project_reason, 'fieldsRequired': sorted(required_fields), 'viewsRequired': sorted(required_views)},
         'automation': {'status': automation_status, 'latestProjectSyncSuccess': sync_workflow, 'latestAuditSuccess': audit_workflow, 'githubApp': {'id': app_meta.get('id'), 'slug': app_meta.get('slug'), 'clientId': app_meta.get('client_id')}, 'projectToken': {'scope': ['project'], 'expires': pat_rotation.get('expires'), 'githubAppOnlyStatus': 'BLOCKED', 'reason': 'installation token cannot mutate user-owned Projects V2'}},
-        'securityMonitoring': {'status': 'PASS' if monitoring_ok == len(repos) else 'FAIL', 'enabled': monitoring_ok, 'expected': len(repos)},
+        'securityMonitoring': {'status': 'PASS' if monitoring_ok == len(repos) else 'NOT_VERIFIED', 'enabled': monitoring_ok, 'expected': len(repos), 'source': 'exact-SHA portfolio-audit artifact'},
         'openDependabotAlerts': {'total': alert_meta.get('totalOpen'), 'repositories': alert_meta.get('repositories')},
         'riskOperations': {'dependabot': dependabot_risk, 'patRotation': pat_rotation, 'workflowCompletion': workflow_completion, 'workflowArtifacts': workflow_artifacts},
         'reviewGate': {'status': 'PASS' if allow_evidence and deny_evidence else 'NOT_VERIFIED', 'allowEvidence': allow_evidence, 'denyEvidence': deny_evidence, 'prs': gate_prs},
