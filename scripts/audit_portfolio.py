@@ -126,7 +126,7 @@ for r in public:
     item["secret_scanning_alerts"] = count_or_error(secret_scanning)
     code_workflow = None
     if isinstance(workflows, dict):
-        code_workflow = next((w for w in (workflows.get('workflows') or []) if 'codeql' in f"{w.get('name','')} {w.get('path','')}".casefold()), None)
+        code_workflow = next((w for w in (workflows.get('workflows') or []) if any(token in f"{w.get('name','')} {w.get('path','')}".casefold() for token in ('codeql', 'code-scanning', 'code scanning'))), None)
     latest_code_run = {}
     if code_workflow:
         rr = gh_json([endpoint(name, '/actions/workflows/' + str(code_workflow.get('id')) + '/runs?per_page=1')])

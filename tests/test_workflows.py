@@ -85,10 +85,16 @@ def test_final_acceptance_is_main_push_only():
 
 
 def test_artifact_names_match_workflows():
-    files = ''.join((ROOT / '.github/workflows' / name).read_text() for name in ('portfolio-audit.yml', 'project-sync.yml', 'risk-operations.yml'))
-    assert 'portfolio-audit-${{ github.run_id }}' in files
-    assert 'portfolio-project-sync-${{ github.run_id }}' in files
-    assert 'portfolio-risk-operations-${{ github.run_id }}' in files
+    expected = {
+        'portfolio-audit.yml': 'portfolio-audit-${{ github.run_id }}',
+        'project-sync.yml': 'portfolio-project-sync-${{ github.run_id }}',
+        'risk-operations.yml': 'portfolio-risk-operations-${{ github.run_id }}',
+    }
+    for filename, artifact_name in expected.items():
+        data = yaml.safe_load((ROOT / '.github/workflows' / filename).read_text())
+        steps = [step for job in data['jobs'].values() for step in job.get('steps', [])]
+        upload = next(step for step in steps if str(step.get('uses', '')).startswith('actions/upload-artifact@'))
+        assert upload['with']['name'] == artifact_name
 
 
 def test_risk_operations_preserves_failure_status():

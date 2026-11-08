@@ -4,7 +4,24 @@
   "entries": [
     {
       "id": "tiny-stt-zip",
-      "match": {"repositories": ["styayur/TinySTT"], "packages": ["zip"], "ecosystems": ["rust"]},
+      "match": {
+        "repositories": [
+          "styayur/TinySTT"
+        ],
+        "packages": [
+          "zip"
+        ],
+        "ecosystems": [
+          "rust"
+        ],
+        "alertNumbersByRepository": {
+          "styayur/TinySTT": [
+            5,
+            6,
+            7
+          ]
+        }
+      },
       "disposition": "BLOCKED_UPSTREAM",
       "priority": "P0",
       "owner": "styayur",
@@ -12,12 +29,33 @@
       "impact": "Critical parser-differential and overwrite class; high symlink handling; medium AES HMAC bypass in the build-time archive path.",
       "mitigation": "Do not dismiss. Evaluate the sherpa-onnx 2.x line, which uses zip ^9, in a pinned compatibility PR; require Windows-native compile and release checks before merge.",
       "recheckCondition": "A sherpa-onnx/sherpa-onnx-sys release using zip >=9.0.5 is verified in Windows CI and the lockfile no longer resolves zip 2.x.",
-      "tracking": ["styayur/TinySTT", "styayur/TinySTT#7"],
+      "tracking": [
+        "styayur/TinySTT",
+        "styayur/TinySTT#7"
+      ],
       "reviewBy": "2026-11-15"
     },
     {
       "id": "tiny-stt-rustls",
-      "match": {"repositories": ["styayur/TinySTT"], "packages": ["rustls"], "ecosystems": ["rust"]},
+      "match": {
+        "repositories": [
+          "styayur/TinySTT"
+        ],
+        "packages": [
+          "rustls"
+        ],
+        "ecosystems": [
+          "rust"
+        ],
+        "alertNumbersByRepository": {
+          "styayur/TinySTT": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      },
       "disposition": "PR_OPEN",
       "priority": "P1",
       "owner": "styayur",
@@ -25,12 +63,53 @@
       "impact": "Low/medium session-key and certificate-handling issues in a transitive TLS dependency.",
       "mitigation": "Keep the rustls patch PR open; it is not mergeable until the Windows native sherpa-onnx build is healthy.",
       "recheckCondition": "Exact-head Windows CI passes and the lockfile resolves rustls >=0.23.46.",
-      "tracking": ["styayur/TinySTT#7"],
+      "tracking": [
+        "styayur/TinySTT#7"
+      ],
       "reviewBy": "2026-11-15"
     },
     {
       "id": "glib-upstream-tauri-gtk",
-      "match": {"repositories": ["styayur/developer-security-workspace", "styayur/vextessera", "styayur/glyphibe", "styayur/local-context-engine", "styayur/publishing-workbench", "styayur/rhizomaybor", "styayur/codeforge-engine"], "packages": ["glib"], "ecosystems": ["rust"]},
+      "match": {
+        "repositories": [
+          "styayur/developer-security-workspace",
+          "styayur/vextessera",
+          "styayur/glyphibe",
+          "styayur/local-context-engine",
+          "styayur/publishing-workbench",
+          "styayur/rhizomaybor",
+          "styayur/codeforge-engine"
+        ],
+        "packages": [
+          "glib"
+        ],
+        "ecosystems": [
+          "rust"
+        ],
+        "alertNumbersByRepository": {
+          "styayur/codeforge-engine": [
+            1
+          ],
+          "styayur/developer-security-workspace": [
+            8
+          ],
+          "styayur/glyphibe": [
+            1
+          ],
+          "styayur/local-context-engine": [
+            1
+          ],
+          "styayur/publishing-workbench": [
+            5
+          ],
+          "styayur/rhizomaybor": [
+            8
+          ],
+          "styayur/vextessera": [
+            1
+          ]
+        }
+      },
       "disposition": "BLOCKED_UPSTREAM",
       "priority": "P1",
       "owner": "styayur",
@@ -38,12 +117,43 @@
       "impact": "Unsound iterator behavior can produce memory-safety-adjacent undefined behavior in the upstream GTK binding chain.",
       "mitigation": "Do not suppress. Track the upstream Tauri/GTK compatibility upgrade; do not force an incompatible glib major without full desktop build and runtime acceptance.",
       "recheckCondition": "An upstream Tauri/GTK release supports glib >=0.20.0 and all affected desktop repositories pass native build/runtime tests.",
-      "tracking": ["styayur/developer-security-workspace", "styayur/vextessera", "styayur/glyphibe", "styayur/local-context-engine", "styayur/publishing-workbench", "styayur/rhizomaybor", "styayur/codeforge-engine"],
+      "tracking": [
+        "styayur/developer-security-workspace",
+        "styayur/vextessera",
+        "styayur/glyphibe",
+        "styayur/local-context-engine",
+        "styayur/publishing-workbench",
+        "styayur/rhizomaybor",
+        "styayur/codeforge-engine"
+      ],
       "reviewBy": "2026-11-22"
     },
     {
       "id": "minimatch-js-development",
-      "match": {"repositories": ["styayur/codeforge-engine", "styayur/ogleans", "styayur/publishing-workbench"], "packages": ["minimatch"], "ecosystems": ["npm"]},
+      "match": {
+        "repositories": [
+          "styayur/codeforge-engine",
+          "styayur/ogleans",
+          "styayur/publishing-workbench"
+        ],
+        "packages": [
+          "minimatch"
+        ],
+        "ecosystems": [
+          "npm"
+        ],
+        "alertNumbersByRepository": {
+          "styayur/codeforge-engine": [
+            2
+          ],
+          "styayur/ogleans": [
+            1
+          ],
+          "styayur/publishing-workbench": [
+            4
+          ]
+        }
+      },
       "disposition": "REMEDIATION_PLANNED",
       "priority": "P1",
       "owner": "styayur",
@@ -51,12 +161,39 @@
       "impact": "Development-time denial of service through attacker-controlled glob patterns; not shipped runtime code.",
       "mitigation": "Use package-manager overrides to 11.0.4+ with lint/typecheck/test/build validation; retain the Dependabot alert until resolution is re-evaluated.",
       "recheckCondition": "Lockfiles resolve minimatch >=11.0.1 and the affected repositories pass their full checks.",
-      "tracking": ["styayur/codeforge-engine", "styayur/ogleans", "styayur/publishing-workbench"],
+      "tracking": [
+        "styayur/codeforge-engine",
+        "styayur/ogleans",
+        "styayur/publishing-workbench"
+      ],
       "reviewBy": "2026-11-22"
     },
     {
       "id": "rhizomaybor-web-rendering",
-      "match": {"repositories": ["styayur/rhizomaybor"], "packages": ["mermaid", "katex", "postcss-selector-parser"], "ecosystems": ["npm"]},
+      "match": {
+        "repositories": [
+          "styayur/rhizomaybor"
+        ],
+        "packages": [
+          "mermaid",
+          "katex",
+          "postcss-selector-parser"
+        ],
+        "ecosystems": [
+          "npm"
+        ],
+        "alertNumbersByRepository": {
+          "styayur/rhizomaybor": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      },
       "disposition": "REMEDIATION_PLANNED",
       "priority": "P1",
       "owner": "styayur",
@@ -64,7 +201,9 @@
       "impact": "Prototype-pollution, CSS injection, parser CPU exhaustion and renderer denial-of-service exposures in untrusted document content.",
       "mitigation": "Upgrade or override to mermaid >=11.16.1, katex >=0.18.2 and postcss-selector-parser >=6.1.5 with renderer regression tests; keep alerts visible until then.",
       "recheckCondition": "Lockfile versions meet patched ranges and rendering/fixture tests pass on the exact PR head.",
-      "tracking": ["styayur/rhizomaybor"],
+      "tracking": [
+        "styayur/rhizomaybor"
+      ],
       "reviewBy": "2026-11-22"
     }
   ],

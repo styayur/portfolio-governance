@@ -49,6 +49,9 @@ def match_entry(repo, alert, entries):
             continue
         if match.get('ecosystems') and not enabled(ecosystem, match['ecosystems']):
             continue
+        alert_numbers = (match.get('alertNumbersByRepository') or {}).get(repo)
+        if alert_numbers and alert.get('number') not in alert_numbers:
+            continue
         return entry
     return None
 

@@ -26,6 +26,7 @@ RISK_DIR = ROOT / 'evidence' / 'risk'
 DEPENDABOT_RISK = RISK_DIR / 'dependabot-risk-disposition.json'
 PAT_ROTATION = RISK_DIR / 'pat-rotation.json'
 WORKFLOW_COMPLETION = OUT / 'workflow-completion.json'
+WORKFLOW_ARTIFACTS = OUT / 'workflow-artifacts.json'
 AUDIT_WORKFLOW = ROOT / 'evidence' / 'remediation' / 'portfolio-audit-workflow.json'
 
 
@@ -103,6 +104,7 @@ def main():
     dependabot_risk = json.loads(DEPENDABOT_RISK.read_text()) if DEPENDABOT_RISK.exists() else {'totalOpen': None, 'records': [], 'countsByDisposition': {}, 'status': 'NOT_VERIFIED', 'reason': 'Dependabot risk artifact missing'}
     pat_rotation = json.loads(PAT_ROTATION.read_text()) if PAT_ROTATION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'PAT rotation audit missing'}
     workflow_completion = json.loads(WORKFLOW_COMPLETION.read_text()) if WORKFLOW_COMPLETION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'workflow completion evidence missing'}
+    workflow_artifacts = json.loads(WORKFLOW_ARTIFACTS.read_text()) if WORKFLOW_ARTIFACTS.exists() else {'status': 'NOT_VERIFIED', 'reason': 'workflow artifact manifest missing'}
 
     (OUT / 'portfolio-inventory.json').write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + '\n')
 
@@ -302,6 +304,10 @@ def main():
         blockers.append({'subject': 'portfolio-project-token-rotation', 'status': 'BLOCKED', 'reason': pat_rotation.get('reason'), 'remediation': pat_rotation.get('remediation')})
     if workflow_completion.get('status') != 'PASS':
         blockers.append({'subject': 'workflow-completion', 'status': 'NOT_VERIFIED', 'reason': workflow_completion.get('reason')})
+    if workflow_artifacts.get('status') != 'PASS':
+        blockers.append({'subject': 'workflow-artifacts', 'status': 'NOT_VERIFIED', 'reason': workflow_artifacts.get('reason'), 'failures': workflow_artifacts.get('failures')})
+    if dependabot_risk.get('totalOpen') is not None and (not isinstance(dependabot_risk.get('totalOpen'), int) or dependabot_risk.get('totalOpen') < 0):
+        blockers.append({'subject': 'dependabot-risk-count', 'status': 'NOT_VERIFIED', 'reason': 'Dependabot totalOpen is unknown or invalid'})
     blockers.append({'subject': 'project-sync-credential-portability', 'status': 'BLOCKED', 'reason': 'GitHub App installation tokens cannot mutate user-owned Projects V2; a classic PAT limited to project scope is required and expires 2027-02-06.', 'remediation': 'Rotate PORTFOLIO_PROJECT_TOKEN before expiry or migrate if GitHub adds supported fine-grained project access.'})
     if actions_summary['FAIL']:
         blockers.append({'subject': 'actions-gate-audit', 'status': 'FAIL', 'reason': f"{actions_summary['FAIL']} repositories contain unpinned third-party actions or privileged workflow concerns."})
@@ -324,7 +330,7 @@ def main():
         'automation': {'status': automation_status, 'latestProjectSyncSuccess': sync_workflow, 'latestAuditSuccess': audit_workflow, 'githubApp': {'id': app_meta.get('id'), 'slug': app_meta.get('slug'), 'clientId': app_meta.get('client_id')}, 'projectToken': {'scope': ['project'], 'expires': pat_rotation.get('expires'), 'githubAppOnlyStatus': 'BLOCKED', 'reason': 'installation token cannot mutate user-owned Projects V2'}},
         'securityMonitoring': {'status': 'PASS' if monitoring_ok == len(repos) else 'FAIL', 'enabled': monitoring_ok, 'expected': len(repos)},
         'openDependabotAlerts': {'total': alert_meta.get('totalOpen'), 'repositories': alert_meta.get('repositories')},
-        'riskOperations': {'dependabot': dependabot_risk, 'patRotation': pat_rotation, 'workflowCompletion': workflow_completion},
+        'riskOperations': {'dependabot': dependabot_risk, 'patRotation': pat_rotation, 'workflowCompletion': workflow_completion, 'workflowArtifacts': workflow_artifacts},
         'reviewGate': {'status': 'PASS' if allow_evidence and deny_evidence else 'NOT_VERIFIED', 'allowEvidence': allow_evidence, 'denyEvidence': deny_evidence, 'prs': gate_prs},
         'blockers': blockers,
         'overallStatus': final_status,

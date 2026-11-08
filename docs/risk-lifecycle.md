@@ -2,7 +2,7 @@
 
 ## Dependabot dispositions
 
-`policy/dependabot-dispositions.json` maps live Dependabot findings for the public portfolio to an explicit disposition. The audit never dismisses alerts. Every unmatched alert is classified as `UNCLASSIFIED_BLOCKED` and causes a non-zero result after the evidence is written.
+`policy/dependabot-dispositions.json` maps live Dependabot findings for the public portfolio to an explicit disposition. Entries are scoped to exact live alert numbers; a new alert on the same package is unclassified until reviewed. The audit never dismisses alerts. Every unmatched alert is classified as `UNCLASSIFIED_BLOCKED` and causes a non-zero result after the evidence is written.
 
 The daily risk workflow writes:
 

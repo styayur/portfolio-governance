@@ -3,7 +3,7 @@ name: Portfolio final acceptance
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: [Portfolio risk operations]
+    workflows: [Governance self-checks]
     types: [completed]
   schedule:
     - cron: '13 3 * * *'

@@ -294,8 +294,9 @@ def test_dependabot_policy_has_known_blockers_and_never_accepts_unclassified():
     ids = {entry['id'] for entry in policy['entries']}
     assert {'tiny-stt-zip', 'tiny-stt-rustls', 'glib-upstream-tauri-gtk', 'minimatch-js-development', 'rhizomaybor-web-rendering'} <= ids
     assert policy['unclassifiedPolicy']['status'] == 'BLOCKED'
-    match = dependabot_risk_audit.match_entry('styayur/TinySTT', {'dependency': {'package': {'name': 'zip', 'ecosystem': 'rust'}}}, policy['entries'])
+    match = dependabot_risk_audit.match_entry('styayur/TinySTT', {'number': 5, 'dependency': {'package': {'name': 'zip', 'ecosystem': 'rust'}}}, policy['entries'])
     assert match['id'] == 'tiny-stt-zip'
+    assert dependabot_risk_audit.match_entry('styayur/TinySTT', {'number': 99, 'dependency': {'package': {'name': 'zip', 'ecosystem': 'rust'}}}, policy['entries']) is None
 
 
 def test_risk_issue_markdown_escaping():
