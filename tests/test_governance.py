@@ -353,3 +353,16 @@ def test_invalid_gate_sha_fails_load(tmp_path):
         pass
     else:
         raise AssertionError('invalid gateSha must fail closed')
+
+
+def test_final_acceptance_status_consistency():
+    from scripts import verify_final_acceptance
+    assert verify_final_acceptance.validate_acceptance({'overallStatus': 'PASS', 'blockers': []})['status'] == 'PASS'
+    assert verify_final_acceptance.validate_acceptance({'overallStatus': 'BLOCKED', 'blockers': [{'status': 'BLOCKED'}]})['overallStatus'] == 'BLOCKED'
+    for value in ({'overallStatus': 'PASS', 'blockers': [{'status': 'BLOCKED'}]}, {'overallStatus': 'BLOCKED', 'blockers': []}):
+        try:
+            verify_final_acceptance.validate_acceptance(value)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError('inconsistent acceptance status must fail closed')

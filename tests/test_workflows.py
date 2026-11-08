@@ -72,8 +72,10 @@ def test_risk_operations_has_rotation_and_dependabot_checks():
 
 def test_gate_pin_is_policy_bound_and_used_by_caller():
     rollout = yaml.safe_load((ROOT / 'policy/rollout.json').read_text())
-    caller = (ROOT / '.github/workflows/portfolio-gate.yml').read_text()
-    assert rollout['gateSha'] in caller
+    caller = yaml.safe_load((ROOT / '.github/workflows/portfolio-gate.yml').read_text())
+    job = caller['jobs']['portfolio']
+    assert job['uses'].rsplit('@', 1)[-1] == rollout['gateSha']
+    assert job['with']['central_sha'] == rollout['gateSha']
 
 
 def test_final_acceptance_is_main_push_only():

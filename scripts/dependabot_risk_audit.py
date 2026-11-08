@@ -64,9 +64,16 @@ def main():
     policy = json.loads(POLICY.read_text())
     entries = policy.get('entries') or []
     matrix = json.loads(MATRIX.read_text())
-    repos = [{'nameWithOwner': name} for name in sorted((matrix.get('repositories') or {}).keys())]
-    records = []
+    matrix_repos = set((matrix.get('repositories') or {}).keys())
+    live_public = parse_json_lines(run(['gh', 'api', '--paginate', '--jq', '.[] | select(.private == false) | {nameWithOwner: .full_name}', 'users/styayur/repos?per_page=100']))
+    live_repos = {item['nameWithOwner'] for item in live_public}
     errors = []
+    extra = sorted(live_repos - matrix_repos)
+    missing = sorted(matrix_repos - live_repos)
+    if extra or missing:
+        errors.append({'repository': 'portfolio-scope', 'status': 'NOT_VERIFIED', 'reason': f'public repository scope mismatch: extra={extra}, missing={missing}'})
+    repos = [{'nameWithOwner': name} for name in sorted(matrix_repos)]
+    records = []
     counts = {}
     for item in sorted(repos, key=lambda x: x['nameWithOwner']):
         repo = item['nameWithOwner']

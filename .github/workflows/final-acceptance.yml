@@ -86,6 +86,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PORTFOLIO_PROJECT_TOKEN: ${{ secrets.PORTFOLIO_PROJECT_TOKEN }}
         run: python3 scripts/build_final_evidence.py
+      - name: Verify acceptance status consistency
+        run: python3 scripts/verify_final_acceptance.py --path evidence/final/final-acceptance.json
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: success()
         with:
