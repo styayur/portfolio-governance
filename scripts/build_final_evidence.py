@@ -21,6 +21,10 @@ MONITORING = ROOT / 'evidence' / 'remediation' / 'security-monitoring.json'
 GITHUB_APP = ROOT / 'evidence' / 'remediation' / 'github-app.json'
 DEPENDABOT_ALERTS = ROOT / 'evidence' / 'remediation' / 'dependabot-alerts.json'
 PROJECT_SYNC_WORKFLOW = ROOT / 'evidence' / 'remediation' / 'project-sync-workflow.json'
+RISK_DIR = ROOT / 'evidence' / 'risk'
+DEPENDABOT_RISK = RISK_DIR / 'dependabot-risk-disposition.json'
+PAT_ROTATION = RISK_DIR / 'pat-rotation.json'
+WORKFLOW_COMPLETION = OUT / 'workflow-completion.json'
 AUDIT_WORKFLOW = ROOT / 'evidence' / 'remediation' / 'portfolio-audit-workflow.json'
 
 
@@ -83,6 +87,9 @@ def main():
     alert_meta = json.loads(DEPENDABOT_ALERTS.read_text()) if DEPENDABOT_ALERTS.exists() else {'totalOpen': 0, 'repositories': {}}
     sync_workflow = json.loads(PROJECT_SYNC_WORKFLOW.read_text()).get('latestSuccess', {}) if PROJECT_SYNC_WORKFLOW.exists() else {}
     audit_workflow = json.loads(AUDIT_WORKFLOW.read_text()).get('latestSuccess', {}) if AUDIT_WORKFLOW.exists() else {}
+    dependabot_risk = json.loads(DEPENDABOT_RISK.read_text()) if DEPENDABOT_RISK.exists() else {'totalOpen': 0, 'records': [], 'countsByDisposition': {}, 'status': 'NOT_VERIFIED'}
+    pat_rotation = json.loads(PAT_ROTATION.read_text()) if PAT_ROTATION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'PAT rotation audit missing'}
+    workflow_completion = json.loads(WORKFLOW_COMPLETION.read_text()) if WORKFLOW_COMPLETION.exists() else {'status': 'NOT_VERIFIED', 'reason': 'workflow completion evidence missing'}
 
     (OUT / 'portfolio-inventory.json').write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + '\n')
 
@@ -131,12 +138,23 @@ def main():
             sec_status = 'FAIL'; reasons.append('Dependabot monitoring not verified enabled')
         if not sec_text: sec_status = 'FAIL'; reasons.append('SECURITY.md missing')
         if pvr.get('enabled') is not True: sec_status = 'FAIL'; reasons.append('private vulnerability reporting disabled')
-        for label, value in [('Dependabot', dep), ('secret scanning', secret), ('code scanning', code)]:
+        for label, value in [('Dependabot', dep), ('secret scanning', secret)]:
             if value.get('count', 0) and value.get('count', 0) > 0:
                 sec_status = 'FAIL'; reasons.append(f'{label} alerts: {value.get("count")}')
             elif value.get('status') == 'ERROR':
                 if sec_status == 'PASS': sec_status = 'NOT_VERIFIED'
                 reasons.append(f'{label}: API unavailable')
+        code_status = code.get('status') if isinstance(code, dict) else None
+        if code_status in {'FINDINGS', 'SCAN_FAILED'}:
+            sec_status = 'FAIL'; reasons.append(f'code scanning: {code_status} ({code.get("count", "unknown")})')
+        elif code_status in {'UNAUTHORIZED', 'NOT_ENABLED', 'NOT_VERIFIED'}:
+            if sec_status == 'PASS': sec_status = 'NOT_VERIFIED'
+            reasons.append(f'code scanning: {code_status} — {code.get("reason", "not verified")}')
+        elif code_status == 'NO_RESULTS':
+            reasons.append('code scanning: NO_RESULTS')
+        elif code_status is None:
+            if sec_status == 'PASS': sec_status = 'NOT_VERIFIED'
+            reasons.append('code scanning: no structured status')
         if sec_status == 'PASS': reasons.append('policy present, private reporting enabled, no open alerts returned')
         security.append(record(
             full,
@@ -263,10 +281,16 @@ def main():
     not_verified_code = [r['subject'] for r in security if r['status'] == 'NOT_VERIFIED' and 'code scanning' in r['reason']]
     if not_verified_code:
         blockers.append({'subject': 'code-scanning-coverage', 'status': 'NOT_VERIFIED', 'reason': f'{len(not_verified_code)} repositories have no accessible code-scanning result', 'repositories': not_verified_code})
+    if dependabot_risk.get('totalOpen'):
+        blockers.append({'subject': 'dependabot-risk-disposition', 'status': 'BLOCKED', 'reason': f"{dependabot_risk.get('totalOpen', 0)} live Dependabot findings; see dependabot-risk-disposition.json", 'remediation': 'Continue remediation and recheck conditions; never dismiss or suppress unresolved findings.'})
+    if pat_rotation.get('status') not in {'PASS', 'WARNING'}:
+        blockers.append({'subject': 'portfolio-project-token-rotation', 'status': 'BLOCKED', 'reason': pat_rotation.get('reason'), 'remediation': pat_rotation.get('remediation')})
+    if workflow_completion.get('status') != 'PASS':
+        blockers.append({'subject': 'workflow-completion', 'status': 'NOT_VERIFIED', 'reason': workflow_completion.get('reason')})
     blockers.append({'subject': 'project-sync-credential-portability', 'status': 'BLOCKED', 'reason': 'GitHub App installation tokens cannot mutate user-owned Projects V2; a classic PAT limited to project scope is required and expires 2027-02-06.', 'remediation': 'Rotate PORTFOLIO_PROJECT_TOKEN before expiry or migrate if GitHub adds supported fine-grained project access.'})
     if actions_summary['FAIL']:
         blockers.append({'subject': 'actions-gate-audit', 'status': 'FAIL', 'reason': f"{actions_summary['FAIL']} repositories contain unpinned third-party actions or privileged workflow concerns."})
-    automation_status = 'PASS' if sync_ok and project_status == 'PASS' else 'BLOCKED'
+    automation_status = 'PASS' if sync_ok and project_status == 'PASS' and workflow_completion.get('status') == 'PASS' else 'BLOCKED'
     monitoring_ok = sum(1 for r in monitoring.get('repositories', []) if all((r.get(k) or {}).get('after', {}).get('ok') for k in ('vulnerabilityAlerts','automatedSecurityFixes')))
     if actions_summary['FAIL'] or sec_summary['FAIL']:
         final_status = 'FAIL'
@@ -284,6 +308,7 @@ def main():
         'automation': {'status': automation_status, 'latestProjectSyncSuccess': sync_workflow, 'latestAuditSuccess': audit_workflow, 'githubApp': {'id': app_meta.get('id'), 'slug': app_meta.get('slug'), 'clientId': app_meta.get('client_id')}, 'projectToken': {'scope': ['project'], 'expires': '2027-02-06', 'githubAppOnlyStatus': 'BLOCKED', 'reason': 'installation token cannot mutate user-owned Projects V2'}},
         'securityMonitoring': {'status': 'PASS' if monitoring_ok == len(repos) else 'FAIL', 'enabled': monitoring_ok, 'expected': len(repos)},
         'openDependabotAlerts': {'total': alert_meta.get('totalOpen'), 'repositories': alert_meta.get('repositories')},
+        'riskOperations': {'dependabot': dependabot_risk, 'patRotation': pat_rotation, 'workflowCompletion': workflow_completion},
         'reviewGate': {'status': 'PASS' if allow_evidence and deny_evidence else 'NOT_VERIFIED', 'allowEvidence': allow_evidence, 'denyEvidence': deny_evidence, 'prs': gate_prs},
         'blockers': blockers,
         'overallStatus': final_status,
@@ -300,6 +325,9 @@ def main():
             'securityMonitoringPass': monitoring_ok,
             'openDependabotAlerts': alert_meta.get('totalOpen'),
             'automationStatus': automation_status,
+            'dependabotRiskOpen': dependabot_risk.get('totalOpen'),
+            'patRotationStatus': pat_rotation.get('status'),
+            'workflowCompletionStatus': workflow_completion.get('status'),
             'openPRs': len(pr_records),
             'blockedItems': len(blockers),
         },

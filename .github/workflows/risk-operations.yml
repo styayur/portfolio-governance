@@ -1,0 +1,48 @@
+name: Portfolio risk operations
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '37 2 * * *'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  risk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Build Dependabot risk disposition
+        id: dependabot
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.PORTFOLIO_PROJECT_TOKEN }}
+        run: python3 scripts/dependabot_risk_audit.py
+      - name: Audit PAT rotation window
+        id: pat
+        continue-on-error: true
+        env:
+          PORTFOLIO_PROJECT_TOKEN_EXPIRES_AT: ${{ vars.PORTFOLIO_PROJECT_TOKEN_EXPIRES_AT }}
+        run: python3 scripts/pat_rotation_audit.py
+      - name: Sync live risk register issue
+        if: always() && hashFiles('evidence/risk/dependabot-risk-disposition.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/sync_risk_issue.py --report evidence/risk/dependabot-risk-disposition.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: portfolio-risk-operations-${{ github.run_id }}
+          path: evidence/risk/
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Fail closed after preserving risk evidence
+        if: steps.dependabot.outcome == 'failure' || steps.pat.outcome == 'failure'
+        run: exit 1

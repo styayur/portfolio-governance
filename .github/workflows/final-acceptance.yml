@@ -1,0 +1,61 @@
+name: Portfolio final acceptance
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Governance self-checks, Portfolio audit, Portfolio project sync, Portfolio risk operations]
+    types: [completed]
+  schedule:
+    - cron: '13 3 * * *'
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: portfolio-final-acceptance
+  cancel-in-progress: true
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Resolve exact target SHA
+        id: target
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            echo "sha=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "sha=$(gh api repos/${{ github.repository }}/git/ref/heads/main --jq .object.sha)" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Wait for all related workflows on the exact SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          python3 scripts/wait_for_workflows.py
+          --repo "${{ github.repository }}"
+          --sha "${{ steps.target.outputs.sha }}"
+          --workflows "Governance self-checks,Portfolio audit,Portfolio project sync,Portfolio risk operations"
+          --timeout 1800
+          --output evidence/final/workflow-completion.json
+      - name: Build final evidence after all workflows completed
+        env:
+          GH_TOKEN: ${{ secrets.PORTFOLIO_PROJECT_TOKEN }}
+          PORTFOLIO_PROJECT_TOKEN: ${{ secrets.PORTFOLIO_PROJECT_TOKEN }}
+        run: python3 scripts/build_final_evidence.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: portfolio-final-acceptance-${{ github.run_id }}
+          path: |
+            evidence/final/
+            evidence/risk/
+            evidence/remediation/
+          if-no-files-found: warn
+          retention-days: 90

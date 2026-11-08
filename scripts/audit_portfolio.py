@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 import json, subprocess, sys, time
+
+try:
+    from security_signals import classify_code_scanning
+except ModuleNotFoundError:  # package import from tests
+    from scripts.security_signals import classify_code_scanning
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parents[1] / "evidence" / "baseline"
@@ -34,6 +39,8 @@ def gh_graphql(query, variables=None):
 
 def endpoint(repo, suffix=""):
     return f"repos/{repo}{suffix}"
+
+
 
 repos_resp = gh_json(["user/repos?affiliation=owner&per_page=100"], paginate=True)
 if isinstance(repos_resp, dict) and repos_resp.get("_error"):
@@ -117,7 +124,16 @@ for r in public:
     item["actions_permissions"] = actions_perms if isinstance(actions_perms,dict) and not actions_perms.get("_error") else {"status":"unknown"}
     item["dependabot_alerts"] = count_or_error(dependabot)
     item["secret_scanning_alerts"] = count_or_error(secret_scanning)
-    item["code_scanning_alerts"] = count_or_error(code_scanning)
+    code_workflow = None
+    if isinstance(workflows, dict):
+        code_workflow = next((w for w in (workflows.get('workflows') or []) if 'codeql' in f"{w.get('name','')} {w.get('path','')}".casefold()), None)
+    latest_code_run = {}
+    if code_workflow:
+        rr = gh_json([endpoint(name, '/actions/workflows/' + str(code_workflow.get('id')) + '/runs?per_page=1')])
+        nodes = (rr or {}).get('workflow_runs') or [] if isinstance(rr, dict) else []
+        if nodes:
+            latest_code_run = {k:nodes[0].get(k) for k in ('status','conclusion','html_url','created_at','updated_at')}
+    item["code_scanning_alerts"] = classify_code_scanning(item.get('security_and_analysis'), workflows, code_scanning, latest_code_run)
     item["files"] = {}
     for path, data in files.items():
         if isinstance(data,dict) and data.get("sha"):

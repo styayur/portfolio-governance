@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts import ai_review_adapter, evidence_gate, evidence_matrix, independent_review, risk_classify
+from scripts import ai_review_adapter, dependabot_risk_audit, evidence_gate, evidence_matrix, independent_review, pat_rotation_audit, risk_classify, security_signals
 
 HEAD = 'b' * 40
 BASE = 'a' * 40
@@ -263,3 +263,30 @@ def test_current_rollout_is_enforce_after_negative_acceptance():
     assert rollout['mode'] == 'enforce'
     assert rollout['autoMerge'] == {'R0': True, 'R1': True, 'R2': True, 'R3': False, 'R4': False}
     assert rollout['maxAttemptsPerHead'] == 3
+
+
+def test_code_scanning_states_are_distinct():
+    workflows = {'workflows': [{'id': 1, 'name': 'CodeQL', 'path': '.github/workflows/codeql.yml'}]}
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, {'_error': 'HTTP 403'})['status'] == 'UNAUTHORIZED'
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'disabled'}}, {'workflows': []}, {'_error': 'HTTP 404'})['status'] == 'NOT_ENABLED'
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [])['status'] == 'NO_RESULTS'
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [{'number': 1}])['status'] == 'FINDINGS'
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [], {'conclusion': 'failure'})['status'] == 'SCAN_FAILED'
+
+
+def test_pat_rotation_thresholds_are_explicit():
+    from datetime import date
+    assert pat_rotation_audit.classify_pat('2026-12-20', date(2026, 11, 8))['status'] == 'PASS'
+    assert pat_rotation_audit.classify_pat('2026-12-01', date(2026, 11, 8))['status'] == 'WARNING'
+    assert pat_rotation_audit.classify_pat('2026-11-20', date(2026, 11, 8))['status'] == 'CRITICAL'
+    assert pat_rotation_audit.classify_pat('2026-11-08', date(2026, 11, 8))['status'] == 'EXPIRED'
+    assert pat_rotation_audit.classify_pat('not-a-date', date(2026, 11, 8))['status'] == 'NOT_VERIFIED'
+
+
+def test_dependabot_policy_has_known_blockers_and_never_accepts_unclassified():
+    policy = json.loads((ROOT / 'policy/dependabot-dispositions.json').read_text())
+    ids = {entry['id'] for entry in policy['entries']}
+    assert {'tiny-stt-zip', 'tiny-stt-rustls', 'glib-upstream-tauri-gtk', 'minimatch-js-development', 'rhizomaybor-web-rendering'} <= ids
+    assert policy['unclassifiedPolicy']['status'] == 'BLOCKED'
+    match = dependabot_risk_audit.match_entry('styayur/TinySTT', {'dependency': {'package': {'name': 'zip', 'ecosystem': 'rust'}}}, policy['entries'])
+    assert match['id'] == 'tiny-stt-zip'

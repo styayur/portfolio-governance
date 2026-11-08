@@ -45,3 +45,18 @@ def test_evidence_matrix_covers_all_public_repositories():
     matrix = yaml.safe_load((ROOT / 'policy/evidence-matrix.v1.json').read_text())
     assert len(matrix['repositories']) == 28
     assert 'styayur/site' not in matrix['repositories']
+
+def test_final_acceptance_waits_for_all_related_workflows():
+    data = yaml.safe_load((ROOT / '.github/workflows/final-acceptance.yml').read_text())
+    text = str(data)
+    assert 'Governance self-checks' in text
+    assert 'Portfolio audit' in text
+    assert 'Portfolio project sync' in text
+    assert 'Portfolio risk operations' in text
+
+
+def test_risk_operations_has_rotation_and_dependabot_checks():
+    text = (ROOT / '.github/workflows/risk-operations.yml').read_text()
+    assert 'dependabot_risk_audit.py' in text
+    assert 'pat_rotation_audit.py' in text
+    assert 'sync_risk_issue.py' in text
