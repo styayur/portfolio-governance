@@ -32,7 +32,8 @@
     "No exact-head production run exists for the five core agentic workflows.",
     "Portfolio Governance #21 remains blocked.",
     "TinySTT #9 remains Windows-native and RustSec blocked.",
-    "The R4 authorization policy is proposed and not active; owner authorization is required before trust-root activation."
+    "The R4 authorization policy is proposed and not active; owner authorization is required before trust-root activation.",
+    "Owner authorization request #23 is pending; no rollout proposal may self-approve."
   ],
   "note": "Catalog compilation and staging smoke success do not count as production coverage.",
   "deploymentProposals": {
@@ -69,5 +70,9 @@
       "styayur/publishing-workbench",
       "styayur/ogleans"
     ]
+  },
+  "authorizationRequest": {
+    "status": "PENDING_OWNER_AUTHORIZATION",
+    "issue": "https://github.com/styayur/portfolio-governance/issues/23"
   }
 }
