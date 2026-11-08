@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-08T05:56:16.896249Z",
+  "repository": "styayur/portfolio-governance",
+  "mainShaAtAcceptance": "b91a7a980495054ac9db3782a057704aa3b87dde",
+  "candidatePr": {
+    "number": 21,
+    "headSha": "a8d45573618ca5cbb2ca8c0c3f0fe2384c776787",
+    "url": "https://github.com/styayur/portfolio-governance/pull/21"
+  },
+  "overallStatus": "BLOCKED",
+  "qualityScore": null,
+  "note": "No missing, unavailable, cancelled, native or authorization evidence is reported as PASS.",
+  "p0": [
+    {
+      "id": "P0-1",
+      "item": "evidence_gate success semantics",
+      "status": "IMPLEMENTED",
+      "evidence": "PR #16 merged at 68aff1b602ac688ff1fc8252242af581cb42e87e"
+    },
+    {
+      "id": "P0-2",
+      "item": "repository/risk Required Evidence Matrix",
+      "status": "IMPLEMENTED",
+      "evidence": "policy/evidence-matrix.v1.json"
+    },
+    {
+      "id": "P0-3",
+      "item": "source, app, workflow run, head/base SHA and merge-state validation",
+      "status": "IMPLEMENTED",
+      "evidence": "scripts/evidence_matrix.py; scripts/evidence_gate.py"
+    },
+    {
+      "id": "P0-4",
+      "item": "security-sensitive path risk escalation",
+      "status": "IMPLEMENTED",
+      "evidence": "scripts/risk_classify.py; R4 negative tests"
+    },
+    {
+      "id": "P0-5",
+      "item": "distinct missing/stale/not-applicable/cancelled/unverifiable evidence states",
+      "status": "IMPLEMENTED",
+      "evidence": "scripts/evidence_matrix.py; scripts/security_signals.py"
+    },
+    {
+      "id": "P0-6",
+      "item": "static reviewer plus independent AI review adapter",
+      "status": "IMPLEMENTED",
+      "evidence": "scripts/independent_review.py; scripts/ai_review_adapter.py; AI configured for 28 public repositories"
+    },
+    {
+      "id": "P0-7",
+      "item": "R2 automatic merge pause and graduated policy",
+      "status": "IMPLEMENTED_NOT_END_TO_END_VERIFIED",
+      "evidence": "policy/rollout.json; R2 auto merge requires complete matrix plus independent AI approval"
+    }
+  ],
+  "negativeAcceptance": {
+    "status": "PASS_UNIT_AND_POLICY",
+    "testsRun": 48,
+    "ciRun": {
+      "name": "Governance self-checks",
+      "id": 42452486635,
+      "headSha": "a8d45573618ca5cbb2ca8c0c3f0fe2384c776787",
+      "status": "success"
+    },
+    "cases": [
+      {
+        "case": "only lint success, required tests missing",
+        "status": "PASS",
+        "test": "test_lint_only_does_not_satisfy_r2_required_tests"
+      },
+      {
+        "case": "security scan missing or failed",
+        "status": "PASS",
+        "test": "test_missing_security_evidence_blocks_r2; test_failed_security_scan_blocks_r2"
+      },
+      {
+        "case": "head SHA changed after review",
+        "status": "PASS",
+        "test": "test_head_change_after_review_blocks_merge"
+      },
+      {
+        "case": "base SHA changed but old evidence reused",
+        "status": "PASS",
+        "test": "test_base_change_after_review_blocks_merge"
+      },
+      {
+        "case": "untrusted check source forged success",
+        "status": "PASS",
+        "test": "test_untrusted_fake_success_is_not_evidence"
+      },
+      {
+        "case": "auth/elevation/credentials/permissions misclassified as low risk",
+        "status": "PASS",
+        "test": "test_auth_permission_and_governance_paths_are_r4; test_privilege_code_signal_is_r4_even_with_neutral_path"
+      },
+      {
+        "case": "workflow skipped or cancelled",
+        "status": "PASS",
+        "test": "test_skipped_native_workflow_blocks_native_repo; test_cancelled_security_workflow_blocks_r2"
+      },
+      {
+        "case": "AI reviewer unavailable",
+        "status": "PASS",
+        "test": "test_ai_review_unavailable_blocks_r2; test_ai_adapter_missing_config_is_not_verified"
+      },
+      {
+        "case": "draft PR enters merge flow",
+        "status": "PASS",
+        "test": "test_draft_pr_never_merges"
+      },
+      {
+        "case": "Evidence Gate policy changed",
+        "status": "PASS",
+        "test": "test_gate_policy_change_is_r4"
+      },
+      {
+        "case": "same failing PR retried past budget",
+        "status": "PASS",
+        "test": "test_retry_budget_blocks_repeated_failing_head"
+      },
+      {
+        "case": "pending/failed scan incorrectly reported as no results",
+        "status": "PASS",
+        "test": "test_code_scanning_states_are_distinct"
+      },
+      {
+        "case": "final acceptance status/blockers inconsistent",
+        "status": "PASS",
+        "test": "test_final_acceptance_status_consistency"
+      }
+    ]
+  },
+  "automationCapabilities": {
+    "R0": {
+      "status": "RESTORED",
+      "autoMerge": true,
+      "conditions": "no required evidence"
+    },
+    "R1": {
+      "status": "RESTORED",
+      "autoMerge": true,
+      "conditions": "required tests and security evidence"
+    },
+    "R2": {
+      "status": "NOT_VERIFIED",
+      "autoMerge": "CONDITIONAL",
+      "conditions": "complete matrix, native evidence where configured, static review and verified independent AI approval",
+      "reason": "No current R2 pull request has completed the full end-to-end path with AI approval."
+    },
+    "R3": {
+      "status": "BLOCKED_MANUAL",
+      "autoMerge": false,
+      "conditions": "specialist adapter plus manual review"
+    },
+    "R4": {
+      "status": "BLOCKED_MANUAL",
+      "autoMerge": false,
+      "conditions": "explicit authorization label plus manual review"
+    }
+  },
+  "riskLifecycle": [
+    {
+      "item": "Dependabot dispositions",
+      "status": "IMPLEMENTED_CANDIDATE_UNMERGED",
+      "evidence": "policy/dependabot-dispositions.json; 24 live alerts classified without dismissal"
+    },
+    {
+      "item": "TinySTT Critical ZIP remediation",
+      "status": "BLOCKED",
+      "evidence": "PR #9; sherpa-onnx 2.0.1 and zip 9.4.2 in lockfile",
+      "remaining": [
+        "Windows native static library sherpa-onnx-c-api missing",
+        "quick-xml 0.30.0 RUSTSEC-2026-0194/RUSTSEC-2026-0195 High findings remain upstream"
+      ]
+    },
+    {
+      "item": "upstream blockers",
+      "status": "BLOCKED",
+      "evidence": "glib/Tauri/GTK chain; TinySTT eframe/accesskit/zbus -> quick-xml chain; recheck conditions recorded in policy/risk files"
+    },
+    {
+      "item": "code-scanning state distinction",
+      "status": "IMPLEMENTED",
+      "evidence": "UNAUTHORIZED, NOT_ENABLED, NO_RESULTS, FINDINGS, SCAN_FAILED, NOT_VERIFIED"
+    },
+    {
+      "item": "final acceptance snapshot",
+      "status": "NOT_VERIFIED",
+      "evidence": "workflow exists in PR #21 branch; it has not executed because PR #21 is blocked"
+    },
+    {
+      "item": "PAT rotation",
+      "status": "PASS",
+      "evidence": "expires 2027-02-06; 90 days remaining at last check; 30/14/7 thresholds implemented"
+    },
+    {
+      "item": "Portfolio Project sync",
+      "status": "BLOCKED",
+      "evidence": "issue #20 exists with labels; final live sync and workflow execution are not yet proven"
+    }
+  ],
+  "pullRequests": {
+    "governanceCandidate": {
+      "number": 21,
+      "status": "BLOCKED",
+      "reason": "independent AI review returned NEEDS_HUMAN; R4 auto-merge disabled"
+    },
+    "tinysttRemediation": {
+      "number": 9,
+      "status": "BLOCKED",
+      "reason": "Windows native library missing and 2 quick-xml High audit findings remain"
+    },
+    "pinUpgradeBlocked": [
+      {
+        "repo": "styayur/wutnet",
+        "pr": 11,
+        "reason": "evidence gate verify failed"
+      },
+      {
+        "repo": "styayur/publishing-workbench",
+        "pr": 11,
+        "reason": "Windows checks failed"
+      },
+      {
+        "repo": "styayur/ogleans",
+        "pr": 29,
+        "reason": "CI verify failed"
+      }
+    ]
+  },
+  "liveRiskSnapshot": {
+    "openDependabotAlerts": 24,
+    "dependabotCoverage": "last local audit: 24 alerts, 0 errors, no dismissals",
+    "openRiskIssue": "styayur/portfolio-governance#20",
+    "patDaysRemaining": 90,
+    "privateRepositoryExcluded": "styayur/site",
+    "codeScanningAccess": "NOT_VERIFIED for repositories where the API is inaccessible; not collapsed into no-results"
+  },
+  "aiReview": {
+    "status": "VERIFIED",
+    "decision": "NEEDS_HUMAN",
+    "model": "deepseek-reasoner",
+    "reason": "Exact-head CI evidence cannot be independently tied into the PR diff; R4 governance review and current operational workflow execution remain outstanding."
+  },
+  "notClaimedAsPass": [
+    "TinySTT Critical ZIP risk is not claimed closed because Windows native CI and a clean RustSec audit did not both pass.",
+    "R2 autonomous merge is not claimed restored end-to-end.",
+    "Final acceptance is not claimed executed or PASS.",
+    "AI review for PR #21 is not claimed APPROVE.",
+    "Code-scanning inaccessible results are not claimed as no findings."
+  ],
+  "recheck": {
+    "condition": "Resolve PR #21 review gaps and merge it, run all related workflows on the exact main SHA, then rerun final acceptance; recheck TinySTT after upstream quick-xml/native-library remediation.",
+    "nextCheck": "2026-11-15"
+  }
+}
