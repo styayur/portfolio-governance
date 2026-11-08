@@ -274,6 +274,10 @@ def test_code_scanning_states_are_distinct():
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [], {'conclusion': 'failure'})['status'] == 'SCAN_FAILED'
 
 
+def test_dependabot_json_line_parser_preserves_paginated_items():
+    assert dependabot_risk_audit.parse_json_lines('{"number":1}\n\n{"number":2}\n') == [{'number': 1}, {'number': 2}]
+
+
 def test_pat_rotation_thresholds_are_explicit():
     from datetime import date
     assert pat_rotation_audit.classify_pat('2026-12-20', date(2026, 11, 8))['status'] == 'PASS'

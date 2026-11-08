@@ -54,5 +54,5 @@ jobs:
           persist-credentials: false
       - name: Audit development dependencies
         run: |
-          python3 -m pip install --quiet pip-audit
+          python3 -m pip install --quiet -r requirements-dev.txt
           python3 -m pip_audit --strict -r requirements-dev.txt

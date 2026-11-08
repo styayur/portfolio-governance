@@ -8,7 +8,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import subprocess
+import tempfile
 import time
 from pathlib import Path
 
@@ -46,15 +48,26 @@ def main():
             continue
         dest = Path(destination)
         name = name_template.format(run_id=run_id)
-        proc = run(['gh', 'run', 'download', str(run_id), '--repo', args.repo, '--name', name, '--dir', str(dest)])
-        if proc.returncode:
-            failures.append(f'{workflow}: artifact {name} unavailable: {(proc.stderr or proc.stdout).strip()}')
-            continue
-        missing = [item for item in required_files if not (dest / item).exists()]
-        if missing:
-            failures.append(f'{workflow}: artifact {name} missing {missing}')
-            continue
-        records.append({'workflow': workflow, 'runId': run_id, 'artifact': name, 'destination': str(dest), 'files': list(required_files)})
+        scratch = Path(tempfile.mkdtemp(prefix=f'portfolio-artifact-{workflow.replace(" ", "-")}-'))
+        try:
+            proc = run(['gh', 'run', 'download', str(run_id), '--repo', args.repo, '--name', name, '--dir', str(scratch)])
+            if proc.returncode:
+                failures.append(f'{workflow}: artifact {name} unavailable: {(proc.stderr or proc.stdout).strip()}')
+                continue
+            missing = []
+            for item in required_files:
+                matches = list(scratch.rglob(item))
+                if not matches:
+                    missing.append(item)
+                    continue
+                dest.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(matches[0], dest / item)
+            if missing:
+                failures.append(f'{workflow}: artifact {name} missing {missing}')
+                continue
+            records.append({'workflow': workflow, 'runId': run_id, 'artifact': name, 'destination': str(dest), 'files': list(required_files)})
+        finally:
+            shutil.rmtree(scratch, ignore_errors=True)
     result = {
         'schemaVersion': 1,
         'generatedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),

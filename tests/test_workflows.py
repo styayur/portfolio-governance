@@ -68,3 +68,9 @@ def test_risk_operations_has_rotation_and_dependabot_checks():
     assert 'sync_risk_issue.py' in text
     assert "steps.sync.outcome == 'failure'" in text
     assert "steps.sync.outcome == 'skipped'" in text
+
+
+def test_gate_pin_is_policy_bound_and_used_by_caller():
+    rollout = yaml.safe_load((ROOT / 'policy/rollout.json').read_text())
+    caller = (ROOT / '.github/workflows/portfolio-gate.yml').read_text()
+    assert rollout['gateSha'] in caller

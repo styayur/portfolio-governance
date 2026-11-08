@@ -14,7 +14,7 @@ BASELINE = ROOT / 'evidence' / 'baseline'
 OUT = ROOT / 'evidence' / 'final'
 OUT.mkdir(parents=True, exist_ok=True)
 NOW = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
-FIXED_GATE_SHA = '82ef68707329d39b4a389c8840eeb22f8e8f3f49'
+FIXED_GATE_SHA = json.loads((ROOT / 'policy/rollout.json').read_text())['gateSha']
 GATE_CONTEXT = 'portfolio / Portfolio Evidence Gate / verify'
 RULESET_NAME = 'Portfolio default branch safety'
 MONITORING = ROOT / 'evidence' / 'remediation' / 'security-monitoring.json'

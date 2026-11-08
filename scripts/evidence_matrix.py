@@ -42,6 +42,8 @@ def load_rollout(path: str | Path) -> dict:
     data = json.loads(Path(path).read_text())
     if data.get('schemaVersion') != 1 or data.get('mode') not in {'shadow', 'enforce'}:
         raise ValueError('invalid rollout policy')
+    if not re.fullmatch(r'[0-9a-f]{40}', str(data.get('gateSha') or '')):
+        raise ValueError('rollout policy must bind a full gateSha')
     return data
 
 

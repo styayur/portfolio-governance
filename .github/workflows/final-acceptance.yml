@@ -45,6 +45,12 @@ jobs:
           --workflows "Governance self-checks,Portfolio audit,Portfolio project sync,Portfolio risk operations"
           --timeout 1800
           --output evidence/final/workflow-completion.json
+      - name: Recheck target is still current main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          current=$(gh api repos/${{ github.repository }}/git/ref/heads/main --jq .object.sha)
+          test "$current" = "${{ steps.target.outputs.sha }}"
       - name: Materialize exact-SHA workflow artifacts
         env:
           GH_TOKEN: ${{ github.token }}

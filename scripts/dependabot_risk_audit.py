@@ -25,6 +25,14 @@ def run(args):
 
 
 
+def parse_json_lines(raw: str) -> list:
+    return [json.loads(line) for line in raw.splitlines() if line.strip()]
+
+
+def api_lines(path: str) -> list:
+    return parse_json_lines(run(['gh', 'api', '--paginate', '--jq', '.[]', path]))
+
+
 def enabled(value, patterns) -> bool:
     return any(value == pattern or pattern == '*' for pattern in patterns)
 
@@ -51,14 +59,14 @@ def main():
     args = parser.parse_args()
     policy = json.loads(POLICY.read_text())
     entries = policy.get('entries') or []
-    repos = json.loads(run(['gh', 'repo', 'list', 'styayur', '--visibility', 'public', '--limit', '200', '--json', 'nameWithOwner']))
+    repos = parse_json_lines(run(['gh', 'api', '--paginate', '--jq', '.[] | select(.private == false) | {nameWithOwner: .full_name}', 'users/styayur/repos?per_page=100']))
     records = []
     errors = []
     counts = {}
     for item in sorted(repos, key=lambda x: x['nameWithOwner']):
         repo = item['nameWithOwner']
         try:
-            alerts = json.loads(run(['gh', 'api', f'repos/{repo}/dependabot/alerts?state=open&per_page=100']))
+            alerts = api_lines(f'repos/{repo}/dependabot/alerts?state=open&per_page=100')
         except Exception as exc:
             errors.append({'repository': repo, 'status': 'NOT_VERIFIED', 'reason': str(exc)})
             continue

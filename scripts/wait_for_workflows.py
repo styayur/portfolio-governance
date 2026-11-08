@@ -28,7 +28,8 @@ def main():
     wanted = [x.strip() for x in args.workflows.split(',') if x.strip()]
     started = time.time()
     while True:
-        runs = json.loads(run(['gh', 'run', 'list', '--repo', args.repo, '--limit', '100', '--json', 'databaseId,workflowName,headSha,status,conclusion,createdAt,url']))
+        raw_runs = run(['gh', 'api', '--paginate', '--jq', '.workflow_runs[] | {databaseId: .id, workflowName: .name, headSha: .head_sha, status: .status, conclusion: .conclusion, createdAt: .created_at, url: .html_url, event: .event}', f'repos/{args.repo}/actions/runs?head_sha={args.sha}&per_page=100'])
+        runs = [json.loads(line) for line in raw_runs.splitlines() if line.strip()]
         by_workflow = {}
         for item in runs:
             if item.get('headSha') != args.sha or item.get('workflowName') not in wanted:
