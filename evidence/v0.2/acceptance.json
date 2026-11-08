@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T05:56:16.896249Z",
+  "generatedAt": "2026-11-08T05:59:52.435879Z",
   "repository": "styayur/portfolio-governance",
   "mainShaAtAcceptance": "b91a7a980495054ac9db3782a057704aa3b87dde",
   "candidatePr": {
     "number": 21,
-    "headSha": "a8d45573618ca5cbb2ca8c0c3f0fe2384c776787",
+    "headSha": "cd7a972585e2900658a7dc4fed8e4f1cd31af271",
     "url": "https://github.com/styayur/portfolio-governance/pull/21"
   },
   "overallStatus": "BLOCKED",
@@ -130,7 +130,8 @@
         "status": "PASS",
         "test": "test_final_acceptance_status_consistency"
       }
-    ]
+    ],
+    "testedCodeHead": "a8d45573618ca5cbb2ca8c0c3f0fe2384c776787"
   },
   "automationCapabilities": {
     "R0": {
@@ -205,7 +206,7 @@
     "governanceCandidate": {
       "number": 21,
       "status": "BLOCKED",
-      "reason": "independent AI review returned NEEDS_HUMAN; R4 auto-merge disabled"
+      "reason": "independent AI review returned BLOCK; R4 auto-merge disabled"
     },
     "tinysttRemediation": {
       "number": 9,
@@ -240,9 +241,10 @@
   },
   "aiReview": {
     "status": "VERIFIED",
-    "decision": "NEEDS_HUMAN",
+    "decision": "BLOCK",
     "model": "deepseek-reasoner",
-    "reason": "Exact-head CI evidence cannot be independently tied into the PR diff; R4 governance review and current operational workflow execution remain outstanding."
+    "gateRunId": 42452697164,
+    "reason": "R4 governance change cannot be approved with contradictory/stale exact-head evidence and unverified end-to-end artifact and runtime contracts."
   },
   "notClaimedAsPass": [
     "TinySTT Critical ZIP risk is not claimed closed because Windows native CI and a clean RustSec audit did not both pass.",
