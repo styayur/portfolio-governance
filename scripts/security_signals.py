@@ -17,17 +17,32 @@ def classify_code_scanning(security_analysis, workflows, alerts, latest_run=None
             code_workflows.append(wf)
     enabled = (((security_analysis or {}).get('code_scanning') or {}).get('status') or '').casefold() == 'enabled'
     if isinstance(alerts, list):
-        if code_workflows and not latest_run:
+        if alerts:
             return {
-                'status': 'NOT_VERIFIED', 'count': len(alerts),
-                'reason': 'code-scanning workflow is configured but no completed run is available',
-                'workflow': code_workflows[0].get('name'), 'latestRun': latest_run,
+                'status': 'FINDINGS', 'count': len(alerts),
+                'reason': 'code-scanning alerts returned',
+                'workflow': code_workflows[0].get('name') if code_workflows else None,
+                'latestRun': latest_run,
             }
+        if code_workflows:
+            if not latest_run:
+                return {
+                    'status': 'NOT_VERIFIED', 'count': 0,
+                    'reason': 'code-scanning workflow is configured but no run is available',
+                    'workflow': code_workflows[0].get('name'), 'latestRun': latest_run,
+                }
+            run_status = str(latest_run.get('status') or '').casefold()
+            if run_status in {'queued', 'in_progress', 'pending', 'waiting', 'requested'}:
+                return {
+                    'status': 'NOT_VERIFIED', 'count': 0,
+                    'reason': 'code-scanning workflow is still pending',
+                    'workflow': code_workflows[0].get('name'), 'latestRun': latest_run,
+                }
         failed = latest_run.get('conclusion') in {'failure', 'cancelled', 'timed_out', 'action_required'}
         return {
-            'status': 'SCAN_FAILED' if failed else ('FINDINGS' if alerts else 'NO_RESULTS'),
-            'count': len(alerts),
-            'reason': 'latest code-scanning workflow did not succeed' if failed else ('code-scanning alerts returned' if alerts else 'code-scanning API returned no open alerts'),
+            'status': 'SCAN_FAILED' if failed else 'NO_RESULTS',
+            'count': 0,
+            'reason': 'latest code-scanning workflow did not succeed' if failed else 'code-scanning API returned no open alerts',
             'workflow': code_workflows[0].get('name') if code_workflows else None,
             'latestRun': latest_run,
         }

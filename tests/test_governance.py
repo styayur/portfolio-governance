@@ -268,6 +268,8 @@ def test_current_rollout_is_enforce_after_negative_acceptance():
 def test_code_scanning_states_are_distinct():
     workflows = {'workflows': [{'id': 1, 'name': 'CodeQL', 'path': '.github/workflows/codeql.yml'}]}
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [])['status'] == 'NOT_VERIFIED'
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [], {'status': 'in_progress'})['status'] == 'NOT_VERIFIED'
+    assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [{'number': 1}])['status'] == 'FINDINGS'
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, {'_error': 'HTTP 403'})['status'] == 'UNAUTHORIZED'
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'disabled'}}, {'workflows': []}, {'_error': 'HTTP 404'})['status'] == 'NOT_ENABLED'
     assert security_signals.classify_code_scanning({'code_scanning': {'status': 'enabled'}}, workflows, [], {'status': 'completed', 'conclusion': 'success'})['status'] == 'NO_RESULTS'
