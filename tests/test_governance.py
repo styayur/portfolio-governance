@@ -108,7 +108,8 @@ def test_review_happy_path_is_static_candidate():
 
 
 def test_review_detects_secret_addition():
-    ctx = context(files=[{'filename': 'src/config.py', 'status': 'modified', 'patch': '+TOKEN = "ghp_abcdefghijklmnopqrstuvwxyz0123456789AB"\n'}])
+    fake_token = 'ghp_' + ('a' * 36)
+    ctx = context(files=[{'filename': 'src/config.py', 'status': 'modified', 'patch': f'+TOKEN = "{fake_token}"\n'}])
     result = independent_review.review(ctx, risk(diffSha256=evidence_matrix.diff_digest(ctx['files'])))
     assert result['decision'] == 'BLOCK'
 
