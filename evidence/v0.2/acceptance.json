@@ -5,8 +5,8 @@
   "mainShaAtAcceptance": "b91a7a980495054ac9db3782a057704aa3b87dde",
   "candidatePr": {
     "number": 21,
-    "headSha": "cd7a972585e2900658a7dc4fed8e4f1cd31af271",
-    "url": "https://github.com/styayur/portfolio-governance/pull/21"
+    "url": "https://github.com/styayur/portfolio-governance/pull/21",
+    "testedCandidateHead": "cd7a972585e2900658a7dc4fed8e4f1cd31af271"
   },
   "overallStatus": "BLOCKED",
   "qualityScore": null,
