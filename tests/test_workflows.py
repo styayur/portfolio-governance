@@ -32,3 +32,16 @@ def test_caller_template_is_outside_executable_workflow_directory():
     template = ROOT / 'templates/caller-portfolio-gate.yml'
     assert template.exists()
     assert 'PINNED_CENTRAL_SHA' in template.read_text()
+
+def test_gate_has_independent_ai_review_and_exact_checkout_pin():
+    data = yaml.safe_load((ROOT / '.github/workflows/reusable-portfolio-gate.yml').read_text())
+    names = [job.get('name') for job in data['jobs'].values()]
+    assert 'Portfolio Evidence Gate / ai-review' in names
+    assert data['jobs']['ai-review']['needs'] == ['classify', 'review']
+    assert '--base-sha' in str(data['jobs']['evidence']['steps'])
+
+
+def test_evidence_matrix_covers_all_public_repositories():
+    matrix = yaml.safe_load((ROOT / 'policy/evidence-matrix.v1.json').read_text())
+    assert len(matrix['repositories']) == 28
+    assert 'styayur/site' not in matrix['repositories']

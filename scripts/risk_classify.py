@@ -13,6 +13,11 @@ import subprocess
 import time
 from pathlib import Path
 
+try:
+    from evidence_matrix import diff_digest
+except ModuleNotFoundError:  # package import from tests
+    from scripts.evidence_matrix import diff_digest
+
 DOC_EXT = {'.md', '.mdx', '.rst', '.txt', '.adoc'}
 ASSET_EXT = {'.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.ico', '.pdf', '.woff', '.woff2'}
 TEST_PATHS = ('test/', 'tests/', '__tests__/', 'spec/', '.github/workflows/test')
@@ -39,6 +44,23 @@ SECRET_PATH_PATTERNS = (
     r'(^|/)\.env($|\.)', r'(^|/)(id_rsa|id_ed25519)$', r'\.(pem|p12|pfx|key)$',
     r'(^|/)secrets?/', r'(^|/)credentials?/', r'(^|/)signing[^/]*$',
 )
+GOVERNANCE_POLICY_PATHS = (
+    '.github/workflows/reusable-portfolio-gate.yml', 'templates/caller-portfolio-gate.yml',
+    'scripts/evidence_gate.py', 'scripts/evidence_matrix.py', 'scripts/risk_classify.py',
+    'scripts/independent_review.py', 'scripts/ai_review_adapter.py', 'policy/risk-policy.json',
+    'policy/evidence-matrix.v1.json', 'policy/rollout.json',
+)
+AUTH_PERMISSION_SEGMENTS = re.compile(
+    r'(^|/)(auth|authentication|authorization|authn|authz|oauth|oidc|saml|jwt|session|sessions|permissions?|rbac|acl|iam|identity|credentials?|secrets?|tokens?|crypto|cryptography|signing|privilege|access_control|admin)(/|[._-]|$)', re.I
+)
+AUTH_PERMISSION_NAME_PREFIXES = (
+    'auth', 'permission', 'credential', 'secret', 'session', 'jwt', 'oauth', 'oidc',
+    'rbac', 'acl', 'privilege', 'sudo', 'admin', 'accesscontrol', 'access_control', 'access-control',
+)
+PRIVILEGE_CONTENT = re.compile(
+    r'(\bset(?:e)?uid\b|\bset(?:e)?gid\b|\bsudo\b|\brunas\b|SeDebugPrivilege|SeImpersonatePrivilege|ImpersonateLoggedOnUser|CreateProcessAsUser|\bchmod\s+[0-7]{3,4}\b|\bchown\b|\bgrant\b.*\b(?:admin|owner|root)\b)', re.I
+)
+RISK_ORDER = {'R0': 0, 'R1': 1, 'R2': 2, 'R3': 3, 'R4': 4}
 
 
 def run(args, input_text=None):
@@ -109,9 +131,30 @@ def parse_dependency_versions(patch: str):
     return changes
 
 
-def classify(repo: str, pr_number: int):
-    pr = api(f'repos/{repo}/pulls/{pr_number}')
-    files = api_list(f'repos/{repo}/pulls/{pr_number}/files?per_page=100')
+def is_security_sensitive(path: str) -> bool:
+    if is_docs(path) or is_license(path):
+        return False
+    value = path.casefold().replace('\\', '/')
+    stem = Path(value).stem
+    return bool(AUTH_PERMISSION_SEGMENTS.search(value) or any(stem.startswith(prefix) or stem.endswith(prefix) for prefix in AUTH_PERMISSION_NAME_PREFIXES))
+
+
+def is_governance_policy(path: str) -> bool:
+    value = path.casefold().replace('\\', '/')
+    return any(value == item or value.endswith('/' + item) for item in GOVERNANCE_POLICY_PATHS)
+
+
+def _added_lines(files):
+    result = []
+    for f in files:
+        path = f.get('filename') or ''
+        for line in (f.get('patch') or '').splitlines():
+            if line.startswith('+') and not line.startswith('+++'):
+                result.append((path, line[1:]))
+    return result
+
+
+def classify_files(files):
     paths = [f.get('filename', '') for f in files]
     churn = sum(int(f.get('additions', 0)) + int(f.get('deletions', 0)) for f in files)
     reasons = []
@@ -133,45 +176,77 @@ def classify(repo: str, pr_number: int):
         risk = 'R2'
         reasons.append('Executable source or dependency changes require verification.')
 
+    def raise_to(level):
+        nonlocal risk
+        if RISK_ORDER[level] > RISK_ORDER[risk]:
+            risk = level
+
     secret_paths = [p for p in paths if any(re.search(pattern, p.casefold()) for pattern in SECRET_PATH_PATTERNS)]
     workflow_paths = [p for p in paths if p.casefold().startswith('.github/workflows/') or p.casefold().startswith('.github/actions/')]
-    security_paths = [p for p in paths if any_path(p, SECURITY_PATHS)]
+    security_paths = [p for p in paths if is_security_sensitive(p)]
+    governance_paths = [p for p in paths if is_governance_policy(p)]
     release_paths = [p for p in paths if any_path(p, RELEASE_PATHS)]
     api_paths = [p for p in paths if any_path(p, PUBLIC_API_PATHS)]
     config_paths = [p for p in paths if any_path(p, CONFIG_PATHS)]
+    privilege_lines = [(path, line) for path, line in _added_lines(files) if PRIVILEGE_CONTENT.search(line)]
 
     if secret_paths:
-        risk = 'R4'
+        raise_to('R4')
         reasons.append('Credential, key, signing, or secret-bearing paths changed: ' + ', '.join(secret_paths[:8]))
+    if governance_paths:
+        raise_to('R4')
+        reasons.append('Evidence Gate policy, review logic, or trusted-caller contract changed: ' + ', '.join(governance_paths[:8]))
+    if security_paths:
+        raise_to('R4')
+        reasons.append('Authentication, authorization, privilege, or permission-sensitive code changed: ' + ', '.join(security_paths[:8]))
+    if privilege_lines:
+        raise_to('R4')
+        reasons.append('Privilege-escalation or credential-handling code pattern added: ' + ', '.join(sorted({p for p, _ in privilege_lines})[:8]))
     if workflow_paths:
-        risk = 'R4' if any('pull_request_target' in (f.get('patch') or '') for f in files if f.get('filename') in workflow_paths) else 'R3'
+        raise_to('R4' if any('pull_request_target' in (f.get('patch') or '') for f in files if f.get('filename') in workflow_paths) else 'R3')
         reasons.append('GitHub Actions or repository policy workflow changed: ' + ', '.join(workflow_paths[:8]))
     if majors:
-        risk = 'R3' if risk not in ('R4',) else risk
+        raise_to('R3')
         reasons.append('Major dependency version change: ' + ', '.join(f"{d['dependency']} {d['from']}->{d['to']}" for d in majors[:8]))
     elif any(dependency_changes):
-        risk = max(risk, 'R2', key=lambda x: {'R0':0,'R1':1,'R2':2,'R3':3,'R4':4}[x])
+        raise_to('R2')
         reasons.append('Dependency manifest versions changed within compatible major lines.')
     lockfile_paths = [p for p in paths if Path(p).name.casefold() in LOCKFILES]
     if lockfile_paths and not dependency_changes:
-        risk = max(risk, 'R2', key=lambda x: {'R0':0,'R1':1,'R2':2,'R3':3,'R4':4}[x])
+        raise_to('R2')
         reasons.append('Lockfile changed without a reviewed manifest version change.')
     if api_paths:
-        risk = 'R3' if risk != 'R4' else risk
+        raise_to('R3')
         reasons.append('Public API, schema, or migration surface changed: ' + ', '.join(api_paths[:8]))
     if release_paths:
-        risk = 'R3' if risk != 'R4' else risk
+        raise_to('R3')
         reasons.append('Release, build, or packaging configuration changed: ' + ', '.join(release_paths[:8]))
     if config_paths:
-        risk = 'R3' if risk != 'R4' else risk
+        raise_to('R3')
         reasons.append('Runtime or security configuration changed: ' + ', '.join(config_paths[:8]))
     if len(files) > 100 or churn > 1000:
-        risk = 'R4'
+        raise_to('R4')
         reasons.append(f'Large change: {len(files)} files, {churn} changed lines.')
     elif len(files) > 50 or churn > 300:
-        risk = 'R3' if risk not in ('R4',) else risk
+        raise_to('R3')
         reasons.append(f'Review-scale change: {len(files)} files, {churn} changed lines.')
 
+    return {
+        'risk': risk,
+        'reasons': reasons,
+        'dependencyChanges': dependency_changes,
+        'secretPaths': secret_paths,
+        'securitySensitivePaths': security_paths,
+        'governancePolicyPaths': governance_paths,
+        'privilegeSignals': [line for _, line in privilege_lines],
+        'counts': {'files': len(files), 'churn': churn, 'workflowFiles': len(workflow_paths), 'securitySensitiveFiles': len(security_paths)},
+    }
+
+
+def classify(repo: str, pr_number: int):
+    pr = api(f'repos/{repo}/pulls/{pr_number}')
+    files = api_list(f'repos/{repo}/pulls/{pr_number}/files?per_page=100')
+    result = classify_files(files)
     context = {
         'repository': repo,
         'repositoryId': pr['base']['repo']['id'],
@@ -196,19 +271,27 @@ def classify(repo: str, pr_number: int):
             for f in files
         ],
     }
+    context['diffSha256'] = diff_digest(context['files'])
     risk_data = {
-        'schemaVersion': 1,
+        'schemaVersion': 2,
         'generatedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
         'repository': repo,
         'repositoryId': context['repositoryId'],
         'prNumber': pr_number,
         'baseSha': context['baseSha'],
         'headSha': context['headSha'],
+        'diffSha256': context['diffSha256'],
         'draft': context['draft'],
-        'risk': risk,
-        'reasons': reasons,
-        'dependencyChanges': dependency_changes,
-        'counts': {'files': len(files), 'churn': churn, 'workflowFiles': len(workflow_paths), 'securitySensitiveFiles': len(security_paths)},
+        'risk': result['risk'],
+        'reasons': result['reasons'],
+        'dependencyChanges': result['dependencyChanges'],
+        'signals': {
+            'secretPaths': result['secretPaths'],
+            'securitySensitivePaths': result['securitySensitivePaths'],
+            'governancePolicyPaths': result['governancePolicyPaths'],
+            'privilegeLines': result['privilegeSignals'],
+        },
+        'counts': result['counts'],
     }
     return context, risk_data
 

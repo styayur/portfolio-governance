@@ -10,9 +10,11 @@ This repository provides a reusable, fail-closed evidence gate for pull requests
 
 - Risk classification reads the PR diff and explains an R0–R4 level.
 - Independent review treats PR text and code as untrusted data and never executes it.
-- The evidence gate binds repository ID, PR number, base SHA, head SHA, workflow run, test/security results, evidence URLs and decision.
-- Auto-merge is requested only for R0–R2 after a non-draft PR has a clean policy result.
-- R3/R4 changes remain a manual maintainer decision. No ruleset bypass is used.
+- The evidence gate binds repository ID, PR number, base SHA, head SHA, diff digest, workflow run, trusted GitHub App check sources, native evidence, security evidence and decision.
+- Required build/test/security/native evidence comes from a repository-and-risk matrix; a single successful check is never treated as complete evidence.
+- New gate logic starts in shadow mode, where it records eligibility but never auto-merges.
+- In enforce mode R0/R1 may auto-merge. R2 also requires the complete matrix, static review and an independent AI reviewer approval. R3/R4 remain manual; R4 requires an explicit authorization label.
+- Unavailable AI review, skipped/cancelled checks, untrusted check sources and missing workflow-run identity are `NOT_VERIFIED` or blocked, never PASS.
 
 ## Reusable workflow
 

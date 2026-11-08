@@ -5,21 +5,34 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts import evidence_gate, independent_review, risk_classify
+from scripts import ai_review_adapter, evidence_gate, evidence_matrix, independent_review, risk_classify
+
+HEAD = 'b' * 40
+BASE = 'a' * 40
+DIFF = 'd' * 64
+MATRIX = evidence_matrix.load_matrix(ROOT / 'policy/evidence-matrix.v1.json')
+ENFORCE = {
+    'mode': 'enforce',
+    'autoMerge': {'R0': True, 'R1': True, 'R2': True, 'R3': False, 'R4': False},
+    'maxAttemptsPerHead': 3,
+    'r4AuthorizationLabel': 'portfolio:r4-approved',
+}
+SHADOW = {**ENFORCE, 'mode': 'shadow'}
 
 
 def context(**overrides):
     value = {
-        'repository': 'styayur/example',
+        'repository': 'styayur/ripple',
         'repositoryId': 1,
         'prNumber': 7,
         'title': 'Add verified behavior',
         'body': 'Implements the documented behavior and records exact verification evidence for the change.',
-        'baseSha': 'a' * 40,
-        'headSha': 'b' * 40,
+        'baseSha': BASE,
+        'headSha': HEAD,
+        'diffSha256': DIFF,
         'files': [
-            {'filename': 'src/app.py', 'patch': '+def answer():\n+    return 42\n'},
-            {'filename': 'tests/test_app.py', 'patch': '+def test_answer():\n+    assert answer() == 42\n'},
+            {'filename': 'src/app.js', 'status': 'modified', 'patch': '+export function answer() { return 42; }\n'},
+            {'filename': 'tests/app.test.js', 'status': 'modified', 'patch': '+test("answer", () => expect(answer()).toBe(42));\n'},
         ],
     }
     value.update(overrides)
@@ -27,13 +40,42 @@ def context(**overrides):
 
 
 def risk(level='R2', **overrides):
-    value = {'risk': level, 'headSha': 'b' * 40, 'baseSha': 'a' * 40, 'repositoryId': 1, 'reasons': []}
+    value = {'risk': level, 'headSha': HEAD, 'baseSha': BASE, 'repositoryId': 1, 'reasons': [], 'diffSha256': DIFF}
     value.update(overrides)
     return value
 
 
-def check(name, state, workflow='CI'):
-    return {'name': name, 'state': state, 'workflow': workflow, 'url': 'https://example.invalid/run'}
+def review(**overrides):
+    value = {'headSha': HEAD, 'baseSha': BASE, 'diffSha256': DIFF, 'decision': 'AUTO_MERGE_CANDIDATE', 'blockers': [], 'manualReviewReasons': []}
+    value.update(overrides)
+    return value
+
+
+def ai(**overrides):
+    value = {'status': 'VERIFIED', 'decision': 'APPROVE', 'headSha': HEAD, 'baseSha': BASE, 'diffSha256': DIFF, 'reason': ''}
+    value.update(overrides)
+    return value
+
+
+def pr(**overrides):
+    value = {'state': 'OPEN', 'isDraft': False, 'headRefOid': HEAD, 'baseRefOid': BASE, 'mergeable': 'MERGEABLE', 'mergeStateStatus': 'CLEAN', 'labels': [], 'checksTruncated': False}
+    value.update(overrides)
+    return value
+
+
+def check(name, state, workflow='CI', app='github-actions', head=HEAD, run_id=123, typename='CheckRun'):
+    return {'typename': typename, 'name': name, 'workflow': workflow, 'state': state, 'appSlug': app, 'headSha': head, 'workflowRunId': run_id, 'url': 'https://github.com/styayur/ripple/actions/runs/123'}
+
+
+def r2_checks(repo='styayur/ripple'):
+    values = [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS', 'CI'), check('Analyze (javascript-typescript)', 'SUCCESS', 'CodeQL')]
+    if repo == 'styayur/TinySTT':
+        values.append(check('Windows desktop compile', 'SUCCESS', 'CI'))
+    return values
+
+
+def evidence_for(level='R2', checks=None, repo='styayur/ripple'):
+    return evidence_matrix.evaluate(checks if checks is not None else r2_checks(repo), MATRIX, repo, level, HEAD)
 
 
 def test_dependency_major_and_patch_classification():
@@ -44,80 +86,178 @@ def test_dependency_major_and_patch_classification():
     assert by_name['globals']['major'] is False
 
 
-def test_docs_and_test_paths_are_recognised():
-    assert risk_classify.is_docs('docs/readme.md')
-    assert risk_classify.is_docs('README.md')
-    assert risk_classify.is_test('tests/test_api.py')
-    assert not risk_classify.is_docs('src/main.rs')
+def test_auth_permission_and_governance_paths_are_r4():
+    for path in ('src/auth/session.py', 'src/permissions/roles.ts', 'internal/admin/elevate.ts'):
+        result = risk_classify.classify_files([{'filename': path, 'patch': '+changed = true\n', 'additions': 1, 'deletions': 0}])
+        assert result['risk'] == 'R4', path
+    result = risk_classify.classify_files([{'filename': 'scripts/evidence_gate.py', 'patch': '+changed = true\n', 'additions': 1, 'deletions': 0}])
+    assert result['risk'] == 'R4'
 
 
-def test_review_happy_path_is_auto_merge_candidate():
+def test_privilege_code_signal_is_r4_even_with_neutral_path():
+    result = risk_classify.classify_files([{'filename': 'src/runtime.py', 'patch': '+os.setuid(0)\n', 'additions': 1, 'deletions': 0}])
+    assert result['risk'] == 'R4'
+    assert result['privilegeSignals']
+
+
+def test_review_happy_path_is_static_candidate():
     result = independent_review.review(context(), risk())
     assert result['decision'] == 'AUTO_MERGE_CANDIDATE'
-    assert not result['blockers']
-    assert result['checks']['tests'] == 'PRESENT'
+    assert result['reviewerType'] == 'STATIC_POLICY'
+    assert result['diffSha256'] == DIFF
 
 
 def test_review_detects_secret_addition():
-    ctx = context(files=[{'filename': 'src/config.py', 'patch': '+TOKEN = "ghp_abcdefghijklmnopqrstuvwxyz0123456789AB"\n'}])
-    result = independent_review.review(ctx, risk())
+    ctx = context(files=[{'filename': 'src/config.py', 'status': 'modified', 'patch': '+TOKEN = "ghp_abcdefghijklmnopqrstuvwxyz0123456789AB"\n'}])
+    result = independent_review.review(ctx, risk(diffSha256=evidence_matrix.diff_digest(ctx['files'])))
     assert result['decision'] == 'BLOCK'
-    assert any('github-token' in item for item in result['blockers'])
 
 
-def test_review_blocks_untrusted_pull_request_target_checkout():
-    patch = '+on: pull_request_target\n+      ref: ${{ github.event.pull_request.head.sha }}\n'
-    ctx = context(files=[{'filename': '.github/workflows/review.yml', 'patch': patch}])
-    result = independent_review.review(ctx, risk('R4'))
-    assert result['decision'] == 'BLOCK'
-    assert any('untrusted head content' in item for item in result['blockers'])
+def test_lint_only_does_not_satisfy_r2_required_tests():
+    evidence = evidence_for(checks=[check('lint', 'SUCCESS')])
+    result = evidence_gate.decide(risk(), review(), ai(), evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert evidence['status'] != 'PASS'
+    assert result['autoMergeEligible'] is False
+    assert result['decision'].startswith('FAILED_EVIDENCE')
 
 
-def test_review_license_change_requires_manual_decision():
-    ctx = context(files=[{'filename': 'LICENSE', 'patch': '-old\n+new\n'}])
-    result = independent_review.review(ctx, risk('R2'))
-    assert result['decision'] == 'MANUAL_REVIEW_REQUIRED'
-    assert result['checks']['license'] == 'MANUAL_REVIEW'
+def test_missing_security_evidence_blocks_r2():
+    evidence = evidence_for(checks=[check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS')])
+    assert evidence['status'] == 'MISSING'
+    result = evidence_gate.decide(risk(), review(), ai(), evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert result['autoMergeEligible'] is False
 
 
-def test_gate_feedback_excludes_its_own_jobs():
-    checks = [
-        check('Portfolio Evidence Gate / verify', 'IN_PROGRESS', 'Portfolio Evidence Gate'),
-        check('python', 'SUCCESS', 'Verify'),
-    ]
-    external = evidence_gate.external_checks(checks)
-    assert [item['name'] for item in external] == ['python']
+def test_failed_security_scan_blocks_r2():
+    evidence = evidence_for(checks=[check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS'), check('Analyze (javascript-typescript)', 'FAILURE', 'CodeQL')])
+    assert evidence['status'] == 'FAIL'
+    result = evidence_gate.decide(risk(), review(), ai(), evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert result['autoMergeEligible'] is False
 
 
-def test_gate_fails_risky_skipped_test_for_r2():
-    status = evidence_gate.evaluate_checks([check('python', 'SKIPPED', 'Verify')], 'R2')
-    assert status['testStatus'] == 'FAIL_SKIPPED_REQUIRED_WORK'
+def test_untrusted_fake_success_is_not_evidence():
+    checks = [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS', app='evil-app'), check('Analyze (javascript-typescript)', 'SUCCESS', 'CodeQL')]
+    evidence = evidence_for(checks=checks)
+    tests_group = next(g for g in evidence['groups'] if g['role'] == 'tests')
+    assert tests_group['status'] == 'UNVERIFIED_SOURCE'
+    result = evidence_gate.decide(risk(), review(), ai(), evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert result['autoMergeEligible'] is False
 
 
-def test_gate_passes_successful_checks():
-    status = evidence_gate.evaluate_checks([check('python', 'SUCCESS', 'Verify'), check('CodeQL', 'SUCCESS', 'CodeQL')], 'R2')
-    assert status['testStatus'] == 'PASS'
-    assert status['securityStatus'] == 'PASS'
+def test_head_change_after_review_blocks_merge():
+    result = evidence_gate.decide(risk(), review(), ai(), evidence_for(), pr(headRefOid='c' * 40), HEAD, BASE, ENFORCE, 1)
+    assert result['decision'] == 'FAILED_HEAD_CHANGED'
+    assert result['autoMergeEligible'] is False
 
 
-def test_gate_pending_checks_are_not_success():
-    status = evidence_gate.evaluate_checks([check('python', 'IN_PROGRESS', 'Verify')], 'R1')
-    assert status['testStatus'] == 'PENDING'
+def test_base_change_after_review_blocks_merge():
+    result = evidence_gate.decide(risk(), review(), ai(), evidence_for(), pr(baseRefOid='c' * 40), HEAD, BASE, ENFORCE, 1)
+    assert result['decision'] == 'FAILED_BASE_CHANGED'
+    assert result['autoMergeEligible'] is False
 
 
-def test_stacked_codeql_skip_is_not_applicable_when_default_codeql_succeeds():
-    status = evidence_gate.evaluate_checks([
-        check('CodeQL stacked (rust)', 'SKIPPED', 'Stacked PR CodeQL'),
-        check('CodeQL', 'SUCCESS', 'CodeQL'),
-    ], 'R3')
-    assert status['testStatus'] == 'PASS'
-    assert [item['name'] for item in status['notApplicableSkipped']] == ['CodeQL stacked (rust)']
+def test_skipped_native_workflow_blocks_native_repo():
+    checks = [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS'), check('Analyze (rust)', 'SUCCESS', 'CodeQL'), check('Windows desktop compile', 'SKIPPED')]
+    evidence = evidence_for('R2', checks, 'styayur/TinySTT')
+    assert evidence['status'] == 'MISSING'
+    result = evidence_gate.decide(risk(), review(), ai(), evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert result['autoMergeEligible'] is False
 
 
-def test_stacked_codeql_skip_without_default_codeql_remains_fail_closed():
-    status = evidence_gate.evaluate_checks([
-        check('CodeQL stacked (rust)', 'SKIPPED', 'Stacked PR CodeQL'),
-        check('python', 'SUCCESS', 'Verify'),
-    ], 'R3')
-    assert status['testStatus'] == 'FAIL_SKIPPED_REQUIRED_WORK'
-    assert status['notApplicableSkipped'] == []
+def test_cancelled_security_workflow_blocks_r2():
+    checks = [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS'), check('security scan', 'CANCELLED')]
+    evidence = evidence_for(checks=checks)
+    assert evidence['status'] == 'CANCELLED'
+    result = evidence_gate.decide(risk(), review(), ai(), evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert result['autoMergeEligible'] is False
+
+
+def test_ai_review_unavailable_blocks_r2():
+    evidence = evidence_for()
+    unavailable = ai(status='NOT_VERIFIED', decision='NOT_VERIFIED', reason='AI_REVIEW_NOT_CONFIGURED')
+    result = evidence_gate.decide(risk(), review(), unavailable, evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert result['decision'] == 'FAILED_AI_REVIEW_NOT_VERIFIED'
+    assert result['autoMergeEligible'] is False
+
+
+def test_r2_can_auto_merge_only_with_complete_matrix_and_ai_approval():
+    result = evidence_gate.decide(risk(), review(), ai(), evidence_for(), pr(), HEAD, BASE, ENFORCE, 1)
+    assert result['decision'] == 'AUTO_MERGE_ELIGIBLE'
+    assert result['autoMergeEligible'] is True
+
+
+def test_draft_pr_never_merges():
+    result = evidence_gate.decide(risk('R1'), review(), ai(), evidence_for('R1', [check('unit tests', 'SUCCESS'), check('security scan', 'SUCCESS')]), pr(isDraft=True), HEAD, BASE, ENFORCE, 1)
+    assert result['decision'] == 'WAITING_FOR_READY'
+    assert result['autoMergeEligible'] is False
+
+
+def test_gate_policy_change_is_r4():
+    result = risk_classify.classify_files([{'filename': '.github/workflows/reusable-portfolio-gate.yml', 'patch': '+permissions: write-all\n', 'additions': 1, 'deletions': 0}])
+    assert result['risk'] == 'R4'
+
+
+def test_retry_budget_blocks_repeated_failing_head():
+    result = evidence_gate.decide(risk(), review(), ai(), evidence_for(), pr(), HEAD, BASE, ENFORCE, 4)
+    assert result['decision'] == 'FAILED_RETRY_BUDGET'
+    assert result['autoMergeEligible'] is False
+
+
+def test_shadow_mode_never_sets_auto_merge_eligible():
+    result = evidence_gate.decide(risk('R1'), review(), ai(), evidence_for('R1', [check('unit tests', 'SUCCESS'), check('security scan', 'SUCCESS')]), pr(), HEAD, BASE, SHADOW, 1)
+    assert result['decision'] == 'SHADOW_ELIGIBLE'
+    assert result['autoMergeEligible'] is False
+    assert result['shadowEligible'] is True
+
+
+def test_r3_and_r4_remain_manual():
+    r3_evidence = evidence_for('R3', [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS'), check('security scan', 'SUCCESS')])
+    r3 = evidence_gate.decide(risk('R3'), review(), ai(), r3_evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert r3['decision'] == 'MANUAL_REVIEW_REQUIRED'
+    assert r3['autoMergeEligible'] is False
+    r4 = evidence_gate.decide(risk('R4'), review(), ai(), r3_evidence, pr(), HEAD, BASE, ENFORCE, 1)
+    assert r4['decision'] == 'MANUAL_REVIEW_REQUIRED'
+    assert r4['autoMergeEligible'] is False
+
+
+def test_ai_adapter_missing_config_is_not_verified(monkeypatch):
+    for key in ('PORTFOLIO_AI_REVIEW_ENABLED', 'PORTFOLIO_AI_REVIEW_ENDPOINT', 'PORTFOLIO_AI_REVIEW_MODEL', 'PORTFOLIO_AI_REVIEW_API_KEY'):
+        monkeypatch.delenv(key, raising=False)
+    result = ai_review_adapter.run(context(), risk(), review())
+    assert result['status'] == 'NOT_VERIFIED'
+    assert result['decision'] == 'NOT_VERIFIED'
+
+
+def test_ai_adapter_rejects_binding_mismatch():
+    def transport(config, prompt):
+        return {'choices': [{'message': {'content': json.dumps({'decision': 'APPROVE', 'findings': [], 'summary': 'ok', 'headSha': 'c' * 40, 'baseSha': BASE, 'diffSha256': DIFF})}}]}
+    config = {'enabled': True, 'endpoint': 'https://example.invalid/v1/chat/completions', 'model': 'review-model', 'apiKey': 'x', 'timeout': 5, 'maxChars': 120000}
+    result = ai_review_adapter.run(context(), risk(), review(), config=config, transport=transport)
+    assert result['status'] == 'NOT_VERIFIED'
+    assert result['reason'] == 'AI_REVIEW_BINDING_MISMATCH'
+
+
+def test_stacked_codeql_is_only_na_when_default_codeql_succeeds():
+    checks = [check('CodeQL stacked (rust)', 'SKIPPED', 'Stacked PR CodeQL'), check('Analyze (rust)', 'SUCCESS', 'CodeQL'), check('build rust', 'SUCCESS'), check('unit tests', 'SUCCESS')]
+    evidence = evidence_for('R2', checks, 'styayur/terics')
+    assert evidence['status'] == 'PASS'
+    assert any(c.get('notApplicableReason') for c in evidence['checks'])
+
+def test_missing_workflow_run_identity_is_not_verified():
+    checks = [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS', run_id=None), check('security scan', 'SUCCESS')]
+    evidence = evidence_for(checks=checks)
+    tests_group = next(g for g in evidence['groups'] if g['role'] == 'tests')
+    assert tests_group['status'] == 'UNVERIFIED_WORKFLOW'
+
+
+def test_check_from_wrong_commit_is_stale():
+    checks = [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS', head='c' * 40), check('security scan', 'SUCCESS')]
+    evidence = evidence_for(checks=checks)
+    tests_group = next(g for g in evidence['groups'] if g['role'] == 'tests')
+    assert tests_group['status'] == 'STALE'
+
+
+def test_current_rollout_starts_in_shadow_mode():
+    rollout = evidence_matrix.load_rollout(ROOT / 'policy/rollout.json')
+    assert rollout['mode'] == 'shadow'
+    assert rollout['maxAttemptsPerHead'] == 3

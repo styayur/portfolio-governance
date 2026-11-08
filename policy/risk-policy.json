@@ -1,20 +1,32 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "tiers": {
     "R0": "Documentation or non-executable asset changes; no external check required beyond the evidence gate.",
     "R1": "Tests or low-risk scoped changes; at least one external check must pass.",
-    "R2": "Normal code or compatible dependency changes; tests and security signals must not fail or be skipped.",
+    "R2": "Normal code or compatible dependency changes; complete build/test/security/native matrix plus static and independent AI review required.",
     "R3": "Public API, migration, release, runtime configuration or major dependency changes; manual maintainer decision required.",
     "R4": "Security-critical, workflow, signing, destructive or large-blast-radius changes; manual maintainer decision required and hard security blockers fail closed."
   },
-  "autoMerge": ["R0", "R1", "R2"],
-  "neverAutoMerge": ["R3", "R4"],
+  "autoMerge": [
+    "R0",
+    "R1",
+    "R2"
+  ],
+  "neverAutoMerge": [
+    "R3",
+    "R4"
+  ],
   "rules": [
+    "Shadow mode never auto-merges.",
     "No draft PR is auto-merged.",
     "No force push or ruleset bypass is used.",
-    "Failed, pending, stale or unknown checks fail closed.",
-    "Skipped test or security work fails closed for R2 and above.",
-    "Evidence must match the current head SHA.",
+    "Failed, pending, stale, cancelled, skipped or unknown required checks fail closed.",
+    "A single lint or build success never satisfies the Required Evidence Matrix.",
+    "Required checks must come from GitHub Actions with an exact head SHA and workflow-run identity.",
+    "R2 auto-merge requires build, test, security, native-if-configured, static review and independent AI approval.",
+    "R3 specialist evidence is mandatory; manual review is always required.",
+    "R4 requires explicit authorization and is never auto-merged.",
+    "AI review unavailable is NOT_VERIFIED, never PASS.",
     "A score never overrides a blocker."
   ]
 }
