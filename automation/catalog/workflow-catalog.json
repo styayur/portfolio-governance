@@ -6,38 +6,138 @@
   "workflows": [
     {
       "id": "ci-doctor",
-      "path": "automation\\workflows\\ci-doctor.md",
-      "sha256": "bcfb2dc4a13e10b3d15435c299ea1a8017f41c65a4eba5a93da970aae74dbcac",
+      "path": "automation/workflows/ci-doctor.md",
+      "sha256": "91b90d17b87bcfee08c9bbca4fda0bb5e48d8261114f58f6209380e6f2f3b392",
+      "lockPath": "automation/workflows/ci-doctor.lock.yml",
+      "lockSha256": "f577e41304e61cc5111a246e3bb1b1f33e753f275c71149c0443f8441c23f2fc",
+      "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat"
+      "model": "deepseek-chat",
+      "triggers": [
+        "None"
+      ],
+      "permissions": {
+        "actions": "read",
+        "contents": "read",
+        "issues": "read",
+        "pull-requests": "read"
+      },
+      "safeOutputs": [
+        "add-comment",
+        "create-issue"
+      ],
+      "maxTurns": 4,
+      "maxAiCredits": 60,
+      "maxDailyAiCredits": 180,
+      "timeoutMinutes": 10
     },
     {
       "id": "dependency-remediation",
-      "path": "automation\\workflows\\dependency-remediation.md",
-      "sha256": "dfe41baba1bd590411fa45887fbb13482271cff1a46218869823bb0da0fa5666",
+      "path": "automation/workflows/dependency-remediation.md",
+      "sha256": "a01f28251fdda86bd3bd8d4c40f328f90f0ae2038fcc33594beec714b72d80e6",
+      "lockPath": "automation/workflows/dependency-remediation.lock.yml",
+      "lockSha256": "6ca527d006b5d59b85c514c1e01c162bd573e6994abfdc30ea6656672de39c27",
+      "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat"
+      "model": "deepseek-chat",
+      "triggers": [
+        "None"
+      ],
+      "permissions": {
+        "actions": "read",
+        "contents": "read",
+        "issues": "read",
+        "pull-requests": "read",
+        "security-events": "read"
+      },
+      "safeOutputs": [
+        "create-issue",
+        "create-pull-request",
+        "push-to-pull-request-branch"
+      ],
+      "maxTurns": 6,
+      "maxAiCredits": 100,
+      "maxDailyAiCredits": 200,
+      "timeoutMinutes": 30
     },
     {
       "id": "independent-pr-review",
-      "path": "automation\\workflows\\independent-pr-review.md",
-      "sha256": "5d6a05087627b688bbef648bf88ca01e3e56aed062bd345614556680d8ba4236",
+      "path": "automation/workflows/independent-pr-review.md",
+      "sha256": "185619853d7af8f1e68c3ace69fece0e685657c278c74cb21247d7acd41eff1d",
+      "lockPath": "automation/workflows/independent-pr-review.lock.yml",
+      "lockSha256": "dea47f8b54f18e99cc8875341121c8ca86170027585c820ba87a5032100efea5",
+      "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat"
+      "model": "deepseek-chat",
+      "triggers": [
+        "None"
+      ],
+      "permissions": {
+        "contents": "read",
+        "pull-requests": "read",
+        "actions": "read"
+      },
+      "safeOutputs": [
+        "create-pull-request-review-comment",
+        "messages",
+        "submit-pull-request-review"
+      ],
+      "maxTurns": 3,
+      "maxAiCredits": 50,
+      "maxDailyAiCredits": 150,
+      "timeoutMinutes": 15
     },
     {
       "id": "issue-triage",
-      "path": "automation\\workflows\\issue-triage.md",
-      "sha256": "211dc4981c476c215f659d9a3b6dc5c46bb5d856f46ae0d862b2fd17f6d8b0ef",
+      "path": "automation/workflows/issue-triage.md",
+      "sha256": "c344708cdae2b40061179c029aefdba3a1f5772ae67e6feb3715ca46c05241f9",
+      "lockPath": "automation/workflows/issue-triage.lock.yml",
+      "lockSha256": "b2a19cee0e8c1ed3f641593509c7bcefbc430855d0d0dee37f985b83b031c99a",
+      "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat"
+      "model": "deepseek-chat",
+      "triggers": [
+        "None"
+      ],
+      "permissions": {
+        "contents": "read",
+        "issues": "read"
+      },
+      "safeOutputs": [
+        "add-comment",
+        "add-labels",
+        "set-issue-type"
+      ],
+      "maxTurns": 3,
+      "maxAiCredits": 40,
+      "maxDailyAiCredits": 120,
+      "timeoutMinutes": 10
     },
     {
       "id": "security-review",
-      "path": "automation\\workflows\\security-review.md",
-      "sha256": "ab694d51ba91d51d4b9552c3204abe50ab6d16c944f2abe4a5095e666c3acd6c",
+      "path": "automation/workflows/security-review.md",
+      "sha256": "a232d8bee87c1d8fefde2e6dd9a948163e7a3fb9d18e144fb06b9a9c72585295",
+      "lockPath": "automation/workflows/security-review.lock.yml",
+      "lockSha256": "34d48e14fbf92f6edb339b8509436e62d85214700437b821e17e841a254ebf30",
+      "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat"
+      "model": "deepseek-chat",
+      "triggers": [
+        "None"
+      ],
+      "permissions": {
+        "contents": "read",
+        "actions": "read",
+        "security-events": "read"
+      },
+      "safeOutputs": [
+        "create-code-scanning-alert",
+        "threat-detection"
+      ],
+      "maxTurns": 4,
+      "maxAiCredits": 60,
+      "maxDailyAiCredits": 180,
+      "timeoutMinutes": null
     }
   ],
   "officialTemplateChecks": [
@@ -82,5 +182,43 @@
   "notes": [
     "Workflow catalog is source-controlled and compiled separately from active repository callers.",
     "No workflow is considered deployed or successful until an exact-head run is observed."
+  ],
+  "centralServices": [
+    {
+      "id": "evidence-gate",
+      "kind": "deterministic-reusable-workflow",
+      "path": ".github/workflows/reusable-portfolio-gate.yml",
+      "status": "EXISTING"
+    },
+    {
+      "id": "portfolio-project-sync",
+      "kind": "github-actions",
+      "path": ".github/workflows/project-sync.yml",
+      "status": "EXISTING"
+    },
+    {
+      "id": "dependabot-risk-lifecycle",
+      "kind": "github-actions",
+      "path": ".github/workflows/risk-operations.yml",
+      "status": "PR_21_BLOCKED"
+    },
+    {
+      "id": "final-acceptance",
+      "kind": "github-actions",
+      "path": ".github/workflows/final-acceptance.yml",
+      "status": "PR_21_BLOCKED"
+    },
+    {
+      "id": "governance-drift",
+      "kind": "github-actions",
+      "path": ".github/workflows/portfolio-audit.yml",
+      "status": "EXISTING"
+    },
+    {
+      "id": "automation-cost-monitoring",
+      "kind": "gh-aw-audit",
+      "path": "automation/reports/agent-permission-audit.json",
+      "status": "CATALOGED"
+    }
   ]
 }

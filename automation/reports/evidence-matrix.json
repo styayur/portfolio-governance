@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "extends": "policy/evidence-matrix.v1.json",
+  "agenticRequirements": {
+    "R0": {
+      "agents": [
+        "issue-triage"
+      ],
+      "independentReview": false
+    },
+    "R1": {
+      "agents": [
+        "issue-triage",
+        "independent-pr-review",
+        "ci-doctor"
+      ],
+      "independentReview": false
+    },
+    "R2": {
+      "agents": [
+        "issue-triage",
+        "independent-pr-review",
+        "ci-doctor",
+        "security-review",
+        "dependency-remediation"
+      ],
+      "independentReview": true
+    },
+    "R3": {
+      "agents": [
+        "all-core"
+      ],
+      "independentReview": true,
+      "specialistEvidence": true,
+      "manualAuthorization": "PROPOSED"
+    },
+    "R4": {
+      "agents": [
+        "all-core"
+      ],
+      "independentReview": true,
+      "specialistEvidence": true,
+      "authorizationClass": "OWNER_AUTHORIZATION_REQUIRED"
+    }
+  },
+  "evidenceStates": [
+    "MISSING",
+    "STALE",
+    "SKIPPED",
+    "CANCELLED",
+    "NOT_APPLICABLE",
+    "NOT_VERIFIED",
+    "PASS",
+    "FAIL"
+  ],
+  "rule": "Workflow compilation, AI review comments and model output are not equivalent to real execution or native acceptance.",
+  "status": "CATALOGED_NOT_ACTIVE"
+}

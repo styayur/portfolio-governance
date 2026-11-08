@@ -34,6 +34,10 @@ safe-outputs:
 
 timeout-minutes: 10
 source: githubnext/agentics/workflows/issue-triage.md@139fa09ef17cde4135e696ff8e7af09bc5ddfa6e
+max-turns: 3
+max-ai-credits: 40
+max-daily-ai-credits: 120
+
 engine:
   id: codex
   model: deepseek-chat

@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-08T08:05:22.811021Z",
+  "source": "GitHub public repository enumeration plus default-branch workflow contents",
+  "expectedRepositories": 28,
+  "privateRepositoryExcluded": "styayur/site",
+  "coreWorkflows": [
+    "issue-triage",
+    "independent-pr-review",
+    "ci-doctor",
+    "security-review",
+    "dependency-remediation",
+    "evidence-gate"
+  ],
+  "repositories": [
+    {
+      "repository": "styayur/Nickspeare",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/portfolio-governance",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/TinySTT",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/LGXT-Assistant",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/OmniRoute-PS",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/TinyTTS",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/calligra",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/codeforge-engine",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/codex-mode-switcher",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/developer-security-workspace",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/fitimart",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/gitpad-plus",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/glyphibe",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/ipa-first-tts",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/local-context-engine",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/musical-spinningtop",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/mzk",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/rhizomaybor",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/ripple",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/styayur",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/styayur.github.io",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/terics",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/trucli",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/vextessera",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/whinset",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/wutnet",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/publishing-workbench",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    },
+    {
+      "repository": "styayur/ogleans",
+      "coreDeployment": "NOT_VERIFIED",
+      "actualRuns": {
+        "success": 0,
+        "failure": 0,
+        "pending": 0
+      }
+    }
+  ],
+  "summary": {
+    "coveredRepositories": 0,
+    "workflowsDeployed": 0,
+    "workflowsActuallyRunSuccessfully": 0
+  },
+  "status": "BLOCKED",
+  "note": "Deployment PRs and actual successful runs are required; catalog compilation alone is not coverage."
+}

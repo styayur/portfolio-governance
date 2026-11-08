@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "runId": 42460722540,
+  "url": "https://github.com/styayur/portfolio-governance-agentic-smoke/actions/runs/42460722540",
+  "repository": "styayur/portfolio-governance-agentic-smoke",
+  "sourceHead": "442ecf9c3558f0f6f8faef1d759d0d0eb3ce8da2",
+  "event": "workflow_dispatch",
+  "engine": "codex/deepseek-chat",
+  "status": "success",
+  "jobs": {
+    "activation": "success",
+    "agent": "success",
+    "detection": "success",
+    "safe_outputs": "success",
+    "conclusion": "success"
+  },
+  "duration": "7.7m",
+  "tokens": {
+    "input": 68637,
+    "output": 974,
+    "cacheRead": 51456,
+    "total": 69611
+  },
+  "costState": "UNPRICED_USAGE_OBSERVED",
+  "detection": {
+    "promptInjection": false,
+    "secretLeak": false,
+    "maliciousPatch": false
+  },
+  "graders": {
+    "passed": 9,
+    "failed": 1,
+    "failedGrader": "tool-success-rate"
+  },
+  "safeOutputs": {
+    "count": 1,
+    "type": "create_issue",
+    "note": "Smoke workflow unexpectedly created a test issue; the production catalog does not include the smoke workflow."
+  },
+  "stagingRepositoryDeletedAfterVerification": true
+}

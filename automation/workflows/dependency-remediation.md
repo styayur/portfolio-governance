@@ -15,6 +15,10 @@ permissions:
   pull-requests: read
   security-events: read
 
+max-turns: 6
+max-ai-credits: 100
+max-daily-ai-credits: 200
+
 engine:
   id: codex
   model: deepseek-chat

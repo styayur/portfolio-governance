@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "PENDING",
+  "testFile": "tests/test_agentic_automation.py",
+  "cases": [
+    "catalog-lock-presence",
+    "no-pull-request-target",
+    "review-trigger-is-pull-request",
+    "review-safe-output-bounds",
+    "security-review-read-only",
+    "dependency-remediation-draft-only",
+    "ci-doctor-main-branch-only",
+    "budgets-present",
+    "invalid-template-recorded",
+    "authorization-self-approval-rejected",
+    "reports-present"
+  ],
+  "note": "PASS is recorded only after the test suite executes on the exact commit."
+}

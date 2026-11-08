@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-08T08:05:22.811021Z",
+  "status": "BLOCKED",
+  "repositoryCoverage": {
+    "covered": 0,
+    "expected": 28
+  },
+  "workflowCatalog": {
+    "compiled": 5,
+    "actualSuccessfulProductionRuns": 0
+  },
+  "agentEngineSmoke": {
+    "status": "PASS",
+    "runId": 42460722540,
+    "model": "codex/deepseek-chat",
+    "note": "staging only; not production coverage"
+  },
+  "capabilities": {
+    "issueTriage": "CATALOGED_NOT_DEPLOYED",
+    "independentPrReview": "CATALOGED_NOT_DEPLOYED",
+    "ciDoctor": "CATALOGED_NOT_DEPLOYED",
+    "securityReview": "CATALOGED_NOT_DEPLOYED",
+    "dependencyRemediation": "CATALOGED_NOT_DEPLOYED",
+    "evidenceGate": "EXISTING_DEPLOYED_PARTIAL",
+    "autonomousRepair": "NOT_VERIFIED",
+    "r4Authorization": "PROPOSED_NOT_ACTIVE"
+  },
+  "blockers": [
+    "No production repo has all core workflows deployed on its default branch.",
+    "No exact-head production runs have been observed for the five agentic workflows.",
+    "Portfolio Governance #21 remains blocked.",
+    "TinySTT #9 remains Windows-native and RustSec blocked."
+  ],
+  "note": "Catalog compilation and staging smoke success do not count as production coverage."
+}

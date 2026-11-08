@@ -23,6 +23,10 @@ safe-outputs:
     driver: "Malicious Code Scanner"
   threat-detection: false
 
+max-turns: 4
+max-ai-credits: 60
+max-daily-ai-credits: 180
+
 engine:
   id: codex
   model: deepseek-chat

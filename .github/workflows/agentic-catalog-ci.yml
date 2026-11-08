@@ -1,0 +1,53 @@
+name: Agentic workflow catalog checks
+
+on:
+  pull_request:
+    paths:
+      - 'automation/**'
+      - '.github/workflows/agentic-*'
+      - '.github/workflows/issue-triage.*'
+      - '.github/workflows/independent-pr-review.*'
+      - '.github/workflows/ci-doctor.*'
+      - '.github/workflows/security-review.*'
+      - '.github/workflows/dependency-remediation.*'
+      - '.github/workflows/shared/**'
+      - 'scripts/authorization_policy.py'
+      - 'policy/r4-authorization.v1.json'
+      - 'tests/test_agentic_automation.py'
+  push:
+    branches: [main]
+    paths:
+      - 'automation/**'
+      - '.github/workflows/agentic-*'
+      - 'scripts/authorization_policy.py'
+      - 'policy/r4-authorization.v1.json'
+      - 'tests/test_agentic_automation.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    name: catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          python-version: '3.12'
+      - name: Install dependencies and gh-aw
+        run: |
+          python3 -m pip install --quiet -r requirements-dev.txt
+          gh extension install github/gh-aw --pin v1.0.1
+      - name: Compile catalog and active workflows
+        run: |
+          gh aw compile --dir automation/workflows --action-tag v1.0.1 --approve
+          gh aw compile --dir .github/workflows --action-tag v1.0.1 --approve
+          python3 automation/scripts/update_catalog.py
+          git diff --exit-code
+      - name: Run agentic negative and policy acceptance
+        run: python3 -m pytest -q tests/test_agentic_automation.py

@@ -25,6 +25,10 @@ safe-outputs:
   add-comment:
 
 timeout-minutes: 10
+max-turns: 4
+max-ai-credits: 60
+max-daily-ai-credits: 180
+
 engine:
   id: codex
   model: deepseek-chat

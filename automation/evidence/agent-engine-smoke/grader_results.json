@@ -1,0 +1,153 @@
+{
+  "version": 2,
+  "run": {
+    "id": "",
+    "graderCount": 10,
+    "passed": 9,
+    "failed": 1,
+    "errors": 0
+  },
+  "context": {},
+  "results": [
+    {
+      "id": "tool-success-rate",
+      "name": "Tool Success Rate",
+      "description": "Fraction of tool calls that succeeded",
+      "value": 0.42857142857142855,
+      "unit": "ratio",
+      "passed": false,
+      "status": "fail",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "tool-failure-count",
+      "name": "Tool Failure Count",
+      "description": "Number of tool calls that failed",
+      "value": 4,
+      "unit": "count",
+      "passed": true,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "retries",
+      "name": "Retries",
+      "description": "Number of retry events detected in gateway logs",
+      "value": 0,
+      "unit": "count",
+      "passed": true,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "loops",
+      "name": "Loops",
+      "description": "Consecutive identical tool calls (same name and arguments)",
+      "value": 1,
+      "unit": "count",
+      "passed": true,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "trajectory-efficiency",
+      "name": "Trajectory Efficiency",
+      "description": "Ratio of unique tool names to total tool calls (higher = more diverse usage)",
+      "value": 0.42857142857142855,
+      "unit": "ratio",
+      "passed": null,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "execution-step-count",
+      "name": "Execution Step Count",
+      "description": "Total LLM request count",
+      "value": 4,
+      "unit": "count",
+      "passed": null,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "execution-duration",
+      "name": "Execution Duration",
+      "description": "Total execution duration",
+      "value": 11597,
+      "unit": "ms",
+      "passed": null,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "working-set-rebuild-factor",
+      "name": "Working-Set Rebuild Factor",
+      "description": "Cumulative input tokens divided by peak invocation input tokens",
+      "value": 3.878015707102096,
+      "unit": "factor",
+      "passed": null,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "context-growth",
+      "name": "Context Growth",
+      "description": "Ratio of total tokens to first-request tokens",
+      "value": 4.131707027540361,
+      "unit": "factor",
+      "passed": null,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    },
+    {
+      "id": "artifact-production",
+      "name": "Artifact Production",
+      "description": "Count of outputs/artifacts produced by the agent",
+      "value": 1,
+      "unit": "count",
+      "passed": null,
+      "status": "pass",
+      "source": "builtin",
+      "implementation": {
+        "id": "gh-aw/graders",
+        "version": 2
+      }
+    }
+  ]
+}

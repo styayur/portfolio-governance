@@ -32,6 +32,10 @@ safe-outputs:
 timeout-minutes: 15
 imports:
   - shared/reporting.md
+max-turns: 3
+max-ai-credits: 50
+max-daily-ai-credits: 150
+
 engine:
   id: codex
   model: deepseek-chat
