@@ -301,3 +301,36 @@ def test_dependabot_policy_has_known_blockers_and_never_accepts_unclassified():
 def test_risk_issue_markdown_escaping():
     from scripts import sync_risk_issue
     assert sync_risk_issue.markdown_text('line one\nline two `code`') == "line one line two 'code'"
+
+
+def test_wait_for_workflows_selects_main_events_only():
+    from scripts import wait_for_workflows
+    runs = [
+        {'workflowName': 'Portfolio audit', 'headSha': HEAD, 'event': 'push', 'createdAt': '2026-01-01T00:00:00Z'},
+        {'workflowName': 'Portfolio audit', 'headSha': HEAD, 'event': 'pull_request', 'createdAt': '2026-01-02T00:00:00Z'},
+    ]
+    selected = wait_for_workflows.select_latest_runs(runs, ['Portfolio audit'], HEAD, ['push'])
+    assert selected['Portfolio audit']['event'] == 'push'
+
+
+def test_gate_pin_policy_matches_rollout():
+    rollout = json.loads((ROOT / 'policy/rollout.json').read_text())
+    pin = json.loads((ROOT / 'policy/gate-pin.json').read_text())
+    assert pin['sha'] == rollout['gateSha']
+    assert pin['reviewedPr'] == 18
+
+
+def test_artifact_path_must_be_unique(tmp_path):
+    from scripts import collect_workflow_artifacts
+    (tmp_path / 'one').mkdir()
+    target = tmp_path / 'one' / 'report.json'
+    target.write_text('{}')
+    assert collect_workflow_artifacts.unique_artifact_path(tmp_path, 'report.json') == target
+    (tmp_path / 'two').mkdir()
+    (tmp_path / 'two' / 'report.json').write_text('{}')
+    try:
+        collect_workflow_artifacts.unique_artifact_path(tmp_path, 'report.json')
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('ambiguous artifacts must fail closed')

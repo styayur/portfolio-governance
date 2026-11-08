@@ -25,6 +25,13 @@ def run(args):
     return subprocess.run(args, text=True, capture_output=True)
 
 
+def unique_artifact_path(root: Path, filename: str) -> Path:
+    matches = list(root.rglob(filename))
+    if len(matches) != 1:
+        raise ValueError(f'expected exactly one {filename}, found {len(matches)}')
+    return matches[0]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--repo', required=True)
@@ -46,6 +53,9 @@ def main():
         if not run_id:
             failures.append(f'{workflow}: run id missing')
             continue
+        if info.get('headSha') != completion.get('sha'):
+            failures.append(f'{workflow}: run head SHA mismatch')
+            continue
         dest = Path(destination)
         name = name_template.format(run_id=run_id)
         scratch = Path(tempfile.mkdtemp(prefix=f'portfolio-artifact-{workflow.replace(" ", "-")}-'))
@@ -56,16 +66,17 @@ def main():
                 continue
             missing = []
             for item in required_files:
-                matches = list(scratch.rglob(item))
-                if not matches:
-                    missing.append(item)
+                try:
+                    source = unique_artifact_path(scratch, item)
+                except ValueError as exc:
+                    missing.append(str(exc))
                     continue
                 dest.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(matches[0], dest / item)
+                shutil.copy2(source, dest / item)
             if missing:
                 failures.append(f'{workflow}: artifact {name} missing {missing}')
                 continue
-            records.append({'workflow': workflow, 'runId': run_id, 'artifact': name, 'destination': str(dest), 'files': list(required_files)})
+            records.append({'workflow': workflow, 'runId': run_id, 'headSha': info.get('headSha'), 'artifact': name, 'destination': str(dest), 'files': list(required_files)})
         finally:
             shutil.rmtree(scratch, ignore_errors=True)
     result = {

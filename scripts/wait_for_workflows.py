@@ -16,26 +16,36 @@ def run(args):
     return p.stdout
 
 
+def select_latest_runs(runs, wanted, sha, allowed_events):
+    allowed = set(allowed_events)
+    by_workflow = {}
+    for item in runs:
+        if item.get('headSha') != sha or item.get('workflowName') not in wanted:
+            continue
+        if item.get('event') not in allowed:
+            continue
+        if item['workflowName'] not in by_workflow or item.get('createdAt', '') > by_workflow[item['workflowName']].get('createdAt', ''):
+            by_workflow[item['workflowName']] = item
+    return by_workflow
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--repo', required=True)
     parser.add_argument('--sha', required=True)
     parser.add_argument('--workflows', required=True)
+    parser.add_argument('--events', default='push,schedule,workflow_dispatch')
     parser.add_argument('--timeout', type=int, default=1800)
     parser.add_argument('--poll', type=int, default=15)
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     wanted = [x.strip() for x in args.workflows.split(',') if x.strip()]
+    allowed_events = [x.strip() for x in args.events.split(',') if x.strip()]
     started = time.time()
     while True:
-        raw_runs = run(['gh', 'api', '--paginate', '--jq', '.workflow_runs[] | {databaseId: .id, workflowName: .name, headSha: .head_sha, status: .status, conclusion: .conclusion, createdAt: .created_at, url: .html_url, event: .event}', f'repos/{args.repo}/actions/runs?head_sha={args.sha}&per_page=100'])
+        raw_runs = run(['gh', 'api', '--paginate', '--jq', '.workflow_runs[] | {databaseId: .id, workflowName: .name, headSha: .head_sha, headBranch: .head_branch, status: .status, conclusion: .conclusion, createdAt: .created_at, url: .html_url, event: .event}', f'repos/{args.repo}/actions/runs?head_sha={args.sha}&branch=main&per_page=100'])
         runs = [json.loads(line) for line in raw_runs.splitlines() if line.strip()]
-        by_workflow = {}
-        for item in runs:
-            if item.get('headSha') != args.sha or item.get('workflowName') not in wanted:
-                continue
-            if item['workflowName'] not in by_workflow or item.get('createdAt', '') > by_workflow[item['workflowName']].get('createdAt', ''):
-                by_workflow[item['workflowName']] = item
+        by_workflow = select_latest_runs(runs, wanted, args.sha, allowed_events)
         failures = {name: item for name, item in by_workflow.items() if item.get('status') == 'completed' and item.get('conclusion') != 'success'}
         missing = [name for name in wanted if name not in by_workflow]
         pending = [name for name, item in by_workflow.items() if item.get('status') != 'completed']

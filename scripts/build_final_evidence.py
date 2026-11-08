@@ -15,6 +15,7 @@ OUT = ROOT / 'evidence' / 'final'
 OUT.mkdir(parents=True, exist_ok=True)
 NOW = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
 FIXED_GATE_SHA = json.loads((ROOT / 'policy/rollout.json').read_text())['gateSha']
+GATE_PIN = json.loads((ROOT / 'policy/gate-pin.json').read_text())
 GATE_CONTEXT = 'portfolio / Portfolio Evidence Gate / verify'
 RULESET_NAME = 'Portfolio default branch safety'
 MONITORING = ROOT / 'evidence' / 'remediation' / 'security-monitoring.json'
@@ -84,6 +85,11 @@ def main():
     merge_base = (comparison.get('merge_base_commit') or {}).get('sha')
     if comparison.get('status') not in {'ahead', 'identical'} or merge_base != FIXED_GATE_SHA:
         raise SystemExit(f'gate SHA is not an ancestor of main: {FIXED_GATE_SHA}')
+    if GATE_PIN.get('sha') != FIXED_GATE_SHA:
+        raise SystemExit('policy gate pin and rollout gateSha disagree')
+    reviewed_pr = api(f'repos/styayur/portfolio-governance/pulls/{GATE_PIN.get("reviewedPr")}')
+    if reviewed_pr.get('state') != 'closed' or reviewed_pr.get('merged_at') is None or (reviewed_pr.get('merge_commit_sha') or '') != FIXED_GATE_SHA:
+        raise SystemExit('gate SHA is not the merge commit of the reviewed policy PR')
     inventory = json.loads((BASELINE / 'portfolio-inventory.json').read_text())
     pre = json.loads((BASELINE / 'portfolio-inventory.pre-governance.json').read_text())
     repos = inventory['repositories']

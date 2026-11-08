@@ -89,3 +89,9 @@ def test_artifact_names_match_workflows():
     assert 'portfolio-audit-${{ github.run_id }}' in files
     assert 'portfolio-project-sync-${{ github.run_id }}' in files
     assert 'portfolio-risk-operations-${{ github.run_id }}' in files
+
+
+def test_risk_operations_preserves_failure_status():
+    text = (ROOT / '.github/workflows/risk-operations.yml').read_text()
+    assert 'Preserve fail-closed risk status' in text
+    assert 'Dependabot audit did not produce a report' in text

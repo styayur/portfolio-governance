@@ -48,3 +48,5 @@ These states are not collapsed into a generic scanner error.
 Risk evidence files are workflow artifacts, not reviewed source snapshots. The daily workflow writes them under `evidence/risk/`; the final-acceptance run uploads the exact artifact after all related exact-SHA workflows complete.
 
 The project sync runs hourly to keep the Portfolio Project aligned with live PR, Issue and risk-register state. It uses the scoped Projects token for mutation and a short-lived App token for read-only repository data.
+
+The risk register intentionally contains public-repository alert metadata. Private repository data is excluded by the public-repository enumeration.

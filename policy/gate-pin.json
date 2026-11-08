@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "sha": "82ef68707329d39b4a389c8840eeb22f8e8f3f49",
+  "reviewedPr": 18,
+  "reviewedPrUrl": "https://github.com/styayur/portfolio-governance/pull/18",
+  "reviewedAt": "2026-11-08T04:09:33Z",
+  "reason": "Merged enforcement policy and exact-head evidence gate."
+}

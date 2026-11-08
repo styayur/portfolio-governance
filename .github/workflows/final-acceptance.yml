@@ -36,11 +36,17 @@ jobs:
         id: target
         env:
           GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_SHA: ${{ github.event.workflow_run.head_sha }}
+          REPO: ${{ github.repository }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_run" ]; then
-            echo "sha=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_OUTPUT"
+          if [ "$EVENT_NAME" = "workflow_run" ]; then
+            test -n "$EVENT_SHA"
+            printf 'sha=%s\n' "$EVENT_SHA" >> "$GITHUB_OUTPUT"
           else
-            echo "sha=$(gh api repos/${{ github.repository }}/git/ref/heads/main --jq .object.sha)" >> "$GITHUB_OUTPUT"
+            sha="$(gh api "repos/$REPO/git/ref/heads/main" --jq .object.sha)"
+            test -n "$sha"
+            printf 'sha=%s\n' "$sha" >> "$GITHUB_OUTPUT"
           fi
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -49,19 +55,24 @@ jobs:
       - name: Wait for all related workflows on the exact SHA
         env:
           GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TARGET_SHA: ${{ steps.target.outputs.sha }}
         run: >-
           python3 scripts/wait_for_workflows.py
-          --repo "${{ github.repository }}"
-          --sha "${{ steps.target.outputs.sha }}"
+          --repo "$REPO"
+          --sha "$TARGET_SHA"
           --workflows "Governance self-checks,Portfolio audit,Portfolio project sync,Portfolio risk operations"
+          --events "push,schedule,workflow_dispatch"
           --timeout 1800
           --output evidence/final/workflow-completion.json
       - name: Recheck target is still current main
         env:
           GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TARGET_SHA: ${{ steps.target.outputs.sha }}
         run: |
-          current=$(gh api repos/${{ github.repository }}/git/ref/heads/main --jq .object.sha)
-          test "$current" = "${{ steps.target.outputs.sha }}"
+          current="$(gh api "repos/$REPO/git/ref/heads/main" --jq .object.sha)"
+          test "$current" = "$TARGET_SHA"
       - name: Materialize exact-SHA workflow artifacts
         env:
           GH_TOKEN: ${{ github.token }}

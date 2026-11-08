@@ -38,6 +38,11 @@ jobs:
         env:
           PORTFOLIO_PROJECT_TOKEN_EXPIRES_AT: ${{ vars.PORTFOLIO_PROJECT_TOKEN_EXPIRES_AT }}
         run: python3 scripts/pat_rotation_audit.py
+      - name: Preserve fail-closed risk status
+        if: always() && hashFiles('evidence/risk/dependabot-risk-disposition.json') == ''
+        run: |
+          mkdir -p evidence/risk
+          printf '%s\n' '{"schemaVersion":1,"totalOpen":null,"records":[],"errors":[{"status":"NOT_VERIFIED","reason":"Dependabot audit did not produce a report"}],"coverage":{"status":"NOT_VERIFIED","repositoriesErrored":1},"unclassified":1}' > evidence/risk/dependabot-risk-disposition.json
       - name: Sync live risk register issue
         id: sync
         if: always() && hashFiles('evidence/risk/dependabot-risk-disposition.json') != ''
