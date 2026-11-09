@@ -9,6 +9,7 @@ for path in sorted(workflows_dir.glob('*.md')):
     text = path.read_text()
     end = text.find('\n---\n', 4)
     front = yaml.safe_load(text[4:end])
+    events = front.get('on', front.get(True, {}))
     lock = path.with_suffix('.lock.yml')
     records.append({
         'id': path.stem,
@@ -19,7 +20,7 @@ for path in sorted(workflows_dir.glob('*.md')):
         'compiled': lock.exists(),
         'engine': front.get('engine', {}).get('id') if isinstance(front.get('engine'), dict) else front.get('engine'),
         'model': front.get('engine', {}).get('model') if isinstance(front.get('engine'), dict) else front.get('model'),
-        'triggers': sorted((front.get('on') or {}).keys()) if isinstance(front.get('on'), dict) else [str(front.get('on'))],
+        'triggers': sorted(events.keys()) if isinstance(events, dict) else ([events] if isinstance(events, str) else []),
         'permissions': front.get('permissions', {}),
         'safeOutputs': sorted((front.get('safe-outputs') or {}).keys()),
         'maxTurns': front.get('max-turns'),
@@ -39,4 +40,5 @@ old['centralServices'] = [
     {'id': 'automation-cost-monitoring', 'kind': 'gh-aw-audit', 'path': 'automation/reports/agent-permission-audit.json', 'status': 'CATALOGED'}
 ]
 catalog_path.write_text(json.dumps(old, ensure_ascii=False, indent=2) + '\n')
+(root / 'automation' / 'reports' / 'workflow-catalog.json').write_text(json.dumps(old, ensure_ascii=False, indent=2) + '\n')
 print('catalog refreshed', len(records))

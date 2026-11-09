@@ -7,14 +7,15 @@
     {
       "id": "ci-doctor",
       "path": "automation/workflows/ci-doctor.md",
-      "sha256": "9040e9672c40f9de1d93c90b9ffb8fe16c3d48ee1690b2abefca28cdaf6d6e21",
+      "sha256": "160ea55d4f818ad9a49c4793d3812f049cae30562a8308ee66664749d0ce6853",
       "lockPath": "automation/workflows/ci-doctor.lock.yml",
-      "lockSha256": "9d7643489c8582e072d37af41e4b6534f9cdacd01765510f589a1af8fe9d0db6",
+      "lockSha256": "195d5b2f45ff671d592457a048beb892b9d151084ce41ac05e90f770519c482d",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
       "triggers": [
-        "None"
+        "workflow_dispatch",
+        "workflow_run"
       ],
       "permissions": {
         "actions": "read",
@@ -34,14 +35,15 @@
     {
       "id": "dependency-remediation",
       "path": "automation/workflows/dependency-remediation.md",
-      "sha256": "a01f28251fdda86bd3bd8d4c40f328f90f0ae2038fcc33594beec714b72d80e6",
+      "sha256": "0ee6d53cf65a2f37863d30061bac39e2fcd1db805016a89f39e53861a2d82cfd",
       "lockPath": "automation/workflows/dependency-remediation.lock.yml",
-      "lockSha256": "6ca527d006b5d59b85c514c1e01c162bd573e6994abfdc30ea6656672de39c27",
+      "lockSha256": "11150f6a4a5982335fba7b6c11f8e1e8e5a8ac8d746cc3000124f11d757641be",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
       "triggers": [
-        "None"
+        "schedule",
+        "workflow_dispatch"
       ],
       "permissions": {
         "actions": "read",
@@ -63,14 +65,14 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "334dcd18b0120750caf77132d9e31996777c0eb1b71c4f626fe84961b090e43d",
+      "sha256": "4bbed57275289179704996faa6b3d239cce358ac215a3b63aac9bceadeba831d",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "6c799dfd1c19c457e06917ec14421b26159b6ba0c94313b1b252c52641cabbb4",
+      "lockSha256": "fd5d44495004772ed1c0c29b61008d8fc10113ba1c86b1d9ad8243b5df2204bc",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
       "triggers": [
-        "None"
+        "pull_request_target"
       ],
       "permissions": {
         "contents": "read",
@@ -79,7 +81,6 @@
       },
       "safeOutputs": [
         "create-pull-request-review-comment",
-        "messages",
         "submit-pull-request-review"
       ],
       "maxTurns": 3,
@@ -90,14 +91,15 @@
     {
       "id": "issue-triage",
       "path": "automation/workflows/issue-triage.md",
-      "sha256": "c344708cdae2b40061179c029aefdba3a1f5772ae67e6feb3715ca46c05241f9",
+      "sha256": "137233e8b8d2f7521075849f5f4dd07d23e8f903ba7bc3966412d4f11104c1ba",
       "lockPath": "automation/workflows/issue-triage.lock.yml",
-      "lockSha256": "b2a19cee0e8c1ed3f641593509c7bcefbc430855d0d0dee37f985b83b031c99a",
+      "lockSha256": "434631339a64914ac5427b877e76a5fa562f3585c8c30e1dc1a87b93f3eb7082",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
       "triggers": [
-        "None"
+        "issues",
+        "reaction"
       ],
       "permissions": {
         "contents": "read",
@@ -116,14 +118,15 @@
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "3b8ca151dc986966cbfbe21f8b2f1a78482c1a0ca2b1460b74cc51df31a212e1",
+      "sha256": "438f5af14cf0c6dde098b9d6b83cea4ed03bac057e64c5a57644db137d3f8417",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "04406ff22c1ebe3532b015bcaeb8e67e26355c78bf09f83485090d2953e5dec2",
+      "lockSha256": "712c7ce3d2a150e9fa03da7b865d7531a1a9ed53e0412d71ff619634f2203f95",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-chat",
       "triggers": [
-        "None"
+        "schedule",
+        "workflow_dispatch"
       ],
       "permissions": {
         "contents": "read",
@@ -131,8 +134,7 @@
         "security-events": "read"
       },
       "safeOutputs": [
-        "create-code-scanning-alert",
-        "threat-detection"
+        "create-code-scanning-alert"
       ],
       "maxTurns": 4,
       "maxAiCredits": 60,

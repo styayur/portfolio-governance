@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "PROPOSED",
-  "activation": "OWNER_AUTHORIZATION_REQUIRED",
+  "activation": "EXTERNAL_AUTHORIZATION_REQUIRED",
   "selfApprovalAllowed": false,
   "description": "Separate authorization class from risk tier. This proposal does not activate itself or change current R3/R4 behavior.",
   "classes": {
@@ -13,7 +13,7 @@
       "description": "R3/R4 engineering change covered by an existing owner authorization record with matching scope and policy version.",
       "autoMerge": true
     },
-    "OWNER_AUTHORIZATION_REQUIRED": {
+    "EXTERNAL_AUTHORIZATION_REQUIRED": {
       "description": "Trust-root, credential, workflow-source, external side-effect, or policy-bound change requiring a fresh owner authorization record.",
       "autoMerge": false
     },
@@ -23,18 +23,12 @@
     }
   },
   "trustRootPaths": [
-    ".github/workflows/reusable-portfolio-gate.yml",
-    ".github/workflows/portfolio-gate.yml",
-    ".github/workflows/final-acceptance.yml",
-    ".github/workflows/risk-operations.yml",
-    "scripts/evidence_gate.py",
-    "scripts/evidence_matrix.py",
-    "scripts/authorization_policy.py",
-    "policy/rollout.json",
-    "policy/evidence-matrix.v1.json",
-    "policy/r4-authorization.v1.json",
-    "policy/gate-pin.json",
-    ".github/actions/**"
+    ".github/workflows/**",
+    ".github/actions/**",
+    "policy/**",
+    "scripts/**",
+    "automation/workflows/**",
+    "automation/schemas/**"
   ],
   "authorizationRecord": {
     "requiredFields": [
@@ -45,12 +39,20 @@
       "commitSha",
       "issuedAt",
       "expiresAt",
-      "signature"
+      "signature",
+      "issuedBy",
+      "repository",
+      "prNumber",
+      "baseSha",
+      "diffSha256",
+      "source"
     ],
     "maxValidityHours": 24,
     "rejectsSelfIssued": true,
     "rejectsScopeMismatch": true,
     "rejectsExpired": true
   },
-  "activationRule": "A new policy or trust-root change must be authorized by an existing protected policy and an independent owner authorization record. A PR cannot authorize its own changes."
+  "activationRule": "A new policy or trust-root change must be authorized by an existing protected policy and an independent owner authorization record. A PR cannot authorize its own changes.",
+  "policyVersion": "r4-authorization-v1-proposed",
+  "trustedIssuers": []
 }

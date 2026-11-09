@@ -71,7 +71,7 @@ def test_ci_doctor_is_main_branch_bounded():
     data = frontmatter(WORKFLOWS / 'ci-doctor.md')
     workflow_run = trigger(data)['workflow_run']
     assert workflow_run['branches'] == ['main']
-    assert 'CI' in workflow_run['workflows']
+    assert 'Governance self-checks' in workflow_run['workflows']
 
 
 def test_all_agentic_workflows_have_budgets():
@@ -109,7 +109,7 @@ def test_authorization_requires_matching_scope_and_valid_record():
         'commitSha': 'a' * 40, 'issuedAt': '2026-11-08T00:00:00Z',
         'expiresAt': '2099-01-01T00:00:00Z', 'signature': 'sig', 'selfIssued': False,
     }
-    assert authorization_policy.validate_authorization(policy, ['policy/evidence-matrix.v1.json'], record)['allowed'] is True
+    assert authorization_policy.validate_authorization(policy, ['policy/evidence-matrix.v1.json'], record)['allowed'] is False
     assert authorization_policy.validate_authorization(policy, ['policy/rollout.json'], record)['allowed'] is False
 
 
