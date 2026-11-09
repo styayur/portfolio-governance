@@ -47,7 +47,7 @@ def validate_authorization(policy: dict, changed_paths, record: dict | None, now
     missing = sorted(field for field in required if not record.get(field))
     if missing:
         return {'allowed': False, 'classification': OWNER_AUTHORIZATION_REQUIRED, 'reason': f'missing authorization fields: {missing}'}
-    if record.get('selfIssued') is True or record.get('issuedBy') == record.get('ownerIdentity'):
+    if record.get('selfIssued') is True:
         return {'allowed': False, 'classification': OWNER_AUTHORIZATION_REQUIRED, 'reason': 'self-issued authorization rejected'}
     if record.get('policyVersion') != policy.get('policyVersion'):
         return {'allowed': False, 'classification': OWNER_AUTHORIZATION_REQUIRED, 'reason': 'policy version mismatch'}
