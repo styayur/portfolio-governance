@@ -28,3 +28,10 @@ The adapter is OpenAI-compatible and uses repository variables:
 and the optional secret `PORTFOLIO_AI_REVIEW_API_KEY`.
 
 If any item is missing, the adapter records `AI_REVIEW_NOT_CONFIGURED` and the gate does not claim AI review passed.
+
+
+## Manual approval v1
+
+R3/R4 do not emit a successful required check merely because technical evidence passes. A `PENDING_MANUAL` decision exits non-zero and leaves the required check red. An authenticated maintainer submits an exact-bound review command containing the PR number, head SHA, base SHA, diff digest and risk tier. `APPROVED_MANUAL` can make the required check pass but never sets `autoMergeEligible`; `REJECTED_MANUAL` remains a hard failure.
+
+AI review is advisory for manual tiers: `NEEDS_HUMAN` or unavailable AI evidence transitions to the manual state machine instead of preempting it. AI `BLOCK` remains a hard blocker. Retry budgets apply only to automatic-merge tiers. R4 further requires the authorization label and a separate `authorize-r4` review. See [Manual approval protocol v1](manual-approval-v1.md).

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "status": "ACTIVE",
+  "protocol": "manual-approval-v1",
+  "description": "Exact-binding maintainer review protocol for R3/R4 pull requests. R3/R4 are never auto-merged.",
+  "states": [
+    "PENDING_MANUAL",
+    "APPROVED_MANUAL",
+    "REJECTED_MANUAL"
+  ],
+  "authorizedRoles": [
+    "admin",
+    "maintain"
+  ],
+  "rejectBots": true,
+  "requireReviewCommit": true,
+  "commands": {
+    "approve": "/portfolio approve-manual",
+    "reject": "/portfolio reject-manual",
+    "authorizeR4": "/portfolio authorize-r4"
+  },
+  "bindingFields": [
+    "pr",
+    "head",
+    "base",
+    "diff",
+    "risk"
+  ],
+  "r4": {
+    "authorizationLabel": "portfolio:r4-approved",
+    "requiresApproveCommand": true,
+    "requiresAuthorizationCommand": true
+  },
+  "requiresStrictBaseFreshness": true
+}

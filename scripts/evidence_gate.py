@@ -139,11 +139,23 @@ def specialist_status(evidence: dict) -> dict:
     return {'status': 'NOT_VERIFIED', 'reason': 'native-platform required evidence is incomplete'}
 
 
-def decide(risk, review, ai_review, evidence, pr, expected_head, expected_base, rollout, attempt_count):
+def manual_binding_matches(manual, risk_level, expected_head, expected_base, diff_sha, pr_number):
+    return (
+        str(manual.get('prNumber') or '') == str(pr_number or '')
+        and str(manual.get('risk') or '').upper() == str(risk_level or '').upper()
+        and str(manual.get('headSha') or '').lower() == str(expected_head or '').lower()
+        and str(manual.get('baseSha') or '').lower() == str(expected_base or '').lower()
+        and str(manual.get('diffSha256') or '').lower() == str(diff_sha or '').lower()
+    )
+
+
+def decide(risk, review, ai_review, evidence, pr, expected_head, expected_base, rollout, attempt_count, manual_approval=None):
+    manual_approval = manual_approval or {}
     manual = list(review.get('manualReviewReasons') or [])
     auto = rollout.get('autoMerge') or {}
     matrix_required = evidence.get('requirements') or {}
     diff_sha = risk.get('diffSha256')
+    manual_tier = risk.get('risk') in {'R3', 'R4'}
     specialist = specialist_status(evidence) if matrix_required.get('specialistAdapterRequired') else {'status': 'NOT_APPLICABLE', 'reason': 'not required'}
     r4_authorized = (rollout.get('r4AuthorizationLabel') in (pr.get('labels') or [])) if matrix_required.get('explicitAuthorizationRequired') else None
     r4_value = 'PRESENT' if r4_authorized else ('ABSENT' if r4_authorized is False else 'NOT_REQUIRED')
@@ -166,26 +178,119 @@ def decide(risk, review, ai_review, evidence, pr, expected_head, expected_base, 
         return {'decision': 'FAILED_REVIEW_BLOCK', 'autoMergeEligible': False, 'blockedReasons': list(review.get('blockers') or ['static review blocked the change'])}
     if pr.get('checksTruncated'):
         return {'decision': 'FAILED_CHECK_ROLLUP_TRUNCATED', 'autoMergeEligible': False, 'blockedReasons': ['GitHub returned more than 100 status checks; fail closed']}
+    if review.get('decision') == 'MANUAL_REVIEW_REQUIRED':
+        manual.append('static policy review requires a maintainer decision')
+
+    ai_verified = ai_review.get('status') == 'VERIFIED'
+    ai_bound = (
+        ai_verified
+        and ai_review.get('headSha') == expected_head
+        and ai_review.get('baseSha') == expected_base
+        and ai_review.get('diffSha256') == diff_sha
+    )
+    ai_approved = ai_bound and ai_review.get('decision') == 'APPROVE'
+    ai_blocked = ai_bound and ai_review.get('decision') == 'BLOCK'
+
+    if manual_tier:
+        evidence_reasons = [g.get('reason', '') for g in evidence.get('groups', []) if g.get('status') != 'PASS']
+        if evidence.get('status') != 'PASS':
+            return {
+                'decision': f'FAILED_EVIDENCE_{evidence.get("status", "NOT_VERIFIED")}',
+                'autoMergeEligible': False,
+                'blockedReasons': evidence_reasons or ['required evidence is incomplete'],
+                'manualReviewReasons': sorted(set(manual)),
+                'manualApproval': manual_approval,
+                'specialistAdapter': specialist,
+                'r4Authorization': r4_value,
+            }
+        if matrix_required.get('specialistAdapterRequired') and specialist['status'] not in {'PASS', 'NOT_APPLICABLE'}:
+            return {
+                'decision': 'FAILED_SPECIALIST_EVIDENCE',
+                'autoMergeEligible': False,
+                'blockedReasons': [specialist.get('reason') or 'specialist adapter evidence is incomplete'],
+                'manualReviewReasons': sorted(set(manual)),
+                'manualApproval': manual_approval,
+                'specialistAdapter': specialist,
+                'r4Authorization': r4_value,
+            }
+        if ai_blocked:
+            return {
+                'decision': 'FAILED_AI_REVIEW_BLOCK',
+                'autoMergeEligible': False,
+                'blockedReasons': [ai_review.get('reason') or 'independent AI review blocked the change'],
+                'manualReviewReasons': sorted(set(manual)),
+                'manualApproval': manual_approval,
+                'specialistAdapter': specialist,
+                'r4Authorization': r4_value,
+            }
+        if not ai_approved:
+            manual.append(ai_review.get('reason') or 'AI review did not approve; an authenticated exact-bound maintainer decision is required')
+        if matrix_required.get('explicitAuthorizationRequired') and not r4_authorized:
+            manual.append('R4 explicit authorization label is absent')
+        if pr.get('mergeable') == 'CONFLICTING' or pr.get('mergeStateStatus') in {'DIRTY', 'BEHIND', 'DRAFT'}:
+            return {
+                'decision': 'BLOCKED_MERGE_STATE',
+                'autoMergeEligible': False,
+                'blockedReasons': ['GitHub reports a conflicting, dirty, behind or draft merge state'],
+                'manualReviewReasons': sorted(set(manual)),
+                'manualApproval': manual_approval,
+                'specialistAdapter': specialist,
+                'r4Authorization': r4_value,
+            }
+
+        state = str(manual_approval.get('state') or 'PENDING_MANUAL')
+        bound = manual_binding_matches(manual_approval, risk.get('risk'), expected_head, expected_base, diff_sha, pr.get('number'))
+        if not bound:
+            state = 'PENDING_MANUAL'
+            manual.append('manual approval is missing or is not bound to the exact PR head, base and diff')
+        if state == 'REJECTED_MANUAL':
+            return {
+                'decision': 'REJECTED_MANUAL',
+                'autoMergeEligible': False,
+                'blockedReasons': list(manual_approval.get('reasons') or ['an authorized maintainer rejected this exact binding']),
+                'manualReviewReasons': sorted(set(manual)),
+                'manualApproval': manual_approval,
+                'specialistAdapter': specialist,
+                'r4Authorization': r4_value,
+            }
+        if matrix_required.get('explicitAuthorizationRequired') and not r4_authorized:
+            state = 'PENDING_MANUAL'
+            manual.append('R4 requires the portfolio:r4-approved maintainer label plus the exact-bound authorize-r4 review')
+        if state == 'APPROVED_MANUAL':
+            return {
+                'decision': 'APPROVED_MANUAL',
+                'autoMergeEligible': False,
+                'blockedReasons': [],
+                'manualReviewReasons': sorted(set(manual)),
+                'manualApproval': manual_approval,
+                'specialistAdapter': specialist,
+                'r4Authorization': r4_value,
+            }
+        return {
+            'decision': 'PENDING_MANUAL',
+            'autoMergeEligible': False,
+            'blockedReasons': list(manual_approval.get('reasons') or manual or ['manual maintainer approval is pending']),
+            'manualReviewReasons': sorted(set(manual)),
+            'manualApproval': manual_approval,
+            'specialistAdapter': specialist,
+            'r4Authorization': r4_value,
+        }
 
     shadow_reasons = []
     if evidence.get('status') != 'PASS':
         shadow_reasons.extend([g.get('reason', '') for g in evidence.get('groups', []) if g.get('status') != 'PASS'] or ['required evidence is incomplete'])
-    if matrix_required.get('aiReviewRequired') and (ai_review.get('status') != 'VERIFIED' or ai_review.get('decision') != 'APPROVE'):
+    if matrix_required.get('aiReviewRequired') and not ai_approved:
         shadow_reasons.append(ai_review.get('reason') or 'independent AI review is unavailable or did not approve')
-    if matrix_required.get('aiReviewRequired') and ai_review.get('status') == 'VERIFIED':
-        if ai_review.get('headSha') != expected_head or ai_review.get('baseSha') != expected_base or ai_review.get('diffSha256') != diff_sha:
-            shadow_reasons.append('AI review evidence is not bound to the exact head, base and diff')
-    if review.get('decision') == 'MANUAL_REVIEW_REQUIRED':
-        manual.append('static policy review requires a maintainer decision')
-    if matrix_required.get('manualReview'):
-        manual.append(f"{risk.get('risk')} changes are outside automatic merge")
-    if matrix_required.get('specialistAdapterRequired') and specialist['status'] != 'PASS':
+    if matrix_required.get('aiReviewRequired') and ai_verified and not ai_bound:
+        shadow_reasons.append('AI review evidence is not bound to the exact head, base and diff')
+    if matrix_required.get('specialistAdapterRequired') and specialist['status'] not in {'PASS', 'NOT_APPLICABLE'}:
         shadow_reasons.append('specialist adapter evidence is incomplete')
     if matrix_required.get('explicitAuthorizationRequired') and not r4_authorized:
         shadow_reasons.append('R4 explicit authorization label is absent')
     if pr.get('mergeable') == 'CONFLICTING' or pr.get('mergeStateStatus') in {'DIRTY', 'BEHIND', 'DRAFT'}:
         shadow_reasons.append('GitHub reports a conflicting, dirty, behind or draft merge state')
-    if retry_budget_exceeded(attempt_count, rollout.get('maxAttemptsPerHead', 3)):
+    retry_exceeded = retry_budget_exceeded(attempt_count, rollout.get('maxAttemptsPerHead', 3))
+    if retry_exceeded:
         shadow_reasons.append('maximum gate attempts for this exact head exceeded')
 
     would_auto = not manual and not shadow_reasons and risk.get('risk') in {'R0', 'R1', 'R2'} and auto.get(risk.get('risk'), False)
@@ -205,14 +310,13 @@ def decide(risk, review, ai_review, evidence, pr, expected_head, expected_base, 
 
     if evidence.get('status') != 'PASS':
         return {'decision': f'FAILED_EVIDENCE_{evidence.get("status", "NOT_VERIFIED")}', 'autoMergeEligible': False, 'blockedReasons': shadow_reasons[:1] or ['required evidence is incomplete']}
-    if matrix_required.get('aiReviewRequired') and (ai_review.get('status') != 'VERIFIED' or ai_review.get('decision') != 'APPROVE'):
+    if matrix_required.get('aiReviewRequired') and not ai_approved:
         return {'decision': 'FAILED_AI_REVIEW_NOT_VERIFIED', 'autoMergeEligible': False, 'blockedReasons': [ai_review.get('reason') or 'independent AI review is unavailable or did not approve']}
-    if matrix_required.get('aiReviewRequired'):
-        if ai_review.get('headSha') != expected_head or ai_review.get('baseSha') != expected_base or ai_review.get('diffSha256') != diff_sha:
-            return {'decision': 'FAILED_STALE_REVIEW', 'autoMergeEligible': False, 'blockedReasons': ['AI review evidence is not bound to the exact head, base and diff']}
-    if retry_budget_exceeded(attempt_count, rollout.get('maxAttemptsPerHead', 3)):
+    if matrix_required.get('aiReviewRequired') and not ai_bound:
+        return {'decision': 'FAILED_STALE_REVIEW', 'autoMergeEligible': False, 'blockedReasons': ['AI review evidence is not bound to the exact head, base and diff']}
+    if retry_exceeded:
         return {'decision': 'FAILED_RETRY_BUDGET', 'autoMergeEligible': False, 'blockedReasons': ['maximum gate attempts for this exact head exceeded']}
-    if risk.get('risk') in {'R3', 'R4'} or manual:
+    if manual:
         return {
             'decision': 'MANUAL_REVIEW_REQUIRED',
             'autoMergeEligible': False,
@@ -239,15 +343,34 @@ def decide(risk, review, ai_review, evidence, pr, expected_head, expected_base, 
         'r4Authorization': 'NOT_REQUIRED',
     }
 
+def successful_decision(decision: str) -> bool:
+    """A required check may be green only for an auto-merge result or approved manual decision."""
+    return not str(decision).startswith('FAILED') and str(decision) not in {'PENDING_MANUAL', 'REJECTED_MANUAL'}
+
 
 def _render_comment(record):
-    lines = ['### Portfolio evidence gate', '', f"- Mode: **{record.get('mode')}**", f"- Risk: **{record.get('risk')}**", f"- Head: `{record.get('headSha')}`", f"- Base: `{record.get('baseSha')}`", f"- Evidence Matrix: **{record.get('evidenceStatus')}**", f"- Security: **{record.get('securityStatus')}**", f"- Static review: **{record.get('reviewDecision')}**", f"- AI review: **{record.get('aiReviewStatus')} / {record.get('aiReviewDecision')}**", f"- Decision: **{record.get('decision')}**", f"- Auto-merge eligible: **{str(record.get('autoMergeEligible')).lower()}**", f"- Evidence run: {record.get('workflowRunUrl') or 'not available'}", '']
+    manual_state = (record.get('manualApproval') or {}).get('state') or 'NOT_APPLICABLE'
+    lines = ['### Portfolio evidence gate', '', f"- Mode: **{record.get('mode')}**", f"- Risk: **{record.get('risk')}**", f"- Head: `{record.get('headSha')}`", f"- Base: `{record.get('baseSha')}`", f"- Diff: `{record.get('diffSha256')}`", f"- Evidence Matrix: **{record.get('evidenceStatus')}**", f"- Security: **{record.get('securityStatus')}**", f"- Static review: **{record.get('reviewDecision')}**", f"- AI review: **{record.get('aiReviewStatus')} / {record.get('aiReviewDecision')}**", f"- Manual review: **{manual_state}**", f"- Decision: **{record.get('decision')}**", f"- Auto-merge eligible: **{str(record.get('autoMergeEligible')).lower()}**", f"- Evidence run: {record.get('workflowRunUrl') or 'not available'}", '']
     for group in record.get('requiredEvidence', []):
         lines.append(f"- {group.get('role')}: **{group.get('status')}** — {group.get('reason')}")
     if record.get('blockedReasons'):
         lines += ['', 'Blocking reasons:'] + [f'- {x}' for x in record['blockedReasons'] if x]
     if record.get('manualReviewReasons'):
         lines += ['', 'Manual review reasons:'] + [f'- {x}' for x in record['manualReviewReasons'] if x]
+    if record.get('risk') in {'R3', 'R4'}:
+        binding = [
+            '/portfolio approve-manual',
+            f"pr={record.get('prNumber')}",
+            f"head={record.get('headSha')}",
+            f"base={record.get('baseSha')}",
+            f"diff={record.get('diffSha256')}",
+            f"risk={record.get('risk')}",
+        ]
+        lines += ['', 'Submit the command below as a pull-request review. A `COMMENTED` review is accepted on self-authored PRs.', '', '```text', *binding, '```']
+        if record.get('risk') == 'R4':
+            r4 = [*binding]
+            r4[0] = '/portfolio authorize-r4'
+            lines += ['', 'R4 also requires the `portfolio:r4-approved` label and this separate authorization review:', '', '```text', *r4, '```']
     return '\n'.join(lines) + '\n'
 
 
@@ -275,6 +398,7 @@ def main():
     parser.add_argument('--risk', type=Path, required=True)
     parser.add_argument('--review', type=Path, required=True)
     parser.add_argument('--ai-review', type=Path)
+    parser.add_argument('--manual-approval', type=Path)
     parser.add_argument('--matrix', type=Path, default=Path('policy/evidence-matrix.v1.json'))
     parser.add_argument('--rollout', type=Path, default=Path('policy/rollout.json'))
     parser.add_argument('--output', type=Path, required=True)
@@ -291,6 +415,7 @@ def main():
     risk = json.loads(args.risk.read_text())
     review = json.loads(args.review.read_text())
     ai_review = json.loads(args.ai_review.read_text()) if args.ai_review and args.ai_review.exists() else {'status': 'NOT_VERIFIED', 'decision': 'NOT_VERIFIED', 'reason': 'AI review artifact missing'}
+    manual_approval = json.loads(args.manual_approval.read_text()) if args.manual_approval and args.manual_approval.exists() else {}
     if risk.get('headSha') != args.head_sha or risk.get('baseSha') != args.base_sha or review.get('headSha') != args.head_sha or review.get('baseSha') != args.base_sha:
         raise SystemExit('risk/review evidence does not match requested base/head SHA')
 
@@ -305,9 +430,7 @@ def main():
     elif evidence is None:
         decision = {'decision': 'FAILED_UNKNOWN_CHECK_STATE', 'autoMergeEligible': False, 'blockedReasons': ['no check evidence was produced']}
     else:
-        decision = decide(risk, review, ai_review, evidence, pr, args.head_sha, args.base_sha, rollout, attempt_count)
-        if args.max_attempts and retry_budget_exceeded(attempt_count, args.max_attempts):
-            decision = {'decision': 'FAILED_RETRY_BUDGET', 'autoMergeEligible': False, 'blockedReasons': ['maximum gate attempts for this exact head exceeded']}
+        decision = decide(risk, review, ai_review, evidence, pr, args.head_sha, args.base_sha, rollout, attempt_count, manual_approval)
 
     checks = evidence or {}
     auto_merge_eligible = bool(args.enable_auto_merge and decision.get('autoMergeEligible'))
@@ -323,7 +446,7 @@ def main():
         'diffSha256': risk.get('diffSha256'),
         'workflowRunId': args.run_id,
         'workflowRunUrl': f'https://github.com/{args.repo}/actions/runs/{args.run_id}' if args.run_id else None,
-        'tool': {'name': 'Portfolio Evidence Gate', 'version': '2.0.0'},
+        'tool': {'name': 'Portfolio Evidence Gate', 'version': '2.1.0'},
         'risk': risk.get('risk'),
         'riskReasons': risk.get('reasons'),
         'mergeStatus': {'mergeable': pr.get('mergeable'), 'mergeStateStatus': pr.get('mergeStateStatus')},
@@ -338,6 +461,7 @@ def main():
         'reviewDecision': review.get('decision'),
         'reviewBlockers': review.get('blockers', []),
         'manualReviewReasons': decision.get('manualReviewReasons', review.get('manualReviewReasons', [])),
+        'manualApproval': decision.get('manualApproval', manual_approval),
         'aiReviewStatus': ai_review.get('status'),
         'aiReviewDecision': ai_review.get('decision'),
         'aiReviewReason': ai_review.get('reason'),
@@ -359,7 +483,7 @@ def main():
             record['commentError'] = str(exc)
             args.output.write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({k: record[k] for k in ('mode','risk','evidenceStatus','securityStatus','reviewDecision','aiReviewStatus','decision','autoMergeEligible','shadowEligible')}, ensure_ascii=False))
-    return 2 if str(record['decision']).startswith('FAILED') else 0
+    return 0 if successful_decision(record['decision']) else 2
 
 
 if __name__ == '__main__':
