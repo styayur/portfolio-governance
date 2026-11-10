@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-08T08:14:49.197924Z",
+  "pilots": [
+    {
+      "repository": "styayur/styayur",
+      "stack": "docs",
+      "pr": 21,
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "e0d1be2a842ac07869ad1c5271632ccd6ed1cc04",
+      "url": "https://github.com/styayur/styayur/pull/21",
+      "workflows": [
+        "issue-triage",
+        "independent-pr-review",
+        "ci-doctor",
+        "security-review",
+        "dependency-remediation",
+        "evidence-gate"
+      ],
+      "checkSummary": {
+        "success": 5,
+        "failure": 0,
+        "pending": 2
+      },
+      "deploymentStatus": "PR_OPEN_NOT_MERGED"
+    },
+    {
+      "repository": "styayur/fitimart",
+      "stack": "node",
+      "pr": 36,
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "f416542ad9719368f4fb8379ac456d33bc13a6bc",
+      "url": "https://github.com/styayur/fitimart/pull/36",
+      "workflows": [
+        "issue-triage",
+        "independent-pr-review",
+        "ci-doctor",
+        "security-review",
+        "dependency-remediation",
+        "evidence-gate"
+      ],
+      "checkSummary": {
+        "success": 6,
+        "failure": 0,
+        "pending": 3
+      },
+      "deploymentStatus": "PR_OPEN_NOT_MERGED"
+    },
+    {
+      "repository": "styayur/terics",
+      "stack": "rust",
+      "pr": 10,
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "f4bf7a73d778446190fb9313003a6a0a4df85749",
+      "url": "https://github.com/styayur/terics/pull/10",
+      "workflows": [
+        "issue-triage",
+        "independent-pr-review",
+        "ci-doctor",
+        "security-review",
+        "dependency-remediation",
+        "evidence-gate"
+      ],
+      "checkSummary": {
+        "success": 7,
+        "failure": 1,
+        "pending": 0
+      },
+      "deploymentStatus": "PR_OPEN_NOT_MERGED"
+    },
+    {
+      "repository": "styayur/LGXT-Assistant",
+      "stack": "android",
+      "pr": 49,
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "mergeStateStatus": "BLOCKED",
+      "headSha": "fa2d001b7d9c780973aff9f390ae24dcf0e859fe",
+      "url": "https://github.com/styayur/LGXT-Assistant/pull/49",
+      "workflows": [
+        "issue-triage",
+        "independent-pr-review",
+        "ci-doctor",
+        "security-review",
+        "dependency-remediation",
+        "evidence-gate"
+      ],
+      "checkSummary": {
+        "success": 11,
+        "failure": 0,
+        "pending": 3
+      },
+      "deploymentStatus": "PR_OPEN_NOT_MERGED"
+    }
+  ],
+  "note": "Pilot PRs are deployment proposals, not production coverage until merged and exact-head workflows run."
+}

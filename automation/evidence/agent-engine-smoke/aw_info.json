@@ -1,0 +1,50 @@
+{
+  "engine_id": "codex",
+  "engine_name": "Codex",
+  "model": "deepseek-chat",
+  "version": "0.164.0",
+  "agent_version": "0.164.0",
+  "workflow_name": "Agent Engine Smoke Test",
+  "workflow_id": "styayur/portfolio-governance-agentic-smoke/.github/workflows/agent-engine-smoke.lock.yml@refs/heads/main",
+  "workflow_call_id": "42460722540-1:styayur/portfolio-governance-agentic-smoke/.github/workflows/agent-engine-smoke.lock.yml@refs/heads/main",
+  "caller_workflow_ref": "styayur/portfolio-governance-agentic-smoke/.github/workflows/agent-engine-smoke.lock.yml@refs/heads/main",
+  "experimental": false,
+  "supports_tools_allowlist": true,
+  "cache_memory": false,
+  "run_id": 42460722540,
+  "run_number": 1,
+  "run_attempt": "1",
+  "repository": "styayur/portfolio-governance-agentic-smoke",
+  "ref": "refs/heads/main",
+  "sha": "442ecf9c3558f0f6f8faef1d759d0d0eb3ce8da2",
+  "actor": "styayur",
+  "event_name": "workflow_dispatch",
+  "target_repo": "",
+  "staged": false,
+  "dry_run": false,
+  "allowed_domains": [
+    "defaults"
+  ],
+  "firewall_enabled": true,
+  "awf_version": "v0.29.0",
+  "awmg_version": "",
+  "agent_runtime": "",
+  "steps": {
+    "firewall": "squid"
+  },
+  "created_at": "2026-11-08T07:55:54.795Z",
+  "cli_version": "v1.0.1",
+  "workflow_ref": "styayur/portfolio-governance-agentic-smoke/.github/workflows/agent-engine-smoke.lock.yml@refs/heads/main",
+  "server_url": "https://github.com",
+  "model_config": {
+    "routing": {
+      "enabled": false
+    },
+    "models": {
+      "allowed": [],
+      "blocked": []
+    },
+    "max_ai_credits_source": "default",
+    "max_ai_credits": 1000
+  }
+}

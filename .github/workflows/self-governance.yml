@@ -10,6 +10,27 @@ permissions:
   contents: read
 
 jobs:
+  security:
+    name: security CodeQL
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Initialize independent Python analysis
+        uses: github/codeql-action/init@9b3254085494b55a0f7c4c2b3d2d52cc712ce370
+        with:
+          languages: python
+          build-mode: none
+      - name: Analyze governance scripts and publish scan evidence
+        uses: github/codeql-action/analyze@9b3254085494b55a0f7c4c2b3d2d52cc712ce370
+        with:
+          category: governance-python
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 15

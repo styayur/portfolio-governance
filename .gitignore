@@ -3,3 +3,6 @@ __pycache__/
 .pytest_cache/
 .venv/
 coverage.xml
+.github/aw/logs/
+trials/
+.github/aw/updates/

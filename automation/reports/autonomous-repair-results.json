@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "status": "NOT_VERIFIED",
+  "workflow": "ci-doctor",
+  "capabilities": [
+    "deduplicate-issues",
+    "classify-root-cause",
+    "inspect-logs",
+    "propose-remediation",
+    "create-single-issue"
+  ],
+  "notYetImplemented": [
+    "automatic-code-fix-pr"
+  ],
+  "limits": {
+    "maxTurns": 4,
+    "maxAiCreditsPerRun": 60,
+    "maxDailyAiCredits": 180,
+    "timeoutMinutes": 10
+  },
+  "runs": [],
+  "note": "CI Doctor is cataloged and compiled. Automatic code-fix PR creation is intentionally not enabled until CI Doctor and PR Fix have successful production trials."
+}

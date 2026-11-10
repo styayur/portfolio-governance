@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "status": "PROPOSED",
+  "activation": "EXTERNAL_AUTHORIZATION_REQUIRED",
+  "selfApprovalAllowed": false,
+  "description": "Separate authorization class from risk tier. This proposal does not activate itself or change current R3/R4 behavior.",
+  "classes": {
+    "AUTO_AUTHORIZED": {
+      "description": "Non-trust-root change with complete required evidence; eligible for automatic merge after matrix and independent review.",
+      "autoMerge": true
+    },
+    "PREAUTHORIZED_CONDITIONAL": {
+      "description": "R3/R4 engineering change covered by an existing owner authorization record with matching scope and policy version.",
+      "autoMerge": true
+    },
+    "EXTERNAL_AUTHORIZATION_REQUIRED": {
+      "description": "Trust-root, credential, workflow-source, external side-effect, or policy-bound change requiring a fresh owner authorization record.",
+      "autoMerge": false
+    },
+    "PROHIBITED": {
+      "description": "Operations that would expand the agent trust boundary or self-authorize a policy change.",
+      "autoMerge": false
+    }
+  },
+  "trustRootPaths": [
+    ".github/workflows/**",
+    ".github/actions/**",
+    "policy/**",
+    "scripts/**",
+    "automation/workflows/**",
+    "automation/schemas/**"
+  ],
+  "authorizationRecord": {
+    "requiredFields": [
+      "authorizationId",
+      "ownerIdentity",
+      "scope",
+      "policyVersion",
+      "commitSha",
+      "issuedAt",
+      "expiresAt",
+      "signature",
+      "issuedBy",
+      "repository",
+      "prNumber",
+      "baseSha",
+      "diffSha256",
+      "source"
+    ],
+    "maxValidityHours": 24,
+    "rejectsSelfIssued": true,
+    "rejectsScopeMismatch": true,
+    "rejectsExpired": true
+  },
+  "activationRule": "A new policy or trust-root change must be authorized by an existing protected policy and an independent owner authorization record. A PR cannot authorize its own changes.",
+  "policyVersion": "r4-authorization-v1-proposed",
+  "trustedIssuers": []
+}
