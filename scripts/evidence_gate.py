@@ -345,7 +345,7 @@ def decide(risk, review, ai_review, evidence, pr, expected_head, expected_base, 
 
 def successful_decision(decision: str) -> bool:
     """A required check may be green only for an auto-merge result or approved manual decision."""
-    return not str(decision).startswith('FAILED') and str(decision) not in {'PENDING_MANUAL', 'REJECTED_MANUAL'}
+    return decision in {'AUTO_MERGE_ELIGIBLE', 'APPROVED_MANUAL'}
 
 
 def _render_comment(record):
