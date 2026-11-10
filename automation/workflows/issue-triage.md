@@ -39,7 +39,7 @@ max-daily-ai-credits: 120
 
 engine:
   id: codex
-  model: deepseek-chat
+  model: deepseek-flash
   env:
     OPENAI_BASE_URL: https://api.deepseek.com/v1
     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

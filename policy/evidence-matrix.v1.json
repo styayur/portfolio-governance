@@ -7,15 +7,15 @@
     "requireWorkflowRun": true
   },
   "rolePatterns": {
-    "build": ["(^|[/ _-])(build|compile|bundle|package|type[ _-]?check)([/ _-]|$)"],
-    "tests": ["(^|[/ _-])(test|tests|pytest|unit|integration|contract|regression|verify)([/ _-]|$)"],
-    "security": ["(^|[/ _-])(security|codeql|secret|audit|dependabot|trivy|osv|scan)([/ _-]|$)"],
+    "build": ["(^|[/ ()_-])(build|compile|bundle|package|type[ _-]?check)([/ ()_-]|$)"],
+    "tests": ["(^|[/ ()_-])(test|tests|pytest|unit|integration|contract|regression|verify)([/ ()_-]|$)"],
+    "security": ["(^|[/ ()_-])(security|codeql|secret|audit|dependabot|trivy|osv|scan)([/ ()_-]|$)"],
     "native": {
-      "windows": ["(^|[/ _-])windows([/ _-]|$)"],
-      "macos": ["(^|[/ _-])(macos|darwin)([/ _-]|$)"],
-      "linux": ["(^|[/ _-])(linux|ubuntu)([/ _-]|$)"],
-      "android": ["(^|[/ _-])android([/ _-]|$)"],
-      "ios": ["(^|[/ _-])ios([/ _-]|$)"]
+      "windows": ["(^|[/ ()_-])windows([/ ()_-]|$)"],
+      "macos": ["(^|[/ ()_-])(macos|darwin)([/ ()_-]|$)"],
+      "linux": ["(^|[/ ()_-])(linux|ubuntu)([/ ()_-]|$)"],
+      "android": ["(^|[/ ()_-])android([/ ()_-]|$)"],
+      "ios": ["(^|[/ ()_-])ios([/ ()_-]|$)"]
     }
   },
   "profiles": {

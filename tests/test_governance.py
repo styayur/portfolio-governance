@@ -174,6 +174,21 @@ def test_skipped_native_workflow_blocks_native_repo():
     assert result['autoMergeEligible'] is False
 
 
+def test_parenthesized_native_runner_names_preserve_provenance_and_failures():
+    checks = r2_checks() + [check(f'Runtime contracts ({os}-latest)', 'SUCCESS')
+                           for os in ('windows', 'macos', 'ubuntu')]
+    evidence = evidence_for('R2', checks, 'styayur/vextessera')
+    assert evidence['status'] == 'PASS'
+    for bad_state in ('FAILURE', 'SKIPPED', 'CANCELLED'):
+        failed = [dict(c, state=bad_state) if 'macos' in c['name'] else c for c in checks]
+        assert evidence_for('R2', failed, 'styayur/vextessera')['status'] != 'PASS'
+    untrusted = [dict(c, appSlug='untrusted-app') if 'macos' in c['name'] else c for c in checks]
+    untrusted_evidence = evidence_for('R2', untrusted, 'styayur/vextessera')
+    assert next(g for g in untrusted_evidence['groups'] if g['role'] == 'native:macos')['status'] == 'UNVERIFIED_SOURCE'
+    stale = [dict(c, headSha='c' * 40) if 'macos' in c['name'] else c for c in checks]
+    assert evidence_for('R2', stale, 'styayur/vextessera')['status'] != 'PASS'
+
+
 def test_cancelled_security_workflow_blocks_r2():
     checks = [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS'), check('security scan', 'CANCELLED')]
     evidence = evidence_for(checks=checks)

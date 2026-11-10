@@ -7,12 +7,12 @@
     {
       "id": "ci-doctor",
       "path": "automation/workflows/ci-doctor.md",
-      "sha256": "160ea55d4f818ad9a49c4793d3812f049cae30562a8308ee66664749d0ce6853",
+      "sha256": "bc938e0b863d6ce53a6f9dcb77ffcf58eb1b6a8e70d61bb3a71816f41a0913b3",
       "lockPath": "automation/workflows/ci-doctor.lock.yml",
-      "lockSha256": "195d5b2f45ff671d592457a048beb892b9d151084ce41ac05e90f770519c482d",
+      "lockSha256": "e82a71cc4e7be0139ca169fa43a98738609813f59e13b688f9e65c7540c556b7",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "workflow_dispatch",
         "workflow_run"
@@ -35,12 +35,12 @@
     {
       "id": "dependency-remediation",
       "path": "automation/workflows/dependency-remediation.md",
-      "sha256": "0ee6d53cf65a2f37863d30061bac39e2fcd1db805016a89f39e53861a2d82cfd",
+      "sha256": "63763080abb4dbb00328021099c3489a501ac9033704543b3e905bf24aa76e41",
       "lockPath": "automation/workflows/dependency-remediation.lock.yml",
-      "lockSha256": "11150f6a4a5982335fba7b6c11f8e1e8e5a8ac8d746cc3000124f11d757641be",
+      "lockSha256": "e4ac9f7f9cbe574cd81b201cd68059ce92ca0aa9399c5d234196a0537388c069",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -50,7 +50,8 @@
         "contents": "read",
         "issues": "read",
         "pull-requests": "read",
-        "security-events": "read"
+        "security-events": "read",
+        "vulnerability-alerts": "read"
       },
       "safeOutputs": [
         "create-issue",
@@ -65,12 +66,12 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "4bbed57275289179704996faa6b3d239cce358ac215a3b63aac9bceadeba831d",
+      "sha256": "724d8c9def760ae00b23c2736f2a3ae6ecf1d2367e5d827919b76ea45d7dbd45",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "fd5d44495004772ed1c0c29b61008d8fc10113ba1c86b1d9ad8243b5df2204bc",
+      "lockSha256": "6254ffd791689fcc88fd742c10cd25631a007b022e3a7d353f8b2a1fea4ad96c",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "pull_request_target"
       ],
@@ -91,12 +92,12 @@
     {
       "id": "issue-triage",
       "path": "automation/workflows/issue-triage.md",
-      "sha256": "137233e8b8d2f7521075849f5f4dd07d23e8f903ba7bc3966412d4f11104c1ba",
+      "sha256": "0149a623b4c824750bf26639bd5037123870d73c486c8257b474223aa12c7890",
       "lockPath": "automation/workflows/issue-triage.lock.yml",
-      "lockSha256": "434631339a64914ac5427b877e76a5fa562f3585c8c30e1dc1a87b93f3eb7082",
+      "lockSha256": "c3b392b378e571df6263392f21ebe5fdf6a56bf50f343641a30e1abfcf9d38c1",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "issues",
         "reaction"
@@ -118,12 +119,12 @@
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "438f5af14cf0c6dde098b9d6b83cea4ed03bac057e64c5a57644db137d3f8417",
+      "sha256": "356b07f4b1e0fa5dea7a10fc99abf2b478143f99122f1b998478efefcf7052c7",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "712c7ce3d2a150e9fa03da7b865d7531a1a9ed53e0412d71ff619634f2203f95",
+      "lockSha256": "aa4d6fecc08d64cb83c628eebb3a9f964a4ec12e0369a5bc05b1c4917c232198",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "schedule",
         "workflow_dispatch"

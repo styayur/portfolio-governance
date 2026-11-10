@@ -17,6 +17,7 @@ permissions:
   issues: read
   pull-requests: read
   security-events: read
+  vulnerability-alerts: read
 
 max-turns: 6
 max-ai-credits: 100
@@ -24,7 +25,7 @@ max-daily-ai-credits: 200
 
 engine:
   id: codex
-  model: deepseek-chat
+  model: deepseek-flash
   env:
     OPENAI_BASE_URL: https://api.deepseek.com/v1
     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -33,7 +34,7 @@ network: defaults
 
 tools:
   github:
-    toolsets: [repos, issues, pull_requests, code_security]
+    toolsets: [repos, issues, pull_requests, dependabot]
   bash: true
 
 safe-outputs:
@@ -59,6 +60,12 @@ timeout-minutes: 30
 Analyze the repository's dependency alerts, manifests and lockfiles. Prefer
 minimal, upstream-compatible updates. Do not dismiss, suppress or fabricate an
 alert. Do not merge a PR or change branch protection.
+
+Batch related read operations and keep responses bounded. Do not install a
+toolchain merely to discover whether an alert exists. If alert access is denied,
+use report_incomplete with that API error. If no actionable alerts or compatible
+updates exist, call noop and state the actual inspected scope. Always finish
+with a safe-output tool; prose alone is not a completed remediation.
 
 ## Procedure
 

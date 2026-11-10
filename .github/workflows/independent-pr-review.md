@@ -18,7 +18,7 @@ tools:
   cli-proxy: false
   cache-memory: true
   github:
-    toolsets: [pull_requests, repos]
+    toolsets: [pull_requests, repos, actions]
     min-integrity: approved # Only review PRs from approved contributors; never checkout untrusted PR code
 
 safe-outputs:
@@ -34,7 +34,7 @@ max-daily-ai-credits: 150
 
 engine:
   id: codex
-  model: deepseek-chat
+  model: deepseek-flash
   env:
     OPENAI_BASE_URL: https://api.deepseek.com/v1
     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
