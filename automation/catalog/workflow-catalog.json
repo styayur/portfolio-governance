@@ -66,9 +66,9 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "f2cc313e099aee1d07cd2e1cea5d8b51a4ae135590693d020796a45ce5916a78",
+      "sha256": "05165f076a0c38c4effa92771f187c9e0339c5ca025ec00f06d551727751054b",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "e46679b207fef0713f357e007aecaf36f2954357ee97f1251c7fb09c9929c88f",
+      "lockSha256": "e455e242f60861ccf7c07e61f6b429c65d785416446b22f76043e6825f9b3329",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -120,9 +120,9 @@
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "1a06d7fd9455ab1826dcd17f3227cc575e9c9743121b6ffd94df5a4ca3a54b26",
+      "sha256": "e44bfb56b76e5c99a17176ac260af56d204aa1f22055d2ebf26c7eeddf0dd2db",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "81f004cbeced5cbcc94ba8b648d1a0fa68fee3b6511a5c465704cc19017545a1",
+      "lockSha256": "f97c8dacfa977c288067bc77b4b5df1599fb43d8f1e135d468962a6273c66619",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -136,7 +136,7 @@
       "safeOutputs": [
         "create-code-scanning-alert"
       ],
-      "maxTurns": 12,
+      "maxTurns": 32,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
       "timeoutMinutes": null

@@ -28,7 +28,8 @@ tools:
   cache-memory: true
   github:
     toolsets: [pull_requests, repos, actions]
-    min-integrity: approved # Only review PRs from approved contributors; never checkout untrusted PR code
+    min-integrity: none # Read untrusted public PR data; never execute it
+    allowed-repos: ["styayur/portfolio-governance"]
 
 safe-outputs:
   create-pull-request-review-comment:
@@ -90,7 +91,10 @@ limitations. Allowed verdicts: APPROVE, CHANGES_REQUIRED, BLOCKED, NOT_VERIFIED.
 Findings contain path, line, severity and reason. verification lists only observed
 checks with name, conclusion and headSha. Include unavailable evidence in limitations.
 APPROVE requires complete diff coverage, no actionable defects and observed passing
-applicable trusted CI. Missing/pending CI is NOT_VERIFIED; access or authorization
+applicable trusted native build, test and security CI. Never wait for this review,
+Portfolio Evidence Gate, Issue Triage, CI Doctor, Security Review or Dependency
+Remediation as native test evidence: the Gate consumes this review separately.
+Missing/pending native CI is NOT_VERIFIED; access or authorization
 denial is BLOCKED; a demonstrated defect is CHANGES_REQUIRED. Do not mint a trusted
 check or a human approval. Never authorize trust-root changes or merge.
 

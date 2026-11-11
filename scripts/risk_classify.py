@@ -267,7 +267,8 @@ def classify(repo: str, pr_number: int):
         'deletions': sum(int(f.get('deletions', 0)) for f in files),
         'files': [
             {'filename': f.get('filename'), 'status': f.get('status'), 'additions': f.get('additions'),
-             'deletions': f.get('deletions'), 'patch': f.get('patch') or ''}
+             'deletions': f.get('deletions'), 'patch': f.get('patch') or '',
+             'previous_filename': f.get('previous_filename')}
             for f in files
         ],
     }
@@ -304,6 +305,11 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     context, risk = classify(args.repo, args.pr)
+    try:
+        from review_context import enrich_context
+    except ModuleNotFoundError:
+        from scripts.review_context import enrich_context
+    context = enrich_context(context, risk)
     args.context.parent.mkdir(parents=True, exist_ok=True)
     args.context.write_text(json.dumps(context, ensure_ascii=False, indent=2) + '\n')
     args.output.write_text(json.dumps(risk, ensure_ascii=False, indent=2) + '\n')

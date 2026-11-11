@@ -116,6 +116,12 @@ def _matches(patterns, text: str) -> bool:
 
 
 def matches_role(check: dict, spec: dict, role_patterns: dict) -> bool:
+    if (check.get('workflow') or '').casefold() in {
+        'portfolio evidence gate', 'independent correctness and regression review',
+        'issue triage assistant', 'ci failure doctor', 'malicious code scan agent',
+        'dependency analysis and remediation',
+    }:
+        return False
     if any(check.get('name') == alias['name'] and check.get('workflow') == alias['workflow']
            for alias in spec.get('checkAliases') or []):
         return True

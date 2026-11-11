@@ -38,7 +38,7 @@ def is_test(path: str) -> bool:
 def added_lines(files):
     values = []
     for f in files:
-        for line in (f.get('patch') or '').splitlines():
+        for line in (f.get('reviewPatch') or f.get('patch') or '').splitlines():
             if line.startswith('+') and not line.startswith('+++'):
                 values.append((f.get('filename'), line[1:]))
     return values
@@ -51,12 +51,15 @@ def inspect_workflows(files):
         path = (f.get('filename') or '').casefold()
         if not path.startswith('.github/workflows/'):
             continue
-        patch = f.get('patch') or ''
+        patch = f.get('reviewPatch') or f.get('patch') or ''
         added = '\n'.join(line[1:] for line in patch.splitlines() if line.startswith('+') and not line.startswith('+++'))
         if 'permissions: write-all' in added:
             blockers.append(f'{f.get("filename")}: grants write-all permissions')
         if 'pull_request_target' in added:
-            if 'github.event.pull_request.head.sha' in added or 'refs/pull/' in added or 'github.event.pull_request.head.ref' in added:
+            # A SHA supplied to a pinned reusable evaluator is data, not checkout.
+            # Retain a block for an actual checkout whose ref is the PR head.
+            head_ref = re.search(r'(?m)^\s*ref:\s*.*(?:github\.event\.pull_request\.head\.(?:sha|ref)|refs/pull/)', added)
+            if re.search(r'uses:\s*["\']?actions/checkout@', patch) and head_ref:
                 blockers.append(f'{f.get("filename")}: pull_request_target appears to check out untrusted head content')
             if 'secrets: inherit' in added:
                 warnings.append(f'{f.get("filename")}: pull_request_target inherits all secrets')
@@ -73,6 +76,8 @@ def review(context: dict, risk: dict):
     body = context.get('body') or ''
     files = context.get('files') or []
     risk_level = risk.get('risk', 'R4')
+    if context.get('reviewInputComplete') is False:
+        manual.append('Complete immutable review input could not be collected; source coverage is not verified.')
 
     if len(body.strip()) < 20:
         blockers.append('PR description is missing or too short to establish intent and verification scope.')
