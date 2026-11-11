@@ -7,9 +7,9 @@
     {
       "id": "ci-doctor",
       "path": "automation/workflows/ci-doctor.md",
-      "sha256": "4fcce8943556a2b5d40d84ad789505ac722ebc3852edc3dabd28af10fcca3bde",
+      "sha256": "6b79dbcc5e60626d84d84319cbd442f5c69390a87b1657f32e1f21d7bcafecc2",
       "lockPath": "automation/workflows/ci-doctor.lock.yml",
-      "lockSha256": "5c48826263cf9607f3375bd7950c224f2859d1f459a2a041a3b141cb9ac5ba5e",
+      "lockSha256": "487df5237970a247b098772e5fe57a0ab6171dbc38dbd5bd847fa0726b2a7356",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -27,7 +27,7 @@
         "add-comment",
         "create-issue"
       ],
-      "maxTurns": 4,
+      "maxTurns": 6,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
       "timeoutMinutes": 10
@@ -35,9 +35,9 @@
     {
       "id": "dependency-remediation",
       "path": "automation/workflows/dependency-remediation.md",
-      "sha256": "40de082402ee3c4ced4f2ec96a3484a7699252dabc33db41bcd646f0e0c5214e",
+      "sha256": "fa2ea3061c8e417ede63d4ecce9b5cbe907dbe19e96cd5d5ee64bf405eeeee23",
       "lockPath": "automation/workflows/dependency-remediation.lock.yml",
-      "lockSha256": "592c2c33ff0e44fd0b95f9e13aa17d7e40efbdae9f11df6bde6164d1a825c10e",
+      "lockSha256": "28b4b533aa9b0644b94d8cb2364f997e60dbd196079fed6e7b01d19742278140",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -66,9 +66,9 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "dd799161dc9b6882e8b9013d5e390358e17b1935c99e9340ad03dd8566a48c40",
+      "sha256": "690244e1c0e6fb8a4dd1c755e2860e91db70c0d8455ae6747d44375872eeb15b",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "97e781da6f711876fd8198c2af83637abe2f4ccd4fa93e065de0851f87632ad2",
+      "lockSha256": "e5722084b710c400cce657953ec24e821897076c894b3b8c692f2abc40a7be5d",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -84,7 +84,7 @@
         "create-pull-request-review-comment",
         "submit-pull-request-review"
       ],
-      "maxTurns": 3,
+      "maxTurns": 6,
       "maxAiCredits": 50,
       "maxDailyAiCredits": 150,
       "timeoutMinutes": 15
@@ -92,9 +92,9 @@
     {
       "id": "issue-triage",
       "path": "automation/workflows/issue-triage.md",
-      "sha256": "4df3c43fb04660736bdabb2ca52772d0ccbd786ae149201163034391b61021f9",
+      "sha256": "3d920f1fffdc490109a8cd72737909085b1c617f270fc12a8f6c3828d0cbe9e8",
       "lockPath": "automation/workflows/issue-triage.lock.yml",
-      "lockSha256": "253e103aced2a6f04482f29b111c7003257a2d9f7b88dba2203629a01052b509",
+      "lockSha256": "a0db629518b90ee4f1b6a0d3c10770dd72efe6d8aa1b4519a363b609cbcd26bd",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -111,7 +111,7 @@
         "add-labels",
         "set-issue-type"
       ],
-      "maxTurns": 3,
+      "maxTurns": 6,
       "maxAiCredits": 40,
       "maxDailyAiCredits": 120,
       "timeoutMinutes": 10
@@ -119,9 +119,9 @@
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "241a7cb7f49ef9eb086cc081c3a39d7d3a20be53e08c9768ad7561cd342d02af",
+      "sha256": "5ee8bcb1b7e2c43e4b2b596e66976b05615510a086d1e6de43796e8ac64bd41b",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "450e79bda21ea128a10e1fdb309a7801dcce8adeb94aea1c68dbda0941a64b24",
+      "lockSha256": "ce5f242b6b7ba8f9a26083e5cf23c08caec5cd2378efa436e97e495af4802fe5",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -130,14 +130,12 @@
         "workflow_dispatch"
       ],
       "permissions": {
-        "contents": "read",
-        "actions": "read",
-        "security-events": "read"
+        "contents": "read"
       },
       "safeOutputs": [
         "create-code-scanning-alert"
       ],
-      "maxTurns": 4,
+      "maxTurns": 6,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
       "timeoutMinutes": null

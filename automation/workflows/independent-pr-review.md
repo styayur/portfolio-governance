@@ -28,7 +28,7 @@ safe-outputs:
   submit-pull-request-review:
     max: 1
 timeout-minutes: 15
-max-turns: 3
+max-turns: 6
 max-ai-credits: 50
 max-daily-ai-credits: 150
 
@@ -81,3 +81,8 @@ for the original binding and explain it is stale. Deduplicate by repository, PR,
 head SHA, base SHA and workflowRunId; a prior review of another commit is irrelevant.
 Submit at most one summary review and ten actionable inline findings. Safe outputs
 alone perform writes. No secrets, captured sessions or raw sensitive logs in outputs.
+
+The proxy allows six model invocations, including tool-discovery and final
+confirmation turns. Batch related reads. By invocation five, submit an evidenced
+terminal safe output or report_incomplete with the exact limitation; do not start
+new investigation on the final invocation. Never invent completed verification.

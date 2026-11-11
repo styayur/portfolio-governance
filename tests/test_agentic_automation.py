@@ -48,7 +48,7 @@ def test_independent_review_is_read_only_and_bounded():
     assert data['permissions']['pull-requests'] == 'read'
     assert data['safe-outputs']['submit-pull-request-review']['max'] == 1
     assert data['safe-outputs']['create-pull-request-review-comment']['max'] <= 10
-    assert data['max-turns'] <= 3
+    assert data['max-turns'] <= 6
 
 
 def test_security_review_has_no_write_permission():
