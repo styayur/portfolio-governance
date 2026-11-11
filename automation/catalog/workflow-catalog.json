@@ -7,12 +7,12 @@
     {
       "id": "ci-doctor",
       "path": "automation/workflows/ci-doctor.md",
-      "sha256": "160ea55d4f818ad9a49c4793d3812f049cae30562a8308ee66664749d0ce6853",
+      "sha256": "95ceec6dd3c67f6a69c37e39c603acef1a38c23c8e7adcda34307d5928d3e1e2",
       "lockPath": "automation/workflows/ci-doctor.lock.yml",
-      "lockSha256": "195d5b2f45ff671d592457a048beb892b9d151084ce41ac05e90f770519c482d",
+      "lockSha256": "3d883970c4aa19dde1ca984ba751d8e8812a7e47aa3ecd194e408e68f3db4ab6",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "workflow_dispatch",
         "workflow_run"
@@ -27,7 +27,7 @@
         "add-comment",
         "create-issue"
       ],
-      "maxTurns": 4,
+      "maxTurns": 12,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
       "timeoutMinutes": 10
@@ -35,12 +35,12 @@
     {
       "id": "dependency-remediation",
       "path": "automation/workflows/dependency-remediation.md",
-      "sha256": "0ee6d53cf65a2f37863d30061bac39e2fcd1db805016a89f39e53861a2d82cfd",
+      "sha256": "953663873bdf0601a37a12e1cf8a167b94506117bf5ffccedb4ddcaab7307b2b",
       "lockPath": "automation/workflows/dependency-remediation.lock.yml",
-      "lockSha256": "11150f6a4a5982335fba7b6c11f8e1e8e5a8ac8d746cc3000124f11d757641be",
+      "lockSha256": "100b3ef3c2dd97061487694fda2ed39201c54d0d656e388afb08ddfe2538419f",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -50,14 +50,15 @@
         "contents": "read",
         "issues": "read",
         "pull-requests": "read",
-        "security-events": "read"
+        "security-events": "read",
+        "vulnerability-alerts": "read"
       },
       "safeOutputs": [
         "create-issue",
         "create-pull-request",
         "push-to-pull-request-branch"
       ],
-      "maxTurns": 6,
+      "maxTurns": 12,
       "maxAiCredits": 100,
       "maxDailyAiCredits": 200,
       "timeoutMinutes": 30
@@ -65,14 +66,15 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "4bbed57275289179704996faa6b3d239cce358ac215a3b63aac9bceadeba831d",
+      "sha256": "f2cc313e099aee1d07cd2e1cea5d8b51a4ae135590693d020796a45ce5916a78",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "fd5d44495004772ed1c0c29b61008d8fc10113ba1c86b1d9ad8243b5df2204bc",
+      "lockSha256": "e46679b207fef0713f357e007aecaf36f2954357ee97f1251c7fb09c9929c88f",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
-        "pull_request_target"
+        "pull_request_target",
+        "workflow_dispatch"
       ],
       "permissions": {
         "contents": "read",
@@ -83,7 +85,7 @@
         "create-pull-request-review-comment",
         "submit-pull-request-review"
       ],
-      "maxTurns": 3,
+      "maxTurns": 12,
       "maxAiCredits": 50,
       "maxDailyAiCredits": 150,
       "timeoutMinutes": 15
@@ -91,12 +93,12 @@
     {
       "id": "issue-triage",
       "path": "automation/workflows/issue-triage.md",
-      "sha256": "137233e8b8d2f7521075849f5f4dd07d23e8f903ba7bc3966412d4f11104c1ba",
+      "sha256": "6bbb48b89a74c80b504d8a9b7376f8dacb184f0b9b2171c8f7539c4821cccb36",
       "lockPath": "automation/workflows/issue-triage.lock.yml",
-      "lockSha256": "434631339a64914ac5427b877e76a5fa562f3585c8c30e1dc1a87b93f3eb7082",
+      "lockSha256": "5baf0d0d91d5085940dc0563136500e54cf7981ebfd66bbe00b115bef2fd6f2b",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "issues",
         "reaction"
@@ -110,7 +112,7 @@
         "add-labels",
         "set-issue-type"
       ],
-      "maxTurns": 3,
+      "maxTurns": 12,
       "maxAiCredits": 40,
       "maxDailyAiCredits": 120,
       "timeoutMinutes": 10
@@ -118,25 +120,23 @@
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "438f5af14cf0c6dde098b9d6b83cea4ed03bac057e64c5a57644db137d3f8417",
+      "sha256": "1a06d7fd9455ab1826dcd17f3227cc575e9c9743121b6ffd94df5a4ca3a54b26",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "712c7ce3d2a150e9fa03da7b865d7531a1a9ed53e0412d71ff619634f2203f95",
+      "lockSha256": "81f004cbeced5cbcc94ba8b648d1a0fa68fee3b6511a5c465704cc19017545a1",
       "compiled": true,
       "engine": "codex",
-      "model": "deepseek-chat",
+      "model": "deepseek-flash",
       "triggers": [
         "schedule",
         "workflow_dispatch"
       ],
       "permissions": {
-        "contents": "read",
-        "actions": "read",
-        "security-events": "read"
+        "contents": "read"
       },
       "safeOutputs": [
         "create-code-scanning-alert"
       ],
-      "maxTurns": 4,
+      "maxTurns": 12,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
       "timeoutMinutes": null

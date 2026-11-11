@@ -87,6 +87,17 @@ def effective_requirements(matrix: dict, repo: str, risk_level: str) -> dict:
     else:
         not_applicable.append({'role': 'native', 'reason': 'repository has no required native platform for this risk tier'})
 
+    # Protected policy may describe the actual purpose of an existing CI job
+    # without renaming required checks in the target repository's ruleset.
+    for spec in required:
+        spec['checkAliases'] = [
+            {'name': alias['name'], 'workflow': alias['workflow']}
+            for alias in override.get('checkAliases') or []
+            if spec['role'] in alias.get('roles', [])
+            and isinstance(alias.get('name'), str) and alias['name']
+            and isinstance(alias.get('workflow'), str) and alias['workflow']
+        ]
+
     return {
         'risk': risk_level,
         'profile': profile_name,
@@ -105,6 +116,9 @@ def _matches(patterns, text: str) -> bool:
 
 
 def matches_role(check: dict, spec: dict, role_patterns: dict) -> bool:
+    if any(check.get('name') == alias['name'] and check.get('workflow') == alias['workflow']
+           for alias in spec.get('checkAliases') or []):
+        return True
     text = f"{check.get('name') or ''} {check.get('workflow') or ''}".strip()
     if spec['kind'] == 'native':
         patterns = (((role_patterns.get('native') or {}).get(spec['platform'])) or [])

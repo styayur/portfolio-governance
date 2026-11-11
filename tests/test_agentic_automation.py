@@ -48,7 +48,7 @@ def test_independent_review_is_read_only_and_bounded():
     assert data['permissions']['pull-requests'] == 'read'
     assert data['safe-outputs']['submit-pull-request-review']['max'] == 1
     assert data['safe-outputs']['create-pull-request-review-comment']['max'] <= 10
-    assert data['max-turns'] <= 3
+    assert data['max-turns'] <= 12
 
 
 def test_security_review_has_no_write_permission():
@@ -79,9 +79,19 @@ def test_all_agentic_workflows_have_budgets():
         if path.name.startswith('agent-engine-smoke'):
             continue
         data = frontmatter(path)
-        assert data['max-turns'] <= 6, path
+        assert data['max-turns'] <= 12, path
         assert data['max-ai-credits'] <= 100, path
         assert data['max-daily-ai-credits'] <= 200, path
+
+
+def test_configured_provider_model_has_positive_explicit_budget_pricing():
+    for name in ['ci-doctor', 'dependency-remediation', 'independent-pr-review', 'issue-triage', 'security-review']:
+        data = frontmatter(WORKFLOWS / f'{name}.md')
+        assert data['engine']['model'] == 'deepseek-flash'
+        cost = data['models']['providers']['openai']['models'][data['engine']['model']]['cost']
+        assert 0 < float(cost['cache_read']) <= float(cost['input']) <= float(cost['output'])
+        assert data['max-ai-credits'] > 0
+        assert data['max-daily-ai-credits'] > 0
 
 
 def test_authorization_self_approval_is_rejected():
