@@ -10,6 +10,7 @@ on:
 
 checkout:
   fetch-depth: 0
+  fetch: ["*"]
 
 permissions:
   actions: read
@@ -22,6 +23,18 @@ permissions:
 max-turns: 6
 max-ai-credits: 100
 max-daily-ai-credits: 200
+
+# Conservative peak USD/token rates verified against the provider on 2026-11-11.
+# Used for budget enforcement estimates, not a claim of actual billed charges.
+models:
+  providers:
+    openai:
+      models:
+        deepseek-flash:
+          cost:
+            input: "3e-7"
+            output: "1.2e-6"
+            cache_read: "6e-9"
 
 engine:
   id: codex

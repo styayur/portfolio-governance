@@ -189,6 +189,17 @@ def test_parenthesized_native_runner_names_preserve_provenance_and_failures():
     assert evidence_for('R2', stale, 'styayur/vextessera')['status'] != 'PASS'
 
 
+def test_repository_job_contract_aliases_require_exact_workflow_and_trusted_head():
+    checks = [check('quality (ubuntu-latest)', 'SUCCESS')]
+    assert evidence_for('R2', checks, 'styayur/ripple')['status'] == 'PASS'
+    assert evidence_for('R2', checks, 'styayur/fitimart')['status'] != 'PASS'
+    assert evidence_for('R2', [dict(checks[0], workflow='unreviewed workflow')])['status'] != 'PASS'
+    for state in ('FAILURE', 'SKIPPED', 'CANCELLED', 'IN_PROGRESS'):
+        assert evidence_for('R2', [dict(checks[0], state=state)])['status'] != 'PASS'
+    assert evidence_for('R2', [dict(checks[0], appSlug='untrusted-app')])['status'] != 'PASS'
+    assert evidence_for('R2', [dict(checks[0], headSha='c' * 40)])['status'] != 'PASS'
+
+
 def test_cancelled_security_workflow_blocks_r2():
     checks = [check('build node', 'SUCCESS'), check('unit tests', 'SUCCESS'), check('security scan', 'CANCELLED')]
     evidence = evidence_for(checks=checks)

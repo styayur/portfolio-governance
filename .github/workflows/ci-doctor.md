@@ -45,6 +45,18 @@ max-turns: 4
 max-ai-credits: 60
 max-daily-ai-credits: 180
 
+# Conservative peak USD/token rates verified against the provider on 2026-11-11.
+# Used for budget enforcement estimates, not a claim of actual billed charges.
+models:
+  providers:
+    openai:
+      models:
+        deepseek-flash:
+          cost:
+            input: "3e-7"
+            output: "1.2e-6"
+            cache_read: "6e-9"
+
 engine:
   id: codex
   model: deepseek-flash

@@ -84,6 +84,16 @@ def test_all_agentic_workflows_have_budgets():
         assert data['max-daily-ai-credits'] <= 200, path
 
 
+def test_configured_provider_model_has_positive_explicit_budget_pricing():
+    for name in ['ci-doctor', 'dependency-remediation', 'independent-pr-review', 'issue-triage', 'security-review']:
+        data = frontmatter(WORKFLOWS / f'{name}.md')
+        assert data['engine']['model'] == 'deepseek-flash'
+        cost = data['models']['providers']['openai']['models'][data['engine']['model']]['cost']
+        assert 0 < float(cost['cache_read']) <= float(cost['input']) <= float(cost['output'])
+        assert data['max-ai-credits'] > 0
+        assert data['max-daily-ai-credits'] > 0
+
+
 def test_authorization_self_approval_is_rejected():
     from scripts import authorization_policy
     policy = json.loads((ROOT / 'policy' / 'r4-authorization.v1.json').read_text())

@@ -2,69 +2,570 @@
   "schemaVersion": 1,
   "description": "Required evidence by repository profile and risk tier. Unknown repositories fail closed to the generic profile.",
   "trustedCheckSources": {
-    "appSlugs": ["github-actions"],
-    "statusCreators": ["github-actions[bot]"],
+    "appSlugs": [
+      "github-actions"
+    ],
+    "statusCreators": [
+      "github-actions[bot]"
+    ],
     "requireWorkflowRun": true
   },
   "rolePatterns": {
-    "build": ["(^|[/ ()_-])(build|compile|bundle|package|type[ _-]?check)([/ ()_-]|$)"],
-    "tests": ["(^|[/ ()_-])(test|tests|pytest|unit|integration|contract|regression|verify)([/ ()_-]|$)"],
-    "security": ["(^|[/ ()_-])(security|codeql|secret|audit|dependabot|trivy|osv|scan)([/ ()_-]|$)"],
+    "build": [
+      "(^|[/ ()_-])(build|compile|bundle|package|type[ _-]?check)([/ ()_-]|$)"
+    ],
+    "tests": [
+      "(^|[/ ()_-])(test|tests|pytest|unit|integration|contract|regression|verify)([/ ()_-]|$)"
+    ],
+    "security": [
+      "(^|[/ ()_-])(security|codeql|secret|audit|dependabot|trivy|osv|scan)([/ ()_-]|$)"
+    ],
     "native": {
-      "windows": ["(^|[/ ()_-])windows([/ ()_-]|$)"],
-      "macos": ["(^|[/ ()_-])(macos|darwin)([/ ()_-]|$)"],
-      "linux": ["(^|[/ ()_-])(linux|ubuntu)([/ ()_-]|$)"],
-      "android": ["(^|[/ ()_-])android([/ ()_-]|$)"],
-      "ios": ["(^|[/ ()_-])ios([/ ()_-]|$)"]
+      "windows": [
+        "(^|[/ ()_-])windows([/ ()_-]|$)"
+      ],
+      "macos": [
+        "(^|[/ ()_-])(macos|darwin)([/ ()_-]|$)"
+      ],
+      "linux": [
+        "(^|[/ ()_-])(linux|ubuntu)([/ ()_-]|$)"
+      ],
+      "android": [
+        "(^|[/ ()_-])android([/ ()_-]|$)"
+      ],
+      "ios": [
+        "(^|[/ ()_-])ios([/ ()_-]|$)"
+      ]
     }
   },
   "profiles": {
-    "docs": {"build": false, "nativePlatforms": []},
-    "python": {"build": true, "nativePlatforms": []},
-    "node": {"build": true, "nativePlatforms": []},
-    "rust": {"build": true, "nativePlatforms": []},
-    "powershell-windows": {"build": false, "nativePlatforms": ["windows"]},
-    "native-windows": {"build": true, "nativePlatforms": ["windows"]},
-    "native-desktop": {"build": true, "nativePlatforms": ["windows", "macos", "linux"]},
-    "native-mobile": {"build": true, "nativePlatforms": ["android"]},
-    "mixed": {"build": true, "nativePlatforms": []}
+    "docs": {
+      "build": false,
+      "nativePlatforms": []
+    },
+    "python": {
+      "build": true,
+      "nativePlatforms": []
+    },
+    "node": {
+      "build": true,
+      "nativePlatforms": []
+    },
+    "rust": {
+      "build": true,
+      "nativePlatforms": []
+    },
+    "powershell-windows": {
+      "build": false,
+      "nativePlatforms": [
+        "windows"
+      ]
+    },
+    "native-windows": {
+      "build": true,
+      "nativePlatforms": [
+        "windows"
+      ]
+    },
+    "native-desktop": {
+      "build": true,
+      "nativePlatforms": [
+        "windows",
+        "macos",
+        "linux"
+      ]
+    },
+    "native-mobile": {
+      "build": true,
+      "nativePlatforms": [
+        "android"
+      ]
+    },
+    "mixed": {
+      "build": true,
+      "nativePlatforms": []
+    }
   },
   "riskRequirements": {
-    "R0": {"requiredRoles": [], "aiReviewRequired": false, "manualReview": false},
-    "R1": {"requiredRoles": ["tests", "security"], "aiReviewRequired": false, "manualReview": false},
-    "R2": {"requiredRoles": ["build", "tests", "security"], "nativeIfConfigured": true, "aiReviewRequired": true, "manualReview": false},
-    "R3": {"requiredRoles": ["build", "tests", "security"], "nativeIfConfigured": true, "aiReviewRequired": true, "manualReview": true, "specialistAdapterRequired": true},
-    "R4": {"requiredRoles": ["build", "tests", "security"], "nativeIfConfigured": true, "aiReviewRequired": true, "manualReview": true, "specialistAdapterRequired": true, "explicitAuthorizationRequired": true}
+    "R0": {
+      "requiredRoles": [],
+      "aiReviewRequired": false,
+      "manualReview": false
+    },
+    "R1": {
+      "requiredRoles": [
+        "tests",
+        "security"
+      ],
+      "aiReviewRequired": false,
+      "manualReview": false
+    },
+    "R2": {
+      "requiredRoles": [
+        "build",
+        "tests",
+        "security"
+      ],
+      "nativeIfConfigured": true,
+      "aiReviewRequired": true,
+      "manualReview": false
+    },
+    "R3": {
+      "requiredRoles": [
+        "build",
+        "tests",
+        "security"
+      ],
+      "nativeIfConfigured": true,
+      "aiReviewRequired": true,
+      "manualReview": true,
+      "specialistAdapterRequired": true
+    },
+    "R4": {
+      "requiredRoles": [
+        "build",
+        "tests",
+        "security"
+      ],
+      "nativeIfConfigured": true,
+      "aiReviewRequired": true,
+      "manualReview": true,
+      "specialistAdapterRequired": true,
+      "explicitAuthorizationRequired": true
+    }
   },
   "defaultProfile": "mixed",
   "repositories": {
-    "styayur/calligra": {"profile": "native-mobile"},
-    "styayur/codeforge-engine": {"profile": "native-windows"},
-    "styayur/codex-mode-switcher": {"profile": "native-windows"},
-    "styayur/developer-security-workspace": {"profile": "native-desktop"},
-    "styayur/fitimart": {"profile": "node"},
-    "styayur/gitpad-plus": {"profile": "native-windows"},
-    "styayur/glyphibe": {"profile": "native-windows"},
-    "styayur/ipa-first-tts": {"profile": "python"},
-    "styayur/LGXT-Assistant": {"profile": "native-mobile"},
-    "styayur/local-context-engine": {"profile": "native-desktop"},
-    "styayur/musical-spinningtop": {"profile": "python"},
-    "styayur/mzk": {"profile": "mixed"},
-    "styayur/Nickspeare": {"profile": "mixed"},
-    "styayur/ogleans": {"profile": "node"},
-    "styayur/OmniRoute-PS": {"profile": "powershell-windows"},
-    "styayur/portfolio-governance": {"profile": "python"},
-    "styayur/publishing-workbench": {"profile": "native-windows"},
-    "styayur/rhizomaybor": {"profile": "native-desktop"},
-    "styayur/ripple": {"profile": "node"},
-    "styayur/styayur": {"profile": "docs"},
-    "styayur/styayur.github.io": {"profile": "node"},
-    "styayur/terics": {"profile": "rust"},
-    "styayur/TinySTT": {"profile": "native-windows"},
-    "styayur/TinyTTS": {"profile": "native-windows"},
-    "styayur/trucli": {"profile": "rust"},
-    "styayur/vextessera": {"profile": "native-desktop"},
-    "styayur/whinset": {"profile": "powershell-windows"},
-    "styayur/wutnet": {"profile": "docs"}
+    "styayur/calligra": {
+      "profile": "native-mobile",
+      "checkAliases": [
+        {
+          "workflow": "Verify",
+          "name": "web",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        },
+        {
+          "workflow": "Verify",
+          "name": "windows",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        },
+        {
+          "workflow": "Verify",
+          "name": "api",
+          "roles": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/codeforge-engine": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "windows-latest",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "ubuntu-latest",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/codex-mode-switcher": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "Windows PowerShell syntax, lint and Pester",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/developer-security-workspace": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "frontend-core (ubuntu-latest)",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "frontend-core (windows-latest)",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/fitimart": {
+      "profile": "node",
+      "checkAliases": [
+        {
+          "workflow": "Fitimart CI",
+          "name": "verify",
+          "roles": [
+            "build",
+            "tests",
+            "security"
+          ]
+        }
+      ]
+    },
+    "styayur/gitpad-plus": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "portable",
+          "roles": [
+            "build",
+            "tests",
+            "security"
+          ]
+        }
+      ]
+    },
+    "styayur/glyphibe": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "Rust (ubuntu-latest)",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "Rust (windows-latest)",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "Rust (macos-latest)",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "Frontend and graph E2E",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/ipa-first-tts": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "Core (ubuntu-24.04)",
+          "roles": [
+            "build",
+            "tests",
+            "security"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "Core (windows-latest)",
+          "roles": [
+            "build",
+            "tests",
+            "security"
+          ]
+        }
+      ]
+    },
+    "styayur/LGXT-Assistant": {
+      "profile": "native-mobile",
+      "checkAliases": [
+        {
+          "workflow": "Verify",
+          "name": "frontend",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/local-context-engine": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "Rust workspace",
+          "roles": [
+            "build",
+            "tests",
+            "native:windows"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "Desktop shell",
+          "roles": [
+            "build",
+            "security",
+            "native:windows"
+          ]
+        }
+      ]
+    },
+    "styayur/musical-spinningtop": {
+      "profile": "python",
+      "checkAliases": [
+        {
+          "workflow": "Verify",
+          "name": "browser",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/mzk": {
+      "profile": "mixed",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "verify (ubuntu-latest, x86_64-unknown-linux-gnu, linux-x86_64)",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "verify (windows-latest, x86_64-pc-windows-msvc, windows-x86_64)",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/Nickspeare": {
+      "profile": "mixed"
+    },
+    "styayur/ogleans": {
+      "profile": "node",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "verify",
+          "roles": [
+            "build",
+            "tests",
+            "security"
+          ]
+        }
+      ]
+    },
+    "styayur/OmniRoute-PS": {
+      "profile": "powershell-windows"
+    },
+    "styayur/portfolio-governance": {
+      "profile": "python"
+    },
+    "styayur/publishing-workbench": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "Workbench checks",
+          "name": "windows",
+          "roles": [
+            "build",
+            "tests",
+            "native:windows"
+          ]
+        }
+      ]
+    },
+    "styayur/rhizomaybor": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "verify",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/ripple": {
+      "profile": "node",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "quality (windows-latest)",
+          "roles": [
+            "build",
+            "tests",
+            "security"
+          ]
+        },
+        {
+          "workflow": "CI",
+          "name": "quality (ubuntu-latest)",
+          "roles": [
+            "build",
+            "tests",
+            "security"
+          ]
+        }
+      ]
+    },
+    "styayur/styayur": {
+      "profile": "docs",
+      "checkAliases": [
+        {
+          "workflow": "Portfolio evidence",
+          "name": "validate",
+          "roles": [
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/styayur.github.io": {
+      "profile": "node"
+    },
+    "styayur/terics": {
+      "profile": "mixed",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "Web, Extension and browser tests",
+          "roles": [
+            "build",
+            "tests",
+            "security"
+          ]
+        }
+      ]
+    },
+    "styayur/TinySTT": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "Rust CI",
+          "name": "windows",
+          "roles": [
+            "build",
+            "tests",
+            "native:windows"
+          ]
+        }
+      ]
+    },
+    "styayur/TinyTTS": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "Rust CI",
+          "name": "test",
+          "roles": [
+            "build",
+            "tests",
+            "security",
+            "native:windows"
+          ]
+        }
+      ]
+    },
+    "styayur/trucli": {
+      "profile": "native-windows",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "Windows checks",
+          "roles": [
+            "build",
+            "tests",
+            "native:windows"
+          ]
+        }
+      ]
+    },
+    "styayur/vextessera": {
+      "profile": "native-desktop"
+    },
+    "styayur/whinset": {
+      "profile": "powershell-windows"
+    },
+    "styayur/wutnet": {
+      "profile": "powershell-windows",
+      "checkAliases": [
+        {
+          "workflow": "Windows PowerShell",
+          "name": "verify (7.2.24)",
+          "roles": [
+            "tests",
+            "security",
+            "native:windows"
+          ]
+        },
+        {
+          "workflow": "Windows PowerShell",
+          "name": "verify (runner)",
+          "roles": [
+            "tests",
+            "security",
+            "native:windows"
+          ]
+        }
+      ]
+    },
+    "styayur/petite-grace": {
+      "profile": "node",
+      "checkAliases": [
+        {
+          "workflow": "CI",
+          "name": "verify",
+          "roles": [
+            "build",
+            "tests"
+          ]
+        }
+      ]
+    },
+    "styayur/Skimmer-Scraper": {
+      "profile": "node"
+    }
   }
 }
