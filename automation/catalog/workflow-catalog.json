@@ -7,9 +7,9 @@
     {
       "id": "ci-doctor",
       "path": "automation/workflows/ci-doctor.md",
-      "sha256": "6b79dbcc5e60626d84d84319cbd442f5c69390a87b1657f32e1f21d7bcafecc2",
+      "sha256": "95ceec6dd3c67f6a69c37e39c603acef1a38c23c8e7adcda34307d5928d3e1e2",
       "lockPath": "automation/workflows/ci-doctor.lock.yml",
-      "lockSha256": "487df5237970a247b098772e5fe57a0ab6171dbc38dbd5bd847fa0726b2a7356",
+      "lockSha256": "3d883970c4aa19dde1ca984ba751d8e8812a7e47aa3ecd194e408e68f3db4ab6",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -27,7 +27,7 @@
         "add-comment",
         "create-issue"
       ],
-      "maxTurns": 6,
+      "maxTurns": 12,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
       "timeoutMinutes": 10
@@ -35,9 +35,9 @@
     {
       "id": "dependency-remediation",
       "path": "automation/workflows/dependency-remediation.md",
-      "sha256": "fa2ea3061c8e417ede63d4ecce9b5cbe907dbe19e96cd5d5ee64bf405eeeee23",
+      "sha256": "953663873bdf0601a37a12e1cf8a167b94506117bf5ffccedb4ddcaab7307b2b",
       "lockPath": "automation/workflows/dependency-remediation.lock.yml",
-      "lockSha256": "28b4b533aa9b0644b94d8cb2364f997e60dbd196079fed6e7b01d19742278140",
+      "lockSha256": "100b3ef3c2dd97061487694fda2ed39201c54d0d656e388afb08ddfe2538419f",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -58,7 +58,7 @@
         "create-pull-request",
         "push-to-pull-request-branch"
       ],
-      "maxTurns": 6,
+      "maxTurns": 12,
       "maxAiCredits": 100,
       "maxDailyAiCredits": 200,
       "timeoutMinutes": 30
@@ -66,14 +66,15 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "690244e1c0e6fb8a4dd1c755e2860e91db70c0d8455ae6747d44375872eeb15b",
+      "sha256": "f2cc313e099aee1d07cd2e1cea5d8b51a4ae135590693d020796a45ce5916a78",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "e5722084b710c400cce657953ec24e821897076c894b3b8c692f2abc40a7be5d",
+      "lockSha256": "e46679b207fef0713f357e007aecaf36f2954357ee97f1251c7fb09c9929c88f",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
       "triggers": [
-        "pull_request_target"
+        "pull_request_target",
+        "workflow_dispatch"
       ],
       "permissions": {
         "contents": "read",
@@ -84,7 +85,7 @@
         "create-pull-request-review-comment",
         "submit-pull-request-review"
       ],
-      "maxTurns": 6,
+      "maxTurns": 12,
       "maxAiCredits": 50,
       "maxDailyAiCredits": 150,
       "timeoutMinutes": 15
@@ -92,9 +93,9 @@
     {
       "id": "issue-triage",
       "path": "automation/workflows/issue-triage.md",
-      "sha256": "3d920f1fffdc490109a8cd72737909085b1c617f270fc12a8f6c3828d0cbe9e8",
+      "sha256": "6bbb48b89a74c80b504d8a9b7376f8dacb184f0b9b2171c8f7539c4821cccb36",
       "lockPath": "automation/workflows/issue-triage.lock.yml",
-      "lockSha256": "a0db629518b90ee4f1b6a0d3c10770dd72efe6d8aa1b4519a363b609cbcd26bd",
+      "lockSha256": "5baf0d0d91d5085940dc0563136500e54cf7981ebfd66bbe00b115bef2fd6f2b",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -111,7 +112,7 @@
         "add-labels",
         "set-issue-type"
       ],
-      "maxTurns": 6,
+      "maxTurns": 12,
       "maxAiCredits": 40,
       "maxDailyAiCredits": 120,
       "timeoutMinutes": 10
@@ -119,9 +120,9 @@
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "5ee8bcb1b7e2c43e4b2b596e66976b05615510a086d1e6de43796e8ac64bd41b",
+      "sha256": "1a06d7fd9455ab1826dcd17f3227cc575e9c9743121b6ffd94df5a4ca3a54b26",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "ce5f242b6b7ba8f9a26083e5cf23c08caec5cd2378efa436e97e495af4802fe5",
+      "lockSha256": "81f004cbeced5cbcc94ba8b648d1a0fa68fee3b6511a5c465704cc19017545a1",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -135,7 +136,7 @@
       "safeOutputs": [
         "create-code-scanning-alert"
       ],
-      "maxTurns": 6,
+      "maxTurns": 12,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
       "timeoutMinutes": null
