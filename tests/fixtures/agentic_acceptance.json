@@ -1,5 +1,5 @@
 {
-  "purpose": "Controlled fail-closed regression fixture for agentic acceptance; expected value is intentionally incorrect until repaired.",
+  "purpose": "Controlled fail-closed regression fixture for agentic acceptance; expected value is repaired to preserve the fail-closed policy.",
   "decision": "NOT_VERIFIED",
   "expectedAllowed": false
 }
