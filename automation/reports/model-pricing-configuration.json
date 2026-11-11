@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-11-11T12:09:08.167100+00:00",
+  "model": "deepseek-flash",
+  "providerEndpoint": "https://api.deepseek.com/v1",
+  "ghAwProviderKey": "openai",
+  "source": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "configurationReference": "https://github.github.com/gh-aw/reference/faq/",
+  "priceUnits": "USD per token",
+  "input": 3e-07,
+  "output": 1.2e-06,
+  "cacheRead": 6e-09,
+  "basis": "CONSERVATIVE_PUBLISHED_PEAK_RATES_FOR_BUDGET_ENFORCEMENT",
+  "offPeakDiscountIncluded": false,
+  "providerInvoiceVerified": false,
+  "priorRunsRepriced": false,
+  "limitsChanged": false,
+  "reason": "Actual debug run43016672113 rejected deepseek-flash as unknown_model_ai_credits; add exact provider/model rates without disabling cost guards"
+}

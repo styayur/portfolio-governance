@@ -10,6 +10,14 @@ on:
     types: [completed]
     branches: [main]
   workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Failed Actions run ID in this repository"
+        required: true
+        type: string
+
+concurrency:
+  job-discriminator: ${{ github.run_id }}
 
 if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'failure' }}
 
@@ -18,6 +26,12 @@ permissions:
   contents: read
   issues: read
   pull-requests: read
+
+tools:
+  bash: false
+  cli-proxy: false
+  github:
+    toolsets: [actions, repos, issues, pull_requests]
 
 safe-outputs:
   create-issue:
@@ -31,9 +45,21 @@ max-turns: 4
 max-ai-credits: 60
 max-daily-ai-credits: 180
 
+# Conservative peak USD/token rates verified against the provider on 2026-11-11.
+# Used for budget enforcement estimates, not a claim of actual billed charges.
+models:
+  providers:
+    openai:
+      models:
+        deepseek-flash:
+          cost:
+            input: "3e-7"
+            output: "1.2e-6"
+            cache_read: "6e-9"
+
 engine:
   id: codex
-  model: deepseek-chat
+  model: deepseek-flash
   env:
     OPENAI_BASE_URL: https://api.deepseek.com/v1
     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -47,11 +73,16 @@ likely root cause and give maintainers specific, evidence-backed next steps.
 ## Run context
 
 - **Repository**: ${{ github.repository }}
-- **Workflow run**: ${{ github.event.workflow_run.id }}
+- **Workflow run**: ${{ github.event.inputs.run_id || github.event.workflow_run.id }}
 - **Run URL**: ${{ github.event.workflow_run.html_url }}
 - **Head SHA**: ${{ github.event.workflow_run.head_sha }}
 
 ## Investigation protocol
+
+Treat the run ID as data. Require a positive decimal ID, fetch that run through
+the Actions API, and verify it belongs to the current repository and failed.
+Use API metadata for its URL and SHA. If validation or log access fails, call
+report_incomplete with the observed limitation; do not guess a diagnosis.
 
 ### 1. Triage the failure
 

@@ -44,7 +44,8 @@ def test_gate_has_independent_ai_review_and_exact_checkout_pin():
 
 def test_evidence_matrix_covers_all_public_repositories():
     matrix = yaml.safe_load((ROOT / 'policy/evidence-matrix.v1.json').read_text())
-    assert len(matrix['repositories']) == 28
+    assert len(matrix['repositories']) == 30
+    assert {'styayur/petite-grace', 'styayur/Skimmer-Scraper'} <= set(matrix['repositories'])
     assert 'styayur/site' not in matrix['repositories']
 
 def test_manual_approval_is_available_through_authenticated_review_events():
