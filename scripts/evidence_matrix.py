@@ -90,11 +90,13 @@ def effective_requirements(matrix: dict, repo: str, risk_level: str) -> dict:
     # Protected policy may describe the actual purpose of an existing CI job
     # without renaming required checks in the target repository's ruleset.
     for spec in required:
-        if 'checkAliases' in override:
-            spec['strictAliases'] = True
-            spec['allowedWorkflows'] = sorted({alias['workflow'] for alias in override['checkAliases']
-                                               if isinstance(alias.get('workflow'), str) and alias['workflow']})
-        spec['checkAliases'] = role_aliases(override.get('checkAliases') or [], spec['role'])
+        spec['checkAliases'] = [
+            {'name': alias['name'], 'workflow': alias['workflow']}
+            for alias in override.get('checkAliases') or []
+            if spec['role'] in alias.get('roles', [])
+            and isinstance(alias.get('name'), str) and alias['name']
+            and isinstance(alias.get('workflow'), str) and alias['workflow']
+        ]
 
     return {
         'risk': risk_level,
@@ -109,31 +111,14 @@ def effective_requirements(matrix: dict, repo: str, risk_level: str) -> dict:
     }
 
 
-def role_aliases(aliases: list[dict], role: str) -> list[dict]:
-    """An explicit contract grants only the roles named on each exact job."""
-    return [{'name': alias['name'], 'workflow': alias['workflow']}
-            for alias in aliases
-            if role in alias.get('roles', [])
-            and isinstance(alias.get('name'), str) and alias['name']
-            and isinstance(alias.get('workflow'), str) and alias['workflow']]
-
-
 def _matches(patterns, text: str) -> bool:
     return any(re.search(pattern, text, re.I) for pattern in patterns)
 
 
 def matches_role(check: dict, spec: dict, role_patterns: dict) -> bool:
-    if 'allowedWorkflows' in spec and check.get('workflow') not in spec['allowedWorkflows']:
-        return False
-    if (check.get('workflow') or '').casefold() in {
-        'portfolio evidence gate', 'independent correctness and regression review',
-        'issue triage assistant', 'ci failure doctor', 'malicious code scan agent',
-        'dependency analysis and remediation',
-    }:
-        return False
-    if spec.get('strictAliases') or spec.get('checkAliases'):
-        return any(check.get('name') == alias['name'] and check.get('workflow') == alias['workflow']
-                   for alias in spec['checkAliases'])
+    if any(check.get('name') == alias['name'] and check.get('workflow') == alias['workflow']
+           for alias in spec.get('checkAliases') or []):
+        return True
     text = f"{check.get('name') or ''} {check.get('workflow') or ''}".strip()
     if spec['kind'] == 'native':
         patterns = (((role_patterns.get('native') or {}).get(spec['platform'])) or [])

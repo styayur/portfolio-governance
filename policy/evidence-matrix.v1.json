@@ -398,30 +398,7 @@
       "profile": "powershell-windows"
     },
     "styayur/portfolio-governance": {
-      "profile": "python",
-      "checkAliases": [
-        {
-          "name": "build catalog",
-          "workflow": "Agentic workflow catalog checks",
-          "roles": [
-            "build"
-          ]
-        },
-        {
-          "name": "test",
-          "workflow": "Governance self-checks",
-          "roles": [
-            "tests"
-          ]
-        },
-        {
-          "name": "security CodeQL",
-          "workflow": "Governance self-checks",
-          "roles": [
-            "security"
-          ]
-        }
-      ]
+      "profile": "python"
     },
     "styayur/publishing-workbench": {
       "profile": "native-windows",

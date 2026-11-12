@@ -5,20 +5,8 @@ name: Portfolio Evidence Gate
 on:
   pull_request_target:
     types: [opened, synchronize, reopened, ready_for_review, converted_to_draft, labeled, unlabeled]
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: Existing PR number for protected evaluator bootstrap
-        type: number
-        required: true
-      head_sha:
-        description: Exact reviewed PR head SHA
-        type: string
-        required: true
-      base_sha:
-        description: Exact reviewed PR base SHA
-        type: string
-        required: true
+  pull_request_review:
+    types: [submitted, edited, dismissed]
 
 permissions:
   actions: read
@@ -31,12 +19,11 @@ permissions:
 
 jobs:
   portfolio:
-    if: github.event_name != 'workflow_dispatch' || (github.actor_id == '324560549' && github.run_attempt == 1)
     uses: styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@1b73bd63d5c59f11f02ff41f38721036fc62f8f3
     with:
-      pr_number: ${{ github.event.inputs.pr_number && fromJSON(github.event.inputs.pr_number) || github.event.pull_request.number }}
-      head_sha: ${{ github.event.inputs.head_sha || github.event.pull_request.head.sha }}
-      base_sha: ${{ github.event.inputs.base_sha || github.event.pull_request.base.sha }}
+      pr_number: ${{ github.event.pull_request.number }}
+      head_sha: ${{ github.event.pull_request.head.sha }}
+      base_sha: ${{ github.event.pull_request.base.sha }}
       central_sha: 1b73bd63d5c59f11f02ff41f38721036fc62f8f3
     secrets:
       PORTFOLIO_AI_REVIEW_API_KEY: ${{ secrets.PORTFOLIO_AI_REVIEW_API_KEY }}

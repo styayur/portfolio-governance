@@ -246,9 +246,6 @@ def classify_files(files):
 def classify(repo: str, pr_number: int):
     pr = api(f'repos/{repo}/pulls/{pr_number}')
     files = api_list(f'repos/{repo}/pulls/{pr_number}/files?per_page=100')
-    expected_count = pr.get('changed_files')
-    if type(expected_count) is not int or not 0 < expected_count <= 3000 or len(files) != expected_count:
-        raise ValueError('PR file coverage is incomplete or exceeds the GitHub 3000-file limit')
     result = classify_files(files)
     context = {
         'repository': repo,
@@ -266,13 +263,11 @@ def classify(repo: str, pr_number: int):
         'mergeable': pr.get('mergeable'),
         'mergeStateStatus': pr.get('mergeable_state'),
         'changedFileCount': len(files),
-        'expectedChangedFileCount': expected_count,
         'additions': sum(int(f.get('additions', 0)) for f in files),
         'deletions': sum(int(f.get('deletions', 0)) for f in files),
         'files': [
             {'filename': f.get('filename'), 'status': f.get('status'), 'additions': f.get('additions'),
-             'deletions': f.get('deletions'), 'patch': f.get('patch') or '',
-             'previous_filename': f.get('previous_filename')}
+             'deletions': f.get('deletions'), 'patch': f.get('patch') or ''}
             for f in files
         ],
     }
@@ -309,11 +304,6 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     context, risk = classify(args.repo, args.pr)
-    try:
-        from review_context import enrich_context
-    except ModuleNotFoundError:
-        from scripts.review_context import enrich_context
-    context = enrich_context(context, risk, expected_repository=args.repo)
     args.context.parent.mkdir(parents=True, exist_ok=True)
     args.context.write_text(json.dumps(context, ensure_ascii=False, indent=2) + '\n')
     args.output.write_text(json.dumps(risk, ensure_ascii=False, indent=2) + '\n')

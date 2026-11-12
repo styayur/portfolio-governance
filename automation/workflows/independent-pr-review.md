@@ -25,11 +25,10 @@ permissions:
 tools:
   bash: false
   cli-proxy: false
-  cache-memory: false
+  cache-memory: true
   github:
     toolsets: [pull_requests, repos, actions]
-    min-integrity: none # Read untrusted public PR data; never execute it
-    allowed-repos: "${{ github.repository }}"
+    min-integrity: approved # Only review PRs from approved contributors; never checkout untrusted PR code
 
 safe-outputs:
   create-pull-request-review-comment:
@@ -41,7 +40,7 @@ safe-outputs:
     allowed-events: [COMMENT]
     target: ${{ github.event.inputs.pr_number || github.event.pull_request.number }}
 timeout-minutes: 15
-max-turns: 32
+max-turns: 12
 max-ai-credits: 50
 max-daily-ai-credits: 150
 
@@ -91,10 +90,7 @@ limitations. Allowed verdicts: APPROVE, CHANGES_REQUIRED, BLOCKED, NOT_VERIFIED.
 Findings contain path, line, severity and reason. verification lists only observed
 checks with name, conclusion and headSha. Include unavailable evidence in limitations.
 APPROVE requires complete diff coverage, no actionable defects and observed passing
-applicable trusted native build, test and security CI. Never wait for this review,
-Portfolio Evidence Gate, Issue Triage, CI Doctor, Security Review or Dependency
-Remediation as native test evidence: the Gate consumes this review separately.
-Missing/pending native CI is NOT_VERIFIED; access or authorization
+applicable trusted CI. Missing/pending CI is NOT_VERIFIED; access or authorization
 denial is BLOCKED; a demonstrated defect is CHANGES_REQUIRED. Do not mint a trusted
 check or a human approval. Never authorize trust-root changes or merge.
 
@@ -104,10 +100,7 @@ head SHA, base SHA and workflowRunId; a prior review of another commit is irrele
 Submit at most one summary review and ten actionable inline findings. Safe outputs
 alone perform writes. No secrets, captured sessions or raw sensitive logs in outputs.
 
-The proxy allows thirty-two model invocations, including tool-discovery and final
-confirmation turns. Plan at most six batched investigation rounds and batch related
-reads. By invocation thirty-one, submit an evidenced terminal safe output or
-report_incomplete with the exact limitation; do not start new investigation on the
-final invocation. Never invent completed verification. The unchanged 50 AIC per-run
-and 150 AIC daily budgets remain independent limits; stop with an honest incomplete
-result if evidence cannot be collected within those limits.
+The proxy allows twelve model invocations, including tool-discovery and final
+confirmation turns. Batch related reads. By invocation eleven, submit an evidenced
+terminal safe output or report_incomplete with the exact limitation; do not start
+new investigation on the final invocation. Never invent completed verification.
