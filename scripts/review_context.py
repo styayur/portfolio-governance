@@ -82,6 +82,9 @@ def enrich_context(context, risk, *, reader=api, pr_reader=fetch_pr, evaluator=e
     repo = context.get('repository') or ''
     if not re.fullmatch(r'styayur/[A-Za-z0-9_.-]+', repo) or repo.casefold() == 'styayur/site':
         raise ValueError('repository outside public portfolio scope')
+    expected = context.get('expectedChangedFileCount')
+    if type(expected) is not int or not 0 < expected <= 3000 or expected != len(context.get('files') or []) or context.get('changedFileCount') != expected:
+        raise ValueError('PR file coverage count is missing or incomplete')
     meta = reader('repos/' + repo)
     if meta.get('private') is not False or meta.get('id') != context.get('repositoryId') or meta.get('full_name') != repo:
         raise ValueError('public repository identity mismatch')

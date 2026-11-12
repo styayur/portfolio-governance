@@ -246,6 +246,9 @@ def classify_files(files):
 def classify(repo: str, pr_number: int):
     pr = api(f'repos/{repo}/pulls/{pr_number}')
     files = api_list(f'repos/{repo}/pulls/{pr_number}/files?per_page=100')
+    expected_count = pr.get('changed_files')
+    if type(expected_count) is not int or not 0 < expected_count <= 3000 or len(files) != expected_count:
+        raise ValueError('PR file coverage is incomplete or exceeds the GitHub 3000-file limit')
     result = classify_files(files)
     context = {
         'repository': repo,
@@ -263,6 +266,7 @@ def classify(repo: str, pr_number: int):
         'mergeable': pr.get('mergeable'),
         'mergeStateStatus': pr.get('mergeable_state'),
         'changedFileCount': len(files),
+        'expectedChangedFileCount': expected_count,
         'additions': sum(int(f.get('additions', 0)) for f in files),
         'deletions': sum(int(f.get('deletions', 0)) for f in files),
         'files': [

@@ -10,6 +10,7 @@ from scripts.evidence_matrix import matches_role
 
 def fixture():
     context = {'repository': 'styayur/example', 'repositoryId': 1, 'prNumber': 2,
+               'changedFileCount': 1, 'expectedChangedFileCount': 1,
                'headSha': 'a' * 40, 'baseSha': 'b' * 40, 'body': 'A complete controlled fixture change.',
                'files': [{'filename': 'src/example.py', 'status': 'added', 'additions': 1, 'deletions': 0, 'patch': ''}]}
     risk = {'risk': 'R3', 'headSha': context['headSha'], 'baseSha': context['baseSha'], 'diffSha256': 'c' * 64}
@@ -96,6 +97,16 @@ def test_symlink_or_gitlink_cannot_be_treated_as_the_target_file():
         result = collect(context, risk, 'safe-looking symlink target\n', mode=mode)
         assert result['reviewInputComplete'] is False
         assert 'reviewSource' not in result['files'][0]
+
+
+@pytest.mark.parametrize('expected', [None, 2, 3001, True])
+def test_missing_or_truncated_pr_file_inventory_fails_before_source_reads(expected):
+    context, risk = fixture()
+    context['expectedChangedFileCount'] = expected
+    called = []
+    with pytest.raises(ValueError, match='file coverage'):
+        enrich_context(context, risk, reader=lambda path: called.append(path))
+    assert not called
 
 
 @pytest.mark.parametrize('old,new', [('x\n', 'x'), ('x\r\n', 'x\n'), ('x\u2028y\n', 'x\ny\n'), ('', '\n')])
