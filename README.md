@@ -20,7 +20,7 @@ This repository provides a reusable, fail-closed evidence gate for pull requests
 
 Call `.github/workflows/reusable-portfolio-gate.yml` from each public repository with the exact central commit SHA. The caller uses `pull_request_target` so the privileged job never executes PR code. The reusable workflow checks out only this repository at the pinned SHA.
 
-The caller template is in `templates/caller-portfolio-gate.yml`. Callers must include the `pull_request_review` event so maintainer approval, edit or dismissal re-runs exact-head validation. See [Manual approval protocol v1](docs/manual-approval-v1.md).
+The caller template is in `templates/caller-portfolio-gate.yml`. Privileged callers use base-defined `pull_request_target` events and exact-input owner dispatch; they must not use `pull_request_review`, whose workflow comes from the PR merge reference. After an authenticated review is submitted, edited or dismissed, refresh the Gate through the owner dispatch with the current PR/head/base binding. The evaluator still reads the actual review records through the API; this event change does not convert a comment into code approval. See [Manual approval protocol v1](docs/manual-approval-v1.md).
 
 ## Project
 

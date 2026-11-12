@@ -1,4 +1,5 @@
 import json
+import copy
 import sys
 from pathlib import Path
 
@@ -83,8 +84,14 @@ def r2_checks(repo='styayur/ripple'):
     return values
 
 
-def evidence_for(level='R2', checks=None, repo='styayur/ripple'):
-    return evidence_matrix.evaluate(checks if checks is not None else r2_checks(repo), MATRIX, repo, level, HEAD)
+def evidence_for(level='R2', checks=None, repo='styayur/ripple', preserve_contracts=False):
+    # These synthetic CI/CodeQL fixtures exercise the generic binding/state
+    # machine, independently of real repository-specific job contracts.
+    # Production contract allowlisting has separate positive/spoof regressions.
+    generic = copy.deepcopy(MATRIX)
+    if not preserve_contracts:
+        generic['repositories'][repo].pop('checkAliases', None)
+    return evidence_matrix.evaluate(checks if checks is not None else r2_checks(repo), generic, repo, level, HEAD)
 
 
 def test_dependency_major_and_patch_classification():
@@ -191,13 +198,13 @@ def test_parenthesized_native_runner_names_preserve_provenance_and_failures():
 
 def test_repository_job_contract_aliases_require_exact_workflow_and_trusted_head():
     checks = [check('quality (ubuntu-latest)', 'SUCCESS')]
-    assert evidence_for('R2', checks, 'styayur/ripple')['status'] == 'PASS'
-    assert evidence_for('R2', checks, 'styayur/fitimart')['status'] != 'PASS'
-    assert evidence_for('R2', [dict(checks[0], workflow='unreviewed workflow')])['status'] != 'PASS'
+    assert evidence_for('R2', checks, 'styayur/ripple', preserve_contracts=True)['status'] == 'PASS'
+    assert evidence_for('R2', checks, 'styayur/fitimart', preserve_contracts=True)['status'] != 'PASS'
+    assert evidence_for('R2', [dict(checks[0], workflow='unreviewed workflow')], preserve_contracts=True)['status'] != 'PASS'
     for state in ('FAILURE', 'SKIPPED', 'CANCELLED', 'IN_PROGRESS'):
-        assert evidence_for('R2', [dict(checks[0], state=state)])['status'] != 'PASS'
-    assert evidence_for('R2', [dict(checks[0], appSlug='untrusted-app')])['status'] != 'PASS'
-    assert evidence_for('R2', [dict(checks[0], headSha='c' * 40)])['status'] != 'PASS'
+        assert evidence_for('R2', [dict(checks[0], state=state)], preserve_contracts=True)['status'] != 'PASS'
+    assert evidence_for('R2', [dict(checks[0], appSlug='untrusted-app')], preserve_contracts=True)['status'] != 'PASS'
+    assert evidence_for('R2', [dict(checks[0], headSha='c' * 40)], preserve_contracts=True)['status'] != 'PASS'
 
 
 def test_cancelled_security_workflow_blocks_r2():
@@ -270,6 +277,16 @@ def test_r4_requires_label_plus_exact_manual_approval():
     approved = evidence_gate.decide(risk('R4'), review(), ai(decision='NEEDS_HUMAN'), r3_evidence('R4'), pr(labels=[ENFORCE['r4AuthorizationLabel']]), HEAD, BASE, ENFORCE, 1, manual(level='R4'))
     assert approved['decision'] == 'APPROVED_MANUAL'
     assert approved['autoMergeEligible'] is False
+
+
+def test_owner_authorization_cannot_override_incomplete_source_coverage():
+    bound_risk = risk('R4')
+    static = independent_review.review(context(reviewInputComplete=False), bound_risk)
+    assert static['decision'] == 'BLOCK'
+    result = evidence_gate.decide(bound_risk, static, ai(), r3_evidence('R4'),
+        pr(labels=[ENFORCE['r4AuthorizationLabel']]), HEAD, BASE, ENFORCE, 1, manual(level='R4'))
+    assert result['decision'] == 'FAILED_REVIEW_BLOCK'
+    assert result['autoMergeEligible'] is False
 
 
 def test_ai_needs_human_or_not_verified_does_not_preempt_manual_approval():

@@ -48,12 +48,15 @@ def test_evidence_matrix_covers_all_public_repositories():
     assert {'styayur/petite-grace', 'styayur/Skimmer-Scraper'} <= set(matrix['repositories'])
     assert 'styayur/site' not in matrix['repositories']
 
-def test_manual_approval_is_available_through_authenticated_review_events():
+def test_authenticated_review_records_are_consumed_through_safe_refresh_events():
     for name in ('.github/workflows/portfolio-gate.yml', 'templates/caller-portfolio-gate.yml'):
         data = yaml.safe_load((ROOT / name).read_text())
         triggers = data.get('on', data.get(True, {}))
-        assert 'pull_request_review' in triggers
-        assert set(triggers['pull_request_review']['types']) == {'submitted', 'edited', 'dismissed'}
+        assert 'pull_request_review' not in triggers
+        assert 'pull_request_target' in triggers
+        assert 'workflow_dispatch' in triggers
+        assert "github.actor_id == '324560549'" in data['jobs']['portfolio']['if']
+        assert 'github.run_attempt == 1' in data['jobs']['portfolio']['if']
     workflow = (ROOT / '.github/workflows/reusable-portfolio-gate.yml').read_text()
     assert 'manual_approval.py' in workflow
     assert '--manual-approval' in workflow

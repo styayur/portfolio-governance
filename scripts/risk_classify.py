@@ -144,11 +144,16 @@ def is_governance_policy(path: str) -> bool:
     return any(value == item or value.endswith('/' + item) for item in GOVERNANCE_POLICY_PATHS)
 
 
+def source_patch(item):
+    """Prefer authoritative reconstructed source, including an empty mode-only diff."""
+    return (item.get('reviewPatch') if 'reviewPatch' in item else item.get('patch')) or ''
+
+
 def _added_lines(files):
     result = []
     for f in files:
         path = f.get('filename') or ''
-        for line in (f.get('patch') or '').splitlines():
+        for line in source_patch(f).splitlines():
             if line.startswith('+') and not line.startswith('+++'):
                 result.append((path, line[1:]))
     return result
@@ -160,7 +165,7 @@ def classify_files(files):
     reasons = []
     dependency_changes = []
     for f in files:
-        dependency_changes.extend(parse_dependency_versions(f.get('patch') or ''))
+        dependency_changes.extend(parse_dependency_versions(source_patch(f)))
     majors = [d for d in dependency_changes if d['major']]
 
     if not paths:
@@ -203,7 +208,7 @@ def classify_files(files):
         raise_to('R4')
         reasons.append('Privilege-escalation or credential-handling code pattern added: ' + ', '.join(sorted({p for p, _ in privilege_lines})[:8]))
     if workflow_paths:
-        raise_to('R4' if any('pull_request_target' in (f.get('patch') or '') for f in files if f.get('filename') in workflow_paths) else 'R3')
+        raise_to('R4' if any('pull_request_target' in source_patch(f) for f in files if f.get('filename') in workflow_paths) else 'R3')
         reasons.append('GitHub Actions or repository policy workflow changed: ' + ', '.join(workflow_paths[:8]))
     if majors:
         raise_to('R3')
@@ -246,6 +251,9 @@ def classify_files(files):
 def classify(repo: str, pr_number: int):
     pr = api(f'repos/{repo}/pulls/{pr_number}')
     files = api_list(f'repos/{repo}/pulls/{pr_number}/files?per_page=100')
+    expected_count = pr.get('changed_files')
+    if type(expected_count) is not int or not 0 < expected_count <= 3000 or len(files) != expected_count:
+        raise ValueError('PR file coverage is incomplete or exceeds the GitHub 3000-file limit')
     result = classify_files(files)
     context = {
         'repository': repo,
@@ -263,25 +271,32 @@ def classify(repo: str, pr_number: int):
         'mergeable': pr.get('mergeable'),
         'mergeStateStatus': pr.get('mergeable_state'),
         'changedFileCount': len(files),
+        'expectedChangedFileCount': expected_count,
         'additions': sum(int(f.get('additions', 0)) for f in files),
         'deletions': sum(int(f.get('deletions', 0)) for f in files),
         'files': [
             {'filename': f.get('filename'), 'status': f.get('status'), 'additions': f.get('additions'),
-             'deletions': f.get('deletions'), 'patch': f.get('patch') or ''}
+             'deletions': f.get('deletions'), 'patch': f.get('patch') or '',
+             'previous_filename': f.get('previous_filename')}
             for f in files
         ],
     }
     context['diffSha256'] = diff_digest(context['files'])
-    risk_data = {
+    return context, build_risk_document(context, result)
+
+
+def build_risk_document(context, result):
+    """Bind classification to the original immutable PR identity and REST digest."""
+    return {
         'schemaVersion': 2,
         'generatedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
-        'repository': repo,
+        'repository': context['repository'],
         'repositoryId': context['repositoryId'],
-        'prNumber': pr_number,
+        'prNumber': context['prNumber'],
         'baseSha': context['baseSha'],
         'headSha': context['headSha'],
         'diffSha256': context['diffSha256'],
-        'draft': context['draft'],
+        'draft': bool(context.get('draft')),
         'risk': result['risk'],
         'reasons': result['reasons'],
         'dependencyChanges': result['dependencyChanges'],
@@ -293,7 +308,6 @@ def classify(repo: str, pr_number: int):
         },
         'counts': result['counts'],
     }
-    return context, risk_data
 
 
 def main():
@@ -304,6 +318,12 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     context, risk = classify(args.repo, args.pr)
+    try:
+        from review_context import enrich_context
+    except ModuleNotFoundError:
+        from scripts.review_context import enrich_context
+    context = enrich_context(context, risk, expected_repository=args.repo)
+    risk = context['riskClassification']
     args.context.parent.mkdir(parents=True, exist_ok=True)
     args.context.write_text(json.dumps(context, ensure_ascii=False, indent=2) + '\n')
     args.output.write_text(json.dumps(risk, ensure_ascii=False, indent=2) + '\n')

@@ -82,8 +82,12 @@ def test_all_agentic_workflows_have_budgets():
         if path.name.startswith('agent-engine-smoke'):
             continue
         data = frontmatter(path)
-        cap = 32 if path.stem == 'independent-pr-review' else 12
+        cap = 32 if path.stem in {'security-review', 'independent-pr-review'} else 12
         assert 0 < data['max-turns'] <= cap, path
+        if path.stem == 'security-review':
+            assert data['max-ai-credits'] == 60
+            assert data['tools']['github'] is False
+            assert data['tools']['cli-proxy'] is False
         assert data['max-ai-credits'] <= 100, path
         assert data['max-daily-ai-credits'] <= 200, path
 

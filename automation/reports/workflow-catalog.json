@@ -120,9 +120,9 @@
     {
       "id": "security-review",
       "path": "automation/workflows/security-review.md",
-      "sha256": "1a06d7fd9455ab1826dcd17f3227cc575e9c9743121b6ffd94df5a4ca3a54b26",
+      "sha256": "e44bfb56b76e5c99a17176ac260af56d204aa1f22055d2ebf26c7eeddf0dd2db",
       "lockPath": "automation/workflows/security-review.lock.yml",
-      "lockSha256": "81f004cbeced5cbcc94ba8b648d1a0fa68fee3b6511a5c465704cc19017545a1",
+      "lockSha256": "f97c8dacfa977c288067bc77b4b5df1599fb43d8f1e135d468962a6273c66619",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -136,7 +136,7 @@
       "safeOutputs": [
         "create-code-scanning-alert"
       ],
-      "maxTurns": 12,
+      "maxTurns": 32,
       "maxAiCredits": 60,
       "maxDailyAiCredits": 180,
       "timeoutMinutes": null

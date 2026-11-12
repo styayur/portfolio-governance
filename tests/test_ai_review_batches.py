@@ -56,3 +56,28 @@ def test_oversize_single_file_is_never_truncated_or_sent():
     assert result['decision']=='NOT_VERIFIED'
     assert result['reason']=='AI_REVIEW_SINGLE_FILE_TOO_LARGE'
     assert not calls
+
+
+def test_scoped_unicode_prompts_stay_inside_the_actual_utf8_byte_budget():
+    context, risk, static, config = fixture()
+    context['files'] = [dict(filename=f'src/file{i}.py', patch='+' + '界' * 450) for i in range(3)]
+    config['maxChars'] = 4500
+    seen = []
+    def transport(settings, prompt):
+        assert len(prompt.encode('utf-8')) <= settings['maxChars']
+        data = json.loads(prompt.split('UNTRUSTED_REVIEW_INPUT=', 1)[1])
+        seen.extend(data['files'])
+        return reply(risk)
+    result = run(context, risk, static, config, transport)
+    assert result['decision'] == 'APPROVE'
+    assert seen == context['files']
+
+
+def test_thirteen_complete_file_batches_never_reach_the_provider():
+    context, risk, static, config = fixture()
+    context['files'] = [dict(filename=f'src/file{i}.py', patch='+' + 'x' * 1800) for i in range(13)]
+    calls = []
+    result = run(context, risk, static, config, lambda *args: calls.append(args))
+    assert result['decision'] == 'NOT_VERIFIED'
+    assert result['reason'] == 'AI_REVIEW_BATCH_BUDGET_EXCEEDED'
+    assert not calls

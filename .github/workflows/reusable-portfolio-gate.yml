@@ -33,12 +33,79 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  provenance:
+    name: Portfolio Evidence Gate / provenance
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Validate protected evaluator before any checkout or installation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CENTRAL_SHA: ${{ inputs.central_sha }}
+          EXPECTED_HEAD: ${{ inputs.head_sha }}
+          EXPECTED_BASE: ${{ inputs.base_sha }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess
+
+          def validate(env, read):
+              for key in ['CENTRAL_SHA', 'EXPECTED_HEAD', 'EXPECTED_BASE']:
+                  if not re.fullmatch('[0-9a-f]{40}', env[key]):
+                      raise ValueError('invalid immutable SHA input')
+              if not env['PR_NUMBER'].isdigit() or int(env['PR_NUMBER']) < 1:
+                  raise ValueError('invalid PR number')
+              if env['GITHUB_EVENT_NAME'] not in {'pull_request_target', 'workflow_dispatch'}:
+                  raise ValueError('caller event is not a protected-base or explicit owner dispatch')
+              if env['GITHUB_EVENT_NAME'] == 'workflow_dispatch' and (
+                  env['GITHUB_ACTOR_ID'] != '324560549' or env['GITHUB_RUN_ATTEMPT'] != '1'
+              ):
+                  raise ValueError('dispatch is not the owner first attempt')
+              repo = env['GITHUB_REPOSITORY']
+              if not re.fullmatch(r'styayur/[A-Za-z0-9_.-]+', repo) or repo.casefold() == 'styayur/site':
+                  raise ValueError('repository outside public portfolio scope')
+              target = read('repos/' + repo)
+              if target.get('private') is not False or target.get('full_name') != repo:
+                  raise ValueError('target public repository identity mismatch')
+              pr = read('repos/' + repo + '/pulls/' + env['PR_NUMBER'])
+              if pr.get('number') != int(env['PR_NUMBER']) or pr.get('state') != 'open' or (pr.get('head') or {}).get('sha') != env['EXPECTED_HEAD'] or (pr.get('base') or {}).get('sha') != env['EXPECTED_BASE'] or ((pr.get('base') or {}).get('repo') or {}).get('id') != target.get('id'):
+                  raise ValueError('PR head/base binding is stale or belongs to another repository')
+              root = read('repos/styayur/portfolio-governance')
+              if root.get('id') != 1449400406 or root.get('private') is not False or root.get('full_name') != 'styayur/portfolio-governance' or root.get('default_branch') != 'main':
+                  raise ValueError('trust root repository identity mismatch')
+              run = read('repos/' + repo + '/actions/runs/' + env['GITHUB_RUN_ID'])
+              if str(run.get('id')) != env['GITHUB_RUN_ID'] or (run.get('repository') or {}).get('id') != target.get('id'):
+                  raise ValueError('workflow run repository identity mismatch')
+              prefix = 'styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@'
+              refs = [r for r in run.get('referenced_workflows', []) if str(r.get('path', '')).startswith(prefix)]
+              sha = env['CENTRAL_SHA']
+              if len(refs) != 1 or refs[0].get('path') != prefix + sha or refs[0].get('sha') != sha:
+                  raise ValueError('executing callee and script revision do not match')
+              comparison = read('repos/styayur/portfolio-governance/compare/' + sha + '...main')
+              if comparison.get('status') not in {'ahead', 'identical'} or (comparison.get('base_commit') or {}).get('sha') != sha or (comparison.get('merge_base_commit') or {}).get('sha') != sha:
+                  raise ValueError('evaluator is not in protected main history')
+
+          def read(path):
+              return json.loads(subprocess.check_output(['gh', 'api', path], text=True))
+
+          if __name__ == '__main__':
+              validate(os.environ, read)
+              print('Verified exact public protected evaluator provenance before checkout.')
+          PY
+
   classify:
     name: Portfolio Evidence Gate / risk
+    needs: provenance
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: read
+      actions: read
+      checks: read
+      pull-requests: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -78,6 +145,13 @@ jobs:
           ref: ${{ inputs.central_sha }}
           path: governance
           persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Install pinned safe YAML parser
+        run: >-
+          python3 -m pip install --require-hashes --only-binary=:all: --no-deps
+          -r governance/automation/bootstrap/review-requirements.txt
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: risk-evidence
@@ -138,7 +212,8 @@ jobs:
 
   evidence:
     name: Portfolio Evidence Gate / verify
-    needs: [classify, review, ai-review]
+    needs: [provenance, classify, review, ai-review]
+    if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 50
     permissions:
@@ -152,6 +227,23 @@ jobs:
     outputs:
       merge_eligible: ${{ steps.eligibility.outputs.merge }}
     steps:
+      - name: Require successful upstream verification before checkout
+        env:
+          PROVENANCE_RESULT: ${{ needs.provenance.result }}
+          CLASSIFY_RESULT: ${{ needs.classify.result }}
+          STATIC_RESULT: ${{ needs.review.result }}
+          AI_RESULT: ${{ needs.ai-review.result }}
+        run: |
+          python3 - <<'PY'
+          import os
+
+          def require_successful_upstream(env):
+              if any(env[key] != 'success' for key in ['PROVENANCE_RESULT', 'CLASSIFY_RESULT', 'STATIC_RESULT', 'AI_RESULT']):
+                  raise SystemExit('Upstream verification failed, was cancelled or skipped; required check must fail.')
+
+          if __name__ == '__main__':
+              require_successful_upstream(os.environ)
+          PY
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           repository: styayur/portfolio-governance
@@ -235,6 +327,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
+      checks: read
       contents: write
       pull-requests: write
     steps:
@@ -243,6 +336,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ inputs.pr_number }}
           EXPECTED_HEAD: ${{ inputs.head_sha }}
+          EXPECTED_BASE: ${{ inputs.base_sha }}
         run: |
           python3 - <<'PY'
           import json, os, subprocess
@@ -253,8 +347,23 @@ jobs:
           data = json.loads(raw)
           if data['headRefOid'] != expected:
               raise SystemExit('head changed after gate verification')
-          if data['mergeable'] != 'MERGEABLE' or data['mergeStateStatus'] not in {'CLEAN', 'BLOCKED'}:
+          if data['baseRefOid'] != os.environ['EXPECTED_BASE']:
+              raise SystemExit('base changed after gate verification')
+          state = data['mergeStateStatus']
+          if data['mergeable'] != 'MERGEABLE' or state not in {'CLEAN', 'BLOCKED', 'UNSTABLE'}:
               raise SystemExit(f'unmergeable post-gate state: {data}')
+          if state == 'UNSTABLE':
+              raw = subprocess.check_output(['gh','pr','checks',pr,'-R',repo,'--json','name,state,workflow'], text=True)
+              checks = json.loads(raw)
+              failures = [c for c in checks if c['state'] in {'FAILURE','CANCELLED','TIMED_OUT','ACTION_REQUIRED','STARTUP_FAILURE','ERROR','STALE'}]
+              if not failures or any(c['workflow'] != 'Portfolio Evidence Gate' or c['name'] != 'portfolio / Portfolio Evidence Gate / merge' for c in failures):
+                  raise SystemExit('UNSTABLE is not caused solely by prior gate merge failures')
+              excluded = {'Portfolio Evidence Gate','Independent correctness and regression review','Issue triage assistant','CI failure doctor','Malicious code scan agent','Dependency analysis and remediation'}
+              native = [c for c in checks if c['workflow'] not in excluded]
+              # Recovery does not infer exemptions from unverified check names.
+              incomplete = [c for c in native if c['state'] != 'SUCCESS']
+              if not native or incomplete:
+                  raise SystemExit('current native checks are incomplete during merge recovery')
           PY
       - name: Squash merge the exact verified head
         env:
