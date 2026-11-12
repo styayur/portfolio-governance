@@ -22,6 +22,7 @@ except ModuleNotFoundError:  # package import from tests
     from scripts.evidence_matrix import diff_digest
 
 VALID_DECISIONS = {'APPROVE', 'BLOCK', 'NEEDS_HUMAN'}
+MAX_REVIEW_BATCHES = 12
 
 
 def _env(name: str, default: str = '') -> str:
@@ -214,7 +215,7 @@ def run(context: dict, risk: dict, static_review: dict, config: dict | None = No
     batches = []
     current = []
     for item in context.get('files') or []:
-        candidate = {**context, 'files': current + [item], 'reviewScope': {'mode': 'FILE_BATCH', 'index': 12, 'count': 12}}
+        candidate = {**context, 'files': current + [item], 'reviewScope': {'mode': 'FILE_BATCH', 'index': MAX_REVIEW_BATCHES, 'count': MAX_REVIEW_BATCHES}}
         if len(_prompt(candidate, risk, static_review).encode('utf-8')) > limit:
             if not current:
                 return _base_result(context, risk, static_review, config, 'NOT_VERIFIED', 'NOT_VERIFIED', 'AI_REVIEW_SINGLE_FILE_TOO_LARGE')
@@ -226,7 +227,7 @@ def run(context: dict, risk: dict, static_review: dict, config: dict | None = No
             current.append(item)
     if current:
         batches.append(current)
-    if not batches or len(batches) > 12:
+    if not batches or len(batches) > MAX_REVIEW_BATCHES:
         return _base_result(context, risk, static_review, config, 'NOT_VERIFIED', 'NOT_VERIFIED', 'AI_REVIEW_BATCH_BUDGET_EXCEEDED')
     results = []
     # Retain the full original binding when computing any batch prompt.

@@ -41,7 +41,7 @@ def collect(context, risk, content, *, corrupt=False, stale=False, private=False
         raise AssertionError('unexpected API path: ' + path)
     def pr_reader(repo, number):
         return {'headRefOid': 'd' * 40 if stale else context['headSha'], 'baseRefOid': context['baseSha'], 'checks': []}
-    return enrich_context(context, risk, reader=reader, pr_reader=pr_reader,
+    return enrich_context(context, risk, expected_repository=context['repository'], reader=reader, pr_reader=pr_reader,
                           evaluator=lambda *args, **kwargs: {'status': 'MISSING'},
                           authorizer=lambda *args: {'state': 'PENDING_MANUAL'})
 
@@ -87,7 +87,7 @@ def test_stale_binding_and_private_repository_fail_closed():
     context['repository'] = 'styayur/site'
     called = []
     with pytest.raises(ValueError, match='outside public'):
-        enrich_context(context, risk, reader=lambda path: called.append(path))
+        enrich_context(context, risk, expected_repository=context['repository'], reader=lambda path: called.append(path))
     assert not called
 
 
@@ -105,7 +105,7 @@ def test_missing_or_truncated_pr_file_inventory_fails_before_source_reads(expect
     context['expectedChangedFileCount'] = expected
     called = []
     with pytest.raises(ValueError, match='file coverage'):
-        enrich_context(context, risk, reader=lambda path: called.append(path))
+        enrich_context(context, risk, expected_repository=context['repository'], reader=lambda path: called.append(path))
     assert not called
 
 
@@ -140,6 +140,25 @@ jobs:
 +        with:
 +          ref: ${{ github.event.pull_request.head.sha }}'''
     assert any('untrusted head' in x for x in inspect_workflows(files)[0])
+
+
+def test_added_checkout_is_blocked_even_when_the_privileged_trigger_is_unchanged():
+    context, risk = fixture()
+    context['files'][0].update(filename='.github/workflows/check.yml', status='modified', additions=1, deletions=0,
+                                patch='+          ref: ${{ github.event.pull_request.head.sha }}')
+    source = 'on: pull_request_target\njobs:\n  test:\n    steps:\n      - uses: actions/checkout@' + 'a' * 40 + '\n        with:\n          ref: ${{ github.event.pull_request.head.sha }}\n'
+    enriched = collect(context, risk, source, old_content=source.replace('          ref: ${{ github.event.pull_request.head.sha }}\n', ''))
+    assert enriched['reviewInputComplete']
+    assert enriched['files'][0]['reviewHeadContent'] == source
+    assert inspect_workflows(enriched['files'])[0]
+
+
+def test_context_cannot_select_another_repository_than_the_protected_caller():
+    context, risk = fixture()
+    called = []
+    with pytest.raises(ValueError, match='protected caller repository'):
+        enrich_context(context, risk, expected_repository='styayur/portfolio-governance', reader=lambda path: called.append(path))
+    assert not called
 
 
 def test_agent_review_success_is_not_native_test_evidence():

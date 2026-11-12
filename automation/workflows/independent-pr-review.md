@@ -29,7 +29,7 @@ tools:
   github:
     toolsets: [pull_requests, repos, actions]
     min-integrity: none # Read untrusted public PR data; never execute it
-    allowed-repos: ["styayur/portfolio-governance"]
+    allowed-repos: "${{ github.repository }}"
 
 safe-outputs:
   create-pull-request-review-comment:

@@ -313,7 +313,7 @@ def main():
         from review_context import enrich_context
     except ModuleNotFoundError:
         from scripts.review_context import enrich_context
-    context = enrich_context(context, risk)
+    context = enrich_context(context, risk, expected_repository=args.repo)
     args.context.parent.mkdir(parents=True, exist_ok=True)
     args.context.write_text(json.dumps(context, ensure_ascii=False, indent=2) + '\n')
     args.output.write_text(json.dumps(risk, ensure_ascii=False, indent=2) + '\n')

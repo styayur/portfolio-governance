@@ -55,11 +55,14 @@ def inspect_workflows(files):
         added = '\n'.join(line[1:] for line in patch.splitlines() if line.startswith('+') and not line.startswith('+++'))
         if 'permissions: write-all' in added:
             blockers.append(f'{f.get("filename")}: grants write-all permissions')
-        if 'pull_request_target' in added:
+        source = f.get('reviewHeadContent')
+        if source is None:
+            source = added
+        if 'pull_request_target' in source:
             # A SHA supplied to a pinned reusable evaluator is data, not checkout.
             # Retain a block for an actual checkout whose ref is the PR head.
-            head_ref = re.search(r'(?m)^\s*ref:\s*.*(?:github\.event\.pull_request\.head\.(?:sha|ref)|refs/pull/)', added)
-            if re.search(r'uses:\s*["\']?actions/checkout@', patch) and head_ref:
+            head_ref = re.search(r'(?m)^\s*ref:\s*.*(?:github\.event\.pull_request\.head\.(?:sha|ref)|refs/pull/)', source)
+            if re.search(r'uses:\s*["\']?actions/checkout@', source) and head_ref:
                 blockers.append(f'{f.get("filename")}: pull_request_target appears to check out untrusted head content')
             if 'secrets: inherit' in added:
                 warnings.append(f'{f.get("filename")}: pull_request_target inherits all secrets')

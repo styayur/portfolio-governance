@@ -77,9 +77,11 @@ def collect_authorization(repo, number, risk):
     except Exception as exc:
         return {'state': 'NOT_VERIFIED', 'error': type(exc).__name__}
 
-def enrich_context(context, risk, *, reader=api, pr_reader=fetch_pr, evaluator=evaluate_checks, authorizer=collect_authorization):
+def enrich_context(context, risk, *, expected_repository, reader=api, pr_reader=fetch_pr, evaluator=evaluate_checks, authorizer=collect_authorization):
     """Keep the existing diff digest, supplement only with immutable source reads."""
     repo = context.get('repository') or ''
+    if repo != expected_repository:
+        raise ValueError('review context does not match the protected caller repository')
     if not re.fullmatch(r'styayur/[A-Za-z0-9_.-]+', repo) or repo.casefold() == 'styayur/site':
         raise ValueError('repository outside public portfolio scope')
     expected = context.get('expectedChangedFileCount')
@@ -91,7 +93,8 @@ def enrich_context(context, risk, *, reader=api, pr_reader=fetch_pr, evaluator=e
     errors = []; files = []; size = 0; trees = {}
     for original in context.get('files') or []:
         item = dict(original)
-        if not complete_patch(item):
+        workflow_file = str(item.get('filename') or '').startswith(('.github/workflows/', 'automation/workflows/')) and str(item.get('filename') or '').endswith(('.yml', '.yaml'))
+        if workflow_file or not complete_patch(item):
             try:
                 status = item.get('status'); name = item['filename']
                 if status not in {'added', 'removed', 'modified', 'renamed'}:
@@ -117,4 +120,4 @@ def enrich_context(context, risk, *, reader=api, pr_reader=fetch_pr, evaluator=e
     return {**context, 'files': files, 'reviewInputComplete': not errors, 'reviewInputErrors': errors,
             'observedEvidenceMatrix': matrix,
             'authenticatedAuthorization': authorizer(repo, context['prNumber'], risk),
-            'evidenceCollection': {'source': 'protected code reading GitHub API', 'headSha': context['headSha'], 'baseSha': context['baseSha'], 'executesPrCode': False}}
+            'evidenceCollection': {'source': 'protected code reading GitHub API', 'repository': expected_repository, 'headSha': context['headSha'], 'baseSha': context['baseSha'], 'executesPrCode': False}}

@@ -71,3 +71,13 @@ def test_scoped_unicode_prompts_stay_inside_the_actual_utf8_byte_budget():
     result = run(context, risk, static, config, transport)
     assert result['decision'] == 'APPROVE'
     assert seen == context['files']
+
+
+def test_thirteen_complete_file_batches_never_reach_the_provider():
+    context, risk, static, config = fixture()
+    context['files'] = [dict(filename=f'src/file{i}.py', patch='+' + 'x' * 1800) for i in range(13)]
+    calls = []
+    result = run(context, risk, static, config, lambda *args: calls.append(args))
+    assert result['decision'] == 'NOT_VERIFIED'
+    assert result['reason'] == 'AI_REVIEW_BATCH_BUDGET_EXCEEDED'
+    assert not calls
