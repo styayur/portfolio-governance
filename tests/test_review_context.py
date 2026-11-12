@@ -245,6 +245,39 @@ def test_native_platform_without_an_explicit_alias_is_missing_under_a_contract()
     assert not matches_role({'name': 'unlisted Windows test', 'workflow': 'CI'}, spec, matrix['rolePatterns'])
 
 
+@pytest.mark.parametrize('trigger', ['pull_request_target', 'pull_request'])
+def test_job_level_write_all_is_blocked(trigger):
+    import yaml
+    workflow = {'on': trigger, 'jobs': {'unsafe': {'permissions': 'write-all', 'steps': []}}}
+    assert inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow)}])[0]
+
+
+@pytest.mark.parametrize('command', ['git checkout "$REQUESTED"', 'git switch branch', 'git -C repo reset --hard $SHA'])
+def test_privileged_shell_checkout_cannot_bypass_checkout_action_validation(command):
+    import yaml
+    workflow = {'on': 'pull_request_target', 'jobs': {'unsafe': {'steps': [{'run': command}]}}}
+    assert inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow)}])[0]
+
+
+@pytest.mark.parametrize('mode', ['120000', '160000'])
+def test_complete_nonworkflow_rest_patch_does_not_bypass_mode_validation(mode):
+    context, risk = fixture()
+    context['files'][0].update(patch='@@ -0,0 +1 @@\n+source\n', additions=1, deletions=0)
+    result = collect(context, risk, 'source\n', mode=mode)
+    assert result['reviewInputComplete'] is False
+
+
+def test_complete_nonworkflow_rest_patch_still_supplies_full_blob_identity_and_mode():
+    context, risk = fixture()
+    context['files'][0].update(patch='@@ -0,0 +1 @@\n+source\n', additions=1, deletions=0)
+    result = collect(context, risk, 'source\n', mode='100755')
+    item = result['files'][0]
+    assert result['reviewInputComplete'] is True
+    assert item['reviewHeadContent'] == 'source\n'
+    assert item['reviewSource']['headMode'] == '100755'
+    assert item['reviewSource']['headBlob'] == blob('source\n')['sha']
+
+
 def test_agent_review_success_is_not_native_test_evidence():
     spec = {'kind': 'role', 'role': 'tests'}
     check = {'name': 'regression tests', 'workflow': 'Independent correctness and regression review'}

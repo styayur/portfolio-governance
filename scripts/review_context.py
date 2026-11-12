@@ -93,20 +93,18 @@ def enrich_context(context, risk, *, expected_repository, reader=api, pr_reader=
     errors = []; files = []; size = 0; trees = {}
     for original in context.get('files') or []:
         item = dict(original)
-        workflow_file = str(item.get('filename') or '').startswith(('.github/workflows/', 'automation/workflows/')) and str(item.get('filename') or '').endswith(('.yml', '.yaml'))
-        if workflow_file or not complete_patch(item):
-            try:
-                status = item.get('status'); name = item['filename']
-                if status not in {'added', 'removed', 'modified', 'renamed'}:
-                    raise ValueError('unsupported change status')
-                old, old_oid = ('', None) if status == 'added' else read_blob(repo, item.get('previous_filename') or name, context['baseSha'], reader, trees)
-                new, new_oid = ('', None) if status == 'removed' else read_blob(repo, name, context['headSha'], reader, trees)
-                item['reviewPatch'] = exact_text_diff(old, new, name)
-                item['reviewBaseContent'] = old
-                item['reviewHeadContent'] = new
-                item['reviewSource'] = {'baseSha': context['baseSha'], 'headSha': context['headSha'], 'baseBlob': old_oid, 'headBlob': new_oid, 'coverage': 'COMPLETE_UTF8_BLOBS', 'baseEndsWithNewline': old.endswith('\n'), 'headEndsWithNewline': new.endswith('\n')}
-            except Exception as exc:
-                errors.append({'path': item.get('filename'), 'error': type(exc).__name__})
+        try:
+            status = item.get('status'); name = item['filename']
+            if status not in {'added', 'removed', 'modified', 'renamed'}:
+                raise ValueError('unsupported change status')
+            old, old_oid = ('', None) if status == 'added' else read_blob(repo, item.get('previous_filename') or name, context['baseSha'], reader, trees)
+            new, new_oid = ('', None) if status == 'removed' else read_blob(repo, name, context['headSha'], reader, trees)
+            item['reviewPatch'] = exact_text_diff(old, new, name)
+            item['reviewBaseContent'] = old
+            item['reviewHeadContent'] = new
+            item['reviewSource'] = {'baseSha': context['baseSha'], 'headSha': context['headSha'], 'baseBlob': old_oid, 'headBlob': new_oid, 'baseMode': None if status == 'added' else trees[context['baseSha']][item.get('previous_filename') or name]['mode'], 'headMode': None if status == 'removed' else trees[context['headSha']][name]['mode'], 'coverage': 'COMPLETE_UTF8_BLOBS', 'baseEndsWithNewline': old.endswith('\n'), 'headEndsWithNewline': new.endswith('\n')}
+        except Exception as exc:
+            errors.append({'path': item.get('filename'), 'error': type(exc).__name__})
         size += len(json.dumps(item, ensure_ascii=False).encode('utf-8'))
         files.append(item)
         if size > MAX_REVIEW_BYTES:

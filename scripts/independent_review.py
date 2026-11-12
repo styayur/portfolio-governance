@@ -68,6 +68,12 @@ def inspect_workflows(files):
                 privileged = trigger == 'pull_request_target' or isinstance(trigger, (dict, list)) and 'pull_request_target' in trigger
                 if workflow.get('permissions') == 'write-all':
                     blockers.append(f'{f.get("filename")}: grants write-all permissions')
+                all_jobs = workflow.get('jobs') or {}
+                if not isinstance(all_jobs, dict):
+                    raise ValueError('jobs is not a mapping')
+                for job in all_jobs.values():
+                    if isinstance(job, dict) and job.get('permissions') == 'write-all':
+                        blockers.append(f'{f.get("filename")}: job grants write-all permissions')
                 if privileged:
                     jobs = workflow.get('jobs') or {}
                     if not isinstance(jobs, dict):
@@ -80,6 +86,10 @@ def inspect_workflows(files):
                         for step in job.get('steps', []):
                             if not isinstance(step, dict):
                                 raise ValueError('step is not a mapping')
+                            # Privileged shell checkouts are opaque to the safe
+                            # actions/checkout ref validator. Do not execute them.
+                            if re.search(r'\bgit\s+[^\n;&|]*\b(?:checkout|switch|reset)\b', str(step.get('run') or ''), re.I):
+                                blockers.append(f'{f.get("filename")}: privileged shell checkout is not a validated base checkout')
                             if not str(step.get('uses') or '').casefold().startswith('actions/checkout@'):
                                 continue
                             options = step.get('with') or {}

@@ -94,13 +94,7 @@ def effective_requirements(matrix: dict, repo: str, risk_level: str) -> dict:
             spec['strictAliases'] = True
             spec['allowedWorkflows'] = sorted({alias['workflow'] for alias in override['checkAliases']
                                                if isinstance(alias.get('workflow'), str) and alias['workflow']})
-        spec['checkAliases'] = [
-            {'name': alias['name'], 'workflow': alias['workflow']}
-            for alias in override.get('checkAliases') or []
-            if spec['role'] in alias.get('roles', [])
-            and isinstance(alias.get('name'), str) and alias['name']
-            and isinstance(alias.get('workflow'), str) and alias['workflow']
-        ]
+        spec['checkAliases'] = role_aliases(override.get('checkAliases') or [], spec['role'])
 
     return {
         'risk': risk_level,
@@ -113,6 +107,15 @@ def effective_requirements(matrix: dict, repo: str, risk_level: str) -> dict:
         'explicitAuthorizationRequired': bool(risk.get('explicitAuthorizationRequired')),
         'override': override,
     }
+
+
+def role_aliases(aliases: list[dict], role: str) -> list[dict]:
+    """An explicit contract grants only the roles named on each exact job."""
+    return [{'name': alias['name'], 'workflow': alias['workflow']}
+            for alias in aliases
+            if role in alias.get('roles', [])
+            and isinstance(alias.get('name'), str) and alias['name']
+            and isinstance(alias.get('workflow'), str) and alias['workflow']]
 
 
 def _matches(patterns, text: str) -> bool:
