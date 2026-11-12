@@ -23,12 +23,21 @@ def blob(content, *, corrupt=False):
             'content': base64.b64encode(data).decode()}
 
 
-def collect(context, risk, content, *, corrupt=False, stale=False, private=False):
+def collect(context, risk, content, *, corrupt=False, stale=False, private=False, mode='100644', old_content=''):
+    source = {context['headSha']: blob(content), context['baseSha']: blob(old_content)}
+    tree_oids = {context['headSha']: 'd' * 40, context['baseSha']: 'e' * 40}
     def reader(path):
         if path == 'repos/styayur/example':
             return {'full_name': 'styayur/example', 'id': 1, 'private': private}
-        assert path.endswith('?ref=' + context['headSha'])
-        return blob(content, corrupt=corrupt)
+        for sha, tree_sha in tree_oids.items():
+            if path.endswith('/git/commits/' + sha):
+                return {'sha': sha, 'tree': {'sha': tree_sha}}
+            if path.endswith('/git/trees/' + tree_sha + '?recursive=1'):
+                return {'sha': tree_sha, 'truncated': False, 'tree': [{'path': context['files'][0]['filename'], 'sha': source[sha]['sha'], 'type': 'blob', 'mode': mode, 'size': source[sha]['size']}]}
+            if path.endswith('/git/blobs/' + source[sha]['sha']):
+                assert mode in {'100644', '100755'}, 'a symlink must never be followed'
+                return {**source[sha], 'sha': 'f' * 40} if corrupt else source[sha]
+        raise AssertionError('unexpected API path: ' + path)
     def pr_reader(repo, number):
         return {'headRefOid': 'd' * 40 if stale else context['headSha'], 'baseRefOid': context['baseSha'], 'checks': []}
     return enrich_context(context, risk, reader=reader, pr_reader=pr_reader,
@@ -79,6 +88,27 @@ def test_stale_binding_and_private_repository_fail_closed():
     with pytest.raises(ValueError, match='outside public'):
         enrich_context(context, risk, reader=lambda path: called.append(path))
     assert not called
+
+
+def test_symlink_or_gitlink_cannot_be_treated_as_the_target_file():
+    context, risk = fixture()
+    for mode in ['120000', '160000']:
+        result = collect(context, risk, 'safe-looking symlink target\n', mode=mode)
+        assert result['reviewInputComplete'] is False
+        assert 'reviewSource' not in result['files'][0]
+
+
+@pytest.mark.parametrize('old,new', [('x\n', 'x'), ('x\r\n', 'x\n'), ('x\u2028y\n', 'x\ny\n'), ('', '\n')])
+def test_reconstructed_review_preserves_line_endings_and_unicode(old, new):
+    context, risk = fixture()
+    context['files'][0]['status'] = 'modified'
+    result = collect(context, risk, new, old_content=old)
+    item = result['files'][0]
+    assert result['reviewInputComplete'] is True
+    assert item['reviewPatch']
+    assert item['reviewBaseContent'].encode() == old.encode()
+    assert item['reviewHeadContent'].encode() == new.encode()
+    assert item['reviewSource']['baseBlob'] != item['reviewSource']['headBlob']
 
 
 def test_passing_sha_as_evaluator_data_is_not_a_checkout():

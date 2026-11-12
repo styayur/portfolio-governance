@@ -6,7 +6,6 @@ import json
 import re
 import subprocess
 from pathlib import Path
-from urllib.parse import quote
 
 try:
     from evidence_gate import fetch_pr, evaluate_checks, external_checks
@@ -28,19 +27,43 @@ def complete_patch(item):
     removed = sum(line.startswith('-') and not line.startswith('---') for line in patch.splitlines())
     return added == item.get('additions') and removed == item.get('deletions')
 
-def read_blob(repo, path, sha, reader):
+def read_blob(repo, path, sha, reader, trees):
     if not re.fullmatch(r'[0-9a-f]{40}', sha):
         raise ValueError('invalid immutable source SHA')
     if not path or path.startswith(('/', '\\')) or '\\' in path or '..' in path.split('/') or any(ord(c) < 32 for c in path):
         raise ValueError('invalid source path')
-    data = reader(f'repos/{repo}/contents/{quote(path, safe="/")}?ref={sha}')
-    if data.get('type') != 'file' or data.get('encoding') != 'base64' or not 0 <= data.get('size', MAX_BLOB_BYTES + 1) <= MAX_BLOB_BYTES:
+    if sha not in trees:
+        commit = reader(f'repos/{repo}/git/commits/{sha}')
+        tree_sha = (commit.get('tree') or {}).get('sha')
+        if commit.get('sha') != sha or not re.fullmatch(r'[0-9a-f]{40}', str(tree_sha)):
+            raise ValueError('commit/tree identity mismatch')
+        tree = reader(f'repos/{repo}/git/trees/{tree_sha}?recursive=1')
+        if tree.get('sha') != tree_sha or tree.get('truncated') is not False:
+            raise ValueError('tree identity mismatch or incomplete tree')
+        trees[sha] = {item['path']: item for item in tree['tree']}
+    entry = trees[sha].get(path) or {}
+    if entry.get('type') != 'blob' or entry.get('mode') not in {'100644', '100755'} or not 0 <= entry.get('size', MAX_BLOB_BYTES + 1) <= MAX_BLOB_BYTES:
+        raise ValueError('source path is not a bounded regular Git blob')
+    expected = entry.get('sha')
+    if not re.fullmatch(r'[0-9a-f]{40}', str(expected)):
+        raise ValueError('invalid tree blob identity')
+    data = reader(f'repos/{repo}/git/blobs/{expected}')
+    if data.get('sha') != expected or data.get('encoding') != 'base64' or data.get('size') != entry['size']:
         raise ValueError('unsupported or oversized source blob')
     content = base64.b64decode(data['content'].replace('\n', ''), validate=True)
     oid = hashlib.sha1(b'blob ' + str(len(content)).encode() + b'\0' + content).hexdigest()
     if len(content) != data['size'] or oid != data.get('sha') or b'\0' in content:
         raise ValueError('blob identity or text validation failed')
     return content.decode('utf-8'), oid
+
+def lf_lines(text):
+    """Split only at LF, preserving CR and every Unicode code point."""
+    chunks = text.split('\n')
+    return [line + '\n' for line in chunks[:-1]] + ([chunks[-1]] if chunks[-1] else [])
+
+def exact_text_diff(old, new, name):
+    parts = difflib.unified_diff(lf_lines(old), lf_lines(new), fromfile='a/' + name, tofile='b/' + name)
+    return ''.join(line if line.endswith('\n') else line + '\n\\ No newline at end of file\n' for line in parts)
 
 def collect_authorization(repo, number, risk):
     try:
@@ -62,7 +85,7 @@ def enrich_context(context, risk, *, reader=api, pr_reader=fetch_pr, evaluator=e
     meta = reader('repos/' + repo)
     if meta.get('private') is not False or meta.get('id') != context.get('repositoryId') or meta.get('full_name') != repo:
         raise ValueError('public repository identity mismatch')
-    errors = []; files = []; size = 0
+    errors = []; files = []; size = 0; trees = {}
     for original in context.get('files') or []:
         item = dict(original)
         if not complete_patch(item):
@@ -70,9 +93,11 @@ def enrich_context(context, risk, *, reader=api, pr_reader=fetch_pr, evaluator=e
                 status = item.get('status'); name = item['filename']
                 if status not in {'added', 'removed', 'modified', 'renamed'}:
                     raise ValueError('unsupported change status')
-                old, old_oid = ('', None) if status == 'added' else read_blob(repo, item.get('previous_filename') or name, context['baseSha'], reader)
-                new, new_oid = ('', None) if status == 'removed' else read_blob(repo, name, context['headSha'], reader)
-                item['reviewPatch'] = '\n'.join(difflib.unified_diff(old.splitlines(), new.splitlines(), fromfile='a/' + name, tofile='b/' + name, lineterm='')) + '\n'
+                old, old_oid = ('', None) if status == 'added' else read_blob(repo, item.get('previous_filename') or name, context['baseSha'], reader, trees)
+                new, new_oid = ('', None) if status == 'removed' else read_blob(repo, name, context['headSha'], reader, trees)
+                item['reviewPatch'] = exact_text_diff(old, new, name)
+                item['reviewBaseContent'] = old
+                item['reviewHeadContent'] = new
                 item['reviewSource'] = {'baseSha': context['baseSha'], 'headSha': context['headSha'], 'baseBlob': old_oid, 'headBlob': new_oid, 'coverage': 'COMPLETE_UTF8_BLOBS', 'baseEndsWithNewline': old.endswith('\n'), 'headEndsWithNewline': new.endswith('\n')}
             except Exception as exc:
                 errors.append({'path': item.get('filename'), 'error': type(exc).__name__})
