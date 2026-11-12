@@ -91,6 +91,7 @@ def effective_requirements(matrix: dict, repo: str, risk_level: str) -> dict:
     # without renaming required checks in the target repository's ruleset.
     for spec in required:
         if override.get('checkAliases'):
+            spec['strictAliases'] = True
             spec['allowedWorkflows'] = sorted({alias['workflow'] for alias in override['checkAliases']
                                                if isinstance(alias.get('workflow'), str) and alias['workflow']})
         spec['checkAliases'] = [
@@ -127,7 +128,7 @@ def matches_role(check: dict, spec: dict, role_patterns: dict) -> bool:
         'dependency analysis and remediation',
     }:
         return False
-    if spec.get('checkAliases'):
+    if spec.get('strictAliases') or spec.get('checkAliases'):
         return any(check.get('name') == alias['name'] and check.get('workflow') == alias['workflow']
                    for alias in spec['checkAliases'])
     text = f"{check.get('name') or ''} {check.get('workflow') or ''}".strip()

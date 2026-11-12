@@ -173,8 +173,8 @@ def test_inline_and_indirect_privileged_checkout_refs_are_blocked(ref):
     assert inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': source}])[0]
 
 
-@pytest.mark.parametrize('ref', ['a' * 40, '${{ github.sha }}', '${{ github.event.pull_request.base.sha }}'])
-def test_explicit_trusted_base_or_immutable_checkout_remains_allowed(ref):
+@pytest.mark.parametrize('ref', ['${{ github.sha }}', '${{ github.event.pull_request.base.sha }}'])
+def test_explicit_trusted_base_checkout_remains_allowed(ref):
     import yaml
     workflow = {'on': 'pull_request_target', 'jobs': {'verify': {'steps': [{'uses': 'actions/checkout@' + 'a' * 40, 'with': {'ref': ref}}]}}}
     assert not inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow)}])[0]
@@ -198,8 +198,8 @@ def test_known_native_contract_rejects_unlisted_workflow_or_job_names():
     assert not matches_role({'name': 'fake unit tests', 'workflow': 'Governance self-checks'}, spec, matrix['rolePatterns'])
 
 
-@pytest.mark.parametrize('repository,ref,blocked', [('attacker/public-repo', None, True), ('attacker/public-repo', 'a' * 40, False), (None, None, False), ('${{ github.repository }}', None, False)])
-def test_external_checkout_cannot_implicitly_use_its_mutable_default_branch(repository, ref, blocked):
+@pytest.mark.parametrize('repository,ref,blocked', [('attacker/public-repo', None, True), ('attacker/public-repo', 'a' * 40, True), (None, 'a' * 40, True), ('${{ github.repository }}', 'a' * 40, True), (None, None, False), ('${{ github.repository }}', None, False)])
+def test_immutable_sha_does_not_establish_privileged_checkout_trust(repository, ref, blocked):
     import yaml
     options = {}
     if repository is not None:
@@ -209,6 +209,40 @@ def test_external_checkout_cannot_implicitly_use_its_mutable_default_branch(repo
     workflow = {'on': 'pull_request_target', 'jobs': {'verify': {'steps': [{'uses': 'actions/checkout@' + 'a' * 40, 'with': options}]}}}
     errors, _ = inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow, default_flow_style=True)}])
     assert bool(errors) is blocked
+
+
+@pytest.mark.parametrize('missing_role', ['build', 'tests', 'security'])
+def test_root_native_aliases_cannot_substitute_for_other_roles(missing_role):
+    from scripts.evidence_matrix import evaluate
+    matrix = load_matrix(Path(__file__).resolve().parents[1] / 'policy/evidence-matrix.v1.json')
+    aliases = matrix['repositories']['styayur/portfolio-governance']['checkAliases']
+    checks = [{'name': alias['name'], 'workflow': alias['workflow'], 'appSlug': 'github-actions',
+               'headSha': 'a' * 40, 'workflowRunId': 1, 'state': 'SUCCESS'}
+              for alias in aliases if missing_role not in alias['roles']]
+    result = evaluate(checks, matrix, 'styayur/portfolio-governance', 'R3', 'a' * 40)
+    group = next(g for g in result['groups'] if g['role'] == missing_role)
+    assert group['status'] == 'MISSING'
+    assert result['status'] != 'PASS'
+
+
+def test_missing_configured_role_alias_cannot_fall_back_to_a_broad_job_regex():
+    import copy
+    matrix = copy.deepcopy(load_matrix(Path(__file__).resolve().parents[1] / 'policy/evidence-matrix.v1.json'))
+    aliases = matrix['repositories']['styayur/portfolio-governance']['checkAliases']
+    for alias in aliases:
+        alias['roles'] = [role for role in alias['roles'] if role != 'tests']
+    requirements = effective_requirements(matrix, 'styayur/portfolio-governance', 'R3')
+    spec = next(item for item in requirements['required'] if item['role'] == 'tests')
+    assert spec['checkAliases'] == []
+    assert not matches_role({'name': 'test', 'workflow': 'Governance self-checks'}, spec, matrix['rolePatterns'])
+
+
+def test_native_platform_without_an_explicit_alias_is_missing_under_a_contract():
+    matrix = load_matrix(Path(__file__).resolve().parents[1] / 'policy/evidence-matrix.v1.json')
+    requirements = effective_requirements(matrix, 'styayur/glyphibe', 'R3')
+    spec = next(item for item in requirements['required'] if item['role'] == 'native:windows')
+    assert spec['checkAliases'] == []
+    assert not matches_role({'name': 'unlisted Windows test', 'workflow': 'CI'}, spec, matrix['rolePatterns'])
 
 
 def test_agent_review_success_is_not_native_test_evidence():
