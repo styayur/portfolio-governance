@@ -33,8 +33,69 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  provenance:
+    name: Portfolio Evidence Gate / provenance
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Validate protected evaluator before any checkout or installation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CENTRAL_SHA: ${{ inputs.central_sha }}
+          EXPECTED_HEAD: ${{ inputs.head_sha }}
+          EXPECTED_BASE: ${{ inputs.base_sha }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess
+
+          def validate(env, read):
+              for key in ['CENTRAL_SHA', 'EXPECTED_HEAD', 'EXPECTED_BASE']:
+                  if not re.fullmatch('[0-9a-f]{40}', env[key]):
+                      raise ValueError('invalid immutable SHA input')
+              if not env['PR_NUMBER'].isdigit() or int(env['PR_NUMBER']) < 1:
+                  raise ValueError('invalid PR number')
+              if env['GITHUB_EVENT_NAME'] not in {'pull_request_target', 'workflow_dispatch'}:
+                  raise ValueError('caller event is not a protected-base or explicit owner dispatch')
+              if env['GITHUB_EVENT_NAME'] == 'workflow_dispatch' and (
+                  env['GITHUB_ACTOR_ID'] != '324560549' or env['GITHUB_RUN_ATTEMPT'] != '1'
+              ):
+                  raise ValueError('dispatch is not the owner first attempt')
+              repo = env['GITHUB_REPOSITORY']
+              if not re.fullmatch(r'styayur/[A-Za-z0-9_.-]+', repo) or repo.casefold() == 'styayur/site':
+                  raise ValueError('repository outside public portfolio scope')
+              target = read('repos/' + repo)
+              if target.get('private') is not False or target.get('full_name') != repo:
+                  raise ValueError('target public repository identity mismatch')
+              root = read('repos/styayur/portfolio-governance')
+              if root.get('id') != 1449400406 or root.get('private') is not False or root.get('full_name') != 'styayur/portfolio-governance' or root.get('default_branch') != 'main':
+                  raise ValueError('trust root repository identity mismatch')
+              run = read('repos/' + repo + '/actions/runs/' + env['GITHUB_RUN_ID'])
+              if str(run.get('id')) != env['GITHUB_RUN_ID'] or (run.get('repository') or {}).get('id') != target.get('id'):
+                  raise ValueError('workflow run repository identity mismatch')
+              prefix = 'styayur/portfolio-governance/.github/workflows/reusable-portfolio-gate.yml@'
+              refs = [r for r in run.get('referenced_workflows', []) if str(r.get('path', '')).startswith(prefix)]
+              sha = env['CENTRAL_SHA']
+              if len(refs) != 1 or refs[0].get('path') != prefix + sha or refs[0].get('sha') != sha:
+                  raise ValueError('executing callee and script revision do not match')
+              comparison = read('repos/styayur/portfolio-governance/compare/' + sha + '...main')
+              if comparison.get('status') not in {'ahead', 'identical'} or (comparison.get('base_commit') or {}).get('sha') != sha or (comparison.get('merge_base_commit') or {}).get('sha') != sha:
+                  raise ValueError('evaluator is not in protected main history')
+
+          def read(path):
+              return json.loads(subprocess.check_output(['gh', 'api', path], text=True))
+
+          if __name__ == '__main__':
+              validate(os.environ, read)
+              print('Verified exact public protected evaluator provenance before checkout.')
+          PY
+
   classify:
     name: Portfolio Evidence Gate / risk
+    needs: provenance
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

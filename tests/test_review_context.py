@@ -278,6 +278,16 @@ def test_complete_nonworkflow_rest_patch_still_supplies_full_blob_identity_and_m
     assert item['reviewSource']['headBlob'] == blob('source\n')['sha']
 
 
+def test_explicit_empty_contract_does_not_reenable_legacy_role_matching():
+    import copy
+    matrix = copy.deepcopy(load_matrix(Path(__file__).resolve().parents[1] / 'policy/evidence-matrix.v1.json'))
+    matrix['repositories']['styayur/portfolio-governance']['checkAliases'] = []
+    requirements = effective_requirements(matrix, 'styayur/portfolio-governance', 'R3')
+    for spec in requirements['required']:
+        assert spec['strictAliases'] is True
+        assert not matches_role({'name': 'build test security', 'workflow': 'CI'}, spec, matrix['rolePatterns'])
+
+
 def test_agent_review_success_is_not_native_test_evidence():
     spec = {'kind': 'role', 'role': 'tests'}
     check = {'name': 'regression tests', 'workflow': 'Independent correctness and regression review'}

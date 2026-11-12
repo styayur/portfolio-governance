@@ -90,7 +90,7 @@ def effective_requirements(matrix: dict, repo: str, risk_level: str) -> dict:
     # Protected policy may describe the actual purpose of an existing CI job
     # without renaming required checks in the target repository's ruleset.
     for spec in required:
-        if override.get('checkAliases'):
+        if 'checkAliases' in override:
             spec['strictAliases'] = True
             spec['allowedWorkflows'] = sorted({alias['workflow'] for alias in override['checkAliases']
                                                if isinstance(alias.get('workflow'), str) and alias['workflow']})

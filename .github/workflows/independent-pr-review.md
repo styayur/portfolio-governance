@@ -25,7 +25,7 @@ permissions:
 tools:
   bash: false
   cli-proxy: false
-  cache-memory: true
+  cache-memory: false
   github:
     toolsets: [pull_requests, repos, actions]
     min-integrity: none # Read untrusted public PR data; never execute it
@@ -41,7 +41,7 @@ safe-outputs:
     allowed-events: [COMMENT]
     target: ${{ github.event.inputs.pr_number || github.event.pull_request.number }}
 timeout-minutes: 15
-max-turns: 12
+max-turns: 32
 max-ai-credits: 50
 max-daily-ai-credits: 150
 
@@ -104,7 +104,10 @@ head SHA, base SHA and workflowRunId; a prior review of another commit is irrele
 Submit at most one summary review and ten actionable inline findings. Safe outputs
 alone perform writes. No secrets, captured sessions or raw sensitive logs in outputs.
 
-The proxy allows twelve model invocations, including tool-discovery and final
-confirmation turns. Batch related reads. By invocation eleven, submit an evidenced
-terminal safe output or report_incomplete with the exact limitation; do not start
-new investigation on the final invocation. Never invent completed verification.
+The proxy allows thirty-two model invocations, including tool-discovery and final
+confirmation turns. Plan at most six batched investigation rounds and batch related
+reads. By invocation thirty-one, submit an evidenced terminal safe output or
+report_incomplete with the exact limitation; do not start new investigation on the
+final invocation. Never invent completed verification. The unchanged 50 AIC per-run
+and 150 AIC daily budgets remain independent limits; stop with an honest incomplete
+result if evidence cannot be collected within those limits.

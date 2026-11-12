@@ -8,6 +8,8 @@ Approval is submitted as a GitHub pull-request review. The review author must ha
 
 Because repository owners cannot submit an `APPROVE` review on their own PR, a `COMMENTED` review with the exact command is accepted. A maintainer reviewing someone else's PR may use either `APPROVED` or `COMMENTED`.
 
+Refresh evaluation after a review submission, edit or dismissal through the caller's owner-only first-attempt `workflow_dispatch`, supplying the current PR number, head SHA and base SHA. Privileged callers do not subscribe to `pull_request_review`: that event uses the PR merge reference. API review authentication and exact binding remain unchanged; dispatch itself grants no review or merge verdict. Before any checkout, the reusable Gate verifies that its executing callee and script SHA are the same immutable revision in the public governance repository's main history.
+
 ## Binding fields
 
 Every command must contain all fields:

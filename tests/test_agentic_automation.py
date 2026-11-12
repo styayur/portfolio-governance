@@ -46,9 +46,12 @@ def test_independent_review_is_read_only_and_bounded():
     assert data['checkout'] is False
     assert data['permissions']['contents'] == 'read'
     assert data['permissions']['pull-requests'] == 'read'
+    assert data['tools']['cache-memory'] is False
     assert data['safe-outputs']['submit-pull-request-review']['max'] == 1
     assert data['safe-outputs']['create-pull-request-review-comment']['max'] <= 10
-    assert data['max-turns'] <= 12
+    assert 0 < data['max-turns'] <= 32
+    assert data['max-ai-credits'] == 50
+    assert data['max-daily-ai-credits'] == 150
 
 
 def test_security_review_has_no_write_permission():
@@ -79,7 +82,7 @@ def test_all_agentic_workflows_have_budgets():
         if path.name.startswith('agent-engine-smoke'):
             continue
         data = frontmatter(path)
-        cap = 32 if path.stem == 'security-review' else 12
+        cap = 32 if path.stem in {'security-review', 'independent-pr-review'} else 12
         assert 0 < data['max-turns'] <= cap, path
         if path.stem == 'security-review':
             assert data['max-ai-credits'] == 60
