@@ -11,6 +11,7 @@ import json
 import re
 import time
 from pathlib import Path
+import yaml
 
 try:
     from evidence_matrix import diff_digest
@@ -58,14 +59,47 @@ def inspect_workflows(files):
         source = f.get('reviewHeadContent')
         if source is None:
             source = added
-        if 'pull_request_target' in source:
-            # A SHA supplied to a pinned reusable evaluator is data, not checkout.
-            # Retain a block for an actual checkout whose ref is the PR head.
-            head_ref = re.search(r'(?m)^\s*ref:\s*.*(?:github\.event\.pull_request\.head\.(?:sha|ref)|refs/pull/)', source)
-            if re.search(r'uses:\s*["\']?actions/checkout@', source) and head_ref:
-                blockers.append(f'{f.get("filename")}: pull_request_target appears to check out untrusted head content')
-            if 'secrets: inherit' in added:
-                warnings.append(f'{f.get("filename")}: pull_request_target inherits all secrets')
+        if path.endswith(('.yml', '.yaml')) and source.strip() and f.get('status') != 'removed':
+            try:
+                workflow = yaml.safe_load(source)
+                if not isinstance(workflow, dict):
+                    raise ValueError('workflow is not a mapping')
+                trigger = workflow.get('on', workflow.get(True, {}))
+                privileged = trigger == 'pull_request_target' or isinstance(trigger, (dict, list)) and 'pull_request_target' in trigger
+                if workflow.get('permissions') == 'write-all':
+                    blockers.append(f'{f.get("filename")}: grants write-all permissions')
+                if privileged:
+                    jobs = workflow.get('jobs') or {}
+                    if not isinstance(jobs, dict):
+                        raise ValueError('jobs is not a mapping')
+                    for job in jobs.values():
+                        if not isinstance(job, dict) or not isinstance(job.get('steps', []), list):
+                            raise ValueError('invalid job or steps')
+                        if job.get('secrets') == 'inherit':
+                            warnings.append(f'{f.get("filename")}: pull_request_target inherits all secrets')
+                        for step in job.get('steps', []):
+                            if not isinstance(step, dict):
+                                raise ValueError('step is not a mapping')
+                            if not str(step.get('uses') or '').casefold().startswith('actions/checkout@'):
+                                continue
+                            options = step.get('with') or {}
+                            if not isinstance(options, dict):
+                                raise ValueError('checkout inputs are not a mapping')
+                            ref = options.get('ref')
+                            repository = options.get('repository')
+                            current_repository = repository is None or isinstance(repository, str) and re.sub(r'\s+', '', repository) == '${{github.repository}}'
+                            trusted_ref = ref is None and current_repository or isinstance(ref, str) and (
+                                re.fullmatch('[0-9a-fA-F]{40}', ref.strip())
+                                or current_repository and re.sub(r'\s+', '', ref) in {'${{github.sha}}', '${{github.event.pull_request.base.sha}}'}
+                            )
+                            trusted_repository = repository is None or isinstance(repository, str) and (
+                                re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repository)
+                                or re.sub(r'\s+', '', repository) == '${{github.repository}}'
+                            )
+                            if not trusted_ref or not trusted_repository:
+                                blockers.append(f'{f.get("filename")}: pull_request_target checkout has an untrusted head or opaque repository/ref')
+            except (yaml.YAMLError, ValueError, TypeError, RecursionError):
+                blockers.append(f'{f.get("filename")}: complete workflow YAML could not be safely validated')
         unpinned = sorted(set(m.group(1) for m in UNPINNED_ACTION.finditer(added)))
         if unpinned:
             warnings.append(f'{f.get("filename")}: unpinned external actions: {", ".join(unpinned[:8])}')

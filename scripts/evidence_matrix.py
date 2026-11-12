@@ -90,6 +90,9 @@ def effective_requirements(matrix: dict, repo: str, risk_level: str) -> dict:
     # Protected policy may describe the actual purpose of an existing CI job
     # without renaming required checks in the target repository's ruleset.
     for spec in required:
+        if override.get('checkAliases'):
+            spec['allowedWorkflows'] = sorted({alias['workflow'] for alias in override['checkAliases']
+                                               if isinstance(alias.get('workflow'), str) and alias['workflow']})
         spec['checkAliases'] = [
             {'name': alias['name'], 'workflow': alias['workflow']}
             for alias in override.get('checkAliases') or []
@@ -116,15 +119,17 @@ def _matches(patterns, text: str) -> bool:
 
 
 def matches_role(check: dict, spec: dict, role_patterns: dict) -> bool:
+    if 'allowedWorkflows' in spec and check.get('workflow') not in spec['allowedWorkflows']:
+        return False
     if (check.get('workflow') or '').casefold() in {
         'portfolio evidence gate', 'independent correctness and regression review',
         'issue triage assistant', 'ci failure doctor', 'malicious code scan agent',
         'dependency analysis and remediation',
     }:
         return False
-    if any(check.get('name') == alias['name'] and check.get('workflow') == alias['workflow']
-           for alias in spec.get('checkAliases') or []):
-        return True
+    if spec.get('checkAliases'):
+        return any(check.get('name') == alias['name'] and check.get('workflow') == alias['workflow']
+                   for alias in spec['checkAliases'])
     text = f"{check.get('name') or ''} {check.get('workflow') or ''}".strip()
     if spec['kind'] == 'native':
         patterns = (((role_patterns.get('native') or {}).get(spec['platform'])) or [])

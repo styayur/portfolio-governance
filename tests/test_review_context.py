@@ -6,6 +6,8 @@ from scripts.review_context import enrich_context
 from scripts.independent_review import inspect_workflows, review
 from scripts.ai_review_adapter import run
 from scripts.evidence_matrix import matches_role
+from scripts.evidence_matrix import effective_requirements, load_matrix
+from pathlib import Path
 
 
 def fixture():
@@ -159,6 +161,54 @@ def test_context_cannot_select_another_repository_than_the_protected_caller():
     with pytest.raises(ValueError, match='protected caller repository'):
         enrich_context(context, risk, expected_repository='styayur/portfolio-governance', reader=lambda path: called.append(path))
     assert not called
+
+
+@pytest.mark.parametrize('ref', ['${{ github.head_ref }}', '${{ env.REQUESTED }}', '${{ steps.resolve.outputs.ref }}', '${{ github.event.pull_request.head["sha"] }}'])
+def test_inline_and_indirect_privileged_checkout_refs_are_blocked(ref):
+    import yaml
+    workflow = {'on': ['pull_request_target'], 'env': {'REQUESTED': '${{ github.event.pull_request.head.sha }}'},
+                'jobs': {'verify': {'steps': [{'uses': 'actions/checkout@' + 'a' * 40, 'with': {'ref': ref}}]}}}
+    # Flow style is intentional: security checks must inspect YAML semantics.
+    source = yaml.safe_dump(workflow, default_flow_style=True)
+    assert inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': source}])[0]
+
+
+@pytest.mark.parametrize('ref', ['a' * 40, '${{ github.sha }}', '${{ github.event.pull_request.base.sha }}'])
+def test_explicit_trusted_base_or_immutable_checkout_remains_allowed(ref):
+    import yaml
+    workflow = {'on': 'pull_request_target', 'jobs': {'verify': {'steps': [{'uses': 'actions/checkout@' + 'a' * 40, 'with': {'ref': ref}}]}}}
+    assert not inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow)}])[0]
+
+
+def test_yaml_object_tags_are_rejected_without_executing_source(monkeypatch):
+    import os
+    calls = []
+    monkeypatch.setattr(os, 'system', lambda *args: calls.append(args))
+    source = '!!python/object/apply:os.system ["untrusted command"]'
+    assert inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': source}])[0]
+    assert not calls
+
+
+def test_known_native_contract_rejects_unlisted_workflow_or_job_names():
+    matrix = load_matrix(Path(__file__).resolve().parents[1] / 'policy/evidence-matrix.v1.json')
+    requirements = effective_requirements(matrix, 'styayur/portfolio-governance', 'R3')
+    spec = next(item for item in requirements['required'] if item['role'] == 'tests')
+    assert matches_role({'name': 'test', 'workflow': 'Governance self-checks'}, spec, matrix['rolePatterns'])
+    assert not matches_role({'name': 'test', 'workflow': 'Unlisted regression tests'}, spec, matrix['rolePatterns'])
+    assert not matches_role({'name': 'fake unit tests', 'workflow': 'Governance self-checks'}, spec, matrix['rolePatterns'])
+
+
+@pytest.mark.parametrize('repository,ref,blocked', [('attacker/public-repo', None, True), ('attacker/public-repo', 'a' * 40, False), (None, None, False), ('${{ github.repository }}', None, False)])
+def test_external_checkout_cannot_implicitly_use_its_mutable_default_branch(repository, ref, blocked):
+    import yaml
+    options = {}
+    if repository is not None:
+        options['repository'] = repository
+    if ref is not None:
+        options['ref'] = ref
+    workflow = {'on': 'pull_request_target', 'jobs': {'verify': {'steps': [{'uses': 'actions/checkout@' + 'a' * 40, 'with': options}]}}}
+    errors, _ = inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow, default_flow_style=True)}])
+    assert bool(errors) is blocked
 
 
 def test_agent_review_success_is_not_native_test_evidence():
