@@ -66,9 +66,9 @@
     {
       "id": "independent-pr-review",
       "path": "automation/workflows/independent-pr-review.md",
-      "sha256": "f2cc313e099aee1d07cd2e1cea5d8b51a4ae135590693d020796a45ce5916a78",
+      "sha256": "6acab282b5162ae03b05ae040c927c1acd069cdf0128984242798322e33a1ed4",
       "lockPath": "automation/workflows/independent-pr-review.lock.yml",
-      "lockSha256": "e46679b207fef0713f357e007aecaf36f2954357ee97f1251c7fb09c9929c88f",
+      "lockSha256": "ef691402f5884739a498c1bc812d2a5f816e9efd87295a90f199830beec12712",
       "compiled": true,
       "engine": "codex",
       "model": "deepseek-flash",
@@ -85,7 +85,7 @@
         "create-pull-request-review-comment",
         "submit-pull-request-review"
       ],
-      "maxTurns": 12,
+      "maxTurns": 32,
       "maxAiCredits": 50,
       "maxDailyAiCredits": 150,
       "timeoutMinutes": 15
