@@ -259,11 +259,23 @@ def test_job_level_write_all_is_blocked(trigger):
     assert inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow)}])[0]
 
 
-@pytest.mark.parametrize('command', ['git checkout "$REQUESTED"', 'git switch branch', 'git -C repo reset --hard $SHA'])
+@pytest.mark.parametrize('command', ['git checkout "$REQUESTED"', 'git switch branch', 'git -C repo reset --hard $SHA',
+    'git clone https://github.com/${{ github.event.pull_request.head.repo.full_name }} /tmp/pr && /tmp/pr/run.sh',
+    'git -c protocol.version=2 clone "$PR_REPO" /tmp/pr',
+    'git fetch origin "$PR_HEAD"', 'git pull origin branch',
+    'git worktree add /tmp/pr "$PR_HEAD"', 'git submodule update --init',
+    'git archive "$PR_HEAD" | tar -x -C /tmp/pr'])
 def test_privileged_shell_checkout_cannot_bypass_checkout_action_validation(command):
     import yaml
     workflow = {'on': 'pull_request_target', 'jobs': {'unsafe': {'steps': [{'run': command}]}}}
     assert inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow)}])[0]
+
+
+@pytest.mark.parametrize('command', ['git status --porcelain', 'git ls-files', 'git rev-parse HEAD'])
+def test_read_only_git_metadata_is_not_materialization(command):
+    import yaml
+    workflow = {'on': 'pull_request_target', 'jobs': {'metadata': {'steps': [{'run': command}]}}}
+    assert not inspect_workflows([{'filename': '.github/workflows/test.yml', 'reviewHeadContent': yaml.safe_dump(workflow)}])[0]
 
 
 @pytest.mark.parametrize('mode', ['120000', '160000'])

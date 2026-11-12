@@ -64,3 +64,18 @@ def test_authenticated_review_records_are_consumed_through_safe_refresh_events()
     assert policy['status'] == 'ACTIVE'
     assert policy['requiresStrictBaseFreshness'] is True
     assert policy['commands']['approve'] == '/portfolio approve-manual'
+
+
+def test_yaml_dependency_is_installed_in_review_job_before_static_import():
+    jobs = yaml.safe_load((ROOT / '.github/workflows/reusable-portfolio-gate.yml').read_text())['jobs']
+    steps = jobs['review']['steps']
+    runtime = next(i for i, step in enumerate(steps) if str(step.get('uses', '')).startswith('actions/setup-python@'))
+    install = next(i for i, step in enumerate(steps) if 'pip install' in step.get('run', ''))
+    execute = next(i for i, step in enumerate(steps) if 'python3 governance/scripts/independent_review.py' in step.get('run', ''))
+    assert runtime < install < execute
+    assert steps[runtime]['with']['python-version'] == '3.12'
+    assert all(flag in steps[install]['run'] for flag in ['--require-hashes', '--only-binary=:all:', '--no-deps', 'governance/automation/bootstrap/review-requirements.txt'])
+    requirement = (ROOT / 'automation/bootstrap/review-requirements.txt').read_text()
+    assert 'PyYAML==6.0.3' in requirement and '--hash=sha256:' in requirement
+    # A pip install in a different job does not satisfy this job's dependency.
+    assert 'Install pinned safe YAML parser' in str(steps[install])

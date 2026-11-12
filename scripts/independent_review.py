@@ -86,9 +86,10 @@ def inspect_workflows(files):
                         for step in job.get('steps', []):
                             if not isinstance(step, dict):
                                 raise ValueError('step is not a mapping')
-                            # Privileged shell checkouts are opaque to the safe
-                            # actions/checkout ref validator. Do not execute them.
-                            if re.search(r'\bgit\s+[^\n;&|]*\b(?:checkout|switch|reset)\b', str(step.get('run') or ''), re.I):
+                            # Direct Git materialization bypasses the checkout
+                            # action validator. This conservative text guard is
+                            # not a proof of arbitrary shell/composite data flow.
+                            if re.search(r'\bgit\s+[^\n;&|]*\b(?:checkout|switch|reset|clone|fetch|pull|worktree|submodule|archive)\b', str(step.get('run') or ''), re.I):
                                 blockers.append(f'{f.get("filename")}: privileged shell checkout is not a validated base checkout')
                             if not str(step.get('uses') or '').casefold().startswith('actions/checkout@'):
                                 continue
