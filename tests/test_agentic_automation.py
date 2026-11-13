@@ -31,71 +31,23 @@ def test_catalog_and_locks_exist():
 
 
 def test_only_independent_review_uses_safe_pull_request_target():
-    targets = [p for p in WORKFLOWS.glob('*.md') if 'pull_request_target' in p.read_text()]
-    assert [p.name for p in targets] == ['independent-pr-review.md']
-    text = (WORKFLOWS / 'independent-pr-review.md').read_text()
-    assert 'github.event.pull_request.head.sha' not in text
-    assert 'actions/checkout' not in text
+    retired = [
+        'independent-pr-review.md',
+        'independent-pr-review.lock.yml',
+        'security-review.md',
+        'security-review.lock.yml',
+        'dependency-remediation.md',
+        'dependency-remediation.lock.yml',
+        'ci-doctor.md',
+        'ci-doctor.lock.yml',
+        'issue-triage.md',
+        'issue-triage.lock.yml',
+    ]
+    for name in retired:
+        assert not (WORKFLOWS / name).exists(), name
+    assert not any('pull_request_target' in path.read_text() for path in WORKFLOWS.glob('*.md'))
     catalog = json.loads(CATALOG.read_text())
     assert 'githubnext/agentics/dependabot-pr-bundler.md' in catalog['missingOrInvalidTemplates']
-
-
-def test_independent_review_is_read_only_and_bounded():
-    data = frontmatter(WORKFLOWS / 'independent-pr-review.md')
-    assert 'pull_request_target' in trigger(data)
-    assert data['checkout'] is False
-    assert data['permissions']['contents'] == 'read'
-    assert data['permissions']['pull-requests'] == 'read'
-    assert data['tools']['cache-memory'] is False
-    assert data['safe-outputs']['submit-pull-request-review']['max'] == 1
-    assert data['safe-outputs']['create-pull-request-review-comment']['max'] <= 10
-    assert 0 < data['max-turns'] <= 32
-    assert data['max-ai-credits'] == 50
-    assert data['max-daily-ai-credits'] == 150
-
-
-def test_security_review_has_no_write_permission():
-    data = frontmatter(WORKFLOWS / 'security-review.md')
-    assert 'schedule' in trigger(data)
-    assert 'workflow_dispatch' in trigger(data)
-    assert all(str(v) != 'write' for v in data['permissions'].values())
-    assert 'create-code-scanning-alert' in data['safe-outputs']
-
-
-def test_dependency_remediation_is_draft_only():
-    data = frontmatter(WORKFLOWS / 'dependency-remediation.md')
-    output = data['safe-outputs']['create-pull-request']
-    assert output['draft'] is True
-    assert output['max'] <= 3
-    assert 'push-to-pull-request-branch' in data['safe-outputs']
-
-
-def test_ci_doctor_is_main_branch_bounded():
-    data = frontmatter(WORKFLOWS / 'ci-doctor.md')
-    workflow_run = trigger(data)['workflow_run']
-    assert workflow_run['branches'] == ['main']
-    assert 'Governance self-checks' in workflow_run['workflows']
-
-
-def test_all_agentic_workflows_have_budgets():
-    for path in WORKFLOWS.glob('*.md'):
-        if path.name.startswith('agent-engine-smoke'):
-            continue
-        data = frontmatter(path)
-        cap = 32 if path.stem == 'independent-pr-review' else 12
-        assert 0 < data['max-turns'] <= cap, path
-        assert data['max-ai-credits'] <= 100, path
-        assert data['max-daily-ai-credits'] <= 200, path
-
-
-def test_configured_provider_model_has_positive_explicit_budget_pricing():
-    for name in ['ci-doctor', 'dependency-remediation', 'independent-pr-review', 'issue-triage', 'security-review']:
-        data = frontmatter(WORKFLOWS / f'{name}.md')
-        assert data['engine']['model'] == 'deepseek-flash'
-        cost = data['models']['providers']['openai']['models'][data['engine']['model']]['cost']
-        assert 0 < float(cost['cache_read']) <= float(cost['input']) <= float(cost['output'])
-        assert data['max-ai-credits'] > 0
-        assert data['max-daily-ai-credits'] > 0
 
 
 def test_authorization_self_approval_is_rejected():

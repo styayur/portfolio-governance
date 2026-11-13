@@ -49,11 +49,11 @@ def test_evidence_matrix_covers_all_public_repositories():
     assert 'styayur/site' not in matrix['repositories']
 
 def test_manual_approval_is_available_through_authenticated_review_events():
-    for name in ('.github/workflows/portfolio-gate.yml', 'templates/caller-portfolio-gate.yml'):
-        data = yaml.safe_load((ROOT / name).read_text())
-        triggers = data.get('on', data.get(True, {}))
-        assert 'pull_request_review' in triggers
-        assert set(triggers['pull_request_review']['types']) == {'submitted', 'edited', 'dismissed'}
+    assert not (ROOT / '.github/workflows/portfolio-gate.yml').exists()
+    template = yaml.safe_load((ROOT / 'templates/caller-portfolio-gate.yml').read_text())
+    triggers = template.get('on', template.get(True, {}))
+    assert 'pull_request_review' in triggers
+    assert set(triggers['pull_request_review']['types']) == {'submitted', 'edited', 'dismissed'}
     workflow = (ROOT / '.github/workflows/reusable-portfolio-gate.yml').read_text()
     assert 'manual_approval.py' in workflow
     assert '--manual-approval' in workflow
@@ -61,3 +61,14 @@ def test_manual_approval_is_available_through_authenticated_review_events():
     assert policy['status'] == 'ACTIVE'
     assert policy['requiresStrictBaseFreshness'] is True
     assert policy['commands']['approve'] == '/portfolio approve-manual'
+
+
+def test_native_automerge_does_not_execute_untrusted_heads():
+    path = ROOT / '.github/workflows/native-automerge.yml'
+    text = path.read_text()
+    data = yaml.safe_load(text)
+    triggers = data.get('on', data.get(True, {}))
+    assert 'pull_request_target' not in triggers
+    assert 'pull_request' in triggers
+    assert 'actions/checkout' not in text
+    assert '--admin' not in text
