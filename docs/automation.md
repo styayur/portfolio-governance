@@ -5,7 +5,7 @@
 - `portfolio-audit.yml` runs weekly and uploads live public-repository evidence.
 - `project-sync.yml` runs daily and mirrors open public issues and pull requests into the user-owned **Styayur Portfolio** Project V2.
 - `self-governance.yml` runs the central policy tests.
-- `reusable-portfolio-gate.yml` is called by every public repository at an exact reviewed commit pin.
+- `reusable-portfolio-gate.yml` is retired. It is not an executable workflow; the historical copy is `evidence/retired/reusable-portfolio-gate.yml`.
 
 ## Authentication
 

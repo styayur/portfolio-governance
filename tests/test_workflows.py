@@ -22,24 +22,21 @@ def test_workflows_are_valid_yaml_and_pin_actions():
                 assert PIN.fullmatch(ref), f'{path}: action is not pinned: {stripped}'
 
 
-def test_reusable_gate_has_stable_required_check_name():
-    data = yaml.safe_load((ROOT / '.github/workflows/reusable-portfolio-gate.yml').read_text())
-    assert 'jobs' in data
-    names = [job.get('name') for job in data['jobs'].values()]
-    assert 'Portfolio Evidence Gate / verify' in names
+def test_evidence_gate_is_not_an_executable_workflow():
+    assert not (ROOT / '.github/workflows/reusable-portfolio-gate.yml').exists()
+    retired = ROOT / 'evidence/retired/reusable-portfolio-gate.yml'
+    assert retired.exists()
+    live = '\n'.join(path.read_text(encoding='utf-8') for path in workflow_files())
+    assert 'Portfolio Evidence Gate' not in live
+    assert 'PORTFOLIO_AI_REVIEW' not in live
+    assert 'reusable-portfolio-gate.yml' not in live
 
 
 def test_caller_template_is_outside_executable_workflow_directory():
     template = ROOT / 'templates/caller-portfolio-gate.yml'
     assert template.exists()
     assert 'PINNED_CENTRAL_SHA' in template.read_text()
-
-def test_gate_has_independent_ai_review_and_exact_checkout_pin():
-    data = yaml.safe_load((ROOT / '.github/workflows/reusable-portfolio-gate.yml').read_text())
-    names = [job.get('name') for job in data['jobs'].values()]
-    assert 'Portfolio Evidence Gate / ai-review' in names
-    assert data['jobs']['ai-review']['needs'] == ['classify', 'review']
-    assert '--base-sha' in str(data['jobs']['evidence']['steps'])
+    assert not (ROOT / '.github/workflows/portfolio-gate.yml').exists()
 
 
 def test_evidence_matrix_covers_all_public_repositories():
@@ -48,17 +45,12 @@ def test_evidence_matrix_covers_all_public_repositories():
     assert {'styayur/petite-grace', 'styayur/Skimmer-Scraper'} <= set(matrix['repositories'])
     assert 'styayur/site' not in matrix['repositories']
 
-def test_manual_approval_is_available_through_authenticated_review_events():
+def test_manual_approval_is_not_wired_to_a_live_workflow():
     assert not (ROOT / '.github/workflows/portfolio-gate.yml').exists()
-    template = yaml.safe_load((ROOT / 'templates/caller-portfolio-gate.yml').read_text())
-    triggers = template.get('on', template.get(True, {}))
-    assert 'pull_request_review' in triggers
-    assert set(triggers['pull_request_review']['types']) == {'submitted', 'edited', 'dismissed'}
-    workflow = (ROOT / '.github/workflows/reusable-portfolio-gate.yml').read_text()
-    assert 'manual_approval.py' in workflow
-    assert '--manual-approval' in workflow
+    assert not (ROOT / '.github/workflows/reusable-portfolio-gate.yml').exists()
+    live = '\n'.join(path.read_text(encoding='utf-8') for path in workflow_files())
+    assert 'manual_approval.py' not in live
     policy = json.loads((ROOT / 'policy/manual-approval.v1.json').read_text())
-    assert policy['status'] == 'ACTIVE'
     assert policy['requiresStrictBaseFreshness'] is True
     assert policy['commands']['approve'] == '/portfolio approve-manual'
 

@@ -1,26 +1,19 @@
 # Portfolio Governance
 
-Cross-repository governance for **public** repositories under `styayur`.
+Cross-repository notes for public repositories under `styayur`.
 
-This repository provides a reusable, fail-closed evidence gate for pull requests. It is designed for GitHub Codespaces-first operation: interactive work starts in Codespaces, while persistent automation lives in GitHub Actions, a GitHub App, and the user-owned **Styayur Portfolio** Project.
+Ordinary merge control is native GitHub CI, rulesets, Dependabot, and auto-merge. This repository does not provide a required Evidence Gate or a model review.
 
-## Security model
+## Current controls
 
-**Coding agent ≠ independent review agent ≠ evidence gate.**
+- Each repository keeps its own CI and required status checks.
+- `native-automerge.yml` may enable GitHub auto-merge for the owner and for Dependabot patch or minor updates. It does not bypass rulesets.
+- Workflow, CODEOWNERS, and Dependabot configuration changes are not auto-merged.
+- CodeQL stays in `self-governance.yml`.
 
-- Risk classification reads the PR diff and explains an R0–R4 level.
-- Independent review treats PR text and code as untrusted data and never executes it.
-- The evidence gate binds repository ID, PR number, base SHA, head SHA, diff digest, workflow run, trusted GitHub App check sources, native evidence, security evidence and decision.
-- Required build/test/security/native evidence comes from a repository-and-risk matrix; a single successful check is never treated as complete evidence.
-- New gate logic starts in shadow mode, where it records eligibility but never auto-merges.
-- In enforce mode R0/R1 may auto-merge. R2 also requires the complete matrix, static review and an independent AI reviewer approval. R3/R4 are never auto-merged. Their required check remains failed until an exact-bound, authenticated maintainer review approves the current PR/head/base/diff; R4 additionally requires the `portfolio:r4-approved` label and an explicit `authorize-r4` review.
-- Unavailable AI review, skipped/cancelled checks, untrusted check sources and missing workflow-run identity are `NOT_VERIFIED` or blocked, never PASS.
+## Retired
 
-## Reusable workflow
-
-Call `.github/workflows/reusable-portfolio-gate.yml` from each public repository with the exact central commit SHA. The caller uses `pull_request_target` so the privileged job never executes PR code. The reusable workflow checks out only this repository at the pinned SHA.
-
-The caller template is in `templates/caller-portfolio-gate.yml`. Callers must include the `pull_request_review` event so maintainer approval, edit or dismissal re-runs exact-head validation. See [Manual approval protocol v1](docs/manual-approval-v1.md).
+The reusable Evidence Gate and its AI review job are not executable workflows. The historical workflow is kept at `evidence/retired/reusable-portfolio-gate.yml`. Do not call it from other repositories.
 
 ## Project
 
