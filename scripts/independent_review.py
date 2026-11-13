@@ -151,7 +151,15 @@ def main():
     result = review(context, risk)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
-    print(json.dumps({'risk': result['risk'], 'decision': result['decision'], 'blockers': result['blockers'], 'manualReviewReasons': result['manualReviewReasons'], 'warnings': result['warnings']}, ensure_ascii=False))
+    # Findings can contain untrusted filenames. Keep their text in the explicit
+    # report artifact, and only emit fixed classifications and counts to logs.
+    print(json.dumps({
+        'risk': result['risk'],
+        'decision': result['decision'],
+        'blockerCount': len(result['blockers']),
+        'manualReviewReasonCount': len(result['manualReviewReasons']),
+        'warningCount': len(result['warnings']),
+    }))
 
 
 if __name__ == '__main__':
