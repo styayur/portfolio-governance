@@ -10,6 +10,8 @@ Ordinary merge control is native GitHub CI, rulesets, Dependabot, and auto-merge
 - `native-automerge.yml` may enable GitHub auto-merge for the owner and for Dependabot patch or minor updates. It does not bypass rulesets.
 - Workflow, CODEOWNERS, and Dependabot configuration changes are not auto-merged.
 - CodeQL stays in `self-governance.yml`.
+- Repository categories are `ACTIVE` and `LOW_ACTIVITY`; both use the same
+  [native governance lifecycle policy](docs/native-governance-lifecycle.md).
 
 ## Retired
 
