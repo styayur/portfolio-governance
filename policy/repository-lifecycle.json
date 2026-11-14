@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "categories": ["ACTIVE", "LOW_ACTIVITY"],
+  "classificationAuthority": "repository-owner",
+  "defaultCategory": "ACTIVE",
+  "repositoryOverrides": {
+    "styayur/TinySTT": "LOW_ACTIVITY"
+  },
+  "classificationPurpose": "maintenance-priority-only",
+  "sharedGovernance": {
+    "dependabotSchedule": {
+      "interval": "cron",
+      "cronjob": "0 9 1,15 * *",
+      "timezone": "Asia/Singapore"
+    },
+    "openVersionPullRequestsPerEcosystemEntry": 3,
+    "automaticMergeTypes": ["patch", "minor"],
+    "ordinaryMajorAutomaticMerge": false,
+    "dependabotAlerts": "enabled",
+    "securityUpdates": "enabled",
+    "mergeAuthority": "existing-native-CI-and-GitHub-Rulesets",
+    "complexChanges": "BLOCKED",
+    "modelGovernanceRuntime": false,
+    "automaticRepairBots": false
+  },
+  "archiveControl": {
+    "authority": "repository-owner",
+    "githubNativeState": true,
+    "lifecycleCategory": false,
+    "automaticArchive": false,
+    "automaticUnarchive": false
+  },
+  "automation": {
+    "automaticClassification": false,
+    "activityBasedMaintenancePause": false,
+    "periodicLifecycleWorkflow": false
+  }
+}
