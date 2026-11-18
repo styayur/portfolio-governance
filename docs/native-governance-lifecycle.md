@@ -3,8 +3,10 @@
 The only governance categories are `ACTIVE` and `LOW_ACTIVITY`. The repository
 owner assigns them manually. They express maintenance priority; they do not
 change maintenance eligibility, security controls, CI requirements, or merge
-permissions. Existing repositories default to `ACTIVE`; TinySTT is explicitly
-`LOW_ACTIVITY` and receives the same maintenance policy.
+permissions. Existing repositories default to `ACTIVE`; TinySTT, Whinset and
+Codex Mode Switcher are explicitly `LOW_ACTIVITY` and receive the same maintenance
+policy. Whinset retains its roadmap; neither low-maintenance tool receives large
+feature development as part of the current portfolio consolidation.
 
 Both categories use the policy in
 [`policy/repository-lifecycle.json`](../policy/repository-lifecycle.json):

@@ -4,7 +4,9 @@
   "classificationAuthority": "repository-owner",
   "defaultCategory": "ACTIVE",
   "repositoryOverrides": {
-    "styayur/TinySTT": "LOW_ACTIVITY"
+    "styayur/TinySTT": "LOW_ACTIVITY",
+    "styayur/whinset": "LOW_ACTIVITY",
+    "styayur/codex-mode-switcher": "LOW_ACTIVITY"
   },
   "classificationPurpose": "maintenance-priority-only",
   "sharedGovernance": {
