@@ -19,7 +19,7 @@ The reusable Evidence Gate and its AI review job are not executable workflows. T
 
 ## Project
 
-- [Styayur Portfolio](https://github.com/users/styayur/projects/1)
+- Styayur Portfolio is a restricted maintainer board. Authorized maintainers can open it from GitHub Projects.
 - Scope: all public owned repositories.
 - `styayur/site` is excluded and its existing project items are archived.
 
